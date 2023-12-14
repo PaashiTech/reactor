@@ -1,4 +1,4 @@
-# Set up Adnroid environment
+# Set up Adnroid environment for React Native
 
 1. Get open-jdk
 
@@ -63,7 +63,7 @@
     Test it...
 
     ```bash
-    emulator -avd test
+    emulator -avd Pixel_3a_API_30_x86
     ```
 
 7. If you see kvm error, follow the messages on screen. e.g.:
@@ -78,7 +78,7 @@
 
 8. Configure Metro for Workspaces.
 
-    By default, [Metro](https://metrobundler.dev/docs/configuration#nodemodulespaths) only looks at the local node modules. We need to make it aware of our monorepo setup. Add the following to metro.config.js.
+    By default, Metro [only looks at the local node modules](https://metrobundler.dev/docs/configuration#nodemodulespaths). We need to make it aware of our monorepo setup. Add the following to metro.config.js.
 
     ```js
     // Find the workspace root
@@ -99,3 +99,11 @@
         module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 
     ```
+
+9. Setup e2e testing with [Detox](https://wix.github.io/Detox/)
+
+    * Complete the setup steps for the [Detox environment](https://wix.github.io/Detox/docs/introduction/environment-setup#react-native-cli-quickstart).
+
+    * Add the [dev requirements](https://wix.github.io/Detox/docs/introduction/environment-setup#detox-prerequisites) for Detox.
+
+    * [Setup the project](https://wix.github.io/Detox/docs/introduction/project-setup) to ingest Detox tests.
