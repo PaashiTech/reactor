@@ -107,3 +107,11 @@
     * Add the [dev requirements](https://wix.github.io/Detox/docs/introduction/environment-setup#detox-prerequisites) for Detox.
 
     * [Setup the project](https://wix.github.io/Detox/docs/introduction/project-setup) to ingest Detox tests.
+
+    * Test the setup...
+
+    ```bash
+    detox build --configuration android.emu.debug
+    ```
+
+    and make adjustments. For example, allProjects{} should be setup in [settings.gradle](/apps/android/android/settings.gradle) instead of top level [build.grade](/apps/android/android/build.gradle)
