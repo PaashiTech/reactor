@@ -97,7 +97,6 @@
         };
 
         module.exports = mergeConfig(getDefaultConfig(__dirname), config);
-
     ```
 
 9. Setup e2e testing with [Detox](https://wix.github.io/Detox/)
