@@ -1,17 +1,11 @@
-import React from 'react';
-import { Fragment } from 'react';
-import { Button } from '@fluentui/react-components';
+import { Button, TamaguiProvider, YStack } from 'tamagui'
 
-function App(): React.JSX.Element {
+import React from 'react'
 
-    return (
-
-        <Fragment>
-            <Button aria-label='Reactor'>Reactor</Button>
-            {/* <Fragment accessibilityRole='heading'>Reactor</Fragment> */}
-        </Fragment>
-
-    );
+const App = () => {
+  return (
+        <Button>Hello world</Button>
+  )
 }
 
 export default App;

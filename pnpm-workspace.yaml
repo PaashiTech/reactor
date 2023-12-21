@@ -1,4 +1,6 @@
 "packages":
   - "packages/*"
-  - "apps/*"
+  - "platforms/*"
   - "docs/*"
+  - "build/expo-app"
+  - "build/web-app"
