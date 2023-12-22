@@ -17,6 +17,9 @@ We'll build a simple login flow.
 
   * Then, we want to... Refactor while keeping tests green
 
+  * The overall architechture we are aiming for is something like this.
+  ![Our react architechture](../assets/images/composable-react2.svg)
+
 * Write model and hooks
 
 * Add tooling
