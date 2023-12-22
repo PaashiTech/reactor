@@ -1,5 +1,10 @@
 # Set up Adnroid environment for React Native
 
+## 0. Prerequisites
+
+    * A working Linux environment
+    * If you are on Windows, follow the [WSL guide](./wsl.md) to install WSL and setup USB debugging. 
+
 ## 1. Get open-jdk
 
     ```bash
