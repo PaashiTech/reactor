@@ -1,6 +1,6 @@
 # The humble diaglog box tutorial
 
-Inspired by []().
+Inspired by [The humble dialog box](https://www.martinfowler.com/eaaDev/uiArchs.html).
 
 ## What you'll build
 
