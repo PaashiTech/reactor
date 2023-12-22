@@ -4,3 +4,4 @@
   - "docs/*"
   - "build/expo-app"
   - "build/web-app"
+  - "build/docsite"
