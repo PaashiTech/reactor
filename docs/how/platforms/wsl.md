@@ -15,7 +15,7 @@ Refer to the detailed [Microsoft documentation](https://learn.microsoft.com/en-u
 
 ## Enable Android USB debugging.
 
-* To connect a usb device to WSL, you need [usbipd](). Install it.
+* To connect a usb device to WSL, you need [usbipd](https://github.com/dorssel/usbipd-win/releases). Install it either using the latest MSI release or use winget like below.
 
 ```cmd
 # Command prompt
