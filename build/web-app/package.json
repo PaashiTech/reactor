@@ -17,6 +17,8 @@
     "@tamagui/create-theme": "latest",
     "@tamagui/react-native-media-driver": "^1.79.13",
     "@tamagui/react-native-svg": "latest",
+    "@tamagui/polyfill-dev": "latest",
+    "@tamagui/shorthands": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "^0.18.10",
