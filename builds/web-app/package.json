@@ -2,14 +2,14 @@
   "name": "web-app",
   "private": true,
   "scripts": {
-    "web": "pnpm dev:vite",
+    "web": "dev:vite",
     "dev:vite": "NODE_ENV=development vite --host --clearScreen false",
-    "dev:vite:extract": "EXTRACT=1 pnpm dev",
-    "dev": "pnpm dev:webpack",
+    "dev:vite:extract": "EXTRACT=1 dev",
+    "dev": "dev:webpack",
     "dev:webpack": "DISABLE_EXTRACTION=true NODE_ENV=development webpack serve",
     "dev:extract": "DISABLE_EXTRACTION=false NODE_ENV=development webpack serve",
     "prod": "NODE_ENV=production webpack --json=dist/compilation-stats.json",
-    "upgrade:tamagui": "pnpm up '*tamagui*'@latest '@tamagui/*'@latest"
+    "upgrade:tamagui": "up '*tamagui*'@latest '@tamagui/*'@latest"
   },
   "dependencies": {
     "@tamagui/animations-css": "latest",

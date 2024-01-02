@@ -7,8 +7,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -415,7 +415,15 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "display": "flex"
+              "display": "flex",
+              "alignItems": "stretch",
+              "flexDirection": "column",
+              "flexBasis": "auto",
+              "boxSizing": "border-box",
+              "position": "relative",
+              "minHeight": 0,
+              "minWidth": 0,
+              "flexShrink": 0
             },
             "validStyles": {
               "enterStyle": true,
@@ -753,8 +761,8 @@
               "touchAction": true
             },
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -798,8 +806,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -1355,8 +1363,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -1540,8 +1548,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -1725,8 +1733,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -1928,8 +1936,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -2129,8 +2137,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "center",
               "display": "flex",
+              "alignItems": "center",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -2424,8 +2432,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -2770,8 +2778,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -3367,8 +3375,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -3672,8 +3680,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -3974,8 +3982,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -4280,8 +4288,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -4585,8 +4593,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -4890,8 +4898,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -5229,8 +5237,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -5567,8 +5575,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "center",
               "display": "flex",
+              "alignItems": "center",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -5863,6 +5871,14 @@
             "acceptsClassName": true,
             "defaultProps": {
               "display": "flex",
+              "alignItems": "stretch",
+              "flexDirection": "column",
+              "flexBasis": "auto",
+              "boxSizing": "border-box",
+              "position": "relative",
+              "minHeight": 0,
+              "minWidth": 0,
+              "flexShrink": 0,
               "tag": "button"
             },
             "validStyles": {
@@ -6041,8 +6057,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -6352,8 +6368,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -6663,8 +6679,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -6972,8 +6988,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -7184,7 +7200,15 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "display": "flex"
+              "display": "flex",
+              "alignItems": "stretch",
+              "flexDirection": "column",
+              "flexBasis": "auto",
+              "boxSizing": "border-box",
+              "position": "relative",
+              "minHeight": 0,
+              "minWidth": 0,
+              "flexShrink": 0
             },
             "validStyles": {
               "enterStyle": true,
@@ -7602,8 +7626,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -7808,8 +7832,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -7993,8 +8017,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -8180,8 +8204,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -8365,7 +8389,15 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "display": "flex"
+              "display": "flex",
+              "alignItems": "stretch",
+              "flexDirection": "column",
+              "flexBasis": "auto",
+              "boxSizing": "border-box",
+              "position": "relative",
+              "minHeight": 0,
+              "minWidth": 0,
+              "flexShrink": 0
             },
             "validStyles": {
               "enterStyle": true,
@@ -8543,8 +8575,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -10239,8 +10271,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "row",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -10465,8 +10497,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -11500,8 +11532,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -11685,8 +11717,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -11870,8 +11902,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -12428,8 +12460,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -12640,8 +12672,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -12946,8 +12978,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -13146,8 +13178,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -13358,8 +13390,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -13662,8 +13694,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -13967,8 +13999,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -14270,8 +14302,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -14572,8 +14604,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -14872,8 +14904,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -15196,8 +15228,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -15382,8 +15414,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -15582,8 +15614,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "row",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -15784,8 +15816,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -15989,8 +16021,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -16194,8 +16226,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "row",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -16420,8 +16452,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -16732,8 +16764,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "row",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -17223,8 +17255,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -17426,8 +17458,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -17733,8 +17765,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -17938,8 +17970,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -18322,8 +18354,8 @@
               "touchAction": true
             },
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -18362,8 +18394,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -18562,8 +18594,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "center",
               "display": "flex",
+              "alignItems": "center",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -18856,8 +18888,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -19036,8 +19068,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -19265,8 +19297,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -19493,8 +19525,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -19801,8 +19833,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "row",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -20382,8 +20414,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -20670,7 +20702,15 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "display": "flex"
+              "display": "flex",
+              "alignItems": "stretch",
+              "flexDirection": "column",
+              "flexBasis": "auto",
+              "boxSizing": "border-box",
+              "position": "relative",
+              "minHeight": 0,
+              "minWidth": 0,
+              "flexShrink": 0
             },
             "validStyles": {
               "enterStyle": true,
@@ -20842,8 +20882,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -21053,8 +21093,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "row",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -21251,8 +21291,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -21449,8 +21489,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -21649,8 +21689,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -21966,8 +22006,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -22292,8 +22332,8 @@
           "staticConfig": {
             "acceptsClassName": true,
             "defaultProps": {
-              "alignItems": "stretch",
               "display": "flex",
+              "alignItems": "stretch",
               "flexDirection": "column",
               "flexBasis": "auto",
               "boxSizing": "border-box",
@@ -23452,8 +23492,6 @@
     "onlyAllowShorthands": false,
     "fontLanguages": [],
     "animations": {
-      "View": "Component",
-      "Text": "Component",
       "animations": {
         "lazy": "ease-in 500ms",
         "quick": "ease-in 100ms"
