@@ -1,22 +1,22 @@
 import { createTamagui } from '@tamagui/core'
 import { shorthands } from '@tamagui/shorthands'
 
-import { animations } from './animations'
-import { fonts } from './fonts'
+// import { animations } from './animations'
+// import { fonts } from './fonts'
 import { media } from './media'
 import { themes } from './themes'
 import { tokens } from './tokens'
 
 const config = createTamagui({
   defaultFont: 'body',
-  animations,
-  shouldAddPrefersColorThemes: true,
-  themeClassNameOnRoot: true,
+  // animations,
+  // shouldAddPrefersColorThemes: true,
+  // themeClassNameOnRoot: true,
   shorthands,
-  fonts,
+  // fonts,
   themes,
-  tokens,
-  media,
+  // tokens,
+  // media,
 })
 
 type AppConfig = typeof config
