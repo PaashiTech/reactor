@@ -87,4 +87,24 @@ sudo gpasswd -a $USER kvm
 # restart to make it work
 logout
 ```
+## 8. Connect usb device to WSL
 
+1. Get [usbipd](https://github.com/dorssel/usbipd-win)
+
+```bash
+winget install usbipd
+```
+2. Attach your device to WSL
+
+a. See the list of devices
+
+```bash
+usbipd list
+```
+
+b. Bind your device using the bus id of the device. E.g. if your device is on busid 1-9:
+
+```bash
+usbipd bind --busid 1-9
+usbipd attach --busid 1-9 -w
+```
