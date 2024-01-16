@@ -1,7 +1,7 @@
 {
   "name": "expo-app",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@tamagui/config": "^1.85.12",
+    "@tamagui/core": "^1.85.12",
     "expo": "~49.0.18",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
