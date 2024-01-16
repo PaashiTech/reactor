@@ -94,7 +94,19 @@ logout
 ```bash
 winget install usbipd
 ```
-2. Attach your device to WSL
+2. Attach your device to Linux / WSL
+
+Each user that wants to use ADB needs to be in the plugdev group. If you see an error message that says you're not in the plugdev group, add yourself to it using the following command:
+
+```bash
+sudo usermod -aG plugdev $LOGNAME
+```
+
+The system needs to have udev rules installed that cover the device. Get it from android-sdk-platform-tools-common pack:
+
+```bash 
+sudo apt-get install android-sdk-platform-tools-common
+```
 
 a. See the list of devices
 
