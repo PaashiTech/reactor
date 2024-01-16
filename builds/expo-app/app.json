@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
+    "jsEngine":"hermes",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -15,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.unmaze.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,9 +25,6 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.unmaze.app"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }

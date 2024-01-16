@@ -81,9 +81,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.myapp'
+    namespace 'com.unmaze.app'
     defaultConfig {
-        applicationId 'com.anonymous.myapp'
+        applicationId 'com.unmaze.app'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,4 +1,4 @@
-package com.anonymous.myapp;
+package com.unmaze.app;
 
 import android.os.Build;
 import android.os.Bundle;
