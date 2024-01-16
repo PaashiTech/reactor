@@ -25,8 +25,13 @@
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
+<<<<<<< HEAD
         <data android:scheme="com.unmaze.app"/>
         <data android:scheme="exp+unmaze"/>
+=======
+        <data android:scheme="com.anonymous.myapp"/>
+        <data android:scheme="com.unmaze.app"/>
+>>>>>>> a565aa6 (local build)
       </intent-filter>
     </activity>
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false"/>

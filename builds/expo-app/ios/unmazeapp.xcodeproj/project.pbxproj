@@ -14,7 +14,11 @@
 		96905EF65AED1B983A6B3ABC /* libPods-unmazeapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-unmazeapp.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+<<<<<<< HEAD
 		5D116EC40CB24440878D20B3 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C1881BAA0B4DE38A0318F3 /* noop-file.swift */; };
+=======
+		16C4B293410F4977AF4E18EE /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E51757FB1B4C14886626E0 /* noop-file.swift */; };
+>>>>>>> a565aa6 (local build)
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +35,13 @@
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-unmazeapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		93C1881BAA0B4DE38A0318F3 /* noop-file.swift */ = {isa = PBXFileReference; name = "noop-file.swift"; path = "unmazeapp/noop-file.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 		DD4B637F0E1A422A80EA15FB /* unmazeapp-Bridging-Header.h */ = {isa = PBXFileReference; name = "unmazeapp-Bridging-Header.h"; path = "unmazeapp/unmazeapp-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+=======
+		C1E51757FB1B4C14886626E0 /* noop-file.swift */ = {isa = PBXFileReference; name = "noop-file.swift"; path = "unmazeapp/noop-file.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		FB48B65D405341D68211F788 /* unmazeapp-Bridging-Header.h */ = {isa = PBXFileReference; name = "unmazeapp-Bridging-Header.h"; path = "unmazeapp/unmazeapp-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+>>>>>>> a565aa6 (local build)
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +66,13 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
+<<<<<<< HEAD
 				93C1881BAA0B4DE38A0318F3 /* noop-file.swift */,
 				DD4B637F0E1A422A80EA15FB /* unmazeapp-Bridging-Header.h */,
+=======
+				C1E51757FB1B4C14886626E0 /* noop-file.swift */,
+				FB48B65D405341D68211F788 /* unmazeapp-Bridging-Header.h */,
+>>>>>>> a565aa6 (local build)
 			);
 			name = unmazeapp;
 			sourceTree = "<group>";
@@ -199,7 +213,11 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
+<<<<<<< HEAD
 				BEE8862B07C04C6A929B44E0 /* unmazeapp-Bridging-Header.h in Resources */,
+=======
+				E2AFF82060D94A6EABAAC9B9 /* unmazeapp-Bridging-Header.h in Resources */,
+>>>>>>> a565aa6 (local build)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +311,11 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
+<<<<<<< HEAD
 				5D116EC40CB24440878D20B3 /* noop-file.swift in Sources */,
+=======
+				16C4B293410F4977AF4E18EE /* noop-file.swift in Sources */,
+>>>>>>> a565aa6 (local build)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

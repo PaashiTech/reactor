@@ -30,12 +30,15 @@
           <string>com.unmaze.app</string>
         </array>
       </dict>
+<<<<<<< HEAD
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
           <string>exp+unmaze</string>
         </array>
       </dict>
+=======
+>>>>>>> a565aa6 (local build)
     </array>
     <key>CFBundleVersion</key>
     <string>1</string>
