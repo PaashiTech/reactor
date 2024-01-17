@@ -8,7 +8,7 @@ import { themes } from './themes'
 import { tokens } from './tokens'
 
 export const config = createTamagui({
-  defaultFont: 'body',
+  // defaultFont: 'body',
   // animations,
   // shouldAddPrefersColorThemes: true,
   // themeClassNameOnRoot: true,
