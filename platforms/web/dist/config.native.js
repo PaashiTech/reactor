@@ -2,20 +2,27 @@ var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __copyProps = (to, from, except, desc) => {
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: !0 });
+}, __copyProps = (to, from, except, desc) => {
   if (from && typeof from == "object" || typeof from == "function")
     for (let key of __getOwnPropNames(from))
       !__hasOwnProp.call(to, key) && key !== except && __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   return to;
-}, __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, "default"), secondTarget && __copyProps(secondTarget, mod, "default"));
+};
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: !0 }), mod);
-var src_exports = {};
-module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, require("./tamagui.config"), module.exports);
-__reExport(src_exports, require("tamagui"), module.exports);
+var config_exports = {};
+__export(config_exports, {
+  config: () => config,
+  default: () => config_default
+});
+module.exports = __toCommonJS(config_exports);
+var import_unmaze_views = require("unmaze-views");
+const config = import_unmaze_views.config;
+var config_default = config;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  ...require("./tamagui.config"),
-  ...require("tamagui")
+  config
 });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=config.js.map

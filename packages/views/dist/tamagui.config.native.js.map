@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": ["../src/tamagui.config.ts"],
+  "mappings": ";;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,kBAA8B,0BAC9B,oBAA2B,gCAK3B,gBAAuB;AAGhB,MAAM,aAAS,2BAAc;AAAA,EAClC,aAAa;AAAA;AAAA;AAAA;AAAA,EAIb;AAAA;AAAA,EAEA;AAAA;AAAA;AAGF,CAAC;AAUD,IAAO,yBAAQ;",
+  "names": []
+}

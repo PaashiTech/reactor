@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "web-app/*": ["./packages/web-app/*"],
+      "unmaze-views": ["./packages/views/*"]
+    }
+  },
+  "extends": "./tsconfig.base.json",
+  "exclude": ["**/node_modules", "**/dist", "**/types", "web-app/.tamagui"]
+}

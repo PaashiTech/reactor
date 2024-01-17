@@ -4,7 +4,7 @@ import { TamaguiProvider, config, Text } from 'unmaze-views';
 // import {config} from 'unmaze-views';
 
 
-export default function App() {
+export function App() {
   return (
     <TamaguiProvider config={config}>
       {/* your app here */}
@@ -12,3 +12,5 @@ export default function App() {
     </TamaguiProvider>
   )
 };
+
+export default App

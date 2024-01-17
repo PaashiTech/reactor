@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": ["../src/config.ts"],
+  "mappings": ";;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,0BAAsC;AAE/B,MAAM,SAAS,oBAAAA;AACtB,IAAO,iBAAQ;",
+  "names": ["defaultConfig"]
+}

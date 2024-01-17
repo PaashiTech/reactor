@@ -1,10 +1,16 @@
 {
-  "name": "views",
+  "name": "unmaze-views",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
-  "type": "module",
-  "sideEffects": false,
+  "types": "./src",
+  "main": "src/index.ts",
+  "files": [
+    "types",
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "test": "pnpm exec playwright test"
   },
@@ -13,10 +19,9 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
+    "@tamagui/build": "^1.86.2",
     "@types/node": "^20.10.4",
-    "@types/react": "^18.2.45"
-  },
-  "dependencies": {
+    "@types/react": "^18.2.45",
     "tsup": "^8.0.1"
   },
   "peerDependencies": {
