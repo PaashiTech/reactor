@@ -1,11 +1,16 @@
-import { YStack, Text } from "tamagui";
+import { View, Text } from "tamagui";
 
 type TestComponentProps = {};
 
 export default function TestComponent<TestComponentProps>() {
   return (
-    <YStack ai="center" jc="center">
-      <Text>Hello from TestComponent1</Text>
-    </YStack>
+    <View
+      flex={1}
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Text>Hello from TestComponent</Text>
+    </View>
   );
 }

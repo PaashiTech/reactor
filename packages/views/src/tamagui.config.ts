@@ -8,15 +8,15 @@ import { themes } from "./themes";
 import { tokens } from "./tokens";
 
 export const config = createTamagui({
-  defaultFont: "body",
-  animations,
-  shouldAddPrefersColorThemes: true,
+  // defaultFont: "body",
+  // animations,
+  // shouldAddPrefersColorThemes: true,
   themeClassNameOnRoot: true,
-  shorthands,
-  fonts,
+  // shorthands,
+  // fonts,
   themes,
   tokens,
-  media,
+  // media,
 });
 
 type AppConfig = typeof config;

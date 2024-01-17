@@ -1,4 +1,4 @@
-import { createFont } from '@tamagui/core'
+import { createFont } from "@tamagui/core";
 
 export const fonts = {
   body: createFont({
@@ -15,7 +15,7 @@ export const fonts = {
     },
     letterSpacing: {},
     weight: {
-      4: '400',
+      4: "400",
     },
     lineHeight: {
       2: 15,
@@ -55,12 +55,12 @@ export const fonts = {
       10: 1.5 * 66,
     },
     transform: {
-      5: 'uppercase',
-      6: 'none',
+      5: "uppercase",
+      6: "none",
     },
     weight: {
-      4: '400',
-      5: '700',
+      4: "400",
+      5: "700",
     },
   }),
-}
+};
