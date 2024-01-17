@@ -20,7 +20,7 @@ __export(tamagui_config_exports, {
 module.exports = __toCommonJS(tamagui_config_exports);
 var import_core = require("@tamagui/core"), import_shorthands = require("@tamagui/shorthands"), import_themes = require("./themes");
 const config = (0, import_core.createTamagui)({
-  defaultFont: "body",
+  // defaultFont: 'body',
   // animations,
   // shouldAddPrefersColorThemes: true,
   // themeClassNameOnRoot: true,

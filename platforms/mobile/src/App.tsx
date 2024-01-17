@@ -4,7 +4,7 @@ export function App() {
   return (
     <TamaguiProvider config={config}>
       {/* your app here */}
-	<Text>Some text is here</Text>
+	<Text>Some text is no longer here</Text>
     </TamaguiProvider>
   )
 };
