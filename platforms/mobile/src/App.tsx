@@ -1,12 +1,12 @@
-import { TamaguiProvider, config, Text } from 'unmaze-views';
+import { TamaguiProvider, config, TestComponent } from "unmaze-views";
 
 export function App() {
   return (
     <TamaguiProvider config={config}>
       {/* your app here */}
-	<Text>Some text is no longer here</Text>
+      <TestComponent />
     </TamaguiProvider>
-  )
-};
+  );
+}
 
-export default App
+export default App;
