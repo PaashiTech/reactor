@@ -1,0 +1,7 @@
+{
+  "extends":"../../tsconfig.base.json",
+  "exclude": ["**/test", "**/dist", "**/types", "**/__tests__"],
+  "typeAcquisition": {
+    "enable": true
+  },
+}
