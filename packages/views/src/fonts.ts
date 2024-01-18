@@ -2,7 +2,7 @@ import { createFont } from "@tamagui/core";
 
 export const fonts = {
   body: createFont({
-    family: `Helvetica`,
+    family: `Inter`,
     size: {
       2: 12,
       3: 14,
@@ -30,7 +30,7 @@ export const fonts = {
   }),
 
   heading: createFont({
-    family: `Helvetica`,
+    family: `Inter`,
     size: {
       2: 16,
       3: 20,

@@ -10,7 +10,7 @@ export default function TestComponent<TestComponentProps>() {
       alignItems="center"
       justifyContent="center"
     >
-      <Text>Hello from TestComponent</Text>
+      <Text fontFamily={"$body"}>Hello from TestComponent!</Text>
     </View>
   );
 }
