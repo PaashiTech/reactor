@@ -34,5 +34,9 @@
     "react-dom": "^18.2.0",
     "react-native-web": "^0.18.10",
     "tamagui": "latest"
+  },
+  "dependencies": {
+    "@tamagui/linear-gradient": "^1.86.6",
+    "expo-linear-gradient": "~12.3.0"
   }
 }
