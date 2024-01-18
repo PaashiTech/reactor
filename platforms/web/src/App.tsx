@@ -1,4 +1,4 @@
-import { TamaguiProvider, config, Text } from 'unmaze-views';
+import { TamaguiProvider, config, Text } from '@unmaze/views';
 
 export function App() {
   return (

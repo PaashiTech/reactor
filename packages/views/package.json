@@ -1,9 +1,9 @@
 {
-  "name": "unmaze-views",
-  "version": "1.0.0",
+  "name": "@unmaze/views",
+  "version": "0.0.1",
   "description": "",
   "types": "./src",
-  "main": "src/index.ts",
+  "main": "./src/index.ts",
   "files": [
     "types",
     "dist"
@@ -12,27 +12,31 @@
     "*.css"
   ],
   "scripts": {
-    "test": "pnpm exec playwright test"
+    "start": "echo \"Error: no start script\" && exit 1",
+    "dev": "echo \"Error: no dev spec\" && exit 1",
+    "clean": "if [ -d \"./dist\" ]; then rm -R ./dist; fi",
+    "build": "tamagui-build --skip-types",
+    "lint" : "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "echo \"Error: no deployment specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["tamagui", "react", "react-native", "android", "ios", "web", "vite"],
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "devDependencies": {
-    "@playwright/test": "^1.40.1",
     "@tamagui/build": "^1.86.2",
     "@types/node": "^20.10.4",
-    "@types/react": "^18.2.45",
-    "tsup": "^8.0.1"
+    "@types/react": "^18.2.45"
   },
   "peerDependencies": {
-    "@tamagui/animations-css": "latest",
-    "@tamagui/core": "latest",
-    "@tamagui/create-theme": "latest",
+    "@tamagui/animations-css": "^1.85.12",
+    "@tamagui/core": "^1.85.12",
+    "@tamagui/create-theme": "^1.85.12",
     "@tamagui/react-native-media-driver": "^1.79.13",
-    "@tamagui/react-native-svg": "latest",
+    "@tamagui/react-native-svg": "^1.85.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "^0.18.10",
-    "tamagui": "latest"
+    "tamagui": "^1.85.12"
   }
 }
