@@ -1,6 +1,5 @@
 {
   "expo": {
-<<<<<<< HEAD
     "name": "@unmaze/expo-app",
     "slug": "@unmazeexpo-app",
     "version": "0.0.1",
@@ -9,19 +8,9 @@
       "ios",
       "android"
     ],
-    "jsEngine":"hermes",
+    "jsEngine": "hermes",
     "assetBundlePatterns": [
       "**/*"
-=======
-    "name": "expo-app",
-    "slug": "expo-app",
-    "version": "1.0.0",
-    "sdkVersion": "49.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
->>>>>>> e1c3280a372db9e3b8976b15ff3c07b27155169d
     ],
     "android": {
       "package": "com.unmaze.app"
