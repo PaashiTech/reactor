@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "^19.0.0",
     "@tamagui/config": "^1.85.12",
     "@tamagui/core": "^1.85.12",
     "expo": "~49.0.18",
