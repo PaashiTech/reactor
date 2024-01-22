@@ -1,1 +1,10 @@
-{"version":3,"file":"playwright.config.d.ts","sourceRoot":"","sources":["playwright.config.ts"],"names":[],"mappings":"AAEA;;;GAGG;AAGH;;GAEG;;AACH,wBAiEG"}
+{
+  "version": 3,
+  "file": "playwright.config.d.ts",
+  "sourceRoot": "",
+  "sources": [
+    "playwright.config.ts"
+  ],
+  "names": [],
+  "mappings": "AAEA;;;GAGG;AAGH;;GAEG;;AACH,wBAiEG"
+}
