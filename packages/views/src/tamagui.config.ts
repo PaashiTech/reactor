@@ -1,4 +1,4 @@
-import { createTamagui } from "@tamagui/core";
+import { createTamagui } from "tamagui";
 import { shorthands } from "@tamagui/shorthands";
 
 import { animations } from "./animations";
