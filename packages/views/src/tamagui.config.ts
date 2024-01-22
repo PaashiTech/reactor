@@ -16,7 +16,7 @@ export const config = createTamagui({
   fonts,
   themes,
   tokens,
-  media,
+  // media,
 });
 
 type AppConfig = typeof config;
