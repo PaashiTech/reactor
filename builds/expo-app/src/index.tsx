@@ -1,6 +1,5 @@
 import { registerRootComponent } from "expo";
 import { useFonts } from "expo-font";
-import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
 
 import { App } from "unmaze-mobile";
@@ -21,12 +20,7 @@ const ExpoApp = () => {
     return null;
   }
 
-  return (
-    <>
-      <StatusBar style="auto" />
-      <App />
-    </>
-  );
+  return <App />;
 };
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
 // It also ensures that whether you load the app in Expo Go or in a native build,
