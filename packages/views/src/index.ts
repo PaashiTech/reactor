@@ -1,8 +1,9 @@
-// export * as App from './App';
+// Tamagui exports
 export * from "./tamagui.config";
 export * from "tamagui";
 
-import TestComponent from "./Components/TestComponent/TestComponent";
-import LinearGradientComponent from "./Components/LinearGradientComponent/LinearGradientComponent";
+// Unmaze Components
+import LinearGradientComponent from "./Components/LinearGradientComponent";
+import TestComponent from "./Components/TestComponent";
 
 export { TestComponent, LinearGradientComponent };
