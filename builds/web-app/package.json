@@ -1,15 +1,19 @@
 {
-  "name": "vitama",
+  "name": "@unmaze/web-app",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
+    "start": "dev:vite",
     "web": "yarn dev",
+    "clean": "echo \"Error: no clean script\" && exit 1",
+    "lint" : "eslint",
     "dev:vite": "NODE_ENV=development vite --host --clearScreen false",
     "dev:vite:extract": "EXTRACT=1 yarn dev",
-    "dev": "yarn dev:webpack",
+    "dev": "dev:vite",
     "dev:webpack": "DISABLE_EXTRACTION=true NODE_ENV=development webpack serve",
     "dev:extract": "DISABLE_EXTRACTION=false NODE_ENV=development webpack serve",
-    "prod": "NODE_ENV=production webpack --json=dist/compilation-stats.json",
-    "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest"
+    "deploy": "NODE_ENV=production webpack --json=dist/compilation-stats.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@tamagui/animations-css": "^1.85.12",
@@ -22,7 +26,7 @@
     "react-dom": "^18.2.0",
     "react-native-web": "~0.19.9",
     "tamagui": "^1.85.12",
-    "unmaze-web": "workspace:*"
+    "@unmaze/web": "workspace:*"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",

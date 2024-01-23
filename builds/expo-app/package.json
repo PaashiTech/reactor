@@ -1,12 +1,16 @@
 {
-  "name": "expo-app",
-  "version": "1.0.0",
+  "name": "@unmaze/expo-app",
+  "version": "0.0.1",
   "main": "src/index.tsx",
   "scripts": {
     "start": "expo start --dev-client",
+    "dev": "expo prebuild && expo start --dev-client",
+    "clean": "if [ -d \"./dist\" ]; then rm -R ./dist; fi",
+    "build": "expo prebuild",
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web"
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@tamagui/config": "^1.85.12",
@@ -17,7 +21,7 @@
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-native": "0.72.6",
-    "unmaze-mobile": "workspace:*"
+    "@unmaze/mobile": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

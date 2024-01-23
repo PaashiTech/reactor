@@ -1,12 +1,46 @@
 {
   "name": "reactor",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": "true",
+  "version": "0.0.1",
+  "description": "Reactor is a project starter template for universal apps.",
+  "keywords": [
+    "react",
+    "react-native",
+    "universal app"
+  ],
+  "author": "Suman Tiwari <suman.tiwari@unmaze.app> (www.linkedin.com/in/suman~tiwari)",
+  "homepage": "https://github.com/PaashiTech/reactor.git",
+  "license": "UNLICENSED",
+  "directories": {
+    "doc": "./docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:PaashiTech/reactor"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=6"
+  },
+  "dependencies": {
+    "@tamagui/core": "1.85.12",
+    "react": "18.2.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "$react",
+      "react-dom": "$react",
+      "react-native": "0.72.6",
+      "@tamagui/core": "$@tamagui/core"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "turbo": "^1.11.3",
+    "typescript": "~5.2.2"
+  }
 }

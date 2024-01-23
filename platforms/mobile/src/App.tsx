@@ -7,7 +7,7 @@ import {
 
 export function App() {
   return (
-    <TamaguiProvider config={config}>
+    <TamaguiProvider config={config} defaultTheme="light">
       {/* your app here */}
       <TestComponent />
       <LinearGradientComponent />

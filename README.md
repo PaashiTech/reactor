@@ -3,7 +3,7 @@
 ## Read the documentation
 
 ```bash
-cd build/docsite
+cd builds/docsite
 npm start
 ```
 

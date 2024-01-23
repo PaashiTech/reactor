@@ -1,7 +1,10 @@
 {
-  "extends":"../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  "extends": "../../tsconfig.base.json",
   "exclude": ["**/test", "**/dist", "**/types", "**/__tests__"],
   "typeAcquisition": {
     "enable": true
-  },
+  }
 }

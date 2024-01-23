@@ -1,5 +1,5 @@
 {
-  "name": "unmaze-mobile",
+  "name": "@unmaze/mobile",
   "private": true,
   "types": "./src",
   "main": "src/index.tsx",
@@ -31,7 +31,7 @@
     "react-dom": "^18.2.0",
     "react-native-web": "~0.19.9",
     "tamagui": "^1.85.12",
-    "unmaze-views": "workspace:*"
+    "@unmaze/views": "workspace:*"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",

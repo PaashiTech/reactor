@@ -1,6 +1,6 @@
 {
-  "name": "apps-docsite",
-  "version": "0.0.0",
+  "name": "@unmaze/docs-apps",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
