@@ -2,7 +2,7 @@ import { registerRootComponent } from "expo";
 import { useFonts } from "expo-font";
 import React, { useEffect } from "react";
 
-import { App } from "unmaze-mobile";
+import { App } from "@unmaze/mobile";
 
 const ExpoApp = () => {
   const [loaded] = useFonts({

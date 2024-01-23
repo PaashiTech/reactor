@@ -3,7 +3,7 @@ import {
   config,
   TestComponent,
   LinearGradientComponent,
-} from "unmaze-views";
+} from "@unmaze/views";
 
 export function App() {
   return (
