@@ -1,11 +1,11 @@
-import { createTamagui } from "@tamagui/core";
+import { createTamagui } from "tamagui";
 import { shorthands } from "@tamagui/shorthands";
 
-import { animations } from "./animations";
-import { fonts } from "./fonts";
-import { media } from "./media";
-import { themes } from "./themes";
-import { tokens } from "./tokens";
+import { animations } from "./Constants/animations";
+import { fonts } from "./Constants/fonts";
+import { media } from "./Constants/media";
+import { themes } from "./Constants/themes";
+import { tokens } from "./Constants/tokens";
 
 export const config = createTamagui({
   defaultFont: "body",
@@ -16,7 +16,7 @@ export const config = createTamagui({
   fonts,
   themes,
   tokens,
-  // media,
+  media,
 });
 
 type AppConfig = typeof config;

@@ -1,10 +1,16 @@
-import { TamaguiProvider, config, Text } from "@unmaze/views";
+import {
+  TamaguiProvider,
+  config,
+  TestComponent,
+  LinearGradientComponent,
+} from "unmaze-views";
 
 export function App() {
   return (
     <TamaguiProvider config={config} defaultTheme="light">
       {/* your app here */}
-      <Text>Hello Unmaze</Text>
+      <TestComponent />
+      <LinearGradientComponent />
     </TamaguiProvider>
   );
 }

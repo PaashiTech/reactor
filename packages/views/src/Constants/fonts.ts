@@ -1,8 +1,8 @@
-import { createFont } from '@tamagui/core'
+import { createFont } from "tamagui";
 
 export const fonts = {
   body: createFont({
-    family: `Helvetica`,
+    family: `Inter`,
     size: {
       2: 12,
       3: 14,
@@ -15,7 +15,7 @@ export const fonts = {
     },
     letterSpacing: {},
     weight: {
-      4: '400',
+      4: "400",
     },
     lineHeight: {
       2: 15,
@@ -30,7 +30,7 @@ export const fonts = {
   }),
 
   heading: createFont({
-    family: `Helvetica`,
+    family: `Inter`,
     size: {
       2: 16,
       3: 20,
@@ -55,12 +55,12 @@ export const fonts = {
       10: 1.5 * 66,
     },
     transform: {
-      5: 'uppercase',
-      6: 'none',
+      5: "uppercase",
+      6: "none",
     },
     weight: {
-      4: '400',
-      5: '700',
+      4: "400",
+      5: "700",
     },
   }),
-}
+};

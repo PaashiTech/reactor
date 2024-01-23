@@ -1,7 +1,7 @@
 {
   "name": "@unmaze/expo-app",
   "version": "0.0.1",
-  "main": "src/index.ts",
+  "main": "src/index.tsx",
   "scripts": {
     "start": "expo start --dev-client",
     "dev": "expo prebuild && expo start --dev-client",
@@ -16,6 +16,7 @@
     "@tamagui/config": "^1.85.12",
     "@tamagui/core": "^1.85.12",
     "expo": "~49.0.18",
+    "expo-font": "~11.4.0",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
