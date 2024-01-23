@@ -1,9 +1,5 @@
-import {
-  TamaguiProvider,
-  config,
-  TestComponent,
-  LinearGradientComponent,
-} from "@unmaze/views";
+import { config, TestComponent, LinearGradientComponent } from "@unmaze/views";
+import { TamaguiProvider, View, Button } from "tamagui";
 
 export function App() {
   return (
