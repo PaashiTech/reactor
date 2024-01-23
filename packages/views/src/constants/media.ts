@@ -13,6 +13,6 @@ export const media = createMedia({
   gtLg: { minWidth: 1280 + 1 },
   short: { maxHeight: 820 },
   tall: { minHeight: 820 },
-  hoverNone: { hover: 'none' },
-  pointerCoarse: { pointer: 'coarse' },
+  hoverNone: { hover: "none" },
+  pointerCoarse: { pointer: "coarse" },
 });

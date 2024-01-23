@@ -9,13 +9,13 @@ npm start
 
 ## Use [PNPM](https://pnpm.io/)
 
-* Enable coreapck
+- Enable coreapck
 
 ```bash
 coreapack enable
 ```
 
-* Get latest PNPM
+- Get latest PNPM
 
 ```bash
 corepack prepare pnpm@latest --activate

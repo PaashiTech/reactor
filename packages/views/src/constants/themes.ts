@@ -5,9 +5,9 @@ import {
   createStrengthenMask,
   createTheme,
   createWeakenMask,
-} from '@tamagui/create-theme'
+} from "@tamagui/create-theme";
 
-import { tokens } from './tokens'
+import { tokens } from "./tokens";
 
 /**
  * This is an advanced setup of themes for *only* light + dark (no colors)
@@ -52,7 +52,7 @@ export const themes = (() => {
       tokens.color.dark12,
       tokens.color.darkTransparent,
     ],
-  }
+  };
 
   const genericsTemplate = {
     background: 2,
@@ -71,7 +71,7 @@ export const themes = (() => {
     borderColorPress: 3,
     borderColorFocus: 4,
     placeholderColor: -4,
-  }
+  };
 
   const colorStepsTemplate = {
     color1: 1,
@@ -86,47 +86,47 @@ export const themes = (() => {
     color10: 10,
     color11: 11,
     color12: 12,
-  }
+  };
 
   const shadowsTemplate = {
     shadowColor: 1,
     shadowColorHover: 1,
     shadowColorPress: 2,
     shadowColorFocus: 2,
-  }
+  };
 
   const template = {
     ...colorStepsTemplate,
     ...shadowsTemplate,
     ...genericsTemplate,
-  }
+  };
 
-  const lightShadowColor = 'rgba(0,0,0,0.02)'
-  const lightShadowColorStrong = 'rgba(0,0,0,0.066)'
-  const darkShadowColor = 'rgba(0,0,0,0.2)'
-  const darkShadowColorStrong = 'rgba(0,0,0,0.3)'
+  const lightShadowColor = "rgba(0,0,0,0.02)";
+  const lightShadowColorStrong = "rgba(0,0,0,0.066)";
+  const darkShadowColor = "rgba(0,0,0,0.2)";
+  const darkShadowColorStrong = "rgba(0,0,0,0.3)";
 
   const lightShadows = {
     shadowColor: lightShadowColorStrong,
     shadowColorHover: lightShadowColorStrong,
     shadowColorPress: lightShadowColor,
     shadowColorFocus: lightShadowColor,
-  }
+  };
 
   const darkShadows = {
     shadowColor: darkShadowColorStrong,
     shadowColorHover: darkShadowColorStrong,
     shadowColorPress: darkShadowColor,
     shadowColorFocus: darkShadowColor,
-  }
+  };
 
   /**
    * Create the base light/dark themes, they use the full "template"
    */
-  const light = createTheme(palettes.light, template)
-  const dark = createTheme(palettes.dark, template)
+  const light = createTheme(palettes.light, template);
+  const dark = createTheme(palettes.dark, template);
 
-  type BaseTheme = typeof light
+  type BaseTheme = typeof light;
 
   /**
    * Set up some masks which we can use to shift the base templates to be more or less contrasty
@@ -134,12 +134,16 @@ export const themes = (() => {
   const masks = {
     weaker: createWeakenMask(),
     stronger: createStrengthenMask(),
-  }
+  };
 
   /**
    * Use to get our specific component themes
    */
-  function getComponentThemes(theme: BaseTheme, inverse: BaseTheme, isLight: boolean) {
+  function getComponentThemes(
+    theme: BaseTheme,
+    inverse: BaseTheme,
+    isLight: boolean
+  ) {
     const componentMaskOptions: MaskOptions = {
       // basically we only want the generics, avoids extra weight
       skip: {
@@ -149,19 +153,19 @@ export const themes = (() => {
       // avoids the transparent ends
       max: palettes.light.length - 2,
       min: 1,
-    }
+    };
 
-    const weaker1 = applyMask(theme, masks.weaker, componentMaskOptions)
-    const base = applyMask(weaker1, masks.stronger, componentMaskOptions)
-    const weaker2 = applyMask(weaker1, masks.weaker, componentMaskOptions)
-    const stronger1 = applyMask(theme, masks.stronger, componentMaskOptions)
-    const inverse1 = applyMask(inverse, masks.weaker, componentMaskOptions)
-    const inverse2 = applyMask(inverse1, masks.weaker, componentMaskOptions)
+    const weaker1 = applyMask(theme, masks.weaker, componentMaskOptions);
+    const base = applyMask(weaker1, masks.stronger, componentMaskOptions);
+    const weaker2 = applyMask(weaker1, masks.weaker, componentMaskOptions);
+    const stronger1 = applyMask(theme, masks.stronger, componentMaskOptions);
+    const inverse1 = applyMask(inverse, masks.weaker, componentMaskOptions);
+    const inverse2 = applyMask(inverse1, masks.weaker, componentMaskOptions);
 
     // make overlays always dark
     const overlayTheme = {
-      background: isLight ? 'rgba(0,0,0,0.5)' : 'rgba(0,0,0,0.9)',
-    } as BaseTheme
+      background: isLight ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.9)",
+    } as BaseTheme;
 
     return {
       ListItem: isLight ? stronger1 : base,
@@ -184,18 +188,18 @@ export const themes = (() => {
       SheetOverlay: overlayTheme,
       DialogOverlay: overlayTheme,
       ModalOverlay: overlayTheme,
-    }
+    };
   }
 
   const baseThemes = {
     light,
     dark,
-  }
+  };
 
   return addChildren(baseThemes, (name, theme) => {
-    const isLight = name === 'light'
-    const inverseName = isLight ? 'dark' : 'light'
-    const inverseTheme = baseThemes[inverseName]
-    return getComponentThemes(theme, inverseTheme, isLight)
-  })
-})()
+    const isLight = name === "light";
+    const inverseName = isLight ? "dark" : "light";
+    const inverseTheme = baseThemes[inverseName];
+    return getComponentThemes(theme, inverseTheme, isLight);
+  });
+})();

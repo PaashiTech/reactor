@@ -8,32 +8,15 @@
       "persistent": true
     },
     "build": {
-      "dependsOn": [
-        "^build",
-        "^clean"
-      ],
-      "outputs": [
-        ".expo/**",
-        "dist/**"
-      ]
+      "dependsOn": ["^build", "^clean"],
+      "outputs": [".expo/**", "dist/**"]
     },
     "test": {
-      "dependsOn": [
-        "build"
-      ],
-      "inputs": [
-        "src/**/*.tsx",
-        "src/**/*.ts",
-        "test/**/*.ts",
-        "test/**/*.tsx"
-      ]
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
     "deploy": {
-      "dependsOn": [
-        "build",
-        "test",
-        "lint"
-      ]
+      "dependsOn": ["build", "test", "lint"]
     }
   }
 }

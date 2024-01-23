@@ -16,11 +16,19 @@
     "dev": "echo \"Error: no dev spec\" && exit 1",
     "clean": "if [ -d \"./dist\" ]; then rm -R ./dist; fi",
     "build": "tamagui-build --skip-types",
-    "lint" : "eslint",
+    "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "echo \"Error: no deployment specified\" && exit 1"
   },
-  "keywords": ["tamagui", "react", "react-native", "android", "ios", "web", "vite"],
+  "keywords": [
+    "tamagui",
+    "react",
+    "react-native",
+    "android",
+    "ios",
+    "web",
+    "vite"
+  ],
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {

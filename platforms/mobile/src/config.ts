@@ -1,4 +1,4 @@
-import {config as defaultConfig} from '@unmaze/views'
+import { config as defaultConfig } from "@unmaze/views";
 
 export const config = defaultConfig;
-export default config
+export default config;
