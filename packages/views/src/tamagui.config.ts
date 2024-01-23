@@ -1,11 +1,11 @@
 import { createTamagui } from "tamagui";
 import { shorthands } from "@tamagui/shorthands";
 
-import { animations } from "./Constants/animations";
-import { fonts } from "./Constants/fonts";
-import { media } from "./Constants/media";
-import { themes } from "./Constants/themes";
-import { tokens } from "./Constants/tokens";
+import { animations } from "./constants/animations";
+import { fonts } from "./constants/fonts";
+// import { media } from "./constants/media";
+import { themes } from "./constants/themes";
+import { tokens } from "./constants/tokens";
 
 export const config = createTamagui({
   defaultFont: "body",
