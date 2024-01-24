@@ -17,9 +17,6 @@ importers:
       '@tamagui/core':
         specifier: 1.85.12
         version: 1.85.12(react-dom@18.2.0)(react@18.2.0)
-      '@tamagui/lucide-icons':
-        specifier: ^1.88.6
-        version: 1.88.6(react-dom@18.2.0)(react-native-svg@14.1.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -277,6 +274,9 @@ importers:
       '@tamagui/create-theme':
         specifier: ^1.85.12
         version: 1.85.12(react-dom@18.2.0)(react@18.2.0)
+      '@tamagui/lucide-icons':
+        specifier: ^1.88.6
+        version: 1.88.6(react-dom@18.2.0)(react-native-svg@14.1.0)(react@18.2.0)
       '@tamagui/react-native-media-driver':
         specifier: ^1.85.12
         version: 1.85.12(react-dom@18.2.0)(react-native@0.72.6)(react@18.2.0)

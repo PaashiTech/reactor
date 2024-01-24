@@ -1,6 +1,6 @@
 import { TamaguiProvider, Text } from "tamagui";
 import config from "./config";
-import { TestComponent } from "@unmaze/views";
+import { TestComponent, UnmzGradientButton } from "@unmaze/views";
 
 export function App() {
   return (
@@ -8,6 +8,9 @@ export function App() {
       {/* your app here */}
       <Text>Some text is here</Text>
       <TestComponent />
+      <UnmzGradientButton>
+        <UnmzGradientButton.Text>Submit</UnmzGradientButton.Text>
+      </UnmzGradientButton>
     </TamaguiProvider>
   );
 }

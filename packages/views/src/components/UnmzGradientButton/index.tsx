@@ -52,7 +52,7 @@ export const ButtonText = styled(Text, {
   fontFamily: "$body",
   userSelect: "none",
   fontSize: 16,
-
+  zIndex: 0,
   //   variants: {
   //     size: {
   //       "...size": (name, { font }) => {
@@ -70,13 +70,14 @@ const ButtonIcon = (props: { children: React.ReactElement }) => {
   const smallerSize = tokens.size[size].val * 0.5;
   const theme = useTheme();
   return React.cloneElement(props.children, {
+    zIndex: 0,
     width: smallerSize,
     height: smallerSize,
     color: theme.color.get(),
   });
 };
 
-export const Button = withStaticProperties(ButtonFrame, {
+export const UnmzGradientButton = withStaticProperties(ButtonFrame, {
   Text: ButtonText,
   Icon: ButtonIcon,
   Props: ButtonContext.Provider,
