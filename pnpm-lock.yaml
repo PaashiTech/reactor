@@ -17,9 +17,15 @@ importers:
       '@tamagui/core':
         specifier: 1.85.12
         version: 1.85.12(react-dom@18.2.0)(react@18.2.0)
+      '@tamagui/lucide-icons':
+        specifier: ^1.88.6
+        version: 1.88.6(react-dom@18.2.0)(react-native-svg@14.1.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
+      react-native-svg:
+        specifier: ^14.1.0
+        version: 14.1.0(react-native@0.72.6)(react@18.2.0)
     devDependencies:
       eslint:
         specifier: ^8.56.0
@@ -5415,6 +5421,19 @@ packages:
       - react-dom
     dev: false
 
+  /@tamagui/helpers-icon@1.88.6(react-dom@18.2.0)(react-native-svg@14.1.0)(react@18.2.0):
+    resolution: {integrity: sha512-J3SPTSQeGAkQVF1IEaS9wKHN9wA+/j1Ux5Ovzi+dPLjQTQrJAbHWQ1uTLPvC9m/rXJJJtycBJUjaij1Hqeqr5w==}
+    peerDependencies:
+      react: 18.2.0
+      react-native-svg: '>=12'
+    dependencies:
+      '@tamagui/core': 1.85.12(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-native-svg: 14.1.0(react-native@0.72.6)(react@18.2.0)
+    transitivePeerDependencies:
+      - react-dom
+    dev: false
+
   /@tamagui/helpers-node@1.85.12:
     resolution: {integrity: sha512-Yv9fh9GR1WEKfx8htX61JGuGRcdXZN9GMhmTQ8aFr/Sm2M1G+4zp3avzOMznwqa8zdiGtX3vzkdJhcCMZwWfAQ==}
     dependencies:
@@ -5613,6 +5632,20 @@ packages:
     transitivePeerDependencies:
       - react-dom
       - react-native
+    dev: false
+
+  /@tamagui/lucide-icons@1.88.6(react-dom@18.2.0)(react-native-svg@14.1.0)(react@18.2.0):
+    resolution: {integrity: sha512-Nx9ebu5iATFSX0+liQBPlEDwv2Xfk2luHxycIt9JjvrDlLsN3v4kwZBLxKm2+5I6RzQ6+gft8vSvJazk9G3rTw==}
+    peerDependencies:
+      react: 18.2.0
+      react-native-svg: '>=12'
+    dependencies:
+      '@tamagui/core': 1.85.12(react-dom@18.2.0)(react@18.2.0)
+      '@tamagui/helpers-icon': 1.88.6(react-dom@18.2.0)(react-native-svg@14.1.0)(react@18.2.0)
+      react: 18.2.0
+      react-native-svg: 14.1.0(react-native@0.72.6)(react@18.2.0)
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /@tamagui/normalize-css-color@1.79.13:
@@ -14571,6 +14604,18 @@ packages:
       '@babel/preset-typescript': 7.23.3(@babel/core@7.23.6)
       convert-source-map: 2.0.0
       invariant: 2.2.4
+      react: 18.2.0
+      react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+    dev: false
+
+  /react-native-svg@14.1.0(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-HeseElmEk+AXGwFZl3h56s0LtYD9HyGdrpg8yd9QM26X+d7kjETrRQ9vCjtxuT5dCZEIQ5uggU1dQhzasnsCWA==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.6
+    dependencies:
+      css-select: 5.1.0
+      css-tree: 1.1.3
       react: 18.2.0
       react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
     dev: false
