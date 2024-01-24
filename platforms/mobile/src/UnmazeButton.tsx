@@ -64,7 +64,7 @@ export const ButtonText = styled(Text, {
   //   } as const,
 });
 
-const ButtonIcon = (props: { children: React.ReactNode }) => {
+const ButtonIcon = (props: { children: React.ReactElement }) => {
   const { size } = React.useContext(ButtonContext);
   const tokens = getTokens();
   const smallerSize = tokens.size[size].val * 0.5;
