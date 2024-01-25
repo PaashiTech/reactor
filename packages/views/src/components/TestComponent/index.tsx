@@ -1,3 +1,10 @@
+/**
+ * @name TestComponent
+ *
+ * @description
+ * Simple hard-coded text component for testing purposes
+ */
+
 import { View, Text } from "tamagui";
 
 type TestComponentProps = {};

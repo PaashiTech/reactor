@@ -1,3 +1,10 @@
+/**
+ * @name UnmzGradientButton
+ *
+ * @description
+ * Button with a linear gradient of Unmaze brand colors
+ */
+
 import React from "react";
 import {
   getTokens,

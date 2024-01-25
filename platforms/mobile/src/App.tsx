@@ -1,6 +1,5 @@
 import { config } from "@unmaze/views";
-import { TamaguiProvider, Text, View } from "tamagui";
-import { LinearGradient } from "tamagui/linear-gradient";
+import { TamaguiProvider, View } from "tamagui";
 import { StatusBar } from "react-native";
 import { UnmzGradientButton } from "@unmaze/views";
 import { Plus } from "@tamagui/lucide-icons";
