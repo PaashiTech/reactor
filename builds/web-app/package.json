@@ -6,13 +6,13 @@
     "start": "dev:vite",
     "web": "yarn dev",
     "clean": "echo \"Error: no clean script\" && exit 1",
-    "lint" : "eslint",
-    "dev:vite": "NODE_ENV=development vite --host --clearScreen false",
-    "dev:vite:extract": "EXTRACT=1 yarn dev",
+    "lint": "eslint",
+    "dev:vite": "cross-env NODE_ENV=development vite --host --clearScreen false",
+    "dev:vite:extract": "cross-env EXTRACT=1 yarn dev",
     "dev": "dev:vite",
-    "dev:webpack": "DISABLE_EXTRACTION=true NODE_ENV=development webpack serve",
-    "dev:extract": "DISABLE_EXTRACTION=false NODE_ENV=development webpack serve",
-    "deploy": "NODE_ENV=production webpack --json=dist/compilation-stats.json",
+    "dev:webpack": "cross-env DISABLE_EXTRACTION=true NODE_ENV=development webpack serve",
+    "dev:extract": "cross-env DISABLE_EXTRACTION=false NODE_ENV=development webpack serve",
+    "deploy": "cross-env NODE_ENV=production webpack --json=dist/compilation-stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -22,11 +22,11 @@
     "@tamagui/create-theme": "^1.85.12",
     "@tamagui/react-native-media-driver": "^1.85.12",
     "@tamagui/react-native-svg": "^1.85.12",
+    "@unmaze/web": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "~0.19.9",
-    "tamagui": "^1.85.12",
-    "@unmaze/web": "workspace:*"
+    "tamagui": "^1.85.12"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
@@ -34,6 +34,7 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "async-retry": "1.3.1",
     "babel-polyfill": "^6.26.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
     "esbuild-loader": "^4.0.2",
     "esbuild-register": "^3.4.2",

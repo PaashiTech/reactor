@@ -6,6 +6,8 @@ node_modules
 /blob-report/
 /playwright/.cache/
 
+
 # Built apps
 builds/expo-app/android/
 builds/expo-app/ios/
+builds/web-app/.tamagui

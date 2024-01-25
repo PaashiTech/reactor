@@ -30428,7 +30428,7 @@ var useSheetOpenState = /* @__PURE__ */ __name((props) => {
 // ../../node_modules/@tamagui/sheet/dist/esm/useSheetProviderProps.js
 var import_core8 = require("@tamagui/core");
 
-// ../../node_modules/@tamagui/use-constant/dist/esm/index.js
+// ../../node_modules/@tamagui/sheet/node_modules/@tamagui/use-constant/dist/esm/index.js
 var import_react20 = require("react");
 function useConstant(fn) {
   if (typeof document > "u")
