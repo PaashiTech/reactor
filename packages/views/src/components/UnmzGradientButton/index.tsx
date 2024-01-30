@@ -5,7 +5,7 @@
  * Button with a linear gradient of Unmaze brand colors
  */
 
-import { Button, ButtonProps, TamaguiProvider } from "tamagui";
+import { Button, ButtonProps } from "tamagui";
 import { LinearGradient } from "tamagui/linear-gradient";
 
 export const UnmzGradientButton: React.FC<ButtonProps> = (props) => {
@@ -20,10 +20,10 @@ export const UnmzGradientButton: React.FC<ButtonProps> = (props) => {
       alignSelf={alignSelf}
     >
       <Button
-        bg="transparent"
+        backgroundColor="transparent"
         color={"#262626"}
-        hoverStyle={{ bg: "transparent" }}
-        pressStyle={{ bg: "transparent" }}
+        hoverStyle={{ backgroundColor: "transparent" }}
+        pressStyle={{ backgroundColor: "transparent" }}
         {...restProps}
       >
         {props.children}

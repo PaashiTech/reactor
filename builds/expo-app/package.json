@@ -1,6 +1,7 @@
 {
   "name": "@unmaze/expo-app",
   "version": "0.0.1",
+  "private": true,
   "main": "src/index.tsx",
   "scripts": {
     "start": "expo start --dev-client",
@@ -14,8 +15,6 @@
     "eas-build-pre-install": "npm i -g pnpm@8.15.0"
   },
   "dependencies": {
-    "@tamagui/config": "^1.85.12",
-    "@tamagui/core": "^1.85.12",
     "expo": "~49.0.18",
     "expo-font": "~11.4.0",
     "expo-splash-screen": "~0.20.5",

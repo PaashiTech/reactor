@@ -1,11 +1,16 @@
-import { Button, TamaguiProvider, View } from "tamagui";
-import { config, UnmzGradientButton } from "@unmaze/views";
+import {
+  Button,
+  TamaguiProvider,
+  View,
+  tamaguiConfig,
+  UnmzGradientButton,
+} from "@unmaze/views";
 import { StatusBar } from "react-native";
 import { Plus } from "@tamagui/lucide-icons";
 
 export function App() {
   return (
-    <TamaguiProvider config={config} defaultTheme="light">
+    <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       {/* your app here */}
       <View
         flex={1}
