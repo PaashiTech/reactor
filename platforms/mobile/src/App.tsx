@@ -1,5 +1,10 @@
-import { Button, TamaguiProvider, View } from "tamagui";
-import { tamaguiConfig, UnmzGradientButton } from "@unmaze/views";
+import {
+  Button,
+  TamaguiProvider,
+  View,
+  tamaguiConfig,
+  UnmzGradientButton,
+} from "@unmaze/views";
 import { StatusBar } from "react-native";
 import { Plus } from "@tamagui/lucide-icons";
 

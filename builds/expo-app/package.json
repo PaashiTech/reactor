@@ -1,6 +1,7 @@
 {
   "name": "@unmaze/expo-app",
   "version": "0.0.1",
+  "private": true,
   "main": "src/index.tsx",
   "scripts": {
     "start": "expo start --dev-client",
@@ -13,8 +14,6 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "@tamagui/config": "^1.85.12",
-    "@tamagui/core": "^1.85.12",
     "expo": "~49.0.18",
     "expo-font": "~11.4.0",
     "expo-splash-screen": "~0.20.5",
@@ -26,6 +25,5 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "expo-dev-client": "^2.4.12"
-  },
-  "private": true
+  }
 }

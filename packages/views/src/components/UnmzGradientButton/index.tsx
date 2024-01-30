@@ -20,10 +20,10 @@ export const UnmzGradientButton: React.FC<ButtonProps> = (props) => {
       alignSelf={alignSelf}
     >
       <Button
-        bg="transparent"
+        backgroundColor="transparent"
         color={"#262626"}
-        hoverStyle={{ bg: "transparent" }}
-        pressStyle={{ bg: "transparent" }}
+        hoverStyle={{ backgroundColor: "transparent" }}
+        pressStyle={{ backgroundColor: "transparent" }}
         {...restProps}
       >
         {props.children}

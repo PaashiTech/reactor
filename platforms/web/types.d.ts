@@ -1,7 +1,7 @@
-type AppConfig = typeof config;
+import { tamaguiConfig } from "@unmaze/config";
 
-declare module "tamagui" {
-  // overrides TamaguiCustomConfig so that custom types
-  // work everywhere `tamagui` is imported
-  interface TamaguiCustomConfig extends AppConfig {}
+export type Conf = typeof tamaguiConfig;
+
+declare module "@unmaze/views" {
+  interface TamaguiCustomConfig extends Conf {}
 }

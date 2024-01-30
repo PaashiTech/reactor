@@ -1,2 +1,4 @@
 export { default as App } from "./App";
-export * from "./config";
+
+export * from "@unmaze/views";
+export * from "@unmaze/config";

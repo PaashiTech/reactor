@@ -1,11 +1,16 @@
-import { TamaguiProvider, Text, Button, View, ButtonProps } from "tamagui";
-import config from "./config";
-import { TestComponent, UnmzGradientButton } from "@unmaze/views";
-import { LinearGradient } from "tamagui/linear-gradient";
+import {
+  tamaguiConfig,
+  TamaguiProvider,
+  Text,
+  Button,
+  View,
+  TestComponent,
+  UnmzGradientButton,
+} from "@unmaze/views";
 
 export function App() {
   return (
-    <TamaguiProvider config={config}>
+    <TamaguiProvider config={tamaguiConfig}>
       {/* your app here */}
       <View space="$4">
         <Text>Some text is here</Text>

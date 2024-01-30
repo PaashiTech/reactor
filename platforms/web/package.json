@@ -21,17 +21,12 @@
     "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest"
   },
   "dependencies": {
-    "@tamagui/animations-css": "^1.85.12",
-    "@tamagui/config": "^1.85.12",
-    "@tamagui/core": "^1.85.12",
-    "@tamagui/create-theme": "^1.85.12",
-    "@tamagui/react-native-media-driver": "^1.85.12",
-    "@tamagui/react-native-svg": "^1.85.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "~0.19.9",
     "tamagui": "^1.85.12",
-    "@unmaze/views": "workspace:*"
+    "@unmaze/views": "workspace:*",
+    "@unmaze/config": "workspace:*"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
