@@ -37,19 +37,10 @@
     "@types/react": "^18.2.45",
     "@testing-library/react-native": "12.4.3"
   },
-  "peerDependencies": {
-    "@tamagui/animations-css": "^1.85.12",
-    "@tamagui/core": "^1.85.12",
-    "@tamagui/create-theme": "^1.85.12",
-    "@tamagui/react-native-media-driver": "^1.79.13",
-    "@tamagui/react-native-svg": "^1.85.12",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-native-web": "^0.18.10",
-    "tamagui": "latest"
-  },
   "dependencies": {
+    "tamagui": "1.88.17",
     "@tamagui/linear-gradient": "^1.86.6",
-    "expo-linear-gradient": "~12.3.0"
+    "expo-linear-gradient": "~12.3.0",
+    "@unmaze/config": "workspace:*"
   }
 }
