@@ -28,6 +28,7 @@
         <data android:scheme="com.unmaze.app"/>
         <data android:scheme="exp+expo-app"/>
         <data android:scheme="exp+unmazeexpo-app"/>
+        <data android:scheme="exp+unmaze-expo-app"/>
       </intent-filter>
     </activity>
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false"/>
