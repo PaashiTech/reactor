@@ -20,9 +20,6 @@ importers:
       react:
         specifier: 18.2.0
         version: 18.2.0
-      react-native-svg:
-        specifier: ^14.1.0
-        version: 14.1.0(react-native@0.72.6)(react@18.2.0)
     devDependencies:
       eslint:
         specifier: ^8.56.0
@@ -103,6 +100,9 @@ importers:
       react-native:
         specifier: 0.72.6
         version: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+      react-native-svg:
+        specifier: 14.1.0
+        version: 14.1.0(react-native@0.72.6)(react@18.2.0)
     devDependencies:
       '@babel/core':
         specifier: ^7.20.0
