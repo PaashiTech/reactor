@@ -1,17 +1,28 @@
 {
   "expo": {
     "name": "@unmaze/expo-app",
-    "slug": "@unmazeexpo-app",
+    "slug": "unmaze-expo-app",
     "version": "0.0.1",
     "sdkVersion": "49.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "jsEngine": "hermes",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
       "package": "com.unmaze.app"
     },
     "ios": {
       "bundleIdentifier": "com.unmaze.app"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "576e5e97-bcd7-4bcf-ab12-bb1d1c302529"
+      }
+    },
+    "owner": "amoghkulkarni"
   }
 }

@@ -10,7 +10,8 @@
     "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "eas-build-pre-install": "npm i -g pnpm@8.15.0"
   },
   "dependencies": {
     "@tamagui/config": "^1.85.12",
@@ -21,11 +22,11 @@
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-native": "0.72.6",
-    "@unmaze/mobile": "workspace:*"
+    "@unmaze/mobile": "workspace:*",
+    "expo-dev-client": "^2.4.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "expo-dev-client": "^2.4.12"
+    "@babel/core": "^7.20.0"
   },
   "private": true
 }
