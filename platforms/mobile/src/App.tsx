@@ -1,7 +1,6 @@
-import { config } from "@unmaze/views";
-import { TamaguiProvider, View } from "tamagui";
+import { Button, TamaguiProvider, View } from "tamagui";
+import { config, UnmzGradientButton } from "@unmaze/views";
 import { StatusBar } from "react-native";
-import { UnmzGradientButton } from "@unmaze/views";
 import { Plus } from "@tamagui/lucide-icons";
 
 export function App() {
@@ -16,19 +15,17 @@ export function App() {
         paddingHorizontal={24}
       >
         <StatusBar backgroundColor={"black"} />
-        {/* <ButtonComponent>Add number</ButtonComponent> */}
-        <UnmzGradientButton>
-          <UnmzGradientButton.Icon>
-            <Plus />
-          </UnmzGradientButton.Icon>
-          <UnmzGradientButton.Text>Add number</UnmzGradientButton.Text>
+        <Button>Button</Button>
+        <UnmzGradientButton
+          onPress={() => {
+            alert("Pressed");
+          }}
+          icon={Plus}
+        >
+          Add number
         </UnmzGradientButton>
-        <UnmzGradientButton>
-          <UnmzGradientButton.Text>Continue</UnmzGradientButton.Text>
-        </UnmzGradientButton>
-        <UnmzGradientButton>
-          <UnmzGradientButton.Text>Confirm</UnmzGradientButton.Text>
-        </UnmzGradientButton>
+        <UnmzGradientButton>Continue</UnmzGradientButton>
+        <UnmzGradientButton>Confirm</UnmzGradientButton>
       </View>
     </TamaguiProvider>
   );
