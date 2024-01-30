@@ -19,7 +19,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "~0.19.9",
-    "tamagui": "^1.88.17",
     "@tamagui/vite-plugin": "^1.88.17",
     "vite": "^5.0.12",
     "@vitejs/plugin-react-swc": "^3.5.0",

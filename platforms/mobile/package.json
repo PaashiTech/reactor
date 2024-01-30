@@ -28,8 +28,8 @@
     "react-native-screens": "3.29.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
-    "tamagui": "^1.88.12",
-    "@tamagui/lucide-icons": "1.88.17",
+    "tamagui": "^1.88.17",
+    "@tamagui/lucide-icons": "^1.88.17",
     "@unmaze/views": "workspace:*",
     "@unmaze/config": "workspace:*"
   },

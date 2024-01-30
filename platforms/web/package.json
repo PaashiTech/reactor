@@ -24,7 +24,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "~0.19.9",
-    "tamagui": "^1.85.12",
+    "tamagui": "^1.88.17",
     "@unmaze/views": "workspace:*",
     "@unmaze/config": "workspace:*"
   },
