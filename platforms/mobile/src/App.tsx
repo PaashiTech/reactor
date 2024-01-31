@@ -25,7 +25,8 @@ export function App() {
           onPress={() => {
             alert("Pressed");
           }}
-          icon={<Plus />}
+          icon={Plus}
+          scaleSpace={0.5}
         >
           Add number
         </UnmzGradientButton>
