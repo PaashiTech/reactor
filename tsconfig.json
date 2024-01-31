@@ -3,7 +3,7 @@
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
     "paths": {
-      "web-app/*": ["./packages/web-app/*"],
+      "config": ["./packages/config/*"],
       "unmaze-views": ["./packages/views/*"]
     }
   },
