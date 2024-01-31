@@ -1,13 +1,13 @@
-import { tamaguiExtractPlugin, tamaguiPlugin } from '@tamagui/vite-plugin'
-import react from '@vitejs/plugin-react-swc'
-import { defineConfig } from 'vite'
+import { tamaguiExtractPlugin, tamaguiPlugin } from "@tamagui/vite-plugin";
+import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite";
 
-const shouldExtract = process.env.EXTRACT === '1'
+const shouldExtract = process.env.EXTRACT === "1";
 
 const tamaguiConfig = {
-  components: ['tamagui'],
-  config: 'src/config.ts',
-}
+  components: ["tamagui"],
+  config: "./tamaguiConfigExporter.ts",
+};
 
 export default defineConfig({
   clearScreen: true,
@@ -16,4 +16,4 @@ export default defineConfig({
     tamaguiPlugin(tamaguiConfig),
     shouldExtract ? tamaguiExtractPlugin(tamaguiConfig) : null,
   ].filter(Boolean),
-})
+});
