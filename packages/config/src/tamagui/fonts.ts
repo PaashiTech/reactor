@@ -8,6 +8,7 @@ export const fonts = {
       3: 14,
       4: 16,
       5: 18,
+      6: 20,
       7: 22,
       8: 26,
       9: 32,
@@ -19,6 +20,9 @@ export const fonts = {
     letterSpacing: {},
     weight: {
       4: "400",
+      5: "500",
+      6: "600",
+      7: "700",
     },
     lineHeight: {
       2: 15,
@@ -63,7 +67,9 @@ export const fonts = {
     },
     weight: {
       4: "400",
-      5: "700",
+      5: "500",
+      6: "600",
+      7: "700",
     },
   }),
 };

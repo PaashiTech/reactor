@@ -4,6 +4,7 @@ import {
   View,
   tamaguiConfig,
   UnmzGradientButton,
+  ButtonIcon,
 } from "@unmaze/views";
 import { StatusBar } from "react-native";
 import { Plus } from "@tamagui/lucide-icons";
@@ -25,8 +26,9 @@ export function App() {
           onPress={() => {
             alert("Pressed");
           }}
-          icon={Plus}
           scaleSpace={0.5}
+          icon={<Plus />}
+          scaleIcon={1.25}
         >
           Add number
         </UnmzGradientButton>
