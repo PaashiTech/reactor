@@ -12,7 +12,7 @@ export function App() {
   return (
     <TamaguiProvider config={tamaguiConfig}>
       {/* your app here */}
-      <View space="$4">
+      <View gap="$4">
         <Text>Some text is here</Text>
         <TestComponent />
         {/* <UnmzGradientButton>
