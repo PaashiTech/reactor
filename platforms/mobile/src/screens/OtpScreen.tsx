@@ -1,6 +1,6 @@
 import { UnmzGradientButton, OTPInput } from "@unmaze/views";
 import { useState } from "react";
-import { Button, Input, Text, Theme, View } from "tamagui";
+import { Text, View } from "tamagui";
 
 const OtpScreen = () => {
   const [OTPInputText, setOTPInputText] = useState<string>("");
