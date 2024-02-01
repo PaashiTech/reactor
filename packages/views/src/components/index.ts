@@ -8,7 +8,7 @@
  */
 
 // Test
-export { default as TestComponent } from "./TestComponent";
+export { TestComponent } from "./TestComponent";
 
 // Button
 export { UnmzGradientButton } from "./UnmzGradientButton";
