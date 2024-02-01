@@ -18,7 +18,6 @@ const OTPInput: React.FC<OTPInputProps> = ({ handleTextChange }) => {
       inputCount={6}
       tintColor={"#FDDC69"}
       offTintColor={"#E5E0DF"}
-      autoFocus
     />
   );
 };
