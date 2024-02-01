@@ -33,14 +33,15 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@tamagui/build": "^1.88.17",
+    "@testing-library/react-native": "12.4.3",
     "@types/node": "^20.10.4",
-    "@types/react": "^18.2.45",
-    "@testing-library/react-native": "12.4.3"
+    "@types/react": "^18.2.45"
   },
   "dependencies": {
-    "tamagui": "^1.88.17",
     "@tamagui/linear-gradient": "^1.88.17",
+    "@unmaze/config": "workspace:*",
     "expo-linear-gradient": "~12.3.0",
-    "@unmaze/config": "workspace:*"
+    "react-timer-hook": "^3.0.7",
+    "tamagui": "^1.88.17"
   }
 }

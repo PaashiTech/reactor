@@ -12,3 +12,6 @@ export { TestComponent } from "./TestComponent";
 
 // Button
 export { UnmzGradientButton } from "./UnmzGradientButton";
+
+// CountdownTimer
+export { CountdownTimer } from "./CountdownTimer";
