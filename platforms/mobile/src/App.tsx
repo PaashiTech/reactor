@@ -1,11 +1,11 @@
 import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
-import { UnmzButtonTest1 } from "./playground/Button";
+import { ProfileDetailsTest1 } from "./playground/List";
 
 export function App() {
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       {/* your app here */}
-      <UnmzButtonTest1 />
+      <ProfileDetailsTest1 />
     </TamaguiProvider>
   );
 }
