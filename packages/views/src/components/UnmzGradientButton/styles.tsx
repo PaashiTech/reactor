@@ -1,4 +1,7 @@
-const ButtonStyles = {
+import { ButtonProps } from "tamagui";
+import { LinearGradientExtraProps } from "@tamagui/linear-gradient";
+
+const UnmzButtonStyles: ButtonProps = {
   color: "#262626",
   borderRadius: 9999,
   overflow: "hidden",
@@ -11,12 +14,11 @@ const ButtonStyles = {
   hoverStyle: { outlineWidth: 0, borderWidth: 0 },
 };
 
-const GradientStyles = {
+const UnmzLinearGradientStyles: LinearGradientExtraProps = {
   colors: ["#fff000", "#ccfd62"],
   locations: [0.05, 0.92],
   start: [0.2, 1],
   end: [1, 1],
-  fullscreen: true,
 };
 
-export { ButtonStyles, GradientStyles };
+export { UnmzButtonStyles, UnmzLinearGradientStyles };
