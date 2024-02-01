@@ -13,5 +13,9 @@ export { TestComponent } from "./TestComponent";
 // Button
 export { UnmzGradientButton } from "./UnmzGradientButton";
 
+// OTP Input 
+export { default as OTPInput } from "./OTPInput";
+
 // CountdownTimer
 export { CountdownTimer } from "./CountdownTimer";
+
