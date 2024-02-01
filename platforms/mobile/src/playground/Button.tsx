@@ -1,6 +1,6 @@
 import { Button, View, UnmzGradientButton } from "@unmaze/views";
 
-import { Plus } from "@tamagui/lucide-icons";
+import { Check, Plus } from "@tamagui/lucide-icons";
 
 const UnmzButtonTest1 = () => {
   return (
@@ -11,7 +11,10 @@ const UnmzButtonTest1 = () => {
       gap={"$4"}
       paddingHorizontal={24}
     >
+      {/* Default Tamagui button */}
       <Button>Default Button</Button>
+
+      {/* Unmaze buttons with gradient */}
       <UnmzGradientButton
         onPress={() => {
           alert("Pressed");
@@ -22,8 +25,10 @@ const UnmzButtonTest1 = () => {
       >
         Add number
       </UnmzGradientButton>
+
       <UnmzGradientButton>Continue</UnmzGradientButton>
-      <UnmzGradientButton>Confirm</UnmzGradientButton>
+
+      <UnmzGradientButton iconAfter={<Check />}>Confirm</UnmzGradientButton>
     </View>
   );
 };

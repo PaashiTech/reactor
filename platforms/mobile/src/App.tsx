@@ -1,4 +1,9 @@
-import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
+import {
+  TamaguiProvider,
+  tamaguiConfig,
+  CountdownTimer,
+  View,
+} from "@unmaze/views";
 import { UnmzButtonTest1 } from "./playground/Button";
 import OtpScreen from "./screens/OtpScreen";
 import { StatusBar } from "react-native";
