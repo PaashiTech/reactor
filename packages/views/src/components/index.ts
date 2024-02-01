@@ -12,3 +12,5 @@ export { default as TestComponent } from "./TestComponent";
 
 // Button
 export { UnmzGradientButton } from "./UnmzGradientButton";
+
+export { default as OTPInput } from "./OTPInput";

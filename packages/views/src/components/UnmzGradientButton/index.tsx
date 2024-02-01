@@ -16,13 +16,15 @@ export const UnmzGradientButton = Button.styleable<ButtonProps>(
         <Button.Text zIndex={1} fontWeight={"600"}>
           {props.children}
         </Button.Text>
-        <Unspaced>
-          <LinearGradient
-            style={GradientStyles}
-            $platform-native={{ zIndex: -1 }}
-            $platform-web={{ zIndex: 0 }}
-          />
-        </Unspaced>
+        {!props.disabled && (
+          <Unspaced>
+            <LinearGradient
+              style={GradientStyles}
+              $platform-native={{ zIndex: -1 }}
+              $platform-web={{ zIndex: 0 }}
+            />
+          </Unspaced>
+        )}
       </Button>
     );
   }
