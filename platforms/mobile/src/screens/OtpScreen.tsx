@@ -1,6 +1,6 @@
-import { UnmzGradientButton, OTPInput } from "@unmaze/views";
+import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
 import { useState } from "react";
-import { Text, View } from "tamagui";
+import { Text, View, XStack } from "tamagui";
 
 const OtpScreen = () => {
   const [OTPInputText, setOTPInputText] = useState<string>("");
@@ -28,9 +28,20 @@ const OtpScreen = () => {
             </Text>
           </View>
         </View>
-        <OTPInput handleTextChange={setOTPInputText} />
+        <View gap={20}>
+          <OTPInput handleTextChange={setOTPInputText} />
+          <XStack gap={4}>
+            <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
+            <CountdownTimer timerSeconds={60} />
+          </XStack>
+        </View>
       </View>
-      <UnmzGradientButton disabled={buttonDisabled}>Confirm</UnmzGradientButton>
+      <UnmzGradientButton
+        disabled={buttonDisabled}
+        onPress={() => alert("Account Verified")}
+      >
+        Confirm
+      </UnmzGradientButton>
     </View>
   );
 };
