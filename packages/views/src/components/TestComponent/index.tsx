@@ -2,14 +2,17 @@
  * @name TestComponent
  *
  * @description
- * Simple hard-coded text component for testing purposes
+ * Simple text component that renders a string for testing purposes
  */
 
+import { FC } from "react";
 import { View, Text } from "tamagui";
 
-type TestComponentProps = {};
+type TestComponentProps = {
+  message: string;
+};
 
-export default function TestComponent<TestComponentProps>() {
+export const TestComponent: FC<TestComponentProps> = ({ message }) => {
   return (
     <View
       flex={1}
@@ -17,7 +20,7 @@ export default function TestComponent<TestComponentProps>() {
       alignItems="center"
       justifyContent="center"
     >
-      <Text fontFamily={"$body"}>Hello from TestComponent!</Text>
+      <Text fontFamily={"$body"}>{message}</Text>
     </View>
   );
-}
+};
