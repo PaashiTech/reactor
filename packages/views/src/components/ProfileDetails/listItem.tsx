@@ -41,17 +41,22 @@ const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
     scaleSpace;
 
   return (
-    <ListItemFrame ref={ref} {...props}>
-      <View flexDirection="column">
-        <ListItemSubtitle>{props.subTitle}</ListItemSubtitle>
+    <ListItemFrame
+      ref={ref}
+      {...props}
+      flexDirection="column"
+      alignItems="flex-start"
+    >
+      <ListItemSubtitle>{props.subTitle}</ListItemSubtitle>
+      <View flexDirection="row">
         <ListItemTitle>{props.title}</ListItemTitle>
+        {themedIconAfter ? (
+          <>
+            <Spacer size={spaceSize} />
+            {themedIconAfter}
+          </>
+        ) : null}
       </View>
-      {themedIconAfter ? (
-        <>
-          <Spacer size={spaceSize} />
-          {themedIconAfter}
-        </>
-      ) : null}
     </ListItemFrame>
   );
 });

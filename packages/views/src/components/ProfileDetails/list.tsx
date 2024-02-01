@@ -7,7 +7,7 @@ import { Edit3 } from "@tamagui/lucide-icons";
 type _ListItemProps = {
   title: string;
   subtitle?: string;
-  icon?: JSX.Element | FC<{ color?: any; size?: any }> | null;
+  icon?: boolean;
 };
 
 export type _ListProps = {

@@ -6,13 +6,39 @@ export const ProfileDetailsTest1 = () => {
       <ProfileDetails
         items={[
           {
-            title: "item 1",
-            subtitle: "item 1 subtitle",
+            title: "Piyush Dhanajay Sarda",
+            subtitle: "Name",
+          },
+          {
+            title: "08-Nov-1998",
+            subtitle: "DOB",
+          },
+          {
+            title: "DJFPD8191A",
+            subtitle: "Pan number",
+          },
+          {
+            title: "+91 - 8327812999",
+            subtitle: "Primary mobile number",
             icon: true,
           },
           {
-            title: "item 2",
-            subtitle: "item 2 subtitle",
+            title: "piyushsarda24@gmail.com",
+            subtitle: "Email address",
+            icon: true,
+          },
+          {
+            title: "Single",
+            subtitle: "Marital status",
+          },
+          {
+            title: "Male",
+            subtitle: "Gender",
+          },
+          {
+            title: "+91 - 8327812999",
+            subtitle: "Secondary mobile number",
+            icon: true,
           },
         ]}
       />
