@@ -13,6 +13,11 @@ import {
   getTokens,
   Spacer,
 } from "tamagui";
+import {
+  ListItemFramStyles,
+  ListItemSubtitleStyles,
+  ListItemTitleStyles,
+} from "./styles";
 
 const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
   const _props = useProps(props);
@@ -41,20 +46,23 @@ const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
     scaleSpace;
 
   return (
-    <ListItemFrame
-      ref={ref}
-      {...props}
-      flexDirection="column"
-      alignItems="flex-start"
-    >
-      <ListItemSubtitle>{props.subTitle}</ListItemSubtitle>
+    <ListItemFrame ref={ref} {...props} {...ListItemFramStyles}>
+      <ListItemSubtitle {...ListItemSubtitleStyles}>
+        {props.subTitle}
+      </ListItemSubtitle>
       <View flexDirection="row">
-        <ListItemTitle>{props.title}</ListItemTitle>
+        <ListItemTitle {...ListItemTitleStyles}>{props.title}</ListItemTitle>
         {themedIconAfter ? (
-          <>
+          <View
+            flex={1}
+            flexDirection="row"
+            justifyContent="flex-end"
+            alignItems="center"
+            gap={10}
+          >
             <Spacer size={spaceSize} />
             {themedIconAfter}
-          </>
+          </View>
         ) : null}
       </View>
     </ListItemFrame>

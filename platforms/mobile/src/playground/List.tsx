@@ -1,8 +1,8 @@
-import { View, ProfileDetails, YGroup, ListItem } from "@unmaze/views";
+import { View, ProfileDetails } from "@unmaze/views";
 
 export const ProfileDetailsTest1 = () => {
   return (
-    <View>
+    <View paddingVertical={10} paddingHorizontal={20}>
       <ProfileDetails
         items={[
           {
