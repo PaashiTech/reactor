@@ -1,11 +1,13 @@
 import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
-import { ProfileDetailsTest1 } from "./playground/List";
+import OtpScreen from "./screens/OtpScreen";
+import { StatusBar } from "react-native";
 
 export function App() {
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       {/* your app here */}
-      <ProfileDetailsTest1 />
+      <StatusBar barStyle={"dark-content"} backgroundColor={"white"} />
+      <OtpScreen />
     </TamaguiProvider>
   );
 }
