@@ -1,5 +1,6 @@
 import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
 import { useState } from "react";
+import { Keyboard } from "react-native";
 import { Text, View, XStack } from "tamagui";
 
 const OtpScreen = () => {
@@ -13,6 +14,7 @@ const OtpScreen = () => {
       paddingHorizontal={20}
       paddingBottom={20}
       justifyContent="space-between"
+      onPress={Keyboard.dismiss}
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
