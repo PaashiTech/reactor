@@ -60,7 +60,6 @@ const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
             alignItems="center"
             gap={10}
           >
-            <Spacer size={spaceSize} />
             {themedIconAfter}
           </View>
         ) : null}
