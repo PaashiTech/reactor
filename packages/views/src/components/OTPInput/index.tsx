@@ -11,7 +11,7 @@ type OTPInputProps = {
   handleTextChange: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const OTPInput: React.FC<OTPInputProps> = ({ handleTextChange }) => {
+export const OTPInput: React.FC<OTPInputProps> = ({ handleTextChange }) => {
   return (
     <OTPTextView
       handleTextChange={handleTextChange}
@@ -21,5 +21,3 @@ const OTPInput: React.FC<OTPInputProps> = ({ handleTextChange }) => {
     />
   );
 };
-
-export default OTPInput;

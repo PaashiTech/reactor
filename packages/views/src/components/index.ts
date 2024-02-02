@@ -10,14 +10,20 @@
 // Test
 export { TestComponent } from "./TestComponent";
 
+/**
+ * Core components
+ */
 // Button
-export { UnmzGradientButton } from "./UnmzGradientButton";
+export { UnmzGradientButton } from "./_core/UnmzGradientButton";
 
+/**
+ * Composite components
+ */
 // Profile Details
-export { ProfileDetails } from "./ProfileDetails";
+export { ProfileDetails, ProfileDetailsProps } from "./ProfileDetails";
 
 // OTP Input
-export { default as OTPInput } from "./OTPInput";
+export { OTPInput } from "./OTPInput";
 
 // CountdownTimer
 export { CountdownTimer } from "./CountdownTimer";

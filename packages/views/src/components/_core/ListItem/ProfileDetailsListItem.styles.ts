@@ -1,6 +1,6 @@
 import { TextProps, ThemeableStackProps } from "tamagui";
 
-export const ListItemFramStyles: ThemeableStackProps = {
+export const ListItemFrameStyles: ThemeableStackProps = {
   flexDirection: "column",
   alignItems: "stretch",
   paddingVertical: 12,

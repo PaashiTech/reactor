@@ -5,7 +5,7 @@
  * Coundown Timer for OTP input screen to wait till resend option
  */
 
-import { Button, Text, View } from "tamagui";
+import { Text, View } from "tamagui";
 import { useCountdown } from "../../hooks/useCountdown";
 import { getTime } from "../../helpers/getTime";
 import { getFormattedTime } from "../../helpers/getFormattedTime";

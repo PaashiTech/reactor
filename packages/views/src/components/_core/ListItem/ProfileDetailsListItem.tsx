@@ -1,3 +1,10 @@
+/**
+ * @name ProfileDetailsListItem
+ *
+ * @description
+ * Component to render a single item in the profile details section
+ */
+
 import {
   ListItemFrame,
   ListItemTitle,
@@ -9,15 +16,12 @@ import {
   useProps,
   getFontSize,
   useGetThemedIcon,
-  getVariableValue,
-  getTokens,
-  Spacer,
 } from "tamagui";
 import {
-  ListItemFramStyles,
+  ListItemFrameStyles,
   ListItemSubtitleStyles,
   ListItemTitleStyles,
-} from "./styles";
+} from "./ProfileDetailsListItem.styles";
 
 const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
   const _props = useProps(props);
@@ -41,12 +45,9 @@ const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
   });
 
   const themedIconAfter = getThemedIcon(iconAfter);
-  const spaceSize =
-    getVariableValue(getTokens().space[props.space as any] ?? iconSize) *
-    scaleSpace;
 
   return (
-    <ListItemFrame ref={ref} {...props} {...ListItemFramStyles}>
+    <ListItemFrame ref={ref} {...props} {...ListItemFrameStyles}>
       <ListItemSubtitle {...ListItemSubtitleStyles}>
         {props.subTitle}
       </ListItemSubtitle>
@@ -68,9 +69,9 @@ const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
   );
 });
 
-const _ListItem = withStaticProperties(_ListItemFrame, {
+const ProfileDetailsListItem = withStaticProperties(_ListItemFrame, {
   Subtitle: ListItemSubtitle,
   Text: ListItemText,
 });
 
-export { _ListItem };
+export { ProfileDetailsListItem };

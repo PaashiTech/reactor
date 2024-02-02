@@ -1,26 +1,26 @@
-import { YGroup } from "tamagui";
-import { _ListItem } from "./listItem";
 import { FC } from "react";
+import { YGroup } from "tamagui";
+import { ProfileDetailsListItem } from "../_core/ListItem";
 
 import { Edit3 } from "@tamagui/lucide-icons";
 
-type _ListItemProps = {
+type _ProfileDetailsListItemProps = {
   title: string;
   subtitle?: string;
   icon?: boolean;
 };
 
-export type _ListProps = {
-  items: _ListItemProps[];
+export type ProfileDetailsListProps = {
+  items: _ProfileDetailsListItemProps[];
 };
 
-export const _List: FC<_ListProps> = ({ items }) => {
+export const ProfileDetailsList: FC<ProfileDetailsListProps> = ({ items }) => {
   return (
     <YGroup>
       {items.map((item, i) => {
         const _icon = item.icon ? Edit3 : null;
         return (
-          <_ListItem
+          <ProfileDetailsListItem
             iconAfter={_icon}
             key={i}
             title={item.title}
