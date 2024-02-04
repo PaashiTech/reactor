@@ -1,4 +1,9 @@
-import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
+import {
+  UnmzGradientButton,
+  OTPInput,
+  CountdownTimer,
+  Check,
+} from "@unmaze/views";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { useRef, useState } from "react";
 import { Keyboard } from "react-native";
@@ -10,9 +15,10 @@ const OtpScreen = () => {
   const [OTPInputText, setOTPInputText] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const otpRef = useRef<OTPTextView>(null);
 
-  const buttonDisabled = OTPInputText.length < 6;
+  const buttonDisabled = OTPInputText.length < 6 || isSubmitting;
   const isError = error && !OTPInputText;
 
   const clearOTP = () => {
@@ -25,7 +31,7 @@ const OtpScreen = () => {
     setIsSubmitting(true);
     setTimeout(() => {
       if (OTPInputText === CORRECT_OTP) {
-        alert("Account Verified");
+        setIsSuccess(true);
         setError(false);
       } else {
         setError(true);
@@ -59,24 +65,30 @@ const OtpScreen = () => {
           </View>
         </View>
         <View gap={20}>
-          {!isSubmitting ? (
+          {!isSubmitting && !isSuccess ? (
             <OTPInput
               otpRef={otpRef}
               isError={isError}
               handleTextChange={setOTPInputText}
             />
-          ) : (
+          ) : !isSuccess ? (
             <Spinner
               alignSelf="flex-start"
               size="large"
               color={"#D9D9D9"}
               style={{ transform: [{ scaleX: 1.11 }, { scaleY: 1.11 }] }}
             />
+          ) : (
+            <Check />
           )}
-          <XStack gap={4}>
-            <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
-            <CountdownTimer timerSeconds={60} />
-          </XStack>
+          {!isSuccess ? (
+            <XStack gap={4}>
+              <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
+              <CountdownTimer timerSeconds={60} />
+            </XStack>
+          ) : (
+            <Text color={"#6F6F6F"}>Account verifed successfully</Text>
+          )}
         </View>
       </View>
       <UnmzGradientButton disabled={buttonDisabled} onPress={verifyOTP}>
