@@ -22,8 +22,8 @@ export { UnmzGradientButton } from "./_core/UnmzGradientButton";
 // Profile Details
 export { ProfileDetails, ProfileDetailsProps } from "./ProfileDetails";
 
-// OTP Input
+// Inputs
 export { OTPInput } from "./OTPInput";
-
+export { MobileNumberInput } from "./MobileNumberInput";
 // CountdownTimer
 export { CountdownTimer } from "./CountdownTimer";
