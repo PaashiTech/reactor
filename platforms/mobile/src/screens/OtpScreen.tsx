@@ -36,8 +36,6 @@ const OtpScreen = () => {
     }, 3000);
   };
 
-  console.log(OTPInputText);
-
   return (
     <View
       flex={1}
