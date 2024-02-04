@@ -27,7 +27,7 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
         />
         <Input
           unstyled
-          maxLength={11}
+          maxLength={10}
           value={mobileNumberValue}
           onChange={handleMobileNumberChange}
           borderBottomWidth={2}

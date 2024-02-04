@@ -10,11 +10,12 @@ import { Text, View } from "tamagui";
 const EditNumberScreen = () => {
   const [mobileNumber, setMobileNumber] = useState<string>("");
 
+  const isButtonDisabled = mobileNumber.length < 10;
+
   const handleMobileNumberChange = (
     e: NativeSyntheticEvent<TextInputChangeEventData>
   ): void => {
-    const newValue = e.nativeEvent.text.replace(/(\d{5})(\d{5})/, "$1 $2");
-    setMobileNumber(newValue);
+    setMobileNumber(e.nativeEvent.text);
   };
 
   return (
@@ -44,7 +45,9 @@ const EditNumberScreen = () => {
           handleMobileNumberChange={handleMobileNumberChange}
         />
       </View>
-      <UnmzGradientButton>Confirm</UnmzGradientButton>
+      <UnmzGradientButton disabled={isButtonDisabled}>
+        Confirm
+      </UnmzGradientButton>
     </View>
   );
 };

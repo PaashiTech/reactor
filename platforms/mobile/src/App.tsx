@@ -1,6 +1,5 @@
 import { TamaguiProvider, Text, tamaguiConfig } from "@unmaze/views";
 import { StatusBar } from "react-native";
-import OtpScreen from "./screens/OtpScreen";
 import EditNumberScreen from "./screens/EditNumberScreen";
 
 export function App() {
