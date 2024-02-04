@@ -1,18 +1,18 @@
-import { UnmzGradientButton, OTPInput } from "@unmaze/views";
+import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { useRef, useState } from "react";
 import { Keyboard } from "react-native";
-import { Text, View } from "tamagui";
+import { Spinner, Text, View, XStack } from "tamagui";
 
 const CORRECT_OTP = "123456";
 
 const OtpScreen = () => {
   const [OTPInputText, setOTPInputText] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const otpRef = useRef<OTPTextView>(null);
 
   const buttonDisabled = OTPInputText.length < 6;
-
   const isError = error && !OTPInputText;
 
   const clearOTP = () => {
@@ -22,14 +22,21 @@ const OtpScreen = () => {
   };
 
   const verifyOTP = () => {
-    if (OTPInputText === CORRECT_OTP) {
-      alert("Account Verified");
-      setError(false);
-    } else {
-      setError(true);
-    }
-    clearOTP();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      if (OTPInputText === CORRECT_OTP) {
+        alert("Account Verified");
+        setError(false);
+      } else {
+        setError(true);
+      }
+      clearOTP();
+      setOTPInputText("");
+      setIsSubmitting(false);
+    }, 3000);
   };
+
+  console.log(OTPInputText);
 
   return (
     <View
@@ -53,11 +60,26 @@ const OtpScreen = () => {
             </Text>
           </View>
         </View>
-        <OTPInput
-          otpRef={otpRef}
-          isError={isError}
-          handleTextChange={setOTPInputText}
-        />
+        <View gap={20}>
+          {!isSubmitting ? (
+            <OTPInput
+              otpRef={otpRef}
+              isError={isError}
+              handleTextChange={setOTPInputText}
+            />
+          ) : (
+            <Spinner
+              alignSelf="flex-start"
+              size="large"
+              color={"#D9D9D9"}
+              style={{ transform: [{ scaleX: 1.11 }, { scaleY: 1.11 }] }}
+            />
+          )}
+          <XStack gap={4}>
+            <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
+            <CountdownTimer timerSeconds={60} />
+          </XStack>
+        </View>
       </View>
       <UnmzGradientButton disabled={buttonDisabled} onPress={verifyOTP}>
         Confirm

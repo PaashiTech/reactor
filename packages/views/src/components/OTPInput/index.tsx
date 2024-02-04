@@ -5,9 +5,8 @@
  * Input component to enter the OTP
  */
 
-import { Text, View, XStack } from "tamagui";
+import { Text, View } from "tamagui";
 import OTPTextView from "./OTPTextView";
-import { CountdownTimer } from "../CountdownTimer";
 import React, { LegacyRef } from "react";
 
 type OTPInputProps = {
@@ -22,25 +21,20 @@ export const OTPInput: React.FC<OTPInputProps> = ({
   otpRef,
 }) => {
   return (
-    <View gap={20}>
-      <View>
-        <OTPTextView
-          ref={otpRef}
-          handleTextChange={handleTextChange}
-          inputCount={6}
-          tintColor={isError ? "#DA1E28" : "#FDDC69"}
-          offTintColor={"#E5E0DF"}
-        />
-        {isError && (
-          <Text marginTop={16} color="#DA1E28">
-            Please enter the correct OTP
-          </Text>
-        )}
-      </View>
-      <XStack gap={4}>
-        <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
-        <CountdownTimer timerSeconds={60} />
-      </XStack>
+    <View>
+      <OTPTextView
+        ref={otpRef}
+        handleTextChange={handleTextChange}
+        inputCount={6}
+        tintColor={isError ? "#DA1E28" : "#FDDC69"}
+        offTintColor={"#E5E0DF"}
+        autoFocus
+      />
+      {isError && (
+        <Text marginTop={16} color="#DA1E28">
+          Please enter the correct OTP
+        </Text>
+      )}
     </View>
   );
 };
