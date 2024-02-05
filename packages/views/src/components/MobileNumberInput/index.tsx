@@ -1,8 +1,12 @@
 import { Input, Text, View, XStack } from "tamagui";
+import {
+  NativeSyntheticEvent,
+  TextInputChangeEventData,
+} from "react-native";
 
 type MobileNumberInputProps = {
   mobileNumberValue: string;
-  handleMobileNumberChange: () => void;
+  handleMobileNumberChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
 };
 
 export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
@@ -20,6 +24,7 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
           defaultValue="+91"
           fontSize={16}
           fontWeight={"500"}
+          fontFamily={"$body"}
           padding={4}
           borderBottomWidth={2}
           borderBottomColor={"#b0b0b0"}
@@ -33,6 +38,7 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
           borderBottomWidth={2}
           fontSize={16}
           fontWeight={"500"}
+          fontFamily={"$body"}
           borderBottomColor={"#212121"}
           flex={1}
           keyboardType="numeric"

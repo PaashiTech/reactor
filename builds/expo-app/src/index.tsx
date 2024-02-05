@@ -9,7 +9,10 @@ const ExpoApp = () => {
     Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
     InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
     SatoshiVariable: require("@unmaze/views/src/assets/fonts/Satoshi-Variable.ttf"),
-    SatoshiVariableItalic: require("@unmaze/views/src/assets/fonts/Satoshi-VariableItalic.ttf"),
+    SatoshiRegular: require("@unmaze/views/src/assets/fonts/Satoshi-Regular.otf"),
+    SatoshiMedium: require("@unmaze/views/src/assets/fonts/Satoshi-Medium.otf"),
+    SatoshiBold: require("@unmaze/views/src/assets/fonts/Satoshi-Bold.otf"),
+    SatoshiLight: require("@unmaze/views/src/assets/fonts/Satoshi-Light.otf"),
   });
 
   useEffect(() => {

@@ -28,10 +28,16 @@ const EditNumberScreen = () => {
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text fontWeight={"600"} fontSize={16} color={"#262626"}>
+          <Text
+            fontSize={"$4"}
+            fontWeight={"600"}
+            letterSpacing={0.32}
+            color={"#262626"}
+          >
             Edit your mobile number
           </Text>
           <Text
+            fontWeight={"$4"}
             fontSize={14}
             lineHeight={18}
             letterSpacing={0.28}
