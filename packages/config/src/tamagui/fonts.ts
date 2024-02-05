@@ -45,7 +45,7 @@ export const fonts = {
   }),
 
   heading: createFont({
-    family: `Inter`,
+    family: `Satoshi`,
     size: {
       2: 16,
       3: 20,
@@ -74,10 +74,18 @@ export const fonts = {
       6: "none",
     },
     weight: {
+      3: "300",
       4: "400",
       5: "500",
       6: "600",
       7: "700",
+    },
+    face: {
+      "300": { normal: "SatoshiLight" },
+      "400": { normal: "SatoshiRegular" },
+      "500": { normal: "SatoshiMedium" },
+      "600": { normal: "SatoshiSemibold" },
+      "700": { normal: "SatoshiBold" },
     },
   }),
 };
