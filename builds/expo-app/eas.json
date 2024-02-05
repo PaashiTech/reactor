@@ -4,7 +4,10 @@
       "developmentClient": true,
       "distribution": "internal",
       "node": "18.16.0",
-      "pnpm": "8.15.0"
+      "pnpm": "8.15.0",
+      "env": {
+        "owner": "unmaze"
+      }
     },
     "preview": {
       "distribution": "internal"
