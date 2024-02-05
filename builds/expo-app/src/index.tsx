@@ -13,6 +13,7 @@ const ExpoApp = () => {
     SatoshiMedium: require("@unmaze/views/src/assets/fonts/Satoshi-Medium.otf"),
     SatoshiBold: require("@unmaze/views/src/assets/fonts/Satoshi-Bold.otf"),
     SatoshiLight: require("@unmaze/views/src/assets/fonts/Satoshi-Light.otf"),
+    SatoshiSemibold: require("@unmaze/views/src/assets/fonts/Satoshi-Semibold.otf"),
   });
 
   useEffect(() => {

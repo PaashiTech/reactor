@@ -39,7 +39,7 @@ export const fonts = {
       "300": { normal: "SatoshiLight" },
       "400": { normal: "SatoshiRegular" },
       "500": { normal: "SatoshiMedium" },
-      "600": { normal: "SatoshiBold" },
+      "600": { normal: "SatoshiSemibold" },
       "700": { normal: "SatoshiBold" },
     },
   }),
