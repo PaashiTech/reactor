@@ -8,10 +8,10 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       {/* your app here */}
       <StatusBar barStyle={"dark-content"} backgroundColor={"white"} />
-      <EditNumberScreen />
+      {/* <EditNumberScreen /> */}
       {/* <Text>Your app here</Text> */}
 
-      {/* <ScreensTest1 /> */}
+      <ScreensTest1 />
     </TamaguiProvider>
   );
 }
