@@ -8,6 +8,8 @@ const ExpoApp = () => {
   const [loaded] = useFonts({
     Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
     InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
+    SatoshiVariable: require("@unmaze/views/src/assets/fonts/Satoshi-Variable.ttf"),
+    SatoshiVariableItalic: require("@unmaze/views/src/assets/fonts/Satoshi-VariableItalic.ttf"),
   });
 
   useEffect(() => {
