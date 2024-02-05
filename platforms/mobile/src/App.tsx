@@ -11,7 +11,7 @@ export function App() {
       <EditNumberScreen />
       {/* <Text>Your app here</Text> */}
 
-      <ScreensTest1 />
+      {/* <ScreensTest1 /> */}
     </TamaguiProvider>
   );
 }
