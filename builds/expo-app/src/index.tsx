@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 
 import { App } from "@unmaze/mobile";
 
+import { NavigationContainer } from "@react-navigation/native";
+
 const ExpoApp = () => {
   const [loaded] = useFonts({
     Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
@@ -26,7 +28,11 @@ const ExpoApp = () => {
     return null;
   }
 
-  return <App />;
+  return (
+    <NavigationContainer>
+      <App />
+    </NavigationContainer>
+  );
 };
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
 // It also ensures that whether you load the app in Expo Go or in a native build,
