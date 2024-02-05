@@ -40,10 +40,9 @@
   "dependencies": {
     "@tamagui/linear-gradient": "^1.88.17",
     "@unmaze/config": "workspace:*",
+    "@unmaze/assets": "workspace:*",
     "expo-linear-gradient": "~12.3.0",
     "react-native-otp-textinput": "^1.1.5",
-    "react-native-svg": "13.9.0",
-    "react-native-svg-transformer": "^1.3.0",
     "react-timer-hook": "^3.0.7",
     "tamagui": "^1.88.17"
   }

@@ -5,7 +5,7 @@
  */
 
 // Fonts
-export * from "./fonts";
+export * from "../fonts";
 
 // Icons
-export * as unmzIcons from "./icons";
+export * as unmzIcons from "../icons";

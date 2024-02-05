@@ -82,6 +82,9 @@ importers:
       '@react-navigation/native-stack':
         specifier: ^6.9.17
         version: 6.9.17(@react-navigation/native@6.1.9)(react-native-safe-area-context@4.8.2)(react-native-screens@3.29.0)(react-native@0.72.6)(react@18.2.0)
+      '@unmaze/assets':
+        specifier: workspace:*
+        version: link:../../packages/assets
       '@unmaze/mobile':
         specifier: workspace:*
         version: link:../../platforms/mobile
@@ -205,6 +208,21 @@ importers:
         specifier: ^4.8.1
         version: 4.15.1(webpack-cli@4.10.0)(webpack@5.89.0)
 
+  packages/assets:
+    dependencies:
+      '@tamagui/font-inter':
+        specifier: 1.89.3
+        version: 1.89.3(react@18.2.0)
+      expo-font:
+        specifier: 11.10.2
+        version: 11.10.2(expo@49.0.21)
+      react-native-svg:
+        specifier: 13.9.0
+        version: 13.9.0(react-native@0.72.6)(react@18.2.0)
+      react-native-svg-transformer:
+        specifier: ^1.3.0
+        version: 1.3.0(react-native-svg@13.9.0)(react-native@0.72.6)(typescript@5.3.3)
+
   packages/config:
     dependencies:
       '@tamagui/animations-css':
@@ -238,6 +256,9 @@ importers:
       '@tamagui/linear-gradient':
         specifier: ^1.88.17
         version: 1.88.17(react@18.2.0)
+      '@unmaze/assets':
+        specifier: workspace:*
+        version: link:../assets
       '@unmaze/config':
         specifier: workspace:*
         version: link:../config
@@ -247,12 +268,6 @@ importers:
       react-native-otp-textinput:
         specifier: ^1.1.5
         version: 1.1.5(react-native@0.72.6)
-      react-native-svg:
-        specifier: 13.9.0
-        version: 13.9.0(react-native@0.72.6)(react@18.2.0)
-      react-native-svg-transformer:
-        specifier: ^1.3.0
-        version: 1.3.0(react-native-svg@13.9.0)(react-native@0.72.6)(typescript@5.3.3)
       react-timer-hook:
         specifier: ^3.0.7
         version: 3.0.7(react@18.2.0)
@@ -4978,6 +4993,14 @@ packages:
       - react
     dev: false
 
+  /@tamagui/font-inter@1.89.3(react@18.2.0):
+    resolution: {integrity: sha512-alR+BoryxK7scP8Y3rtbnHCuwa8hC3lepdJ9ad0mQjDPIImwlt4Zxte8PHMDO//XWkSZ0YxxwVLSiXmVc1ABPw==}
+    dependencies:
+      '@tamagui/core': 1.88.17(react@18.2.0)
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   /@tamagui/font-size@1.88.17(react@18.2.0):
     resolution: {integrity: sha512-N/xjHCmdB1CA7DXNm9WwjJRp3lEQXepXoiauzr/AEhOcmqHMQ0ZxAi0A2n7yOoPSTSQ+30QUNUTEo0PY+7g5vg==}
     peerDependencies:
@@ -8971,6 +8994,15 @@ packages:
     dependencies:
       expo: 49.0.21(@babel/core@7.23.6)
       uuid: 3.4.0
+    dev: false
+
+  /expo-font@11.10.2(expo@49.0.21):
+    resolution: {integrity: sha512-AE0Q0LiWiVosQ/jlKUPoWoob7p3GwYM2xmLoUkuopO9RYh9NL1hZKHiMKcWBZyDG8Gww1GtBQwh7ZREST8+jjQ==}
+    peerDependencies:
+      expo: '*'
+    dependencies:
+      expo: 49.0.21(@babel/core@7.23.6)
+      fontfaceobserver: 2.3.0
     dev: false
 
   /expo-font@11.4.0(expo@49.0.21):
