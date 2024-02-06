@@ -15,7 +15,7 @@ export { TestComponent } from "./TestComponent";
  */
 // Button
 export { UnmzGradientButton } from "./_core/UnmzGradientButton";
-
+export { UnmzLinearGradient } from "./_core/UnmzLinearGradient";
 /**
  * Composite components
  */

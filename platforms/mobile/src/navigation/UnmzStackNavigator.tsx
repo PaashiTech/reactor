@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { UnmzStackNavRouteProps, Screen } from "../screens/types";
-import { LinearGradient } from "tamagui/linear-gradient";
+import { UnmzLinearGradient } from "@unmaze/views";
 
 import { ProfileDetailsScreen } from "../screens/profile/ProfileDetailsScreen";
 import { View } from "tamagui";
@@ -33,13 +33,7 @@ export const UnmzStackNavigator = () => {
               title: scr.title,
               headerBackground: () =>
                 scr.background === "linear-gradient" ? (
-                  <LinearGradient
-                    colors={["#fff000", "#cdfd62"]}
-                    style={{ flex: 1 }}
-                    locations={[0, 0.85]}
-                    start={{ x: 0, y: 1 }}
-                    end={{ x: 1, y: 1 }}
-                  />
+                  <UnmzLinearGradient style={{ flex: 1 }} />
                 ) : (
                   <View flex={1} bg={"#fff"} />
                 ),
