@@ -1,22 +1,23 @@
 import { FC } from "react";
-import { YGroup } from "tamagui";
+import { YStack } from "tamagui";
 import { ProfileDetailsListItem } from "../_core/ListItem";
 
 import { Edit3 } from "@tamagui/lucide-icons";
 
-type _ProfileDetailsListItemProps = {
+export type ProfileDetailsListItem = {
   title: string;
   subtitle?: string;
   icon?: boolean;
+  onPressIcon?: () => void;
 };
 
 export type ProfileDetailsListProps = {
-  items: _ProfileDetailsListItemProps[];
+  items: ProfileDetailsListItem[];
 };
 
 export const ProfileDetailsList: FC<ProfileDetailsListProps> = ({ items }) => {
   return (
-    <YGroup>
+    <YStack>
       {items.map((item, i) => {
         const _icon = item.icon ? Edit3 : null;
         return (
@@ -25,9 +26,10 @@ export const ProfileDetailsList: FC<ProfileDetailsListProps> = ({ items }) => {
             key={i}
             title={item.title}
             subTitle={item.subtitle}
+            onIconPress={item.onPressIcon}
           />
         );
       })}
-    </YGroup>
+    </YStack>
   );
 };

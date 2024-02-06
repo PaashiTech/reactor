@@ -23,7 +23,9 @@ import {
   ListItemTitleStyles,
 } from "./ProfileDetailsListItem.styles";
 
-const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
+const _ListItemFrame = ListItemFrame.styleable<
+  ListItemProps & { onIconPress?: () => void }
+>((props, ref) => {
   const _props = useProps(props);
 
   const {
@@ -34,6 +36,7 @@ const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
     scaleSpace = 1,
     unstyled = false,
     color,
+    onIconPress,
     ...rest
   } = _props;
 
@@ -61,7 +64,7 @@ const _ListItemFrame = ListItemFrame.styleable<ListItemProps>((props, ref) => {
             alignItems="center"
             gap={10}
           >
-            {themedIconAfter}
+            <View onPress={onIconPress}>{themedIconAfter}</View>
           </View>
         ) : null}
       </View>

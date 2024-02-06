@@ -17,7 +17,7 @@ export const _ProfileDetailsScreen: React.FC<
   };
 
   return (
-    <View paddingVertical={10} paddingHorizontal={20}>
+    <View paddingVertical={10} paddingHorizontal={20} backgroundColor={"white"}>
       <ProfileDetails {...profile} />
     </View>
   );
