@@ -6,6 +6,8 @@ import {
 } from "@react-navigation/native-stack";
 import { UnmzGradientButton } from "@unmaze/views";
 
+import { UnmzStackNavigator } from "../navigation/UnmzStackNavigator";
+
 // Types for individual screens
 type Screen1Props = { test1prop?: string; jump?: number };
 type Screen2Props = { test2prop?: string; jump?: number };
@@ -91,4 +93,8 @@ export const ScreensTest1 = () => {
       />
     </NavStack.Navigator>
   );
+};
+
+export const ScreensTest2 = () => {
+  return <UnmzStackNavigator />;
 };
