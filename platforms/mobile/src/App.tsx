@@ -11,8 +11,8 @@ export function App() {
 
       {/* <Text>Your app here</Text> */}
 
-      {/* <ScreensTest2 /> */}
-      <OtpScreen />
+      <ScreensTest2 />
+      {/* <OtpScreen /> */}
     </TamaguiProvider>
   );
 }
