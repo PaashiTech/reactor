@@ -4,7 +4,7 @@ import { UnmzStackNavRouteProps, Screen } from "../types";
 
 export const _ProfileDetailsScreen: React.FC<
   NativeStackScreenProps<UnmzStackNavRouteProps, "0010">
-> = () => {
+> = ({ navigation, route }) => {
   const profile: ProfileDetailsProps = {
     name: "Piyush Dhananjay Sarda",
     dob: "08-Nov-1998",
@@ -14,6 +14,15 @@ export const _ProfileDetailsScreen: React.FC<
     gender: "Male",
     email: "piyushsarda24@gmail.com",
     maritalStatus: "Single",
+    onEditPrimaryPhone: () => {
+      alert("Edit primary phone");
+    },
+    onEditSecondaryPhone: () => {
+      alert("Edit secondary phone");
+    },
+    onEditEmail: () => {
+      alert("Edit email");
+    },
   };
 
   return (
