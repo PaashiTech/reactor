@@ -27,5 +27,3 @@ export { OTPInput } from "./OTPInput";
 export { MobileNumberInput } from "./MobileNumberInput";
 // CountdownTimer
 export { CountdownTimer } from "./CountdownTimer";
-
-export * from "@unmaze/assets";

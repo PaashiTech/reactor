@@ -1,9 +1,5 @@
-import {
-  UnmzGradientButton,
-  OTPInput,
-  CountdownTimer,
-  CheckGreen,
-} from "@unmaze/views";
+import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
+import { CheckGreen } from "@unmaze/assets";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { useRef, useState } from "react";
 import { Keyboard } from "react-native";
