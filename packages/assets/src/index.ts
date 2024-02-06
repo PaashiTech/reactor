@@ -8,4 +8,4 @@
 export * from "../fonts";
 
 // Icons
-export * as unmzIcons from "../icons";
+export * from "../icons";

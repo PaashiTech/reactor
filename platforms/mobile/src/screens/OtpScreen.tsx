@@ -2,7 +2,7 @@ import {
   UnmzGradientButton,
   OTPInput,
   CountdownTimer,
-  Check,
+  CheckGreen,
 } from "@unmaze/views";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { useRef, useState } from "react";
@@ -79,7 +79,7 @@ const OtpScreen = () => {
               style={{ transform: [{ scaleX: 1.11 }, { scaleY: 1.11 }] }}
             />
           ) : (
-            <Check />
+            <CheckGreen />
           )}
           {!isSuccess ? (
             <XStack gap={4}>

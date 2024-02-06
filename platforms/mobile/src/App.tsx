@@ -1,5 +1,6 @@
 import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
 import { ScreensTest1, ScreensTest2 } from "./playground/Screens";
+import OtpScreen from "./screens/OtpScreen";
 
 export function App() {
   return (
@@ -10,7 +11,8 @@ export function App() {
 
       {/* <Text>Your app here</Text> */}
 
-      <ScreensTest2 />
+      {/* <ScreensTest2 /> */}
+      <OtpScreen />
     </TamaguiProvider>
   );
 }
