@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { UnmzStackNavRoutePropsType, Screen } from "../screens/types";
+import { UnmzStackNavRouteProps, Screen } from "../screens/types";
 
 import { ProfileDetailsScreen } from "../screens/profile/ProfileDetailsScreen";
 
@@ -9,7 +9,7 @@ export const UnmzStackNavigator = () => {
 
   // Object that handles the navigation
   // This needs to sit under NavigationContainer
-  const NavStack = createNativeStackNavigator<UnmzStackNavRoutePropsType>();
+  const NavStack = createNativeStackNavigator<UnmzStackNavRouteProps>();
 
   return (
     <NavStack.Navigator

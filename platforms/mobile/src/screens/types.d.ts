@@ -1,9 +1,9 @@
 export interface Screen {
-  [key: string]: any;
+  key: any;
   title: string;
   content: ScreenComponentType<any, any>;
 }
 
-export type UnmzStackNavRoutePropsType = {
+export type UnmzStackNavRouteProps = {
   "0010": {};
 };

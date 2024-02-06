@@ -1,9 +1,9 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ProfileDetails, ProfileDetailsProps, View } from "@unmaze/views";
-import { UnmzStackNavRoutePropsType, Screen } from "../types";
+import { UnmzStackNavRouteProps, Screen } from "../types";
 
 export const _ProfileDetailsScreen: React.FC<
-  NativeStackScreenProps<UnmzStackNavRoutePropsType, "0010">
+  NativeStackScreenProps<UnmzStackNavRouteProps, "0010">
 > = () => {
   const profile: ProfileDetailsProps = {
     name: "Piyush Dhananjay Sarda",
