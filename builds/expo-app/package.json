@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@unmaze/mobile": "workspace:*",
+    "@unmaze/assets": "workspace:*",
     "expo": "~49.0.18",
     "expo-dev-client": "^2.4.12",
     "expo-font": "~11.4.0",
