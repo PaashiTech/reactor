@@ -26,5 +26,6 @@ export const _ProfileDetailsScreen: React.FC<
 export const ProfileDetailsScreen: Screen = {
   key: "0010",
   title: "Profile Details",
+  background: "linear-gradient",
   content: _ProfileDetailsScreen,
 };
