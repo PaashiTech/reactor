@@ -7,4 +7,6 @@ export interface Screen {
 
 export type UnmzStackNavRouteProps = {
   "0010": {};
+  "0012.b.1": {};
+  "0012.f.1": {};
 };

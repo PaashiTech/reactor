@@ -1,18 +1,14 @@
 import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
-import { ScreensTest1, ScreensTest2 } from "./playground/Screens";
-import OtpScreen from "./screens/OtpScreen";
+import { UnmzStackNavigator } from "./navigation/UnmzStackNavigator";
 
 export function App() {
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       {/* your app here */}
-
+      {/* <Text>Your app here</Text> */}
       {/* <StatusBar /> */}
 
-      {/* <Text>Your app here</Text> */}
-
-      <ScreensTest2 />
-      {/* <OtpScreen /> */}
+      <UnmzStackNavigator />
     </TamaguiProvider>
   );
 }

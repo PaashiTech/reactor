@@ -3,11 +3,17 @@ import { UnmzStackNavRouteProps, Screen } from "../screens/types";
 import { UnmzLinearGradient } from "@unmaze/views";
 
 import { ProfileDetailsScreen } from "../screens/profile/ProfileDetailsScreen";
+import { OTPVerificationScreen } from "../screens/profile/OTPVerificationScreen";
+import { EditPhNumberScreen } from "../screens/profile/EditPhNumberScreen";
 import { View } from "tamagui";
 
 // Component which actually renders the entire screen hierarachy
 export const UnmzStackNavigator = () => {
-  const screens: Screen[] = [ProfileDetailsScreen];
+  const screens: Screen[] = [
+    ProfileDetailsScreen,
+    OTPVerificationScreen,
+    EditPhNumberScreen,
+  ];
 
   // Object that handles the navigation
   // This needs to sit under NavigationContainer

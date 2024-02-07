@@ -15,7 +15,8 @@ export const _ProfileDetailsScreen: React.FC<
     email: "piyushsarda24@gmail.com",
     maritalStatus: "Single",
     onEditPrimaryPhone: () => {
-      alert("Edit primary phone");
+      navigation.navigate("0012.b.1", {});
+      // alert("Edit primary phone");
     },
     onEditSecondaryPhone: () => {
       alert("Edit secondary phone");
