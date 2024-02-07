@@ -9,6 +9,7 @@ import { Text, View } from "tamagui";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { UnmzStackNavRouteProps, Screen } from "../types";
+import KeyboardAvoidingViewWithDismiss from "../../KeyboardAvoidingViewWithDismiss";
 
 const _EditPhNumberScreen: FC<
   NativeStackScreenProps<UnmzStackNavRouteProps, "0012.f.1">
@@ -24,12 +25,13 @@ const _EditPhNumberScreen: FC<
   };
 
   return (
-    <View
-      flex={1}
-      paddingHorizontal={20}
-      paddingBottom={20}
-      justifyContent="space-between"
-      onPress={Keyboard.dismiss}
+    <KeyboardAvoidingViewWithDismiss
+      style={{
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingBottom: 20,
+        justifyContent: "space-between",
+      }}
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
@@ -68,7 +70,7 @@ const _EditPhNumberScreen: FC<
       >
         Confirm
       </UnmzGradientButton>
-    </View>
+    </KeyboardAvoidingViewWithDismiss>
   );
 };
 

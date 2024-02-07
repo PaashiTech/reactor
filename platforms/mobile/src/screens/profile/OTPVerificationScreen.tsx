@@ -2,11 +2,16 @@ import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { FC, useRef, useState } from "react";
-import { Keyboard } from "react-native";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { Spinner, Text, View, XStack } from "tamagui";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { UnmzStackNavRouteProps, Screen } from "../types";
+import KeyboardAvoidingViewWithDismiss from "../../KeyboardAvoidingViewWithDismiss";
 
 const CORRECT_OTP = "123456";
 
@@ -49,12 +54,13 @@ const _OTPVerificationScreen: FC<
   };
 
   return (
-    <View
-      flex={1}
-      paddingHorizontal={20}
-      paddingBottom={20}
-      justifyContent="space-between"
-      onPress={Keyboard.dismiss}
+    <KeyboardAvoidingViewWithDismiss
+      style={{
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingBottom: 20,
+        justifyContent: "space-between",
+      }}
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
@@ -100,7 +106,7 @@ const _OTPVerificationScreen: FC<
       <UnmzGradientButton disabled={buttonDisabled} onPress={verifyOTP}>
         Confirm
       </UnmzGradientButton>
-    </View>
+    </KeyboardAvoidingViewWithDismiss>
   );
 };
 
