@@ -1,9 +1,5 @@
-import {
-  UnmzGradientButton,
-  OTPInput,
-  CountdownTimer,
-  CheckGreen,
-} from "@unmaze/views";
+import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
+import { CheckGreen } from "@unmaze/assets";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { FC, useRef, useState } from "react";
 import { Keyboard } from "react-native";
@@ -26,6 +22,8 @@ const _OTPVerificationScreen: FC<
   const buttonDisabled = OTPInputText.length < 6 || isSubmitting;
   const isError = error && !OTPInputText;
 
+  const { confirmScreenId, sentToType, sentToValue } = route.params;
+
   const clearOTP = () => {
     if (otpRef.current) {
       otpRef.current.clear();
@@ -38,9 +36,9 @@ const _OTPVerificationScreen: FC<
       if (OTPInputText === CORRECT_OTP) {
         setIsSuccess(true);
         setError(false);
-        // setTimeout(() => {
-        //   navigation.replace("0012.f.1", {});
-        // }, 2000);
+        setTimeout(() => {
+          navigation.replace(confirmScreenId, {});
+        }, 2000);
       } else {
         setError(true);
       }
@@ -65,10 +63,10 @@ const _OTPVerificationScreen: FC<
           </Text>
           <View>
             <Text fontSize={14} color={"#6F6F6F"}>
-              Enter the OTP sent to your email
+              Enter the OTP sent to your {sentToType}
             </Text>
             <Text fontSize={14} fontWeight={"500"}>
-              piyushsarda24@gmail.com
+              {sentToValue}
             </Text>
           </View>
         </View>

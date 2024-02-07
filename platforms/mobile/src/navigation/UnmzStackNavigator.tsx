@@ -1,11 +1,14 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { UnmzStackNavRouteProps, Screen } from "../screens/types";
 import { UnmzLinearGradient } from "@unmaze/views";
-
+import { ChevronLeft } from "@unmaze/assets";
 import { ProfileDetailsScreen } from "../screens/profile/ProfileDetailsScreen";
 import { OTPVerificationScreen } from "../screens/profile/OTPVerificationScreen";
 import { EditPhNumberScreen } from "../screens/profile/EditPhNumberScreen";
+import { VerificationSuccessScreen } from "../screens/profile/VerificationSuccessScreen";
 import { View } from "tamagui";
+import { Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 // Component which actually renders the entire screen hierarachy
 export const UnmzStackNavigator = () => {
@@ -13,6 +16,7 @@ export const UnmzStackNavigator = () => {
     ProfileDetailsScreen,
     OTPVerificationScreen,
     EditPhNumberScreen,
+    VerificationSuccessScreen,
   ];
 
   // Object that handles the navigation
@@ -37,12 +41,21 @@ export const UnmzStackNavigator = () => {
             component={scr.content}
             options={{
               title: scr.title,
+              headerShown: scr.title !== "Verify Number",
               headerBackground: () =>
                 scr.background === "linear-gradient" ? (
                   <UnmzLinearGradient style={{ flex: 1 }} />
                 ) : (
                   <View flex={1} bg={"#fff"} />
                 ),
+              headerLeft: () => {
+                const navigation = useNavigation();
+                return (
+                  <Pressable onPress={() => navigation.goBack()}>
+                    <ChevronLeft />
+                  </Pressable>
+                );
+              },
             }}
           />
         );

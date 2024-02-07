@@ -59,7 +59,11 @@ const _EditPhNumberScreen: FC<
       <UnmzGradientButton
         disabled={isButtonDisabled}
         onPress={() => {
-          navigation.replace("0012.b.1", {});
+          navigation.replace("0012.b.1", {
+            confirmScreenId: "0012.k",
+            sentToType: "number",
+            sentToValue: `+91-${mobileNumber}`,
+          });
         }}
       >
         Confirm
