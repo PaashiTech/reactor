@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "web": "yarn dev",
-    "dev:vite": "NODE_ENV=development vite --host --clearScreen false",
+    "dev:vite": "NODE_ENV=development vite --host --clearScreen false --verbose",
     "dev:vite:extract": "EXTRACT=1 yarn dev",
     "dev": "yarn dev:webpack",
     "dev:webpack": "DISABLE_EXTRACTION=true NODE_ENV=development webpack serve",
@@ -24,10 +24,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "~0.19.9",
-    "tamagui": "^1.88.17",
-    "@tamagui/lucide-icons": "^1.88.17",
     "@unmaze/views": "workspace:*",
-    "@unmaze/config": "workspace:*"
+    "@unmaze/config": "workspace:*",
+    "@unmaze/assets": "workspace: *"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",

@@ -6,8 +6,6 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       {/* your app here */}
       {/* <Text>Your app here</Text> */}
-      {/* <StatusBar /> */}
-
       <UnmzStackNavigator />
     </TamaguiProvider>
   );

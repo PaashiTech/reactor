@@ -2,7 +2,6 @@ import { FC } from "react";
 import { YStack } from "tamagui";
 import { ProfileDetailsListItem } from "../_core/ListItem";
 
-// import { Edit3 } from "@tamagui/lucide-icons";
 import { Edit } from "@unmaze/assets";
 
 export type ProfileDetailsListItem = {

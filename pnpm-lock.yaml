@@ -393,9 +393,9 @@ importers:
 
   platforms/web:
     dependencies:
-      '@tamagui/lucide-icons':
-        specifier: ^1.88.17
-        version: 1.88.17(react-native-svg@13.9.0)(react@18.2.0)
+      '@unmaze/assets':
+        specifier: 'workspace: *'
+        version: link:../../packages/assets
       '@unmaze/config':
         specifier: workspace:*
         version: link:../../packages/config
@@ -411,9 +411,6 @@ importers:
       react-native-web:
         specifier: ~0.19.9
         version: 0.19.10(react-dom@18.2.0)(react@18.2.0)
-      tamagui:
-        specifier: ^1.88.17
-        version: 1.88.17(@types/react@18.2.45)(react-dom@18.2.0)(react-native-web@0.19.10)(react-native@0.72.6)(react@18.2.0)
     devDependencies:
       '@pmmmwh/react-refresh-webpack-plugin':
         specifier: ^0.5.11

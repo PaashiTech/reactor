@@ -10,6 +10,9 @@ export const ProfileDetailsTest1 = () => {
     gender: "Male",
     email: "piyushsarda24@gmail.com",
     maritalStatus: "Single",
+    onEditEmail: () => {},
+    onEditPrimaryPhone: () => {},
+    onEditSecondaryPhone: () => {},
   };
 
   return (
