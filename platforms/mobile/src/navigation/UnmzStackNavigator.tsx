@@ -1,13 +1,18 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { UnmzStackNavRouteProps, Screen } from "../screens/types";
-import { UnmzLinearGradient } from "@unmaze/views";
-import { ChevronLeft } from "@unmaze/assets";
+import {
+  Screen,
+  UnmzStackNavRouteProps,
+  PROFILE_DETAILS_SCREEN_ID,
+} from "../screens/types";
 import { ProfileDetailsScreen } from "../screens/profile/ProfileDetailsScreen";
 import { OTPVerificationScreen } from "../screens/profile/OTPVerificationScreen";
 import { EditPhNumberScreen } from "../screens/profile/EditPhNumberScreen";
 import { VerificationSuccessScreen } from "../screens/profile/VerificationSuccessScreen";
-import { View } from "tamagui";
+
+import { UnmzLinearGradient, View } from "@unmaze/views";
+import { ChevronLeft } from "@unmaze/assets";
+
 import { Pressable } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 
 // Component which actually renders the entire screen hierarachy
@@ -25,7 +30,7 @@ export const UnmzStackNavigator = () => {
 
   return (
     <NavStack.Navigator
-      initialRouteName="0010"
+      initialRouteName={PROFILE_DETAILS_SCREEN_ID}
       screenOptions={{
         statusBarStyle: "dark",
         headerTitleAlign: "center",

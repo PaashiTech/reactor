@@ -10,7 +10,7 @@ import {
 import { CheckGreen } from "@unmaze/assets";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { FC, useRef, useState } from "react";
-import KeyboardAvoidingViewWithDismiss from "../../KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 
 import {
   Screen,

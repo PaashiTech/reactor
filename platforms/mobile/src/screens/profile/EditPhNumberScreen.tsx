@@ -7,7 +7,7 @@ import {
 import { FC, useState } from "react";
 import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 
-import KeyboardAvoidingViewWithDismiss from "../../KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
   Screen,
   EDIT_PH_NUMBER_SCREEN_ID,
