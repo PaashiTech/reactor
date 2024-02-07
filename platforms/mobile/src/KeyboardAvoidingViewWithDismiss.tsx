@@ -5,6 +5,7 @@ import {
   TouchableWithoutFeedback,
   ViewStyle,
 } from "react-native";
+import { useHeaderHeight } from "@react-navigation/elements";
 
 type KeyboardAvoidingViewWithDismissProps = {
   children: React.ReactNode;
@@ -14,11 +15,12 @@ type KeyboardAvoidingViewWithDismissProps = {
 const KeyboardAvoidingViewWithDismiss: React.FC<
   KeyboardAvoidingViewWithDismissProps
 > = ({ children, style }) => {
+  const height = useHeaderHeight();
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
-        behavior="padding"
-        keyboardVerticalOffset={110}
+        behavior="height"
+        keyboardVerticalOffset={height}
         style={style}
       >
         {children}
