@@ -299,6 +299,9 @@ importers:
       '@tamagui/lucide-icons':
         specifier: ^1.88.17
         version: 1.88.17(react-native-svg@13.9.0)(react@18.2.0)
+      '@unmaze/assets':
+        specifier: workspace:*
+        version: link:../../packages/assets
       '@unmaze/config':
         specifier: workspace:*
         version: link:../../packages/config
