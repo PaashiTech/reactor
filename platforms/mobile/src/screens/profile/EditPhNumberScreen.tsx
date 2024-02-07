@@ -1,19 +1,25 @@
-import { MobileNumberInput, UnmzGradientButton } from "@unmaze/views";
-import { FC, useState } from "react";
 import {
-  Keyboard,
-  NativeSyntheticEvent,
-  TextInputChangeEventData,
-} from "react-native";
-import { Text, View } from "tamagui";
+  Text,
+  View,
+  MobileNumberInput,
+  UnmzGradientButton,
+} from "@unmaze/views";
+import { FC, useState } from "react";
+import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { UnmzStackNavRouteProps, Screen } from "../types";
 import KeyboardAvoidingViewWithDismiss from "../../KeyboardAvoidingViewWithDismiss";
+import {
+  Screen,
+  EDIT_PH_NUMBER_SCREEN_ID,
+  OTP_VERIFICATION_SCREEN_ID,
+  VERIFICATION_SUCCESS_SCREEN_ID,
+  EditPhNumberScreenProps,
+} from "../types";
 
-const _EditPhNumberScreen: FC<
-  NativeStackScreenProps<UnmzStackNavRouteProps, "0012.f.1">
-> = ({ navigation, route }) => {
+const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const [mobileNumber, setMobileNumber] = useState<string>("");
 
   const isButtonDisabled = mobileNumber.length < 10;
@@ -61,8 +67,8 @@ const _EditPhNumberScreen: FC<
       <UnmzGradientButton
         disabled={isButtonDisabled}
         onPress={() => {
-          navigation.replace("0012.b.1", {
-            confirmScreenId: "0012.k",
+          navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
+            confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
             sentToType: "number",
             sentToValue: `+91-${mobileNumber}`,
           });
@@ -75,7 +81,7 @@ const _EditPhNumberScreen: FC<
 };
 
 export const EditPhNumberScreen: Screen = {
-  key: "0012.f.1",
+  key: EDIT_PH_NUMBER_SCREEN_ID,
   title: "Edit number",
   background: "plain",
   content: _EditPhNumberScreen,

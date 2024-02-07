@@ -1,12 +1,16 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Screen, UnmzStackNavRouteProps } from "../types";
-import { Text, View } from "tamagui";
 import { CheckGreen } from "@unmaze/assets";
-import { UnmzGradientButton } from "@unmaze/views";
+import { UnmzGradientButton, Text, View } from "@unmaze/views";
 
-const _VerificationSuccessScreen: React.FC<
-  NativeStackScreenProps<UnmzStackNavRouteProps, "0012.k">
-> = ({ navigation, route }) => {
+import {
+  Screen,
+  VERIFICATION_SUCCESS_SCREEN_ID,
+  VerificationSuccessScreenProps,
+} from "../types";
+
+const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
+  navigation,
+  route,
+}) => {
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
       <View paddingVertical={40} gap={40} mt={40} alignItems="center">
@@ -33,7 +37,7 @@ const _VerificationSuccessScreen: React.FC<
 };
 
 export const VerificationSuccessScreen: Screen = {
-  key: "0012.k",
+  key: VERIFICATION_SUCCESS_SCREEN_ID,
   title: "Verify Number",
   background: "plain",
   content: _VerificationSuccessScreen,

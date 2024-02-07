@@ -1,10 +1,16 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ProfileDetails, ProfileDetailsProps, View } from "@unmaze/views";
-import { UnmzStackNavRouteProps, Screen } from "../types";
+import {
+  Screen,
+  OTP_VERIFICATION_SCREEN_ID,
+  PROFILE_DETAILS_SCREEN_ID,
+  VERIFICATION_SUCCESS_SCREEN_ID,
+  ProfileDetailsScreenProps,
+} from "../types";
 
-export const _ProfileDetailsScreen: React.FC<
-  NativeStackScreenProps<UnmzStackNavRouteProps, "0010">
-> = ({ navigation, route }) => {
+export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const profile: ProfileDetailsProps = {
     name: "Piyush Dhananjay Sarda",
     dob: "08-Nov-1998",
@@ -15,8 +21,8 @@ export const _ProfileDetailsScreen: React.FC<
     email: "piyushsarda24@gmail.com",
     maritalStatus: "Single",
     onEditPrimaryPhone: () => {
-      navigation.navigate("0012.b.1", {
-        confirmScreenId: "0012.f.1",
+      navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
+        confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
         sentToType: "email",
         sentToValue: "piyushsarda24@gmail.com",
       });
@@ -37,7 +43,7 @@ export const _ProfileDetailsScreen: React.FC<
 };
 
 export const ProfileDetailsScreen: Screen = {
-  key: "0010",
+  key: PROFILE_DETAILS_SCREEN_ID,
   title: "Profile Details",
   background: "linear-gradient",
   content: _ProfileDetailsScreen,

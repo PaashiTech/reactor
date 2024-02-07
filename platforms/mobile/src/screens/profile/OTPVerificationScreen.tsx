@@ -1,23 +1,29 @@
-import { UnmzGradientButton, OTPInput, CountdownTimer } from "@unmaze/views";
+import {
+  UnmzGradientButton,
+  OTPInput,
+  CountdownTimer,
+  Spinner,
+  Text,
+  View,
+  XStack,
+} from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { FC, useRef, useState } from "react";
-import {
-  Keyboard,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-} from "react-native";
-import { Spinner, Text, View, XStack } from "tamagui";
-
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { UnmzStackNavRouteProps, Screen } from "../types";
 import KeyboardAvoidingViewWithDismiss from "../../KeyboardAvoidingViewWithDismiss";
+
+import {
+  Screen,
+  OTP_VERIFICATION_SCREEN_ID,
+  OTPVerificationScreenProps,
+} from "../types";
 
 const CORRECT_OTP = "123456";
 
-const _OTPVerificationScreen: FC<
-  NativeStackScreenProps<UnmzStackNavRouteProps, "0012.b.1">
-> = ({ navigation, route }) => {
+const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const [OTPInputText, setOTPInputText] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -41,9 +47,13 @@ const _OTPVerificationScreen: FC<
       if (OTPInputText === CORRECT_OTP) {
         setIsSuccess(true);
         setError(false);
-        setTimeout(() => {
-          navigation.replace(confirmScreenId, {});
-        }, 2000);
+        if (confirmScreenId === "0012.k") {
+          navigation.replace(confirmScreenId);
+        } else {
+          setTimeout(() => {
+            navigation.replace(confirmScreenId);
+          }, 2000);
+        }
       } else {
         setError(true);
       }
@@ -111,7 +121,7 @@ const _OTPVerificationScreen: FC<
 };
 
 export const OTPVerificationScreen: Screen = {
-  key: "0012.b.1",
+  key: OTP_VERIFICATION_SCREEN_ID,
   title: "Verify your account",
   background: "plain",
   content: _OTPVerificationScreen,
