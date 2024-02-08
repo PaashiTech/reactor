@@ -15,7 +15,12 @@ export { TestComponent } from "./TestComponent";
  */
 // Button
 export { UnmzGradientButton } from "./_core/UnmzGradientButton";
+
+// Linear gradient
 export { UnmzLinearGradient } from "./_core/UnmzLinearGradient";
+
+// Bottom-aligned modal
+export { BottomModal } from "./_core/BottomModal";
 
 /**
  * Composite components
@@ -29,5 +34,3 @@ export { MobileNumberInput } from "./MobileNumberInput";
 
 // CountdownTimer
 export { CountdownTimer } from "./CountdownTimer";
-
-export { BottomModal } from "./BottomModal";
