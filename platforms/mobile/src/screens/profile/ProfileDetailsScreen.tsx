@@ -5,6 +5,8 @@ import {
   PROFILE_DETAILS_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
   ProfileDetailsScreenProps,
+  EDIT_PH_NUMBER_SCREEN_ID,
+  EDIT_EMAIL_SCREEN_ID,
 } from "../types";
 
 export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
@@ -22,7 +24,7 @@ export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
     maritalStatus: "Single",
     onEditPrimaryPhone: () => {
       navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
-        confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
+        confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
         sentToType: "email",
         sentToValue: "piyushsarda24@gmail.com",
       });
@@ -31,7 +33,11 @@ export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
       alert("Edit secondary phone");
     },
     onEditEmail: () => {
-      alert("Edit email");
+      navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
+        confirmScreenId: EDIT_EMAIL_SCREEN_ID,
+        sentToType: "number",
+        sentToValue: "+91-8327812999",
+      });
     },
   };
 
