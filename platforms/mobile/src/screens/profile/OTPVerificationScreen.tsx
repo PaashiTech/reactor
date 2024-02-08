@@ -16,6 +16,7 @@ import {
   Screen,
   OTP_VERIFICATION_SCREEN_ID,
   OTPVerificationScreenProps,
+  VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../types";
 
 const CORRECT_OTP = "123456";
@@ -47,8 +48,10 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
       if (OTPInputText === CORRECT_OTP) {
         setIsSuccess(true);
         setError(false);
-        if (confirmScreenId === "0012.k") {
-          navigation.replace(confirmScreenId);
+        if (confirmScreenId === VERIFICATION_SUCCESS_SCREEN_ID) {
+          navigation.replace(confirmScreenId, {
+            verifiedType: sentToType,
+          });
         } else {
           setTimeout(() => {
             navigation.replace(confirmScreenId);

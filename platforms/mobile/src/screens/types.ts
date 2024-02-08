@@ -26,19 +26,30 @@ export type EditPhNumberScreenProps = NativeStackScreenProps<
   typeof EDIT_PH_NUMBER_SCREEN_ID
 >;
 
+export const EDIT_EMAIL_SCREEN_ID = "0013.h";
+export type EditEmailScreenProps = NativeStackScreenProps<
+  UnmzStackNavRouteProps,
+  "0013.h"
+>;
+
 export const VERIFICATION_SUCCESS_SCREEN_ID = "0012.k";
 export type VerificationSuccessScreenProps = NativeStackScreenProps<
   UnmzStackNavRouteProps,
   typeof VERIFICATION_SUCCESS_SCREEN_ID
 >;
 
+type EditType = "number" | "email";
+
 export type UnmzStackNavRouteProps = {
   [PROFILE_DETAILS_SCREEN_ID]: undefined;
   [OTP_VERIFICATION_SCREEN_ID]: {
     confirmScreenId: keyof UnmzStackNavRouteProps;
-    sentToType: string;
+    sentToType: EditType;
     sentToValue: string;
   };
   [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
-  [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;
+  [VERIFICATION_SUCCESS_SCREEN_ID]: {
+    verifiedType: EditType;
+  };
+  [EDIT_EMAIL_SCREEN_ID]: undefined;
 };
