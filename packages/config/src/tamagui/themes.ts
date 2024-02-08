@@ -70,7 +70,7 @@ export const themes = (() => {
     borderColorHover: 5,
     borderColorPress: 3,
     borderColorFocus: 4,
-    placeholderColor: -4,
+    placeholderColor: "#CAC5C4",
   };
 
   const colorStepsTemplate = {

@@ -14,6 +14,7 @@ import { ChevronLeft } from "@unmaze/assets";
 import { Pressable } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
+import { EditEmailScreen } from "../screens/profile/EditEmailScreen";
 
 // Component which actually renders the entire screen hierarachy
 export const UnmzStackNavigator = () => {
@@ -21,6 +22,7 @@ export const UnmzStackNavigator = () => {
     ProfileDetailsScreen,
     OTPVerificationScreen,
     EditPhNumberScreen,
+    EditEmailScreen,
     VerificationSuccessScreen,
   ];
 

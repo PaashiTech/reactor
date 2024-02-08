@@ -26,6 +26,12 @@ export type EditPhNumberScreenProps = NativeStackScreenProps<
   "0012.f.1"
 >;
 
+export const EDIT_EMAIL_SCREEN_ID = "0013.h";
+export type EditEmailScreenProps = NativeStackScreenProps<
+  UnmzStackNavRouteProps,
+  "0013.h"
+>;
+
 export const VERIFICATION_SUCCESS_SCREEN_ID = "0012.k";
 export type VerificationSuccessScreenProps = NativeStackScreenProps<
   UnmzStackNavRouteProps,
@@ -41,4 +47,5 @@ export type UnmzStackNavRouteProps = {
   };
   [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
   [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;
+  [EDIT_EMAIL_SCREEN_ID]: undefined;
 };
