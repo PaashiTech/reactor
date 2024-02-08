@@ -98,6 +98,8 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
               isEmailInvalid && isSubmittedOnce ? "#DA1E28" : "#212121"
             }
             cursorColor={"#212121"}
+            autoCapitalize="none"
+            autoComplete="email"
             keyboardType="email-address"
             onBlur={() => validateEmail(email)}
           />
