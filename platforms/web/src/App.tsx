@@ -1,5 +1,4 @@
 import { tamaguiConfig, TamaguiProvider } from "@unmaze/views";
-// import { ButtonTest1 } from "./playground/Button";
 import { ProfileDetailsTest1 } from "./playground/List";
 
 export function App() {
