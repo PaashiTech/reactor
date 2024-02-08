@@ -38,14 +38,18 @@ export type VerificationSuccessScreenProps = NativeStackScreenProps<
   "0012.k"
 >;
 
+type EditType = "number" | "email";
+
 export type UnmzStackNavRouteProps = {
   [PROFILE_DETAILS_SCREEN_ID]: undefined;
   [OTP_VERIFICATION_SCREEN_ID]: {
     confirmScreenId: keyof UnmzStackNavRouteProps;
-    sentToType: string;
+    sentToType: EditType;
     sentToValue: string;
   };
   [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
-  [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;
+  [VERIFICATION_SUCCESS_SCREEN_ID]: {
+    verifiedType: EditType;
+  };
   [EDIT_EMAIL_SCREEN_ID]: undefined;
 };

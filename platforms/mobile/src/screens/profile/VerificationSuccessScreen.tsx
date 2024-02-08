@@ -11,6 +11,9 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   navigation,
   route,
 }) => {
+  const { verifiedType } = route.params;
+  const updatedType = verifiedType === "email" ? "Email" : "Number";
+
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
       <View paddingVertical={40} gap={40} mt={40} alignItems="center">
@@ -21,7 +24,7 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
           letterSpacing={0.32}
           fontWeight={"600"}
         >
-          Number updated successfully
+          {updatedType} updated successfully
         </Text>
         <CheckGreen />
       </View>
