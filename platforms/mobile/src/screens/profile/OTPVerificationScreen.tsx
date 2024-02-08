@@ -97,14 +97,18 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
               handleTextChange={setOTPInputText}
             />
           ) : !isSuccess ? (
-            <Spinner
-              alignSelf="flex-start"
-              size="large"
-              color={"#D9D9D9"}
-              style={{ transform: [{ scaleX: 1.11 }, { scaleY: 1.11 }] }}
-            />
+            <View height={60} justifyContent="center">
+              <Spinner
+                alignSelf="flex-start"
+                size="large"
+                color={"#D9D9D9"}
+                style={{ transform: [{ scaleX: 1.11 }, { scaleY: 1.11 }] }}
+              />
+            </View>
           ) : (
-            <CheckGreen />
+            <View height={60} justifyContent="center">
+              <CheckGreen />
+            </View>
           )}
           {!isSuccess ? (
             <XStack gap={4}>
