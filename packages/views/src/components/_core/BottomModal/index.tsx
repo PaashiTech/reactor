@@ -14,10 +14,11 @@ export const BottomModal: FC<PropsWithChildren<BottomModalProps>> = ({
   return (
     <Sheet
       open={open}
+      onOpenChange={setOpen}
       modal={true}
       snapPointsMode="fit"
       zIndex={100_000}
-      animation="medium"
+      animation="lazy"
     >
       <Sheet.Overlay
         animation="lazy"
