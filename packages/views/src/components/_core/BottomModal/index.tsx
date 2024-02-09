@@ -1,18 +1,12 @@
 import { FC, PropsWithChildren } from "react";
-import { Button, Sheet, YStackProps } from "tamagui";
+import { Sheet, YStackProps } from "tamagui";
 import { DefaultSheetFrameStyles } from "./styles";
 
-export type BottomModalProps = {
+type _BottomModalProps = {
   /**
    * Boolean state variable for governing open/close behavior of the component
    */
   open: boolean;
-
-  /**
-   * Function that sets the open/close state variable to false (for closing the modal)
-   * @returns void
-   */
-  close: () => void;
 
   /**
    * Function that sets the boolean state variable in the parent component with param value
@@ -20,7 +14,7 @@ export type BottomModalProps = {
    * @param isOpen
    * @returns void
    */
-  setOpen?: (isOpen: boolean) => void;
+  setOpen: (isOpen: boolean) => void;
 
   /**
    * Styles that can be applied to the modal body
@@ -33,12 +27,12 @@ export type BottomModalProps = {
   closeButtonText?: string;
 };
 
-export const BottomModal: FC<PropsWithChildren<BottomModalProps>> = ({
+export type BottomModalProps = PropsWithChildren<_BottomModalProps>;
+
+export const BottomModal: FC<BottomModalProps> = ({
   open,
-  close,
   setOpen,
   contentStyle = DefaultSheetFrameStyles,
-  closeButtonText = "Close",
   children,
 }) => {
   return (
@@ -49,6 +43,7 @@ export const BottomModal: FC<PropsWithChildren<BottomModalProps>> = ({
       snapPointsMode="fit"
       zIndex={100_000}
       animation="lazy"
+      dismissOnOverlayPress
     >
       <Sheet.Overlay
         animation="lazy"
@@ -56,10 +51,7 @@ export const BottomModal: FC<PropsWithChildren<BottomModalProps>> = ({
         exitStyle={{ opacity: 0 }}
       />
       <Sheet.Handle unstyled />
-      <Sheet.Frame {...contentStyle}>
-        {children}
-        <Button onPress={close}>{closeButtonText}</Button>
-      </Sheet.Frame>
+      <Sheet.Frame {...contentStyle}>{children}</Sheet.Frame>
     </Sheet>
   );
 };
