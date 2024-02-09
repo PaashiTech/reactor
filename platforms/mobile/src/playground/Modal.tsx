@@ -20,8 +20,8 @@ export const ModalTest1 = () => {
       </UnmzGradientButton>
       <BottomModal
         open={modalOpen}
-        setOpen={(isOpen: boolean) => {
-          setModalOpen(isOpen);
+        close={() => {
+          setModalOpen(false);
         }}
       >
         <Text>Hello</Text>
