@@ -22,6 +22,7 @@ import {
   ListItemSubtitleStyles,
   ListItemTitleStyles,
 } from "./ProfileDetailsListItem.styles";
+import { Pressable } from "react-native";
 
 const _ListItemFrame = ListItemFrame.styleable<
   ListItemProps & { onIconPress?: () => void }
@@ -64,7 +65,17 @@ const _ListItemFrame = ListItemFrame.styleable<
             alignItems="center"
             gap={10}
           >
-            <View onPress={onIconPress}>{themedIconAfter}</View>
+            <Pressable
+              android_ripple={{
+                color: "#d1d1d1",
+                borderless: true,
+                radius: 16,
+              }}
+              style={{ paddingHorizontal: 10 }}
+              onPress={onIconPress}
+            >
+              {themedIconAfter}
+            </Pressable>
           </View>
         ) : null}
       </View>
