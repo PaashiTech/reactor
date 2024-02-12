@@ -4,11 +4,8 @@
 node_modules/
 
 # Expo
-.expo/
 dist/
 web-build/
-ios/
-android/
 
 # Native
 *.orig.*
