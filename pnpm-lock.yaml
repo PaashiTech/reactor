@@ -95,8 +95,8 @@ importers:
         specifier: ^2.4.12
         version: 2.4.12(expo@49.0.21)
       expo-font:
-        specifier: ~11.4.0
-        version: 11.4.0(expo@49.0.21)
+        specifier: ^11.10.2
+        version: 11.10.2(expo@49.0.21)
       expo-splash-screen:
         specifier: ~0.20.5
         version: 0.20.5(expo-modules-autolinking@1.5.1)(expo@49.0.21)

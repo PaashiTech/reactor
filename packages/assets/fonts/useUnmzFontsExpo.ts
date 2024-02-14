@@ -2,7 +2,7 @@ import { useFonts } from "expo-font";
 import { useEffect } from "react";
 
 export const useUnmzFontsExpo = () => {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     // Tamagui built-ins
     Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
     InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
@@ -22,5 +22,5 @@ export const useUnmzFontsExpo = () => {
     }
   }, [fontsLoaded]);
 
-  return [fontsLoaded];
+  return [fontsLoaded, fontError];
 };
