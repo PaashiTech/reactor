@@ -58,7 +58,15 @@ export const UnmzStackNavigator = () => {
               headerLeft: () => {
                 const navigation = useNavigation();
                 return (
-                  <Pressable onPress={() => navigation.goBack()}>
+                  <Pressable
+                    android_ripple={{
+                      color: "#d1d1d1",
+                      borderless: true,
+                      radius: 16,
+                    }}
+                    onPress={() => navigation.goBack()}
+                    style={{ padding: 10 }}
+                  >
                     <ChevronLeft />
                   </Pressable>
                 );
