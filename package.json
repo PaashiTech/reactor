@@ -19,7 +19,7 @@
     "url": "github:PaashiTech/reactor"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "engines": {
     "node": ">=18",
@@ -38,10 +38,12 @@
     }
   },
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "jest": "29.7.0",
     "turbo": "^1.11.3",
-    "typescript": "~5.3.3",
-    "typedoc": "0.25.7"
+    "typedoc": "0.25.7",
+    "typescript": "~5.3.3"
   }
 }
