@@ -34,3 +34,6 @@ export { MobileNumberInput } from "./MobileNumberInput";
 
 // CountdownTimer
 export { CountdownTimer } from "./CountdownTimer";
+
+// Custom Toast
+export { default as CustomToast } from "./_core/CustomToast/CustomToast";
