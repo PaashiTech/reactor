@@ -2,11 +2,11 @@ import {
   Screen,
   UnmzStackNavRouteProps,
   PROFILE_DETAILS_SCREEN_ID,
-} from "../screens/types";
-import { ProfileDetailsScreen } from "../screens/profile/ProfileDetailsScreen";
-import { OTPVerificationScreen } from "../screens/profile/OTPVerificationScreen";
-import { EditPhNumberScreen } from "../screens/profile/EditPhNumberScreen";
-import { VerificationSuccessScreen } from "../screens/profile/VerificationSuccessScreen";
+} from "../../screens/types";
+import { ProfileDetailsScreen } from "../../screens/profile/ProfileDetailsScreen";
+import { OTPVerificationScreen } from "../../screens/profile/OTPVerificationScreen";
+import { EditPhNumberScreen } from "../../screens/profile/EditPhNumberScreen";
+import { VerificationSuccessScreen } from "../../screens/profile/VerificationSuccessScreen";
 
 import { UnmzLinearGradient, View } from "@unmaze/views";
 import { ChevronLeft } from "@unmaze/assets";
@@ -14,7 +14,8 @@ import { ChevronLeft } from "@unmaze/assets";
 import { Pressable } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
-import { EditEmailScreen } from "../screens/profile/EditEmailScreen";
+import { EditEmailScreen } from "../../screens/profile/EditEmailScreen";
+import { screenOptions } from "../screenOptions";
 
 // Component which actually renders the entire screen hierarachy
 export const UnmzStackNavigator = () => {
@@ -33,12 +34,7 @@ export const UnmzStackNavigator = () => {
   return (
     <NavStack.Navigator
       initialRouteName={PROFILE_DETAILS_SCREEN_ID}
-      screenOptions={{
-        statusBarStyle: "dark",
-        headerTitleAlign: "center",
-        statusBarTranslucent: true,
-        statusBarColor: "transparent",
-      }}
+      screenOptions={screenOptions}
     >
       {screens.map((scr) => {
         return (
