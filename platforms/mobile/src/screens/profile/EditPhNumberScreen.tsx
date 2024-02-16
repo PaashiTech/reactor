@@ -9,12 +9,12 @@ import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
-  Screen,
+  ProfileScreen,
+  EditPhNumberScreenProps,
   EDIT_PH_NUMBER_SCREEN_ID,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-  EditPhNumberScreenProps,
-} from "../types";
+} from "./types";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
@@ -80,7 +80,7 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   );
 };
 
-export const EditPhNumberScreen: Screen = {
+export const EditPhNumberScreen: ProfileScreen = {
   key: EDIT_PH_NUMBER_SCREEN_ID,
   title: "Edit number",
   background: "plain",

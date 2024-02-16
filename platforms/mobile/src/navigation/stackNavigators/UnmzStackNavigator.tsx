@@ -1,8 +1,7 @@
 import {
-  Screen,
   UnmzStackNavRouteProps,
   PROFILE_DETAILS_SCREEN_ID,
-} from "../../screens/types";
+} from "../../screens/profile/types";
 import { ProfileDetailsScreen } from "../../screens/profile/ProfileDetailsScreen";
 import { OTPVerificationScreen } from "../../screens/profile/OTPVerificationScreen";
 import { EditPhNumberScreen } from "../../screens/profile/EditPhNumberScreen";
@@ -16,10 +15,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { EditEmailScreen } from "../../screens/profile/EditEmailScreen";
 import { screenOptions } from "../screenOptions";
+import { ProfileScreen } from "../../screens/profile/types";
 
 // Component which actually renders the entire screen hierarachy
 export const UnmzStackNavigator = () => {
-  const screens: Screen[] = [
+  const screens: ProfileScreen[] = [
     ProfileDetailsScreen,
     OTPVerificationScreen,
     EditPhNumberScreen,

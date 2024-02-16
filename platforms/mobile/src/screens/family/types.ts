@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Screen } from "../types";
 
-export interface FamilyScreen extends Omit<Screen, "key"> {
+export interface FamilyScreen extends Screen {
   key: keyof FamilyStackRouteProps;
 }
 

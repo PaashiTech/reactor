@@ -4,12 +4,12 @@ import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
-  Screen,
+  ProfileScreen,
+  EditEmailScreenProps,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
-  EditEmailScreenProps,
-} from "../types";
+} from "./types";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
@@ -115,7 +115,7 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   );
 };
 
-export const EditEmailScreen: Screen = {
+export const EditEmailScreen: ProfileScreen = {
   key: EDIT_EMAIL_SCREEN_ID,
   title: "Edit email address",
   background: "plain",

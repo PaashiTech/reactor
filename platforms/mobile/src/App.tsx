@@ -1,5 +1,5 @@
 import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
-import { FamilyStackNavigator } from "./navigation";
+import { FamilyStackNavigator, UnmzStackNavigator } from "./navigation";
 
 export function App() {
   return (
