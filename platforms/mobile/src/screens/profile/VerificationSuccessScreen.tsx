@@ -42,6 +42,6 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
 export const VerificationSuccessScreen: ProfileScreen = {
   key: VERIFICATION_SUCCESS_SCREEN_ID,
   title: "Verify Number",
-  background: "plain",
+  headerBackground: "plain",
   content: _VerificationSuccessScreen,
 };

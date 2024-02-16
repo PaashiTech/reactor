@@ -30,7 +30,7 @@ export const FamilyStackNavigator = () => {
               title: scr.title,
               headerShown: scr.title !== "Verify Number",
               headerBackground: () =>
-                scr.background === "linear-gradient" ? (
+                scr.headerBackground === "linear-gradient" ? (
                   <UnmzLinearGradient style={{ flex: 1 }} />
                 ) : (
                   <View flex={1} bg={"#fff"} />

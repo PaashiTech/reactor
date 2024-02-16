@@ -118,6 +118,6 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
 export const EditEmailScreen: ProfileScreen = {
   key: EDIT_EMAIL_SCREEN_ID,
   title: "Edit email address",
-  background: "plain",
+  headerBackground: "plain",
   content: _EditEmailScreen,
 };

@@ -83,6 +83,6 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
 export const EditPhNumberScreen: ProfileScreen = {
   key: EDIT_PH_NUMBER_SCREEN_ID,
   title: "Edit number",
-  background: "plain",
+  headerBackground: "plain",
   content: _EditPhNumberScreen,
 };

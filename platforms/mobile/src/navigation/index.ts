@@ -1,5 +1,5 @@
 import { FamilyStackNavigator } from "./stackNavigators/FamilyStackNavigator";
-import { UnmzStackNavigator } from "./stackNavigators/UnmzStackNavigator";
+import { ProfileStackNavigator } from "./stackNavigators/ProfileStackNavigator";
 
 // Stack Navigators
-export { FamilyStackNavigator, UnmzStackNavigator };
+export { FamilyStackNavigator, ProfileStackNavigator };

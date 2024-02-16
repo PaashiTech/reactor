@@ -6,10 +6,8 @@ import { ProfileDetailsScreen } from "../../screens/profile/ProfileDetailsScreen
 import { OTPVerificationScreen } from "../../screens/profile/OTPVerificationScreen";
 import { EditPhNumberScreen } from "../../screens/profile/EditPhNumberScreen";
 import { VerificationSuccessScreen } from "../../screens/profile/VerificationSuccessScreen";
-
 import { UnmzLinearGradient, View } from "@unmaze/views";
 import { ChevronLeft } from "@unmaze/assets";
-
 import { Pressable } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
@@ -18,7 +16,7 @@ import { screenOptions } from "../screenOptions";
 import { ProfileScreen } from "../../screens/profile/types";
 
 // Component which actually renders the entire screen hierarachy
-export const UnmzStackNavigator = () => {
+export const ProfileStackNavigator = () => {
   const screens: ProfileScreen[] = [
     ProfileDetailsScreen,
     OTPVerificationScreen,
@@ -46,7 +44,7 @@ export const UnmzStackNavigator = () => {
               title: scr.title,
               headerShown: scr.title !== "Verify Number",
               headerBackground: () =>
-                scr.background === "linear-gradient" ? (
+                scr.headerBackground === "linear-gradient" ? (
                   <UnmzLinearGradient style={{ flex: 1 }} />
                 ) : (
                   <View flex={1} bg={"#fff"} />

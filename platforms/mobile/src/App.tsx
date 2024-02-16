@@ -1,9 +1,7 @@
 import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
-
 import { useUnmzFontsExpo } from "@unmaze/assets";
-
-import { UnmzStackNavigator } from "./navigation/UnmzStackNavigator";
 import { NavigationContainer } from "@react-navigation/native";
+import { FamilyStackNavigator, ProfileStackNavigator } from "./navigation";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -16,9 +14,8 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       {/* your app here */}
       {/* <Text>Your app here</Text> */}
-
       <NavigationContainer>
-        <UnmzStackNavigator />
+        <FamilyStackNavigator />
       </NavigationContainer>
     </TamaguiProvider>
   );
