@@ -1,24 +1,23 @@
-import {
-  CustomToast,
-  PortalProvider,
-  TamaguiProvider,
-  View,
-  tamaguiConfig,
-} from "@unmaze/views";
-// import { UnmzStackNavigator } from "./navigation/UnmzStackNavigator";
-import { ToastProvider, ToastViewport } from "@tamagui/toast";
+import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
+import { useUnmzFontsExpo } from "@unmaze/assets";
+import { UnmzStackNavigator } from "./navigation/UnmzStackNavigator";
+import { NavigationContainer } from "@react-navigation/native";
 
 export function App() {
+  const [fontsLoaded] = useUnmzFontsExpo();
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-      <PortalProvider>
-        <ToastProvider native={["mobile"]}>
-          <View flex={1} jc={"center"} ai={"center"}>
-            <CustomToast />
-          </View>
-          <ToastViewport />
-        </ToastProvider>
-      </PortalProvider>
+      {/* your app here */}
+      {/* <Text>Your app here</Text> */}
+
+      <NavigationContainer>
+        <UnmzStackNavigator />
+      </NavigationContainer>
     </TamaguiProvider>
   );
 }
