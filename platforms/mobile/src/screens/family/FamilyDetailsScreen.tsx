@@ -1,14 +1,30 @@
 import {
+  ADD_FAMILY_MEMBER_SCREEN_ID,
   FAMILY_ACCOUNTS_SCREEN_ID,
   FamilyAccountsScreenProps,
   FamilyScreen,
 } from "./types";
-import { Text, View } from "@unmaze/views";
+import { UnmzGradientButton, View } from "@unmaze/views";
+import { Plus } from "@unmaze/assets";
+import { FamilyEmpty } from "../../components/FamilyEmpty";
 
-const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = () => {
+const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
+  navigation,
+  route,
+}) => {
+  const familyMembers = null;
+
   return (
-    <View flex={1} jc="center" ai="center">
-      <Text>Family Account Screen</Text>
+    <View flex={1} jc="space-between">
+      {familyMembers ? null : <FamilyEmpty />}
+      <View p={20} paddingTop={16}>
+        <UnmzGradientButton
+          icon={Plus}
+          onPress={() => navigation.navigate(ADD_FAMILY_MEMBER_SCREEN_ID)}
+        >
+          Add family
+        </UnmzGradientButton>
+      </View>
     </View>
   );
 };

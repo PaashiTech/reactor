@@ -10,9 +10,10 @@ import { UnmzLinearGradient, View } from "@unmaze/views";
 import { useNavigation } from "@react-navigation/native";
 import { FamilyDetailsScreen } from "../../screens/family/FamilyDetailsScreen";
 import { screenOptions } from "../screenOptions";
+import { AddFamilyMemberScreen } from "../../screens/family/AddFamilyMemberScreen";
 
 export const FamilyStackNavigator = () => {
-  const screens: FamilyScreen[] = [FamilyDetailsScreen];
+  const screens: FamilyScreen[] = [FamilyDetailsScreen, AddFamilyMemberScreen];
   const FamilyStack = createNativeStackNavigator<FamilyStackRouteProps>();
 
   return (

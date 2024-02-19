@@ -22,6 +22,9 @@ export { UnmzLinearGradient } from "./_core/UnmzLinearGradient";
 // Bottom-aligned modal
 export { BottomModal } from "./_core/BottomModal";
 
+// FormTextInput
+export { FormTextInput } from "./_core/FormTextInput";
+
 /**
  * Composite components
  */

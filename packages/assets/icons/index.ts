@@ -3,5 +3,6 @@ import Plus from "./svg/plus-icon.svg";
 import Edit from "./svg/edit.svg";
 import ChevronLeft from "./svg/chevron-left.svg";
 import Warning from "./svg/warning.svg";
+import UserEmpty from "./svg/user-empty.svg";
 
-export { CheckGreen, Plus, Edit, ChevronLeft, Warning };
+export { CheckGreen, Plus, Edit, ChevronLeft, Warning, UserEmpty };
