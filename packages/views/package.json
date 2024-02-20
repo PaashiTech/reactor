@@ -32,20 +32,20 @@
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@tamagui/build": "^1.88.17",
+    "@tamagui/build": "^1.90.2",
     "@testing-library/react-native": "12.4.3",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.45"
   },
   "dependencies": {
-    "@tamagui/linear-gradient": "^1.88.17",
-    "@tamagui/toast": "^1.89.20",
+    "@tamagui/linear-gradient": "^1.90.2",
+    "@tamagui/toast": "^1.90.2",
     "@unmaze/assets": "workspace:*",
     "@unmaze/config": "workspace:*",
     "burnt": "^0.12.2",
     "expo-linear-gradient": "~12.3.0",
     "react-native-otp-textinput": "^1.1.5",
     "react-timer-hook": "^3.0.7",
-    "tamagui": "^1.88.17"
+    "tamagui": "^1.90.2"
   }
 }
