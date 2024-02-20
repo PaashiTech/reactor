@@ -1,30 +1,10 @@
-import { Toast, useToastController, useToastState } from "@tamagui/toast";
-import { useState } from "react";
-import { Button, Label, Switch, XStack, YStack } from "tamagui";
-/**
+import { Toast, useToastState } from "@tamagui/toast";
+import { XStack, YStack } from "tamagui";
+import { ToastLogo } from "@unmaze/assets";
 
- *  IMPORTANT NOTE: if you're copy-pasting this demo into your code, make sure to add:
-
- *    - <ToastProvider> at the root
-
- *    - <ToastViewport /> where you want to show the toasts
-
- */
-
-const ToastDemo = () => {
-  const [native, setNative] = useState(false);
-  return (
-    <YStack gap="$4" alignItems="center">
-      <ToastControl native={native} />
-      <CurrentToast />
-      <NativeOptions native={native} setNative={setNative} />
-    </YStack>
-  );
-};
-const CurrentToast = () => {
+export const CustomToast: React.FC = () => {
   const currentToast = useToastState();
   if (!currentToast || currentToast.isHandledNatively) return null;
-
   return (
     <Toast
       key={currentToast.id}
@@ -34,84 +14,25 @@ const CurrentToast = () => {
       y={0}
       opacity={1}
       scale={1}
-      animation="100ms"
+      animation="quick"
       viewportName={currentToast.viewportName}
+      backgroundColor={"#393939"}
+      width={236}
+      paddingHorizontal={16}
+      paddingVertical={8}
     >
-      <YStack>
-        <Toast.Title>{currentToast.title}</Toast.Title>
+      <XStack gap={12} alignItems="center">
+        <ToastLogo />
+        <YStack flex={1}>
+          <Toast.Title fontSize={12} color={"#fff"} fontWeight={"500"}>
+            {currentToast.title}
+          </Toast.Title>
 
-        {!!currentToast.message && (
-          <Toast.Description>{currentToast.message}</Toast.Description>
-        )}
-      </YStack>
+          {!!currentToast.message && (
+            <Toast.Description>{currentToast.message}</Toast.Description>
+          )}
+        </YStack>
+      </XStack>
     </Toast>
   );
 };
-const ToastControl = ({ native }: { native: boolean }) => {
-  const toast = useToastController();
-
-  return (
-    <XStack gap="$2" justifyContent="center">
-      <Button
-        onPress={() => {
-          toast.show("Successfully saved!", {
-            message: "Don't worry, we've got your data.",
-            native,
-          });
-        }}
-      >
-        Show
-      </Button>
-
-      <Button
-        onPress={() => {
-          toast.hide();
-        }}
-      >
-        Hide
-      </Button>
-    </XStack>
-  );
-};
-const NativeOptions = ({
-  native,
-
-  setNative,
-}: {
-  native: boolean;
-
-  setNative: (native: boolean) => void;
-}) => {
-  return (
-    <XStack gap="$3">
-      <Label size="$1" onPress={() => setNative(false)}>
-        Custom
-      </Label>
-
-      <Switch
-        id="native-toggle"
-        nativeID="native-toggle"
-        theme="active"
-        size="$1"
-        checked={!!native}
-        onCheckedChange={(val) => setNative(val)}
-      >
-        <Switch.Thumb
-          animation={[
-            "quick",
-            {
-              transform: {
-                overshootClamping: true,
-              },
-            },
-          ]}
-        />
-      </Switch>
-      <Label size="$1" onPress={() => setNative(true)}>
-        Native
-      </Label>
-    </XStack>
-  );
-};
-
-export default ToastDemo;
