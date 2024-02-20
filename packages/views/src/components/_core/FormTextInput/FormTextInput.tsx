@@ -7,15 +7,23 @@ interface FormTextInputProps {
 
 export const FormTextInput: React.FC<FormTextInputProps> = ({
   label,
-  placeholder
+  placeholder,
 }) => {
   return (
-    <View gap={4} >
-      <Label unstyled fontSize={14} letterSpacing={0.28} color={'#525252'} fontWeight="400">{label}</Label>
-      <Input  
+    <View>
+      <Label
+        unstyled
+        fontSize={14}
+        letterSpacing={0.28}
+        color={"#525252"}
+        fontWeight="400"
+      >
+        {label}
+      </Label>
+      <Input
         padding={4}
         paddingBottom={8}
-        unstyled   
+        unstyled
         placeholder={placeholder}
         fontSize={14}
         borderBottomWidth={1}
@@ -24,7 +32,7 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
         focusStyle={{
           borderBottomColor: "#262626",
         }}
-        />
+      />
     </View>
   );
 };

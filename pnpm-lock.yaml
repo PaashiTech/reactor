@@ -76,6 +76,9 @@ importers:
 
   builds/expo-app:
     dependencies:
+      '@react-native-community/datetimepicker':
+        specifier: ^7.6.2
+        version: 7.6.2
       '@react-navigation/native':
         specifier: ^6.1.9
         version: 6.1.9(react-native@0.72.6)(react@18.2.0)
@@ -109,6 +112,9 @@ importers:
       react-native:
         specifier: 0.72.6
         version: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+      react-native-modal-datetime-picker:
+        specifier: ^17.1.0
+        version: 17.1.0(@react-native-community/datetimepicker@7.6.2)(react-native@0.72.6)
       react-native-safe-area-context:
         specifier: 4.8.2
         version: 4.8.2(react-native@0.72.6)(react@18.2.0)
@@ -253,6 +259,9 @@ importers:
 
   packages/views:
     dependencies:
+      '@react-native-community/datetimepicker':
+        specifier: ^7.6.2
+        version: 7.6.2
       '@tamagui/linear-gradient':
         specifier: ^1.90.2
         version: 1.90.2(react@18.2.0)
@@ -271,6 +280,12 @@ importers:
       expo-linear-gradient:
         specifier: ~12.3.0
         version: 12.3.0(expo@49.0.21)
+      react-native-calendars:
+        specifier: ^1.1303.0
+        version: 1.1303.0(react-native@0.72.6)(react@18.2.0)
+      react-native-modal-datetime-picker:
+        specifier: ^17.1.0
+        version: 17.1.0(@react-native-community/datetimepicker@7.6.2)(react-native@0.72.6)
       react-native-otp-textinput:
         specifier: ^1.1.5
         version: 1.1.5(react-native@0.72.6)
@@ -3910,6 +3925,12 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
+
+  /@react-native-community/datetimepicker@7.6.2:
+    resolution: {integrity: sha512-ogZnvCmNG/lGHhEQypqz/mPymiIWD5jv6uKczg/l/aWgiKs1RDPQH1abh+R0I26aKoXmgamJJPuXKeC5eRWtZg==}
+    dependencies:
+      invariant: 2.2.4
+    dev: false
 
   /@react-native/assets-registry@0.72.0:
     resolution: {integrity: sha512-Im93xRJuHHxb1wniGhBMsxLwcfzdYreSZVQGDoMJgkd6+Iky61LInGEHnQCTN0fKNYF1Dvcofb4uMmE1RQHXHQ==}
@@ -12782,6 +12803,12 @@ packages:
     hasBin: true
     dev: false
 
+  /moment@2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
+    requiresBuild: true
+    dev: false
+    optional: true
+
   /mrmime@2.0.0:
     resolution: {integrity: sha512-eu38+hdgojoyq63s+yTpN4XMBdt5l8HhMhc4VKLO9KM5caLIBvUm4thi7fFaxyTmCKeNnXZ5pAlBwCUnhA09uw==}
     engines: {node: '>=10'}
@@ -14162,6 +14189,34 @@ packages:
       webpack: 5.89.0
     dev: false
 
+  /react-native-calendars@1.1303.0(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-afR9D+EbJQe/YnlXRly/4pqkM7iXSziaKUZz1EoKWk3R0D+sela5LknziXIiM1XFDCpYk5ZJ3cjnTed0MjxVKg==}
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      lodash: 4.17.21
+      memoize-one: 5.2.1
+      prop-types: 15.8.1
+      react-native-swipe-gestures: 1.0.5
+      recyclerlistview: 4.2.0(react-native@0.72.6)(react@18.2.0)
+      xdate: 0.8.2
+    optionalDependencies:
+      moment: 2.30.1
+    transitivePeerDependencies:
+      - react
+      - react-native
+    dev: false
+
+  /react-native-modal-datetime-picker@17.1.0(@react-native-community/datetimepicker@7.6.2)(react-native@0.72.6):
+    resolution: {integrity: sha512-jfTwfaCLtBffYbQ+pOGFLM+J5HmUh3vb9rT0JrrQPjxzecdc8pNYreB1c96+mVuq8bDCvaCdIeuEsslTqLJL0Q==}
+    peerDependencies:
+      '@react-native-community/datetimepicker': '>=6.7.0'
+      react-native: 0.72.6
+    dependencies:
+      '@react-native-community/datetimepicker': 7.6.2
+      prop-types: 15.8.1
+      react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+    dev: false
+
   /react-native-otp-textinput@1.1.5(react-native@0.72.6):
     resolution: {integrity: sha512-zV5aq5gyU54SPn5WGC8el0P1RdOEb0FiuPg9O+yBhwieDy2/ov16830KCHPG0ZNN5DErTPtzwLbrXQUdrt7tNA==}
     peerDependencies:
@@ -14220,6 +14275,10 @@ packages:
       css-tree: 1.1.3
       react: 18.2.0
       react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+    dev: false
+
+  /react-native-swipe-gestures@1.0.5:
+    resolution: {integrity: sha512-Ns7Bn9H/Tyw278+5SQx9oAblDZ7JixyzeOczcBK8dipQk2pD7Djkcfnf1nB/8RErAmMLL9iXgW0QHqiII8AhKw==}
     dev: false
 
   /react-native-vector-icons@10.0.3:
@@ -14575,6 +14634,19 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       minimatch: 3.1.2
+    dev: false
+
+  /recyclerlistview@4.2.0(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-uuBCi0c+ggqHKwrzPX4Z/mJOzsBbjZEAwGGmlwpD/sD7raXixdAbdJ6BTcAmuWG50Cg4ru9p12M94Njwhr/27A==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.6
+    dependencies:
+      lodash.debounce: 4.0.8
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+      ts-object-utils: 0.0.5
     dev: false
 
   /redent@3.0.0:
@@ -16074,6 +16146,10 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: false
 
+  /ts-object-utils@0.0.5:
+    resolution: {integrity: sha512-iV0GvHqOmilbIKJsfyfJY9/dNHCs969z3so90dQWsO1eMMozvTpnB1MEaUbb3FYtZTGjv5sIy/xmslEz0Rg2TA==}
+    dev: false
+
   /tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
     dependencies:
@@ -17169,6 +17245,10 @@ packages:
     dependencies:
       simple-plist: 1.3.1
       uuid: 7.0.3
+    dev: false
+
+  /xdate@0.8.2:
+    resolution: {integrity: sha512-sNBlLfOC8S3V0vLDEUianQOXcTsc9j4lfeKU/klHe0RjHAYn0CXsSttumTot8dzalboV8gZbH38B+WcCIBjhFQ==}
     dev: false
 
   /xdg-basedir@5.1.0:

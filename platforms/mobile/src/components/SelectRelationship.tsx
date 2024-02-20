@@ -3,13 +3,18 @@ import { useState } from "react";
 import { Adapt, Label, Select, Sheet, Text, View } from "tamagui";
 
 const relationships = [
-  "Spouse",
+  "Spouse/Life Partner",
   "Son",
   "Daughter",
   "Father",
   "Mother",
   "Brother",
   "Sister",
+  "Grandson",
+  "Granddaughter",
+  "Grandfather",
+  "Grandmother",
+  "Other",
 ] as const;
 
 type Relationships = (typeof relationships)[number];
@@ -17,7 +22,6 @@ type Relationships = (typeof relationships)[number];
 export const SelectRelationship = () => {
   const [value, setValue] = useState<Relationships | undefined>(undefined);
 
-  console.log(value);
   const handleSelectValue = (val: Relationships) => {
     setValue(val);
   };
@@ -37,7 +41,6 @@ export const SelectRelationship = () => {
         value={value}
         onValueChange={handleSelectValue}
         disablePreventBodyScroll
-        native
       >
         <Select.Trigger
           unstyled
