@@ -9,6 +9,7 @@ import { Text, View } from "tamagui";
 import { useCountdown } from "../../hooks/useCountdown";
 import { getTime } from "../../helpers/getTime";
 import { getFormattedTime } from "../../helpers/getFormattedTime";
+import { useToastController } from "@tamagui/toast";
 
 type CountdownTimerProps = {
   timerSeconds: number;
@@ -20,6 +21,8 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
   const { seconds, minutes, isRunning, restart } = useCountdown(
     getTime(timerSeconds)
   );
+
+  const toast = useToastController();
 
   const formattedMinutes = getFormattedTime(minutes);
   const formattedSeconds = getFormattedTime(seconds);
@@ -34,7 +37,10 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
         <Text
           color="#035E5D"
           pressStyle={{ textDecorationLine: "underline" }}
-          onPress={() => restart(getTime(timerSeconds))}
+          onPress={() => {
+            toast.show("OTP sent to your family member's mobile number", {});
+            restart(getTime(timerSeconds));
+          }}
         >
           Resend
         </Text>
