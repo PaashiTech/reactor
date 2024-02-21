@@ -20,6 +20,27 @@ Since v16.13, Node.js is shipping [Corepack](https://nodejs.org/api/corepack.htm
 corepack enable pnpm
 ```
 
+## 3. Install Android environment
+
+### 3.1 Install Microsoft binarie of OpenJDK-17
+
+Install from [here](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-17)
+
+> **_NOTE:_** Select JAVA_HOME variable install option.
+
+### 3.2 Install android SDK
+
+### 3.3 Set `ANDROID_HOME` to Android sdk path
+
+### 3.4 Setup PATH in environment variables
+
+```
+ PATH=$PATH:$ANDROID_HOME/emulator
+ PATH=$PATH:$ANDROID_HOME/platform-tools
+ PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin/
+
+```
+
 ## 3. Setup GitHub
 
 ### 3.1 Create a GitHub account

@@ -76,9 +76,6 @@ importers:
 
   builds/expo-app:
     dependencies:
-      '@react-native-community/datetimepicker':
-        specifier: ^7.6.2
-        version: 7.6.2
       '@react-navigation/native':
         specifier: ^6.1.9
         version: 6.1.9(react-native@0.72.6)(react@18.2.0)
@@ -112,9 +109,6 @@ importers:
       react-native:
         specifier: 0.72.6
         version: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
-      react-native-modal-datetime-picker:
-        specifier: ^17.1.0
-        version: 17.1.0(@react-native-community/datetimepicker@7.6.2)(react-native@0.72.6)
       react-native-safe-area-context:
         specifier: 4.8.2
         version: 4.8.2(react-native@0.72.6)(react@18.2.0)
@@ -259,9 +253,6 @@ importers:
 
   packages/views:
     dependencies:
-      '@react-native-community/datetimepicker':
-        specifier: ^7.6.2
-        version: 7.6.2
       '@tamagui/linear-gradient':
         specifier: ^1.90.2
         version: 1.90.2(react@18.2.0)
@@ -283,9 +274,6 @@ importers:
       react-native-calendars:
         specifier: ^1.1303.0
         version: 1.1303.0(react-native@0.72.6)(react@18.2.0)
-      react-native-modal-datetime-picker:
-        specifier: ^17.1.0
-        version: 17.1.0(@react-native-community/datetimepicker@7.6.2)(react-native@0.72.6)
       react-native-otp-textinput:
         specifier: ^1.1.5
         version: 1.1.5(react-native@0.72.6)
@@ -3925,12 +3913,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-
-  /@react-native-community/datetimepicker@7.6.2:
-    resolution: {integrity: sha512-ogZnvCmNG/lGHhEQypqz/mPymiIWD5jv6uKczg/l/aWgiKs1RDPQH1abh+R0I26aKoXmgamJJPuXKeC5eRWtZg==}
-    dependencies:
-      invariant: 2.2.4
-    dev: false
 
   /@react-native/assets-registry@0.72.0:
     resolution: {integrity: sha512-Im93xRJuHHxb1wniGhBMsxLwcfzdYreSZVQGDoMJgkd6+Iky61LInGEHnQCTN0fKNYF1Dvcofb4uMmE1RQHXHQ==}
@@ -14204,17 +14186,6 @@ packages:
     transitivePeerDependencies:
       - react
       - react-native
-    dev: false
-
-  /react-native-modal-datetime-picker@17.1.0(@react-native-community/datetimepicker@7.6.2)(react-native@0.72.6):
-    resolution: {integrity: sha512-jfTwfaCLtBffYbQ+pOGFLM+J5HmUh3vb9rT0JrrQPjxzecdc8pNYreB1c96+mVuq8bDCvaCdIeuEsslTqLJL0Q==}
-    peerDependencies:
-      '@react-native-community/datetimepicker': '>=6.7.0'
-      react-native: 0.72.6
-    dependencies:
-      '@react-native-community/datetimepicker': 7.6.2
-      prop-types: 15.8.1
-      react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
     dev: false
 
   /react-native-otp-textinput@1.1.5(react-native@0.72.6):
