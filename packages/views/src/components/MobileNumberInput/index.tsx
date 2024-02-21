@@ -1,12 +1,11 @@
 import { Input, Text, View, XStack } from "tamagui";
-import {
-  NativeSyntheticEvent,
-  TextInputChangeEventData,
-} from "react-native";
+import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 
 type MobileNumberInputProps = {
   mobileNumberValue: string;
-  handleMobileNumberChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
+  handleMobileNumberChange: (
+    e: NativeSyntheticEvent<TextInputChangeEventData>
+  ) => void;
 };
 
 export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
@@ -14,15 +13,17 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
   handleMobileNumberChange,
 }) => {
   return (
-    <View gap={8}>
-      <Text color="#444444">Mobile Number</Text>
+    <View>
+      <Text color="#525252" fontSize={14} fontWeight={"400"}>
+        Mobile Number
+      </Text>
       <XStack gap={8}>
         <Input
           unstyled
           cursorColor={"#212121"}
           color={"#212121"}
           defaultValue="+91"
-          fontSize={16}
+          fontSize={14}
           fontWeight={"500"}
           fontFamily={"$body"}
           padding={4}
@@ -35,14 +36,16 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
           maxLength={10}
           value={mobileNumberValue}
           onChange={handleMobileNumberChange}
-          borderBottomWidth={2}
-          fontSize={16}
+          borderBottomWidth={1}
+          fontSize={14}
           fontWeight={"500"}
           fontFamily={"$body"}
-          borderBottomColor={"#212121"}
+          borderBottomColor={"#6F6F6F"}
+          focusStyle={{
+            borderBottomColor: "#262626",
+          }}
           flex={1}
           keyboardType="numeric"
-          cursorColor={"#212121"}
         />
       </XStack>
     </View>

@@ -2,10 +2,10 @@ import { CheckGreen } from "@unmaze/assets";
 import { UnmzGradientButton, Text, View } from "@unmaze/views";
 
 import {
-  Screen,
-  VERIFICATION_SUCCESS_SCREEN_ID,
+  ProfileScreen,
   VerificationSuccessScreenProps,
-} from "../types";
+  VERIFICATION_SUCCESS_SCREEN_ID,
+} from "./types";
 
 const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   navigation,
@@ -39,9 +39,9 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   );
 };
 
-export const VerificationSuccessScreen: Screen = {
+export const VerificationSuccessScreen: ProfileScreen = {
   key: VERIFICATION_SUCCESS_SCREEN_ID,
   title: "Verify Number",
-  background: "plain",
+  headerBackground: "plain",
   content: _VerificationSuccessScreen,
 };
