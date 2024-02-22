@@ -77,7 +77,7 @@ export const SelectRelationship = () => {
 
       <PopupModal
         isVisible={isVisible}
-        onRequestClose={() => setIsVisible(false)}
+        onModalClose={() => setIsVisible(false)}
       >
         <View
           bg={"#fff"}

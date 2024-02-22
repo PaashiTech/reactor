@@ -39,10 +39,7 @@ const CalendarPicker: React.FC = () => {
           }}
         />
       </TouchableOpacity>
-      <PopupModal
-        isVisible={isVisible}
-        onRequestClose={() => setVisible(false)}
-      >
+      <PopupModal isVisible={isVisible} onModalClose={() => setVisible(false)}>
         <View
           alignItems="center"
           justifyContent="center"
