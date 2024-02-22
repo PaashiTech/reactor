@@ -1,6 +1,6 @@
+import { CheckGreen, ChevronLeft } from "@unmaze/assets";
 import { useState } from "react";
 import { Adapt, Label, Select, Sheet, View } from "@unmaze/views";
-import { ChevronDown } from "@unmaze/assets";
 
 const relationships = [
   "Spouse/Life Partner",
@@ -53,7 +53,7 @@ export const SelectRelationship = () => {
           focusStyle={{
             borderBottomColor: "#262626",
           }}
-          iconAfter={ChevronDown}
+          iconAfter={ChevronLeft}
         >
           <Select.Value
             fontSize={14}
@@ -94,6 +94,9 @@ export const SelectRelationship = () => {
                 return (
                   <Select.Item index={i} key={item} value={item}>
                     <Select.ItemText fontSize={16}>{item}</Select.ItemText>
+                    <Select.ItemIndicator marginLeft="auto">
+                      <CheckGreen size={16} />
+                    </Select.ItemIndicator>
                   </Select.Item>
                 );
               })}
