@@ -28,7 +28,7 @@ const CalendarPicker: React.FC = () => {
           padding={4}
           paddingBottom={8}
           unstyled
-          placeholder="YYYY/MM/DD"
+          placeholder="DD/MM/YYYY"
           fontSize={14}
           borderBottomWidth={1}
           fontWeight={"500"}
@@ -44,7 +44,12 @@ const CalendarPicker: React.FC = () => {
         onRequestClose={() => setVisible(false)}
         animationType="fade"
       >
-        <View flex={1} justifyContent="center" alignItems="center">
+        <View
+          flex={1}
+          justifyContent="center"
+          alignItems="center"
+          backgroundColor="rgba(0,0,0,0.2)"
+        >
           <View
             alignItems="center"
             justifyContent="center"

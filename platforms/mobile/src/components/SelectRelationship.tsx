@@ -1,6 +1,6 @@
-import { Check, ChevronDown } from "@tamagui/lucide-icons";
 import { useState } from "react";
-import { Adapt, Label, Select, Sheet, Text, View } from "tamagui";
+import { Adapt, Label, Select, Sheet, View } from "@unmaze/views";
+import { ChevronDown } from "@unmaze/assets";
 
 const relationships = [
   "Spouse/Life Partner",
@@ -94,9 +94,6 @@ export const SelectRelationship = () => {
                 return (
                   <Select.Item index={i} key={item} value={item}>
                     <Select.ItemText fontSize={16}>{item}</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
                   </Select.Item>
                 );
               })}
