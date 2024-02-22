@@ -2,6 +2,7 @@ import CheckGreen from "./svg/check-green.svg";
 import Plus from "./svg/plus-icon.svg";
 import Edit from "./svg/edit.svg";
 import ChevronLeft from "./svg/chevron-left.svg";
+import ChevronDown from "./svg/chevron-down.svg";
 import NavigateNext from "./svg/navigate-next.svg";
 import NavigateBefore from "./svg/navigate-before.svg";
 import Warning from "./svg/warning.svg";
@@ -14,6 +15,7 @@ export {
   Plus,
   Edit,
   ChevronLeft,
+  ChevronDown,
   NavigateNext,
   NavigateBefore,
   Warning,
