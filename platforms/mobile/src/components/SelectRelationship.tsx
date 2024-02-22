@@ -1,6 +1,15 @@
-import { CheckGreen, ChevronLeft } from "@unmaze/assets";
 import { useState } from "react";
-import { Adapt, Label, Select, Sheet, View } from "@unmaze/views";
+import {
+  Input,
+  Label,
+  PopupModal,
+  ScrollView,
+  Text,
+  View,
+  XStack,
+} from "@unmaze/views";
+import { ChevronDown, Close } from "@unmaze/assets";
+import { Pressable } from "react-native";
 
 const relationships = [
   "Spouse/Life Partner",
@@ -20,6 +29,7 @@ const relationships = [
 type Relationships = (typeof relationships)[number];
 
 export const SelectRelationship = () => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const [value, setValue] = useState<Relationships | undefined>(undefined);
 
   const handleSelectValue = (val: Relationships) => {
@@ -27,7 +37,7 @@ export const SelectRelationship = () => {
   };
 
   return (
-    <View>
+    <View gap={4}>
       <Label
         unstyled
         fontSize={14}
@@ -37,73 +47,99 @@ export const SelectRelationship = () => {
       >
         Relationship
       </Label>
-      <Select
-        value={value}
-        onValueChange={handleSelectValue}
-        disablePreventBodyScroll
+
+      <View
+        p={4}
+        pb={8}
+        borderBottomWidth={1}
+        borderColor="#6F6F6F"
+        pressStyle={{ borderColor: "#262626" }}
+        onPress={() => setIsVisible(true)}
       >
-        <Select.Trigger
-          unstyled
-          paddingHorizontal={4}
-          paddingBottom={8}
-          bg="transparent"
-          borderBottomWidth={1}
-          fontWeight={"500"}
-          borderBottomColor={"#6F6F6F"}
-          focusStyle={{
-            borderBottomColor: "#262626",
-          }}
-          iconAfter={ChevronLeft}
-        >
-          <Select.Value
-            fontSize={14}
+        <XStack alignItems="center">
+          <Input
+            unstyled
             placeholder="Select"
-            color={!value ? "#ada8a8" : undefined}
+            flex={1}
+            editable={false}
+            value={value}
+            color="#161616"
           />
-        </Select.Trigger>
-        <Adapt when="sm" platform="touch">
-          <Sheet
-            native
-            modal
-            snapPointsMode="mixed"
-            snapPoints={["50%"]}
-            dismissOnSnapToBottom
-            animationConfig={{
-              type: "spring",
-              damping: 50,
-              mass: 1.5,
-              stiffness: 100,
-            }}
-          >
-            <Sheet.Frame>
-              <Sheet.ScrollView>
-                <Adapt.Contents />
-              </Sheet.ScrollView>
-            </Sheet.Frame>
-            <Sheet.Overlay
-              animation="lazy"
-              enterStyle={{ opacity: 0 }}
-              exitStyle={{ opacity: 0 }}
-            />
-          </Sheet>
-        </Adapt>
-        <Select.Content>
-          <Select.Viewport>
-            <Select.Group>
-              {relationships.map((item, i) => {
-                return (
-                  <Select.Item index={i} key={item} value={item}>
-                    <Select.ItemText fontSize={16}>{item}</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <CheckGreen size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-                );
-              })}
-            </Select.Group>
-          </Select.Viewport>
-        </Select.Content>
-      </Select>
+          <View>
+            <ChevronDown />
+          </View>
+        </XStack>
+      </View>
+
+      <PopupModal
+        isVisible={isVisible}
+        onModalClose={() => setIsVisible(false)}
+      >
+        <View
+          bg={"#fff"}
+          width={320}
+          borderRadius={16}
+          paddingVertical={16}
+          gap={12}
+        >
+          <XStack paddingHorizontal={16}>
+            <Text
+              flex={1}
+              fontSize={16}
+              fontWeight={"600"}
+              letterSpacing={0.32}
+            >
+              Select relation
+            </Text>
+            <Pressable
+              onPress={() => setIsVisible(false)}
+              android_ripple={{
+                radius: 15,
+                borderless: true,
+              }}
+            >
+              <Close />
+            </Pressable>
+          </XStack>
+          <ScrollView padding={8} paddingTop={0} height={294}>
+            {relationships.map((item, i) => (
+              <RelationListItem
+                key={i}
+                value={item}
+                selected={value === item}
+                onSelect={() => {
+                  setValue(item);
+                  setIsVisible(false);
+                }}
+              />
+            ))}
+          </ScrollView>
+        </View>
+      </PopupModal>
     </View>
+  );
+};
+
+const RelationListItem = ({
+  value,
+  selected,
+  onSelect,
+}: {
+  value: string;
+  selected: boolean;
+  onSelect: () => void;
+}) => {
+  return (
+    <Pressable onPress={onSelect}>
+      <Text
+        paddingVertical={8}
+        paddingHorizontal={12}
+        fontWeight={"500"}
+        bg={selected ? "#e6e6e6" : undefined}
+        borderRadius={8}
+      >
+        {value}
+      </Text>
+    </Pressable>
   );
 };

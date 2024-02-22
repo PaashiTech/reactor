@@ -1,33 +1,43 @@
 import { ReactElement } from "react";
-import { Modal } from "react-native";
-import { View, ViewProps } from "tamagui";
+import {
+  Modal,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from "react-native";
+import { View } from "tamagui";
 
 interface PopupModalProps {
   isVisible: boolean;
-  onRequestClose: () => void;
-  children?: React.ReactNode;
+  onModalClose: () => void;
+  children?: ReactElement;
 }
 
 export const PopupModal: React.FC<PopupModalProps> = ({
   isVisible,
-  onRequestClose,
+  onModalClose,
   children,
 }) => {
   return (
     <Modal
       visible={isVisible}
       transparent
-      onRequestClose={onRequestClose}
+      onRequestClose={onModalClose}
       animationType="fade"
     >
-      <View
-        flex={1}
-        justifyContent="center"
-        alignItems="center"
-        backgroundColor="rgba(0,0,0,0.2)"
+      <TouchableOpacity
+        activeOpacity={1}
+        onPressOut={onModalClose}
+        style={{ flex: 1 }}
       >
-        {children}
-      </View>
+        <View
+          flex={1}
+          justifyContent="center"
+          alignItems="center"
+          backgroundColor="rgba(0,0,0,0.2)"
+        >
+          <TouchableWithoutFeedback>{children}</TouchableWithoutFeedback>
+        </View>
+      </TouchableOpacity>
     </Modal>
   );
 };

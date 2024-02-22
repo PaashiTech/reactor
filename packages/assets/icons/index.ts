@@ -9,6 +9,7 @@ import Warning from "./svg/warning.svg";
 import UserEmpty from "./svg/user-empty.svg";
 import ToastLogo from "./svg/toast-logo.svg";
 import Calendar from "./svg/calendar.svg";
+import Close from "./svg/close.svg";
 
 export {
   CheckGreen,
@@ -22,4 +23,5 @@ export {
   UserEmpty,
   ToastLogo,
   Calendar,
+  Close,
 };
