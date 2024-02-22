@@ -28,6 +28,9 @@ export { FormTextInput } from "./_core/FormTextInput";
 // Calender Picker
 export { CalendarPicker } from "./_core/CalendarPicker";
 
+// Popup Modal
+export { PopupModal } from "./_core/PopupModal";
+
 /**
  * Composite components
  */

@@ -3,6 +3,7 @@ import { Label, View, Input, Text, Button, XStack } from "tamagui";
 import { TouchableOpacity, Modal } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { NavigateNext, NavigateBefore } from "@unmaze/assets";
+import { PopupModal } from "../PopupModal";
 
 const CalendarPicker: React.FC = () => {
   const [isVisible, setVisible] = useState(false);
@@ -38,67 +39,58 @@ const CalendarPicker: React.FC = () => {
           }}
         />
       </TouchableOpacity>
-      <Modal
-        visible={isVisible}
-        transparent
+      <PopupModal
+        isVisible={isVisible}
         onRequestClose={() => setVisible(false)}
-        animationType="fade"
       >
         <View
-          flex={1}
-          justifyContent="center"
           alignItems="center"
-          backgroundColor="rgba(0,0,0,0.2)"
+          justifyContent="center"
+          backgroundColor={"#fff"}
+          padding={20}
+          borderRadius={20}
         >
-          <View
-            alignItems="center"
-            justifyContent="center"
-            backgroundColor={"#fff"}
-            padding={20}
-            borderRadius={20}
-          >
-            <Calendar
-              style={{ height: 360, width: 296 }}
-              renderArrow={(direction) =>
-                direction === "left" ? <NavigateBefore /> : <NavigateNext />
-              }
-              enableSwipeMonths
-              onDayPress={(day) => {
-                setSelected(day.dateString);
+          <Calendar
+            style={{ height: 360, width: 296 }}
+            renderArrow={(direction) =>
+              direction === "left" ? <NavigateBefore /> : <NavigateNext />
+            }
+            enableSwipeMonths
+            onDayPress={(day) => {
+              setSelected(day.dateString);
+            }}
+            markedDates={{
+              [selected]: {
+                selected: true,
+                disableTouchEvent: true,
+                selectedColor: "orange",
+              },
+            }}
+          />
+          <XStack gap={8} alignSelf="flex-end">
+            <Button
+              size="$3"
+              variant="outlined"
+              onPress={() => {
+                setVisible(false);
+                setSelected(value);
               }}
-              markedDates={{
-                [selected]: {
-                  selected: true,
-                  disableTouchEvent: true,
-                  selectedColor: "orange",
-                },
+            >
+              Cancel
+            </Button>
+            <Button
+              size="$3"
+              variant="outlined"
+              onPress={() => {
+                setValue(selected);
+                setVisible(false);
               }}
-            />
-            <XStack gap={8} alignSelf="flex-end">
-              <Button
-                size="$3"
-                variant="outlined"
-                onPress={() => {
-                  setVisible(false);
-                  setSelected(value);
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                size="$3"
-                variant="outlined"
-                onPress={() => {
-                  setValue(selected);
-                  setVisible(false);
-                }}
-              >
-                OK
-              </Button>
-            </XStack>
-          </View>
+            >
+              OK
+            </Button>
+          </XStack>
         </View>
-      </Modal>
+      </PopupModal>
     </View>
   );
 };
