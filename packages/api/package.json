@@ -1,0 +1,25 @@
+{
+  "name": "@unmaze/api",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": [
+    "*.css"
+  ],
+  "types": "./src",
+  "main": "src/index.ts",
+  "files": [
+    "types",
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "swr": "^2.2.5",
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "msw": "^2.2.1",
+    "react-native-url-polyfill": "2.0.0",
+    "fast-text-encoding": "1.0.6",
+    "@faker-js/faker": "^8.4.1"
+  }
+}
