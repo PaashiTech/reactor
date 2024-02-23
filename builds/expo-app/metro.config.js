@@ -1,6 +1,8 @@
+/* eslint-disable linebreak-style */
+
 // Learn more https://docs.expo.io/guides/customizing-metro
-const path = require("path");
-const { getDefaultConfig } = require("expo/metro-config");
+const path = require('path');
+const { getDefaultConfig } = require('expo/metro-config');
 
 /** Metro configuration
  * https://facebook.github.io/metro/docs/configuration
@@ -11,7 +13,7 @@ const { getDefaultConfig } = require("expo/metro-config");
 // Combine configuration for monorepo setup and SVG transformer
 module.exports = (async () => {
   // Find the workspace root
-  const workspaceRoot = path.resolve(__dirname, "../..");
+  const workspaceRoot = path.resolve(__dirname, '../..');
 
   const defaultConfig = await getDefaultConfig(__dirname);
 
@@ -22,7 +24,7 @@ module.exports = (async () => {
     watchFolders,
   } = await defaultConfig;
 
-  const customAssetExts = assetExts.filter((ext) => ext !== "svg");
+  const customAssetExts = assetExts.filter((ext) => ext !== 'svg');
 
   // Watch all files within the monorepo
   defaultConfig.watchFolders = [...watchFolders, workspaceRoot];
@@ -31,17 +33,17 @@ module.exports = (async () => {
   defaultConfig.resolver = {
     ...resolver,
     nodeModulesPath: [
-      path.resolve(__dirname, "node_modules"),
-      path.resolve(workspaceRoot, "node_modules"),
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(workspaceRoot, 'node_modules'),
     ],
-    sourceExts: [...sourceExts, "mjs", "svg", "otf", "ttf"],
+    sourceExts: [...sourceExts, 'mjs', 'svg', 'otf', 'ttf'],
     assetExts: [...customAssetExts],
   };
 
   // SVG transformer configuration
   defaultConfig.transformer = {
     ...transformer,
-    babelTransformerPath: require.resolve("react-native-svg-transformer"),
+    babelTransformerPath: require.resolve('react-native-svg-transformer'),
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
