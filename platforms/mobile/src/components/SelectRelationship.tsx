@@ -10,6 +10,7 @@ import {
 } from "@unmaze/views";
 import { ChevronDown, Close } from "@unmaze/assets";
 import { Pressable } from "react-native";
+import { IconButton } from "./IconButton";
 
 const relationships = [
   "Spouse/Life Partner",
@@ -31,10 +32,6 @@ type Relationships = (typeof relationships)[number];
 export const SelectRelationship = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [value, setValue] = useState<Relationships | undefined>(undefined);
-
-  const handleSelectValue = (val: Relationships) => {
-    setValue(val);
-  };
 
   return (
     <View gap={4}>
@@ -66,7 +63,7 @@ export const SelectRelationship = () => {
             color="#161616"
           />
           <View>
-            <ChevronDown />
+            <IconButton icon={ChevronDown} onPress={() => setIsVisible(true)} />
           </View>
         </XStack>
       </View>
@@ -91,15 +88,7 @@ export const SelectRelationship = () => {
             >
               Select relation
             </Text>
-            <Pressable
-              onPress={() => setIsVisible(false)}
-              android_ripple={{
-                radius: 15,
-                borderless: true,
-              }}
-            >
-              <Close />
-            </Pressable>
+            <IconButton icon={Close} onPress={() => setIsVisible(false)} />
           </XStack>
           <ScrollView padding={8} paddingTop={0} height={294}>
             {relationships.map((item, i) => (
