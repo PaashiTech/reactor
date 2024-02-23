@@ -7,14 +7,17 @@ import {
   CalendarPicker,
   ScrollView,
 } from "@unmaze/views";
-import { Plus } from "@unmaze/assets";
+import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { KeyBenefits } from "../../components/KeyBenefits";
 import { SelectRelationship } from "../../components/SelectRelationship";
 import { KeyboardAvoidingView } from "react-native";
+import { TertiaryButton } from "@unmaze/views/src/components";
 
 const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
+  const buttonDisabled = false;
+
   return (
-    <View flex={1}>
+    <View flex={1} bg={"white"}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior="padding"
@@ -41,8 +44,19 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
         </ScrollView>
       </KeyboardAvoidingView>
       <View gap={12} padding={20}>
-        <UnmzGradientButton disabled>Invite using OTP</UnmzGradientButton>
-        <UnmzGradientButton disabled icon={Plus}>
+        <TertiaryButton disabled={buttonDisabled}>
+          Invite using OTP
+        </TertiaryButton>
+        <UnmzGradientButton
+          disabled={buttonDisabled}
+          icon={
+            buttonDisabled ? (
+              <WhatsappDisabled width={20} height={20} />
+            ) : (
+              <Whatsapp width={20} height={20} />
+            )
+          }
+        >
           Invite using Whatsapp
         </UnmzGradientButton>
       </View>
