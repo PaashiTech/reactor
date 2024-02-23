@@ -46,4 +46,5 @@ export { MobileNumberInput } from "./MobileNumberInput";
 export { CountdownTimer } from "./CountdownTimer";
 
 // Custom Toast
-export { CustomToast } from "./_core/CustomToast/CustomToast";
+export { UnmzToast } from "./_core/UnmzToast/UnmzToast";
+export { UnmzToastProvider } from "./_core/UnmzToast/UnmzToastProvider";
