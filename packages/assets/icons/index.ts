@@ -10,8 +10,8 @@ import UserEmpty from "./svg/user-empty.svg";
 import ToastLogo from "./svg/toast-logo.svg";
 import Calendar from "./svg/calendar.svg";
 import Close from "./svg/close.svg";
-export { default as WhatsappDisabled } from "./svg/whatsapp.svg";
-export { default as Whatsapp } from "./svg/whatsapp-2.svg";
+import Whatsapp from "./svg/whatsapp-2.svg";
+import WhatsappDisabled from "./svg/whatsapp.svg";
 
 export {
   CheckGreen,
@@ -26,4 +26,6 @@ export {
   ToastLogo,
   Calendar,
   Close,
+  Whatsapp,
+  WhatsappDisabled,
 };
