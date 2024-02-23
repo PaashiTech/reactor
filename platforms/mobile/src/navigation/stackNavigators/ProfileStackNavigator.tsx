@@ -8,12 +8,12 @@ import { EditPhNumberScreen } from "../../screens/profile/EditPhNumberScreen";
 import { VerificationSuccessScreen } from "../../screens/profile/VerificationSuccessScreen";
 import { UnmzLinearGradient, View } from "@unmaze/views";
 import { ChevronLeft } from "@unmaze/assets";
-import { Pressable } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { EditEmailScreen } from "../../screens/profile/EditEmailScreen";
 import { screenOptions } from "../screenOptions";
 import { ProfileScreen } from "../../screens/profile/types";
+import { IconButton } from "../../components/IconButton";
 
 // Component which actually renders the entire screen hierarachy
 export const ProfileStackNavigator = () => {
@@ -52,17 +52,10 @@ export const ProfileStackNavigator = () => {
               headerLeft: () => {
                 const navigation = useNavigation();
                 return (
-                  <Pressable
-                    android_ripple={{
-                      color: "#d1d1d1",
-                      borderless: true,
-                      radius: 16,
-                    }}
+                  <IconButton
+                    icon={ChevronLeft}
                     onPress={() => navigation.goBack()}
-                    style={{ padding: 10 }}
-                  >
-                    <ChevronLeft />
-                  </Pressable>
+                  />
                 );
               },
             }}
