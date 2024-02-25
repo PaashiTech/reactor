@@ -90,19 +90,21 @@ export const SelectRelationship = () => {
             </Text>
             <IconButton icon={Close} onPress={() => setIsVisible(false)} />
           </XStack>
-          <ScrollView padding={8} paddingTop={0} height={294}>
-            {relationships.map((item, i) => (
-              <RelationListItem
-                key={i}
-                value={item}
-                selected={value === item}
-                onSelect={() => {
-                  setValue(item);
-                  setIsVisible(false);
-                }}
-              />
-            ))}
-          </ScrollView>
+          <View paddingHorizontal={12} height={294}>
+            <ScrollView>
+              {relationships.map((item, i) => (
+                <RelationListItem
+                  key={i}
+                  value={item}
+                  selected={value === item}
+                  onSelect={() => {
+                    setValue(item);
+                    setIsVisible(false);
+                  }}
+                />
+              ))}
+            </ScrollView>
+          </View>
         </View>
       </PopupModal>
     </View>
