@@ -5,10 +5,7 @@ import {
 } from "@unmaze/views";
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer } from "@react-navigation/native";
-import { FamilyStackNavigator, ProfileStackNavigator } from "./navigation";
-import { MyProfileScreen } from "./screens/my-profile/MyProfileScreen";
-import { SafeAreaView, StatusBar } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { MyProfileStackNavigator } from "./navigation/stackNavigators/MyProfileStackNavigator";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -21,11 +18,7 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <NavigationContainer>
-          <SafeAreaProvider>
-            {/* <FamilyStackNavigator /> */}
-            {/* <ProfileStackNavigator /> */}
-            <MyProfileScreen />
-          </SafeAreaProvider>
+          <MyProfileStackNavigator />
         </NavigationContainer>
       </UnmzToastProvider>
     </TamaguiProvider>
