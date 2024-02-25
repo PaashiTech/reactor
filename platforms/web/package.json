@@ -21,12 +21,12 @@
     "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-native-web": "~0.19.9",
     "@unmaze/views": "workspace:*",
     "@unmaze/config": "workspace:*",
-    "@unmaze/assets": "workspace: *"
+    "@unmaze/assets": "workspace: *",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native-web": "~0.19.9"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",

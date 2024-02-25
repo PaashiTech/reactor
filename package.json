@@ -26,7 +26,7 @@
     "pnpm": ">=6"
   },
   "dependencies": {
-    "@tamagui/core": "1.88.17",
+    "@tamagui/core": "1.90.2",
     "react": "18.2.0"
   },
   "pnpm": {

@@ -1,0 +1,3 @@
+# Ignore metro.config.js
+
+builds/expo-app/metro.config.js

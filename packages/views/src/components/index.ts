@@ -15,12 +15,22 @@ export { TestComponent } from "./TestComponent";
  */
 // Button
 export { UnmzGradientButton } from "./_core/UnmzGradientButton";
+export { TertiaryButton } from "./_core/TertiaryButton/TertiaryButton";
 
 // Linear gradient
 export { UnmzLinearGradient } from "./_core/UnmzLinearGradient";
 
 // Bottom-aligned modal
 export { BottomModal } from "./_core/BottomModal";
+
+// FormTextInput
+export { FormTextInput } from "./_core/FormTextInput";
+
+// Calender Picker
+export { CalendarPicker } from "./_core/CalendarPicker";
+
+// Popup Modal
+export { PopupModal } from "./_core/PopupModal";
 
 /**
  * Composite components
@@ -34,3 +44,7 @@ export { MobileNumberInput } from "./MobileNumberInput";
 
 // CountdownTimer
 export { CountdownTimer } from "./CountdownTimer";
+
+// Custom Toast
+export { UnmzToast } from "./_core/UnmzToast/UnmzToast";
+export { UnmzToastProvider } from "./_core/UnmzToast/UnmzToastProvider";

@@ -6,18 +6,19 @@ import {
   Text,
   View,
   XStack,
+  UnmzToast,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { FC, useRef, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
-
+import { ToastProvider, ToastViewport } from "@tamagui/toast";
 import {
-  Screen,
-  OTP_VERIFICATION_SCREEN_ID,
+  ProfileScreen,
   OTPVerificationScreenProps,
+  OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-} from "../types";
+} from "./types";
 
 const CORRECT_OTP = "123456";
 
@@ -120,16 +121,20 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
           )}
         </View>
       </View>
-      <UnmzGradientButton disabled={buttonDisabled} onPress={verifyOTP}>
-        Confirm
-      </UnmzGradientButton>
+      <View>
+        <UnmzToast />
+        <ToastViewport left={0} right={0} bottom={50} />
+        <UnmzGradientButton disabled={buttonDisabled} onPress={verifyOTP}>
+          Confirm
+        </UnmzGradientButton>
+      </View>
     </KeyboardAvoidingViewWithDismiss>
   );
 };
 
-export const OTPVerificationScreen: Screen = {
+export const OTPVerificationScreen: ProfileScreen = {
   key: OTP_VERIFICATION_SCREEN_ID,
   title: "Verify your account",
-  background: "plain",
+  headerBackground: "plain",
   content: _OTPVerificationScreen,
 };

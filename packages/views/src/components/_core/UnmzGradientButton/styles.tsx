@@ -9,6 +9,7 @@ const UnmzButtonStyles: ButtonProps = {
   borderWidth: 0,
   paddingHorizontal: 24,
   paddingVertical: 12,
+  scaleSpace: 0.5,
   focusStyle: { outlineWidth: 0, borderWidth: 0 },
   pressStyle: { outlineWidth: 0, borderWidth: 0 },
   hoverStyle: { outlineWidth: 0, borderWidth: 0 },
@@ -16,8 +17,8 @@ const UnmzButtonStyles: ButtonProps = {
 
 const UnmzLinearGradientStyles: LinearGradientExtraProps = {
   colors: ["#fff000", "#ccfd62"],
-  locations: [0.05, 0.92],
-  start: [0.2, 1],
+  locations: [0, 0.8854],
+  start: [0, 0],
   end: [1, 1],
 };
 

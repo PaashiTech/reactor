@@ -1,5 +1,4 @@
 "packages":
   - "packages/*"
   - "platforms/*"
-  - "docs/*"
   - "builds/*"
