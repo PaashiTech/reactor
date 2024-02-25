@@ -1,18 +1,15 @@
 import { Input, Label, View, XStack } from "@unmaze/views";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native";
-import RNMaterialDatetimePicker from "react-native-material-datetime-picker";
+import RNMaterialDatetimePicker, {
+  AndroidPickerMode,
+} from "react-native-material-datetime-picker";
 import { Calendar } from "@unmaze/assets";
 import { IconButton } from "./IconButton";
 
 export const DateTimePicker = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [isVisible, setIsVisible] = useState(false);
-
-  enum AndroidPickerMode {
-    DATE = "date",
-    TIME = "time",
-  }
 
   return (
     <View>
