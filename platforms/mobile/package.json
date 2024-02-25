@@ -27,6 +27,7 @@
     "@unmaze/assets": "workspace:*",
     "@unmaze/config": "workspace:*",
     "@unmaze/views": "workspace:*",
+    "@unmaze/api": "workspace:*",
     "react": "^18.2.0",
     "react-native": "0.73.3",
     "react-native-safe-area-context": "4.8.2",
