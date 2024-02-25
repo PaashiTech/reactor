@@ -47,7 +47,7 @@ export const SelectRelationship = () => {
 
       <View
         p={4}
-        pb={8}
+        pb={4}
         borderBottomWidth={1}
         borderColor="#6F6F6F"
         pressStyle={{ borderColor: "#262626" }}
@@ -55,6 +55,7 @@ export const SelectRelationship = () => {
       >
         <XStack alignItems="center">
           <Input
+            padding={0}
             unstyled
             placeholder="Select"
             flex={1}

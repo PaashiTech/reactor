@@ -4,7 +4,6 @@ import {
   View,
   FormTextInput,
   MobileNumberInput,
-  CalendarPicker,
   ScrollView,
 } from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
@@ -12,6 +11,7 @@ import { KeyBenefits } from "../../components/KeyBenefits";
 import { SelectRelationship } from "../../components/SelectRelationship";
 import { KeyboardAvoidingView } from "react-native";
 import { TertiaryButton } from "@unmaze/views/src/components";
+import { DateTimePicker } from "../../components/DateTimePicker";
 
 const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
   const buttonDisabled = false;
@@ -34,7 +34,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
               />
               <FormTextInput label="Last name" placeholder="Enter last name" />
               <SelectRelationship />
-              <CalendarPicker />
+              <DateTimePicker />
               <MobileNumberInput
                 mobileNumberValue=""
                 handleMobileNumberChange={() => {}}
