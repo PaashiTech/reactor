@@ -1,11 +1,11 @@
-import { TamaguiProvider, tamaguiConfig } from "@unmaze/views";
+import {
+  TamaguiProvider,
+  tamaguiConfig,
+  UnmzToastProvider,
+} from "@unmaze/views";
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer } from "@react-navigation/native";
-import { ToastProvider, ToastViewport } from "@tamagui/toast";
-import { FamilyStackNavigator } from "./navigation";
-
-import { APIGlobalConfigProvider } from "@unmaze/api";
-import { APITest } from "./playground/API";
+import { MyProfileStackNavigator } from "./navigation/stackNavigators/MyProfileStackNavigator";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -15,16 +15,13 @@ export function App() {
   }
 
   return (
-    <APIGlobalConfigProvider>
-      <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-        <ToastProvider duration={2000} swipeDirection="horizontal">
-          <NavigationContainer>
-            <FamilyStackNavigator />
-          </NavigationContainer>
-        </ToastProvider>
-        {/* <APITest /> */}
-      </TamaguiProvider>
-    </APIGlobalConfigProvider>
+    <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
+      <UnmzToastProvider>
+        <NavigationContainer>
+          <MyProfileStackNavigator />
+        </NavigationContainer>
+      </UnmzToastProvider>
+    </TamaguiProvider>
   );
 }
 

@@ -6,13 +6,13 @@ import {
   Text,
   View,
   XStack,
-  CustomToast,
+  UnmzToast,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
 import { FC, useRef, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
-import { ToastViewport } from "@tamagui/toast";
+import { ToastProvider, ToastViewport } from "@tamagui/toast";
 import {
   ProfileScreen,
   OTPVerificationScreenProps,
@@ -122,7 +122,7 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
         </View>
       </View>
       <View>
-        <CustomToast />
+        <UnmzToast />
         <ToastViewport left={0} right={0} bottom={50} />
         <UnmzGradientButton disabled={buttonDisabled} onPress={verifyOTP}>
           Confirm

@@ -12,4 +12,4 @@ export * from "./components";
 // Tamagui
 export * from "tamagui";
 export { tamaguiConfig } from "@unmaze/config";
-export * from "@tamagui/toast";
+export { ToastViewport } from "@tamagui/toast";

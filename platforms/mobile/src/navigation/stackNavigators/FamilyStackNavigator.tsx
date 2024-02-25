@@ -5,12 +5,12 @@ import {
   FamilyStackRouteProps,
 } from "../../screens/family/types";
 import { ChevronLeft } from "@unmaze/assets";
-import { Pressable } from "react-native";
 import { UnmzLinearGradient, View } from "@unmaze/views";
 import { useNavigation } from "@react-navigation/native";
 import { FamilyDetailsScreen } from "../../screens/family/FamilyDetailsScreen";
 import { screenOptions } from "../screenOptions";
 import { AddFamilyMemberScreen } from "../../screens/family/AddFamilyMemberScreen";
+import { IconButton } from "../../components/IconButton";
 
 export const FamilyStackNavigator = () => {
   const screens: FamilyScreen[] = [FamilyDetailsScreen, AddFamilyMemberScreen];
@@ -39,17 +39,10 @@ export const FamilyStackNavigator = () => {
               headerLeft: () => {
                 const navigation = useNavigation();
                 return (
-                  <Pressable
-                    android_ripple={{
-                      color: "#d1d1d1",
-                      borderless: true,
-                      radius: 16,
-                    }}
+                  <IconButton
+                    icon={ChevronLeft}
                     onPress={() => navigation.goBack()}
-                    style={{ padding: 10 }}
-                  >
-                    <ChevronLeft />
-                  </Pressable>
+                  />
                 );
               },
             }}

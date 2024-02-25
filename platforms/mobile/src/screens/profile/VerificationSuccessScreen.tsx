@@ -12,21 +12,34 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   route,
 }) => {
   const { verifiedType } = route.params;
-  const updatedType = verifiedType === "email" ? "Email" : "Number";
+  const updatedType =
+    verifiedType === "email" ? "email address" : "primary mobile number";
 
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
       <View paddingVertical={40} gap={40} mt={40} alignItems="center">
-        <Text
-          textAlign="center"
-          paddingHorizontal={50}
-          fontSize={16}
-          letterSpacing={0.32}
-          fontWeight={"600"}
-        >
-          {updatedType} updated successfully
-        </Text>
-        <CheckGreen />
+        <CheckGreen width={96} height={96} />
+        <View gap={8}>
+          <Text
+            textAlign="center"
+            fontSize={24}
+            fontWeight={"600"}
+            letterSpacing={0.48}
+            color="#161616"
+          >
+            Congratulations!
+          </Text>
+          <Text
+            textAlign="center"
+            paddingHorizontal={40}
+            fontSize={16}
+            letterSpacing={0.32}
+            fontWeight={"600"}
+            color="#525252"
+          >
+            You have successfully updated your {updatedType}
+          </Text>
+        </View>
       </View>
       <UnmzGradientButton
         onPress={() => {

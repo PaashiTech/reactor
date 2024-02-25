@@ -1,8 +1,12 @@
 import { Toast, useToastState } from "@tamagui/toast";
 import { XStack, YStack } from "tamagui";
 import { ToastLogo } from "@unmaze/assets";
+import Constants, { ExecutionEnvironment } from "expo-constants";
 
-export const CustomToast: React.FC = () => {
+const isExpo =
+  Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+
+const _UnmzToast: React.FC = () => {
   const currentToast = useToastState();
   if (!currentToast || currentToast.isHandledNatively) return null;
   return (
@@ -35,4 +39,12 @@ export const CustomToast: React.FC = () => {
       </XStack>
     </Toast>
   );
+};
+
+export const UnmzToast = () => {
+  if (isExpo) {
+    return null;
+  } else {
+    return <_UnmzToast />;
+  }
 };
