@@ -5,6 +5,7 @@
 
 /** @type {import('jest').Config} */
 const config = {
+  testEnvironment: "node",
   coverageProvider: "v8",
   moduleFileExtensions: [
     "js",
@@ -21,16 +22,23 @@ const config = {
   transformIgnorePatterns: [
     // "\\\\node_modules\\\\",
     // "\\.pnp\\.[^\\\\]+$",
-    "node_modules/(?!" +
-      "((jest-)?react-native|@react-native(-community)?)" +
+    "node_modules/(?!(" +
+      "(jest-)?react-native(-.*)?" +
+      "|@react-native(-community)?" +
+      "|tamagui" +
+      "|@tamagui/.*" +
       "|expo(nent)?" +
       "|@expo(nent)?/.*" +
       "|@expo-google-fonts/.*" +
       "|react-navigation" +
       "|@react-navigation/.*" +
       "|react-native-svg" +
-      "/)",
+      ")/)",
   ],
+  transform: {
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.tsx?$": "ts-jest",
+  },
   testPathIgnorePatterns: ["\\\\node_modules\\\\", "dist/.*"],
 };
 

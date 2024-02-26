@@ -3,7 +3,8 @@
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "composite": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "module": "CommonJS"
   },
   "references": []
 }

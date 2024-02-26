@@ -1,4 +1,6 @@
+import "react-native";
 import renderer from "react-test-renderer";
+// import { TestComponent } from "../..";
 import { TestComponent } from "../..";
 
 describe("Test component", () => {
