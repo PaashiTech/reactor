@@ -8,7 +8,5 @@ node_modules
 
 
 
-builds/expo-app/android/
-builds/expo-app/ios/
 builds/expo-app/.expo
 builds/web-app/.tamagui

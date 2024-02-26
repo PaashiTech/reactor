@@ -1,0 +1,91 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:editTextStyle">@style/ResetEditText</item>
+    <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+  </style>
+  <style name="ResetEditText" parent="@android:style/Widget.EditText">
+    <item name="android:padding">0dp</item>
+    <item name="android:textColorHint">#c8c8c8</item>
+    <item name="android:textColor">@android:color/black</item>
+  </style>
+  <style name="Theme.App.SplashScreen" parent="AppTheme">
+    <item name="android:windowBackground">@drawable/splashscreen</item>
+  </style>
+
+
+
+  <style name="ThemeOverlay.Material3.MaterialCalendar" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+    <item name="materialCalendarStyle">@style/Custom_MaterialCalendar.Fullscreen</item>
+    <!-- <item name="colorSurface">#fff</item>
+    <item name="colorOnSurface">#1D1B20</item>
+    <item name="colorPrimary">#fff</item>      
+    <item name="colorOnPrimary">#1D1B20</item> -->
+    <item name="buttonBarPositiveButtonStyle">@style/Buttons</item>
+    <item name="buttonBarNegativeButtonStyle">@style/Buttons</item>
+  </style>
+  <style name="Custom_MaterialCalendar.Fullscreen" parent="@style/Widget.MaterialComponents.MaterialCalendar">
+      <item name="android:windowFullscreen">false</item>
+      <item name="backgroundTint">#fff</item>
+      <item name="dayStyle">@style/CustomWidget_Day</item>
+      <item name="dayTodayStyle">@style/CustomWidget_Today</item>
+      <item name="daySelectedStyle">@style/CustomSelectedDay</item>
+      <item name="yearSelectedStyle">@style/CustomSelectedYear</item>
+  </style>
+  <style name="CustomWidget_Day" parent="Widget.MaterialComponents.MaterialCalendar.Day">
+      <item name="android:textSize">24sp</item>
+      <item name="itemTextColor">#1D1B20</item>
+  </style>
+   <style name="CustomWidget_Today" parent="Widget.MaterialComponents.MaterialCalendar.Day.Today">
+    <item name="itemStrokeColor">#6750A4</item>
+  </style>
+  <style name="CustomSelectedDay" parent="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
+    <item name="itemFillColor">#6750A4</item>
+    <item name="itemStrokeColor">#6750A4</item>
+    <item name="itemTextColor">#fff</item>
+  </style>
+  <style name="CustomSelectedYear" parent="Widget.MaterialComponents.MaterialCalendar.Year.Selected">
+    <item name="itemFillColor">#6750A4</item>
+    <item name="itemStrokeColor">#6750A4</item>
+    <item name="itemTextColor">#fff</item>
+  </style>
+  <style name="Buttons" parent="Widget.MaterialComponents.Button.TextButton">
+    <item name="android:textColor">#6750A4</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderDivider" parent="android:Widget">
+    <item name="android:visibility">visible</item>
+    <item name="android:background">#CAC4D0</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderLayout" parent="android:Widget">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">@dimen/mtrl_calendar_header_height</item>
+    <item name="android:background">#fff</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderTitle" parent="Widget.AppCompat.TextView">
+    <item name="android:textAppearance">?attr/textAppearanceOverline</item>
+    <item name="android:textColor">#1D1B20</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:ellipsize">end</item>
+    <item name="autoSizeTextType">uniform</item>
+    <item name="autoSizeMaxTextSize">10sp</item>
+    <item name="autoSizeMinTextSize">2sp</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderSelection" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">top|start</item>
+    <item name="android:textAppearance">?attr/textAppearanceHeadline4</item>
+    <item name="android:textColor">#1D1B20</item>
+    <item name="android:maxLines">@integer/mtrl_calendar_selection_text_lines</item>
+    <item name="android:ellipsize">end</item>
+    <item name="autoSizeTextType">uniform</item>
+    <item name="autoSizeMaxTextSize">34sp</item>
+    <item name="autoSizeMinTextSize">2sp</item>
+  </style>
+
+</resources>
