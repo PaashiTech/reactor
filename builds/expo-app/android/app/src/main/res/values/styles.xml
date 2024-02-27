@@ -22,6 +22,7 @@
   <!-- ***** -->
   <style name="ThemeOverlay.Material3.MaterialCalendar" parent="ThemeOverlay.Material3.Dialog">
     <item name="materialCalendarStyle">@style/Widget.Material3.CustomMaterialCalendar</item>
+    <item name="colorPrimary">#035E5D</item>
 
     <!-- Header Styles -->
     <item name="materialCalendarHeaderLayout">@style/Widget.Material3.CustomMaterialCalendar.HeaderLayout</item>
@@ -45,7 +46,7 @@
     <item name="buttonBarPositiveButtonStyle">@style/Base.Widget.Material3.CustomMaterialCalendar.NavigationButton</item>
     <item name="buttonBarNegativeButtonStyle">@style/Base.Widget.Material3.CustomMaterialCalendar.NavigationButton</item>
     
-    <item name="android:background">#fff</item>
+    <!-- <item name="android:background">#fff</item> -->
   </style>
 
   <style name="Widget.Material3.CustomMaterialCalendar" parent="Widget.MaterialComponents.MaterialCalendar">
@@ -68,23 +69,23 @@
       <item name="itemTextColor">#1D1B20</item>
   </style>
    <style name="Widget.Material3.CustomMaterialCalendar.Day.Today" parent="Widget.MaterialComponents.MaterialCalendar.Day.Today">
-    <item name="itemStrokeColor">#6750A4</item>
+    <item name="itemStrokeColor">#035E5D</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.Day.Selected" parent="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
-    <item name="itemFillColor">#6750A4</item>
-    <item name="itemStrokeColor">#6750A4</item>
+    <item name="itemFillColor">#035E5D</item>
+    <item name="itemStrokeColor">#035E5D</item>
     <item name="itemTextColor">#fff</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.Year.Selected" parent="Widget.MaterialComponents.MaterialCalendar.Year.Selected">
-    <item name="itemFillColor">#6750A4</item>
-    <item name="itemStrokeColor">#6750A4</item>
+    <item name="itemFillColor">#035E5D</item>
+    <item name="itemStrokeColor">#035E5D</item>
     <item name="itemTextColor">#fff</item>
   </style>
 
   <!-- custom CTA buttons -->
   <style name="Base.Widget.Material3.CustomMaterialCalendar.NavigationButton" parent="Widget.Material3.Button.TextButton.Dialog.Flush">
-    <item name="android:textColor">#6750A4</item>
-    <item name="iconTint">#6750A4</item>
+    <item name="android:textColor">#035E5D</item>
+    <item name="iconTint">#035E5D</item>
   </style>
   
   <!-- custom header and divider -->
