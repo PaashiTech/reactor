@@ -35,12 +35,12 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
   const {
     control,
     handleSubmit,
-    formState: { isValid },
+    formState: { isDirty },
   } = useForm<FieldValues>({
     defaultValues,
   });
 
-  const isButtonDisabled = !isValid;
+  const isButtonDisabled = !isDirty;
 
   const handleInviteOTP = (data) => {
     console.log(data);
