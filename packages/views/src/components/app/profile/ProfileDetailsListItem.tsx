@@ -83,9 +83,7 @@ const _ListItemFrame = ListItemFrame.styleable<
   );
 });
 
-const ProfileDetailsListItem = withStaticProperties(_ListItemFrame, {
+export const ProfileDetailsListItem = withStaticProperties(_ListItemFrame, {
   Subtitle: ListItemSubtitle,
   Text: ListItemText,
 });
-
-export { ProfileDetailsListItem };

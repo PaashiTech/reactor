@@ -6,7 +6,7 @@ import Constants, { ExecutionEnvironment } from "expo-constants";
 const isExpo =
   Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
 
-const _UnmzToast: React.FC = () => {
+const _UnmzToast = () => {
   const currentToast = useToastState();
   if (!currentToast || currentToast.isHandledNatively) return null;
   return (
@@ -41,7 +41,7 @@ const _UnmzToast: React.FC = () => {
   );
 };
 
-export const UnmzToast = () => {
+export const UnmzToast: React.FC = () => {
   if (isExpo) {
     return null;
   } else {

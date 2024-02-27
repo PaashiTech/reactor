@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Label, View, Input, Text, Button, XStack } from "tamagui";
-import { TouchableOpacity, Modal } from "react-native";
+import { Label, View, Input, Button, XStack } from "tamagui";
+import { TouchableOpacity } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { NavigateNext, NavigateBefore } from "@unmaze/assets";
-import { PopupModal } from "../PopupModal";
+import { PopupModal } from "../modals/PopupModal";
 
-const CalendarPicker: React.FC = () => {
+export const CalendarPicker: React.FC = () => {
   const [isVisible, setVisible] = useState(false);
   const [selected, setSelected] = useState("");
   const [value, setValue] = useState("");
@@ -91,5 +91,3 @@ const CalendarPicker: React.FC = () => {
     </View>
   );
 };
-
-export default CalendarPicker;

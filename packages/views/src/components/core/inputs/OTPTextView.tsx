@@ -51,7 +51,7 @@ const DEFAULT_OFF_TINT_COLOR: string = "#E5E0DF";
 const DEFAULT_TEST_ID_PREFIX: string = "otp_input_";
 const DEFAULT_KEYBOARD_TYPE: KeyboardType = "numeric";
 
-class OTPTextView extends Component<IProps, IState> {
+export class OTPTextView extends Component<IProps, IState> {
   static defaultProps: Partial<IProps> = {
     defaultValue: "",
     inputCount: 4,
@@ -299,5 +299,3 @@ class OTPTextView extends Component<IProps, IState> {
     return <View style={[styles.container, containerStyle]}>{TextInputs}</View>;
   }
 }
-
-export default OTPTextView;

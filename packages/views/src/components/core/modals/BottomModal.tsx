@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import { Sheet, YStackProps } from "tamagui";
-import { DefaultSheetFrameStyles } from "./styles";
+import { DefaultSheetFrameStyles } from "./BottomModal.styles";
 
 type _BottomModalProps = {
   /**

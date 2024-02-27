@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { YStack } from "tamagui";
-import { ProfileDetailsListItem } from "../_core/ListItem";
+import { ProfileDetailsListItem } from "./ProfileDetailsListItem";
 
 import { Edit } from "@unmaze/assets";
 

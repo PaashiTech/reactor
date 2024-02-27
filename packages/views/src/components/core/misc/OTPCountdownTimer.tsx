@@ -6,16 +6,16 @@
  */
 
 import { Text, View } from "tamagui";
-import { useCountdown } from "../../hooks/useCountdown";
-import { getTime } from "../../helpers/getTime";
-import { getFormattedTime } from "../../helpers/getFormattedTime";
+import { useCountdown } from "../../../hooks/useCountdown";
+import { getTime } from "../../../helpers/getTime";
+import { getFormattedTime } from "../../../helpers/getFormattedTime";
 import { useToastController } from "@tamagui/toast";
 
-type CountdownTimerProps = {
+type OTPCountdownTimerProps = {
   timerSeconds: number;
 };
 
-export const CountdownTimer: React.FC<CountdownTimerProps> = ({
+export const OTPCountdownTimer: React.FC<OTPCountdownTimerProps> = ({
   timerSeconds,
 }) => {
   const { seconds, minutes, isRunning, restart } = useCountdown(

@@ -6,7 +6,10 @@
  */
 
 import { FC } from "react";
-import { ProfileDetailsList, ProfileDetailsListProps } from "./list";
+import {
+  ProfileDetailsList,
+  ProfileDetailsListProps,
+} from "./ProfileDetailsList";
 
 export type ProfileDetailsProps = {
   name: string;

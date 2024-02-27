@@ -6,7 +6,10 @@
  */
 
 import { Button, Unspaced } from "tamagui";
-import { UnmzButtonStyles, UnmzLinearGradientStyles } from "./styles";
+import {
+  UnmzButtonStyles,
+  UnmzLinearGradientStyles,
+} from "./UnmzGradientButton.styles";
 import { LinearGradient } from "@tamagui/linear-gradient";
 
 export const UnmzGradientButton = Button.styleable((props, ref) => {

@@ -1,7 +1,7 @@
 import {
   UnmzGradientButton,
   OTPInput,
-  CountdownTimer,
+  OTPCountdownTimer,
   Spinner,
   Text,
   View,
@@ -9,7 +9,7 @@ import {
   UnmzToast,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
-import OTPTextView from "@unmaze/views/src/components/OTPInput/OTPTextView";
+import { OTPTextView } from "@unmaze/views";
 import { FC, useRef, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { ToastProvider, ToastViewport } from "@tamagui/toast";
@@ -114,7 +114,7 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
           {!isSuccess ? (
             <XStack gap={4}>
               <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
-              <CountdownTimer timerSeconds={60} />
+              <OTPCountdownTimer timerSeconds={60} />
             </XStack>
           ) : (
             <Text color={"#6F6F6F"}>Account verifed successfully</Text>

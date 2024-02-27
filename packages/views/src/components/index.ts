@@ -8,43 +8,41 @@
  */
 
 // Test
-export { TestComponent } from "./TestComponent";
+export { TestComponent } from "./core/misc/TestComponent";
 
 /**
  * Core components
  */
-// Button
-export { UnmzGradientButton } from "./_core/UnmzGradientButton";
-export { TertiaryButton } from "./_core/TertiaryButton/TertiaryButton";
+// Buttons
+export { UnmzGradientButton } from "./core/buttons/UnmzGradientButton";
+export { TertiaryButton } from "./core/buttons/TertiaryButton";
 
-// Linear gradient
-export { UnmzLinearGradient } from "./_core/UnmzLinearGradient";
-
-// Bottom-aligned modal
-export { BottomModal } from "./_core/BottomModal";
-
-// FormTextInput
-export { FormTextInput } from "./_core/FormTextInput";
-
-// Calender Picker
-export { CalendarPicker } from "./_core/CalendarPicker";
-
-// Popup Modal
-export { PopupModal } from "./_core/PopupModal";
-
-/**
- * Composite components
- */
-// Profile Details
-export { ProfileDetails, ProfileDetailsProps } from "./ProfileDetails";
+// Modals
+export { BottomModal } from "./core/modals/BottomModal";
+export { PopupModal } from "./core/modals/PopupModal";
 
 // Inputs
-export { OTPInput } from "./OTPInput";
-export { MobileNumberInput } from "./MobileNumberInput";
+export { FormTextInput } from "./core/inputs/FormTextInput";
+export { MobileNumberInput } from "./core/inputs/MobileNumberInput";
+export { CalendarPicker } from "./core/inputs/CalendarPicker";
+export { OTPInput } from "./core/inputs/OTPInput";
+export { OTPTextView } from "./core/inputs/OTPTextView";
 
-// CountdownTimer
-export { CountdownTimer } from "./CountdownTimer";
+// Miscellaneous
+export { UnmzToast } from "./core/misc/UnmzToast";
+export { UnmzToastProvider } from "./core/misc/UnmzToastProvider";
+export { OTPCountdownTimer } from "./core/misc/OTPCountdownTimer";
+export { UnmzLinearGradient } from "./core/misc/UnmzLinearGradient";
 
-// Custom Toast
-export { UnmzToast } from "./_core/UnmzToast/UnmzToast";
-export { UnmzToastProvider } from "./_core/UnmzToast/UnmzToastProvider";
+/**
+ * Shared components
+ */
+
+/**
+ * Section-specific components
+ */
+// Profile
+export {
+  ProfileDetails,
+  ProfileDetailsProps,
+} from "./app/profile/ProfileDetails";
