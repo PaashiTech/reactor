@@ -22,10 +22,10 @@
   <!-- ***** -->
   <style name="ThemeOverlay.Material3.MaterialCalendar" parent="ThemeOverlay.Material3.Dialog">
     <item name="materialCalendarStyle">@style/Widget.Material3.CustomMaterialCalendar</item>
-    <item name="colorPrimary">#035E5D</item>
+    <item name="colorPrimary">@color/calendar_colorPrimary</item>
 
     <!-- Header Styles -->
-    <item name="materialCalendarHeaderLayout">@style/Widget.Material3.CustomMaterialCalendar.HeaderLayout</item>
+    <item name="materialCalendarHeaderLayout">@style/Widget.Material3.MaterialCalendar.HeaderLayout</item>
     <item name="materialCalendarHeaderDivider">@style/Widget.Material3.CustomMaterialCalendar.HeaderDivider</item>
     <item name="materialCalendarHeaderTitle">@style/Widget.Material3.CustomMaterialCalendar.HeaderTitle</item>
     <item name="materialCalendarHeaderSelection">@style/Widget.Material3.CustomMaterialCalendar.HeaderSelection</item>
@@ -46,7 +46,7 @@
     <item name="buttonBarPositiveButtonStyle">@style/Base.Widget.Material3.CustomMaterialCalendar.NavigationButton</item>
     <item name="buttonBarNegativeButtonStyle">@style/Base.Widget.Material3.CustomMaterialCalendar.NavigationButton</item>
     
-    <!-- <item name="android:background">#fff</item> -->
+    <!-- <item name="android:background">@color/calendar_white</item> -->
   </style>
 
   <style name="Widget.Material3.CustomMaterialCalendar" parent="Widget.MaterialComponents.MaterialCalendar">
@@ -66,48 +66,44 @@
   <!-- custom day and year selection (should not depend on the primary color) -->
   <style name="Widget.Material3.CustomMaterialCalendar.Day" parent="Widget.MaterialComponents.MaterialCalendar.Day">
       <item name="android:textSize">24sp</item>
-      <item name="itemTextColor">#1D1B20</item>
+      <item name="itemTextColor">@color/calendar_textColor</item>
   </style>
    <style name="Widget.Material3.CustomMaterialCalendar.Day.Today" parent="Widget.MaterialComponents.MaterialCalendar.Day.Today">
-    <item name="itemStrokeColor">#035E5D</item>
+    <item name="itemStrokeColor">@color/calendar_colorPrimary</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.Day.Selected" parent="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
-    <item name="itemFillColor">#035E5D</item>
-    <item name="itemStrokeColor">#035E5D</item>
-    <item name="itemTextColor">#fff</item>
+    <item name="itemFillColor">@color/calendar_colorPrimary</item>
+    <item name="itemStrokeColor">@color/calendar_colorPrimary</item>
+    <item name="itemTextColor">@color/calendar_white</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.Year.Selected" parent="Widget.MaterialComponents.MaterialCalendar.Year.Selected">
-    <item name="itemFillColor">#035E5D</item>
-    <item name="itemStrokeColor">#035E5D</item>
-    <item name="itemTextColor">#fff</item>
+    <item name="itemFillColor">@color/calendar_colorPrimary</item>
+    <item name="itemStrokeColor">@color/calendar_colorPrimary</item>
+    <item name="itemTextColor">@color/calendar_white</item>
   </style>
 
   <!-- custom CTA buttons -->
   <style name="Base.Widget.Material3.CustomMaterialCalendar.NavigationButton" parent="Widget.Material3.Button.TextButton.Dialog.Flush">
-    <item name="android:textColor">#035E5D</item>
-    <item name="iconTint">#035E5D</item>
+    <item name="android:textColor">@color/calendar_colorPrimary</item>
+    <item name="iconTint">@color/calendar_colorPrimary</item>
   </style>
   
   <!-- custom header and divider -->
-  <style name="Widget.Material3.CustomMaterialCalendar.HeaderLayout" parent="Widget.MaterialComponents.MaterialCalendar.HeaderLayout">
-    <item name="android:layout_height">120dp</item>
-    <item name="android:background">@android:color/transparent</item>
-  </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderDivider" parent="Widget.MaterialComponents.MaterialCalendar.HeaderDivider">
     <item name="android:visibility">visible</item>
-    <item name="android:background">#CAC4D0</item>
+    <item name="android:background">@color/calendar_colorDivider</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderTitle" parent="Widget.MaterialComponents.MaterialCalendar.HeaderTitle">
-    <item name="android:textColor">#1D1B20</item>
+    <item name="android:textColor">@color/calendar_textColor</item>
     <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
     <item name="autoSizeMaxTextSize">14sp</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderSelection" parent="Widget.MaterialComponents.MaterialCalendar.HeaderSelection">
     <item name="android:textAppearance">?attr/textAppearanceHeadlineLarge</item>
-    <item name="android:textColor">#1D1B20</item>
+    <item name="android:textColor">@color/calendar_textColor</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderToggleButton" parent="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
-    <item name="android:tint">#1D1B20</item>
+    <item name="android:tint">@color/calendar_textColor</item>
   </style>
 
 </resources>

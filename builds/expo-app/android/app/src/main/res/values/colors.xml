@@ -1,4 +1,10 @@
 <resources>
   <color name="colorPrimary">#023c69</color>
   <color name="colorPrimaryDark">#ffffff</color>
+  
+  <!-- Unmaze calendar colors  -->
+  <color name="calendar_colorPrimary">#035E5D</color>
+  <color name="calendar_colorDivider">#CAC4D0</color>
+  <color name="calendar_textColor">#1D1B20</color>
+  <color name="calendar_white">#ffffff</color>
 </resources>
