@@ -21,7 +21,6 @@
   <!-- Ref: https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/datepicker/res/values/styles.xml -->
   <!-- ***** -->
   <style name="ThemeOverlay.Material3.MaterialCalendar" parent="ThemeOverlay.Material3.Dialog">
-    <item name="colorSurface">#fff</item>
     <item name="materialCalendarStyle">@style/Widget.Material3.CustomMaterialCalendar</item>
 
     <!-- Header Styles -->
@@ -45,11 +44,13 @@
     <!-- Action Styles -->
     <item name="buttonBarPositiveButtonStyle">@style/Base.Widget.Material3.CustomMaterialCalendar.NavigationButton</item>
     <item name="buttonBarNegativeButtonStyle">@style/Base.Widget.Material3.CustomMaterialCalendar.NavigationButton</item>
+    
+    <item name="android:background">#fff</item>
   </style>
 
   <style name="Widget.Material3.CustomMaterialCalendar" parent="Widget.MaterialComponents.MaterialCalendar">
     <item name="android:windowFullscreen">false</item>
-    <item name="backgroundTint">#fff</item>
+    <item name="backgroundTint">?attr/colorSurfaceContainerHigh</item>
     <item name="dayStyle">@style/Widget.Material3.CustomMaterialCalendar.Day</item>
     <item name="dayInvalidStyle">@style/Widget.Material3.MaterialCalendar.Day.Invalid</item>
     <item name="daySelectedStyle">@style/Widget.Material3.CustomMaterialCalendar.Day.Selected</item>
@@ -57,6 +58,8 @@
     <item name="yearStyle">@style/Widget.Material3.MaterialCalendar.Year</item>
     <item name="yearSelectedStyle">@style/Widget.Material3.CustomMaterialCalendar.Year.Selected</item>
     <item name="yearTodayStyle">@style/Widget.Material3.MaterialCalendar.Year.Today</item>
+    <item name="rangeFillColor">?attr/colorSecondaryContainer</item>
+    <item name="shapeAppearance">?attr/shapeAppearanceCornerExtraLarge</item>
   </style>
 
   <!-- custom day and year selection (should not depend on the primary color) -->
@@ -77,9 +80,6 @@
     <item name="itemStrokeColor">#6750A4</item>
     <item name="itemTextColor">#fff</item>
   </style>
-  <style name="Buttons" parent="Widget.MaterialComponents.Button.TextButton">
-    <item name="android:textColor">#6750A4</item>
-  </style>
 
   <!-- custom CTA buttons -->
   <style name="Base.Widget.Material3.CustomMaterialCalendar.NavigationButton" parent="Widget.Material3.Button.TextButton.Dialog.Flush">
@@ -89,9 +89,8 @@
   
   <!-- custom header and divider -->
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderLayout" parent="Widget.MaterialComponents.MaterialCalendar.HeaderLayout">
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">@dimen/mtrl_calendar_header_height</item>
-    <item name="android:background">#fff</item>
+    <item name="android:layout_height">120dp</item>
+    <item name="android:background">@android:color/transparent</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderDivider" parent="Widget.MaterialComponents.MaterialCalendar.HeaderDivider">
     <item name="android:visibility">visible</item>
@@ -99,9 +98,11 @@
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderTitle" parent="Widget.MaterialComponents.MaterialCalendar.HeaderTitle">
     <item name="android:textColor">#1D1B20</item>
+    <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
     <item name="autoSizeMaxTextSize">14sp</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderSelection" parent="Widget.MaterialComponents.MaterialCalendar.HeaderSelection">
+    <item name="android:textAppearance">?attr/textAppearanceHeadlineLarge</item>
     <item name="android:textColor">#1D1B20</item>
   </style>
   <style name="Widget.Material3.CustomMaterialCalendar.HeaderToggleButton" parent="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
