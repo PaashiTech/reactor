@@ -1,6 +1,4 @@
-import { Text, View, Input, UnmzGradientButton } from "@unmaze/views";
-import { useState } from "react";
-import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
+import { Text, View, UnmzGradientButton } from "@unmaze/views";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
@@ -10,43 +8,26 @@ import {
   VERIFICATION_SUCCESS_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
 } from "./types";
+import { EmailInput } from "../../components/EmailInput";
+import { useForm } from "react-hook-form";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
   route,
 }) => {
-  const [email, setEmail] = useState<string>("");
-  const [isEmailInvalid, setIsEmailInvalid] = useState<boolean>(false);
-  const [isSubmittedOnce, setIsSubmittedOnce] = useState<boolean>(false);
+  const {
+    control,
+    handleSubmit,
+    formState: { isValid },
+  } = useForm();
 
-  const buttonDisabled =
-    (isSubmittedOnce && isEmailInvalid) || email.length === 0;
+  const buttonDisabled = !isValid;
 
-  const handleEmailChange = (
-    e: NativeSyntheticEvent<TextInputChangeEventData>
-  ): void => {
-    validateEmail(e.nativeEvent.text);
-    setEmail(e.nativeEvent.text);
-  };
-
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    if (!emailRegex.test(email)) {
-      setIsEmailInvalid(true);
-    } else {
-      setIsEmailInvalid(false);
-    }
-  };
-
-  const handleEmailSubmit = () => {
-    if (!isSubmittedOnce) {
-      setIsSubmittedOnce(true);
-    }
-    if (isEmailInvalid) return;
+  const handleEmailSubmit = (data) => {
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
       confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
       sentToType: "email",
-      sentToValue: email,
+      sentToValue: data.email,
     });
   };
 
@@ -79,36 +60,12 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
             Enter your email address. We'll send you a confirmation code there
           </Text>
         </View>
-        <View gap={8}>
-          <Text color="#444444">Email Address</Text>
-          <Input
-            autoFocus
-            unstyled
-            paddingHorizontal={4}
-            paddingBottom={10}
-            placeholder="eg. youremail@gmail.com"
-            value={email}
-            onChange={handleEmailChange}
-            borderBottomWidth={2}
-            fontSize={16}
-            fontWeight={"500"}
-            fontFamily={"$body"}
-            placeholderTextColor="$placeholderColor"
-            borderBottomColor={
-              isEmailInvalid && isSubmittedOnce ? "#DA1E28" : "#212121"
-            }
-            cursorColor={"#212121"}
-            autoCapitalize="none"
-            autoComplete="email"
-            keyboardType="email-address"
-            onBlur={() => validateEmail(email)}
-          />
-          {isEmailInvalid && isSubmittedOnce && (
-            <Text color="#DA1E28">Please enter valid email address</Text>
-          )}
-        </View>
+        <EmailInput control={control} name="email" />
       </View>
-      <UnmzGradientButton disabled={buttonDisabled} onPress={handleEmailSubmit}>
+      <UnmzGradientButton
+        disabled={buttonDisabled}
+        onPress={handleSubmit(handleEmailSubmit)}
+      >
         Confirm
       </UnmzGradientButton>
     </KeyboardAvoidingViewWithDismiss>

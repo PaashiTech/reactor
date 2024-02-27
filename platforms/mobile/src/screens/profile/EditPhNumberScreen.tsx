@@ -4,8 +4,7 @@ import {
   MobileNumberInput,
   UnmzGradientButton,
 } from "@unmaze/views";
-import { FC, useState } from "react";
-import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
+import { FC } from "react";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
@@ -15,19 +14,24 @@ import {
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "./types";
+import { useForm } from "react-hook-form";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
   route,
 }) => {
-  const [mobileNumber, setMobileNumber] = useState<string>("");
+  const {
+    control,
+    formState: { isValid },
+    handleSubmit,
+  } = useForm();
 
-  const isButtonDisabled = mobileNumber.length < 10;
-
-  const handleMobileNumberChange = (
-    e: NativeSyntheticEvent<TextInputChangeEventData>
-  ): void => {
-    setMobileNumber(e.nativeEvent.text);
+  const handleConfirm = (data) => {
+    navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
+      confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
+      sentToType: "number",
+      sentToValue: `+91-${data.mobileNumber}`,
+    });
   };
 
   return (
@@ -59,20 +63,11 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
             Enter your mobile number. We'll send you a confirmation code there
           </Text>
         </View>
-        <MobileNumberInput
-          mobileNumberValue={mobileNumber}
-          handleMobileNumberChange={handleMobileNumberChange}
-        />
+        <MobileNumberInput control={control} name="mobileNumber" />
       </View>
       <UnmzGradientButton
-        disabled={isButtonDisabled}
-        onPress={() => {
-          navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
-            confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
-            sentToType: "number",
-            sentToValue: `+91-${mobileNumber}`,
-          });
-        }}
+        disabled={!isValid}
+        onPress={handleSubmit(handleConfirm)}
       >
         Confirm
       </UnmzGradientButton>
