@@ -1,20 +1,54 @@
+import { KeyboardAvoidingView } from "react-native";
+import { useForm, FieldValues } from "react-hook-form";
 import { AddFamilyMemberScreenProps, FamilyScreen } from "./types";
+import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
+import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import {
-  UnmzGradientButton,
-  View,
   FormTextInput,
   MobileNumberInput,
-  ScrollView,
-} from "@unmaze/views";
-import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
+  TertiaryButton,
+} from "@unmaze/views/src/components";
 import { KeyBenefits } from "../../components/KeyBenefits";
-import { SelectRelationship } from "../../components/SelectRelationship";
-import { KeyboardAvoidingView } from "react-native";
-import { TertiaryButton } from "@unmaze/views/src/components";
-import { DateTimePicker } from "../../components/DateTimePicker";
+import {
+  RelationshipsType,
+  SelectRelationship,
+} from "../../components/SelectRelationship";
+import { DatePicker } from "../../components/DateTimePicker";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  relationship: RelationshipsType | undefined;
+  dob: Date | undefined;
+  mobileNumber: string;
+};
+
+const defaultValues: FormData = {
+  firstName: "",
+  lastName: "",
+  relationship: undefined,
+  dob: undefined,
+  mobileNumber: "",
+};
 
 const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
-  const buttonDisabled = false;
+  const {
+    control,
+    handleSubmit,
+    formState: { isValid },
+  } = useForm<FieldValues>({
+    defaultValues,
+  });
+
+  const isButtonDisabled = !isValid;
+
+  const handleInviteOTP = (data) => {
+    console.log(data);
+  };
+
+  const handleInviteWhatsapp = (data) => {
+    console.log(data);
+  };
 
   return (
     <View flex={1} bg={"white"}>
@@ -28,34 +62,47 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
           <View flex={1} p={20} justifyContent="space-between">
             <View gap={24}>
               <KeyBenefits />
+
               <FormTextInput
+                control={control}
+                name="firstName"
                 label="First name"
                 placeholder="Enter first name"
               />
-              <FormTextInput label="Last name" placeholder="Enter last name" />
-              <SelectRelationship />
-              <DateTimePicker />
-              <MobileNumberInput
-                mobileNumberValue=""
-                handleMobileNumberChange={() => {}}
+
+              <FormTextInput
+                control={control}
+                name="lastName"
+                label="Last name"
+                placeholder="Enter last name"
               />
+
+              <SelectRelationship control={control} />
+
+              <DatePicker control={control} label="Date of birth" name="dob" />
+
+              <MobileNumberInput control={control} name="mobileNumber" />
             </View>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
       <View gap={12} padding={20}>
-        <TertiaryButton disabled={buttonDisabled}>
+        <TertiaryButton
+          disabled={isButtonDisabled}
+          onPress={handleSubmit(handleInviteOTP)}
+        >
           Invite using OTP
         </TertiaryButton>
         <UnmzGradientButton
-          disabled={buttonDisabled}
+          disabled={isButtonDisabled}
           icon={
-            buttonDisabled ? (
+            isButtonDisabled ? (
               <WhatsappDisabled width={20} height={20} />
             ) : (
               <Whatsapp width={20} height={20} />
             )
           }
+          onPress={handleSubmit(handleInviteWhatsapp)}
         >
           Invite using Whatsapp
         </UnmzGradientButton>
