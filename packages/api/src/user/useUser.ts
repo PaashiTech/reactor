@@ -1,6 +1,6 @@
 import useSWR from "swr";
 // const axios = require("axios").default;
-import { axiosInstance } from "../_core/axiosProvider";
+import { axiosInstance } from "../core/axiosProvider";
 
 const fetcher = (url) => axiosInstance.get(url).then((res) => res.data);
 
