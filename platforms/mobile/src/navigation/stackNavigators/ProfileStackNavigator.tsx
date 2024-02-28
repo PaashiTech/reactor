@@ -1,4 +1,3 @@
-import { UnmzLinearGradient, View } from "@unmaze/views";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { OTPVerificationScreen } from "../../screens/shared/OTPVerificationScreen";
 import { screenOptions } from "../screenOptions";

@@ -32,6 +32,5 @@ const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
 export const FamilyDetailsScreen: FamilyScreen = {
   key: FAMILY_ACCOUNTS_SCREEN_ID,
   title: "Family Accounts",
-  headerBackground: "plain",
   content: _FamilyDetailsScreen,
 };

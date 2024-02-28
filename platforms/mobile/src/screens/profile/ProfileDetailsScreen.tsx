@@ -100,6 +100,5 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
 export const ProfileDetailsScreen: ProfileScreen = {
   key: PROFILE_DETAILS_SCREEN_ID,
   title: "Profile Details",
-  headerBackground: "plain",
   content: _ProfileDetailsScreen,
 };

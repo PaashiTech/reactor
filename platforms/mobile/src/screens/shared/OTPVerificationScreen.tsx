@@ -135,6 +135,5 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
 export const OTPVerificationScreen: ProfileScreen = {
   key: OTP_VERIFICATION_SCREEN_ID,
   title: "Verify your account",
-  headerBackground: "plain",
   content: _OTPVerificationScreen,
 };

@@ -5,12 +5,12 @@ import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
 import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
-import { RelationshipsType } from "@unmaze/views/src/components/core/inputs/SelectRelationship";
+import { RelationshipType } from "../../components/app/family";
 
 type FormData = {
   firstName: string;
   lastName: string;
-  relationship: RelationshipsType | undefined;
+  relationship: RelationshipType | undefined;
   dob: Date | undefined;
   mobileNumber: string;
 };
@@ -87,6 +87,5 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
 export const AddFamilyMemberScreen: FamilyScreen = {
   key: "0020.b.1",
   title: "Add family member",
-  headerBackground: "plain",
   content: _AddFamilyMemberScreen,
 };

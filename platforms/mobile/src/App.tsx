@@ -15,7 +15,7 @@ export function App() {
     return null;
   }
 
-  const MyTheme = {
+  const BaseTheme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
@@ -27,7 +27,7 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <SafeAreaProvider>
-          <NavigationContainer theme={MyTheme}>
+          <NavigationContainer theme={BaseTheme}>
             <MyProfileStackNavigator />
           </NavigationContainer>
         </SafeAreaProvider>

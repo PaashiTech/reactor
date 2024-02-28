@@ -1,7 +1,4 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
-import { ChevronLeft } from "@unmaze/assets";
-import { UnmzLinearGradient, View, IconButton } from "@unmaze/views";
 import { screenOptions } from "../screenOptions";
 import {
   AddFamilyMemberScreen,

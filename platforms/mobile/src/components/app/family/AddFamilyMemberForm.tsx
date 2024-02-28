@@ -21,6 +21,8 @@ const relationships = [
   "Other",
 ];
 
+export type RelationshipType = (typeof relationships)[number];
+
 type AddFamilyMembFormProps = {
   control: Control;
 };
