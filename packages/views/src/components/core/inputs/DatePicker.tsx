@@ -1,12 +1,12 @@
-import { Input, Label, Text, View, XStack } from "@unmaze/views";
+import { Input, Label, Text, View, XStack } from "tamagui";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import RNMaterialDatetimePicker, {
   AndroidPickerMode,
 } from "react-native-material-datetime-picker";
 import { Calendar } from "@unmaze/assets";
-import { IconButton } from "./IconButton";
-import { Control, Controller, FieldError } from "react-hook-form";
+import { IconButton } from "../buttons/IconButton";
+import { Control, Controller } from "react-hook-form";
 
 interface DatePickerProps {
   label: string;
@@ -46,12 +46,11 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           <TouchableOpacity onPress={() => setIsVisible(true)}>
             <XStack
               padding={0}
-              ai="center"
-              jc="space-between"
+              paddingBottom={8}
+              alignItems="center"
+              justifyContent="space-between"
               borderBottomWidth={1}
               borderBottomColor={"#6F6F6F"}
-              p={4}
-              pb={8}
             >
               <Input
                 value={
@@ -63,7 +62,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                   })
                 }
                 unstyled
-                p={0}
+                padding={0}
                 editable={false}
                 color={"#161616"}
                 placeholder="DD/MM/YYYY"

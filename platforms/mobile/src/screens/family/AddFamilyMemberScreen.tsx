@@ -5,7 +5,7 @@ import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
 import { KeyBenefits } from "../../components/KeyBenefits";
-import { RelationshipsType } from "../../components/SelectRelationship";
+import { RelationshipsType } from "../../../../../packages/views/src/components/core/inputs/SelectRelationship";
 import { AddFamilyMemberForm } from "../../components/AddFamilyMemberForm";
 
 type FormData = {

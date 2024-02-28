@@ -6,14 +6,13 @@ import { ProfileDetailsScreen } from "../../screens/profile/ProfileDetailsScreen
 import { OTPVerificationScreen } from "../../screens/profile/OTPVerificationScreen";
 import { EditPhNumberScreen } from "../../screens/profile/EditPhNumberScreen";
 import { VerificationSuccessScreen } from "../../screens/profile/VerificationSuccessScreen";
-import { UnmzLinearGradient, View } from "@unmaze/views";
+import { UnmzLinearGradient, View, IconButton } from "@unmaze/views";
 import { ChevronLeft } from "@unmaze/assets";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { EditEmailScreen } from "../../screens/profile/EditEmailScreen";
 import { screenOptions } from "../screenOptions";
 import { ProfileScreen } from "../../screens/profile/types";
-import { IconButton } from "../../components/IconButton";
 
 // Component which actually renders the entire screen hierarachy
 export const ProfileStackNavigator = () => {

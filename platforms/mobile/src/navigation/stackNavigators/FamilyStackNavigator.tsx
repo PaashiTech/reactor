@@ -5,12 +5,11 @@ import {
   FamilyStackRouteProps,
 } from "../../screens/family/types";
 import { ChevronLeft } from "@unmaze/assets";
-import { UnmzLinearGradient, View } from "@unmaze/views";
+import { UnmzLinearGradient, View, IconButton } from "@unmaze/views";
 import { useNavigation } from "@react-navigation/native";
 import { FamilyDetailsScreen } from "../../screens/family/FamilyDetailsScreen";
 import { screenOptions } from "../screenOptions";
 import { AddFamilyMemberScreen } from "../../screens/family/AddFamilyMemberScreen";
-import { IconButton } from "../../components/IconButton";
 
 export const FamilyStackNavigator = () => {
   const screens: FamilyScreen[] = [FamilyDetailsScreen, AddFamilyMemberScreen];

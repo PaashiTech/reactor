@@ -1,17 +1,10 @@
 import { useState } from "react";
-import {
-  Input,
-  Label,
-  PopupModal,
-  ScrollView,
-  Text,
-  View,
-  XStack,
-} from "@unmaze/views";
+import { Input, Label, ScrollView, Text, View, XStack } from "tamagui";
 import { ChevronDown, Close } from "@unmaze/assets";
 import { Pressable } from "react-native";
-import { IconButton } from "./IconButton";
 import { Control, Controller } from "react-hook-form";
+import { IconButton } from "../buttons/IconButton";
+import { PopupModal } from "../modals/PopupModal";
 
 const relationships = [
   "Spouse/Life Partner",
@@ -62,8 +55,8 @@ export const SelectRelationship: React.FC<SelectRelationShipProps> = ({
           </Label>
 
           <View
-            p={4}
-            pb={4}
+            padding={4}
+            paddingBottom={4}
             borderBottomWidth={1}
             borderColor="#6F6F6F"
             pressStyle={{ borderColor: "#262626" }}
@@ -95,7 +88,7 @@ export const SelectRelationship: React.FC<SelectRelationShipProps> = ({
             onModalClose={() => setIsVisible(false)}
           >
             <View
-              bg={"#fff"}
+              backgroundColor={"#fff"}
               width={320}
               borderRadius={16}
               paddingVertical={16}
@@ -145,12 +138,18 @@ const RelationListItem = ({
   onSelect: () => void;
 }) => {
   return (
-    <Pressable onPress={onSelect}>
+    <Pressable
+      onPress={onSelect}
+      android_ripple={{
+        borderless: false,
+        foreground: true,
+      }}
+    >
       <Text
         paddingVertical={8}
         paddingHorizontal={12}
         fontWeight={"500"}
-        bg={selected ? "#e6e6e6" : undefined}
+        backgroundColor={selected ? "#e6e6e6" : undefined}
         borderRadius={8}
       >
         {value}
