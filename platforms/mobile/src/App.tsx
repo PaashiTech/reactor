@@ -7,6 +7,7 @@ import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { MyProfileStackNavigator } from "./navigation";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SecondaryButtonTest } from "./playground/SecondaryButtonTest";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -25,13 +26,14 @@ export function App() {
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-      <UnmzToastProvider>
+      {/* <UnmzToastProvider>
         <SafeAreaProvider>
           <NavigationContainer theme={MyTheme}>
             <MyProfileStackNavigator />
           </NavigationContainer>
         </SafeAreaProvider>
-      </UnmzToastProvider>
+      </UnmzToastProvider> */}
+      <SecondaryButtonTest />
     </TamaguiProvider>
   );
 }

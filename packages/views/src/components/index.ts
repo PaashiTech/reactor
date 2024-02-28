@@ -17,6 +17,7 @@ export { TestComponent } from "./core/misc/TestComponent";
 export { UnmzGradientButton } from "./core/buttons/UnmzGradientButton";
 export { TertiaryButton } from "./core/buttons/TertiaryButton";
 export { IconButton } from "./core/buttons/IconButton";
+export { SecondaryButton } from "./core/buttons/SecondaryButton";
 
 // Modals
 export { BottomModal } from "./core/modals/BottomModal";

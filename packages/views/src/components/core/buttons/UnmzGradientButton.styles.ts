@@ -3,16 +3,18 @@ import { LinearGradientExtraProps } from "@tamagui/linear-gradient";
 
 const UnmzButtonStyles: ButtonProps = {
   color: "#262626",
+  unstyled: true,
   borderRadius: 9999,
   overflow: "hidden",
   outlineWidth: 0,
   borderWidth: 0,
   paddingHorizontal: 24,
   paddingVertical: 12,
-  scaleSpace: 0.5,
-  focusStyle: { outlineWidth: 0, borderWidth: 0 },
-  pressStyle: { outlineWidth: 0, borderWidth: 0 },
-  hoverStyle: { outlineWidth: 0, borderWidth: 0 },
+  scaleSpace: 0.43,
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  height: 42,
 };
 
 const UnmzLinearGradientStyles: LinearGradientExtraProps = {

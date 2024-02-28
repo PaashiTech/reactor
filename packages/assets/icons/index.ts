@@ -23,6 +23,8 @@ import LogoWithUnmaze from "./svg/logo-with-unmaze.svg";
 import LinkedIn from "./svg/linkedin.svg";
 import Instagram from "./svg/instagram.svg";
 import Twitter from "./svg/twitter.svg";
+import PlaceholderIcon from "./svg/placeholder-icon.svg";
+import PlaceholderIconDisabled from "./svg/placeholder-icon-disabled.svg";
 
 export {
   LinkedIn,
@@ -50,4 +52,6 @@ export {
   ProfileIcon,
   Settings,
   LogoWithUnmaze,
+  PlaceholderIcon,
+  PlaceholderIconDisabled,
 };
