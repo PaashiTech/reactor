@@ -1,15 +1,17 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { ChevronLeft } from "@unmaze/assets";
+import { UnmzLinearGradient, View, IconButton } from "@unmaze/views";
+import { screenOptions } from "../screenOptions";
+import {
+  AddFamilyMemberScreen,
+  FamilyDetailsScreen,
+} from "../../screens/family";
 import {
   FAMILY_ACCOUNTS_SCREEN_ID,
   FamilyScreen,
   FamilyStackRouteProps,
 } from "../../screens/family/types";
-import { ChevronLeft } from "@unmaze/assets";
-import { UnmzLinearGradient, View, IconButton } from "@unmaze/views";
-import { useNavigation } from "@react-navigation/native";
-import { FamilyDetailsScreen } from "../../screens/family/FamilyDetailsScreen";
-import { screenOptions } from "../screenOptions";
-import { AddFamilyMemberScreen } from "../../screens/family/AddFamilyMemberScreen";
 
 export const FamilyStackNavigator = () => {
   const screens: FamilyScreen[] = [FamilyDetailsScreen, AddFamilyMemberScreen];
@@ -35,15 +37,6 @@ export const FamilyStackNavigator = () => {
                 ) : (
                   <View flex={1} bg={"#fff"} />
                 ),
-              headerLeft: () => {
-                const navigation = useNavigation();
-                return (
-                  <IconButton
-                    icon={ChevronLeft}
-                    onPress={() => navigation.goBack()}
-                  />
-                );
-              },
             }}
           />
         );

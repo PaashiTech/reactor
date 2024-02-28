@@ -17,7 +17,7 @@ import {
 import { useState } from "react";
 import { Warning } from "@unmaze/assets";
 
-export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
+const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,
   route,
 }) => {
@@ -100,6 +100,6 @@ export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
 export const ProfileDetailsScreen: ProfileScreen = {
   key: PROFILE_DETAILS_SCREEN_ID,
   title: "Profile Details",
-  headerBackground: "linear-gradient",
+  headerBackground: "plain",
   content: _ProfileDetailsScreen,
 };

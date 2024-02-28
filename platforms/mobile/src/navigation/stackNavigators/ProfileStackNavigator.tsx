@@ -1,18 +1,18 @@
+import { UnmzLinearGradient, View } from "@unmaze/views";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { OTPVerificationScreen } from "../../screens/shared/OTPVerificationScreen";
+import { screenOptions } from "../screenOptions";
 import {
   UnmzStackNavRouteProps,
   PROFILE_DETAILS_SCREEN_ID,
+  ProfileScreen,
 } from "../../screens/profile/types";
-import { ProfileDetailsScreen } from "../../screens/profile/ProfileDetailsScreen";
-import { OTPVerificationScreen } from "../../screens/shared/OTPVerificationScreen";
-import { EditPhNumberScreen } from "../../screens/profile/EditPhNumberScreen";
-import { VerificationSuccessScreen } from "../../screens/profile/VerificationSuccessScreen";
-import { UnmzLinearGradient, View, IconButton } from "@unmaze/views";
-import { ChevronLeft } from "@unmaze/assets";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useNavigation } from "@react-navigation/native";
-import { EditEmailScreen } from "../../screens/profile/EditEmailScreen";
-import { screenOptions } from "../screenOptions";
-import { ProfileScreen } from "../../screens/profile/types";
+import {
+  EditEmailScreen,
+  EditPhNumberScreen,
+  ProfileDetailsScreen,
+  VerificationSuccessScreen,
+} from "../../screens/profile";
 
 // Component which actually renders the entire screen hierarachy
 export const ProfileStackNavigator = () => {
@@ -43,20 +43,19 @@ export const ProfileStackNavigator = () => {
               title: scr.title,
               headerShown: scr.title !== "Verify Number",
               headerBackground: () =>
-                scr.headerBackground === "plain" ? (
+                scr.headerBackground === "linear-gradient" ? (
                   <UnmzLinearGradient style={{ flex: 1 }} />
                 ) : (
-                  <View flex={1} bg={"#fff"} />
-                ),
-              headerLeft: () => {
-                const navigation = useNavigation();
-                return (
-                  <IconButton
-                    icon={ChevronLeft}
-                    onPress={() => navigation.goBack()}
+                  <View
+                    flex={1}
+                    bg={"#fff"}
+                    elevationAndroid={5}
+                    shadowColor={"red"}
+                    shadowOffset={{ width: 10, height: 10 }}
+                    shadowOpacity={10}
+                    shadowRadius={10}
                   />
-                );
-              },
+                ),
             }}
           />
         );
