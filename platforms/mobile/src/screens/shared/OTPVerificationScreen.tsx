@@ -12,13 +12,13 @@ import { CheckGreen } from "@unmaze/assets";
 import { OTPTextView } from "@unmaze/views";
 import { FC, useRef, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
-import { ToastProvider, ToastViewport } from "@tamagui/toast";
+import { ToastViewport } from "@tamagui/toast";
 import {
   ProfileScreen,
   OTPVerificationScreenProps,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-} from "./types";
+} from "../profile/types";
 
 const CORRECT_OTP = "123456";
 

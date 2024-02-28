@@ -3,7 +3,7 @@ import {
   PROFILE_DETAILS_SCREEN_ID,
 } from "../../screens/profile/types";
 import { ProfileDetailsScreen } from "../../screens/profile/ProfileDetailsScreen";
-import { OTPVerificationScreen } from "../../screens/profile/OTPVerificationScreen";
+import { OTPVerificationScreen } from "../../screens/shared/OTPVerificationScreen";
 import { EditPhNumberScreen } from "../../screens/profile/EditPhNumberScreen";
 import { VerificationSuccessScreen } from "../../screens/profile/VerificationSuccessScreen";
 import { UnmzLinearGradient, View, IconButton } from "@unmaze/views";
