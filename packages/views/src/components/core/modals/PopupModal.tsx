@@ -6,11 +6,11 @@ import {
 } from "react-native";
 import { View } from "tamagui";
 
-interface PopupModalProps {
+type PopupModalProps = {
   isVisible: boolean;
   onModalClose: () => void;
   children?: ReactElement;
-}
+};
 
 export const PopupModal: React.FC<PopupModalProps> = ({
   isVisible,
