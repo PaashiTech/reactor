@@ -11,8 +11,8 @@ import {
   EditEmailScreen,
   EditPhNumberScreen,
   ProfileDetailsScreen,
-  VerificationSuccessScreen,
 } from "../../screens/profile";
+import { VerificationSuccessScreen } from "../../screens/shared";
 
 // Component which actually renders the entire screen hierarachy
 export const ProfileStackNavigator = () => {

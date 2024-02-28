@@ -5,7 +5,7 @@ import {
   ProfileScreen,
   VerificationSuccessScreenProps,
   VERIFICATION_SUCCESS_SCREEN_ID,
-} from "./types";
+} from "../profile/types";
 
 const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   navigation,
