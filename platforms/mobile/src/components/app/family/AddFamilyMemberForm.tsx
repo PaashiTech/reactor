@@ -2,9 +2,9 @@ import { FormTextInput, MobileNumberInput, DatePicker } from "@unmaze/views";
 import { Control } from "react-hook-form";
 import { SelectRelationship } from "./SelectRelationship";
 
-interface AddFamilyMembFormProps {
+type AddFamilyMembFormProps = {
   control: Control;
-}
+};
 
 export const AddFamilyMemberForm: React.FC<AddFamilyMembFormProps> = ({
   control,

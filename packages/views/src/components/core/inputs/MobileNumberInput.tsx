@@ -1,10 +1,10 @@
 import { Input, Text, View, XStack } from "tamagui";
 import { Control, Controller } from "react-hook-form";
 
-interface MobileNumberInputProps {
+type MobileNumberInputProps = {
   control: Control;
   name: string;
-}
+};
 
 export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
   control,

@@ -9,12 +9,12 @@ import {
   TextInputKeyPressEventData,
 } from "react-native";
 
-interface IState {
+type IState = {
   focusedInput: number;
   otpText: string[];
-}
+};
 
-interface IProps {
+type IProps = {
   defaultValue: string;
   inputCount: number;
   containerStyle: ViewStyle;
@@ -27,7 +27,7 @@ interface IProps {
   keyboardType: KeyboardType;
   testIDPrefix: string;
   autoFocus: boolean;
-}
+};
 
 const styles = StyleSheet.create({
   container: {

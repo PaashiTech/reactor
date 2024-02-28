@@ -8,11 +8,11 @@ import { Calendar } from "@unmaze/assets";
 import { IconButton } from "../buttons/IconButton";
 import { Control, Controller } from "react-hook-form";
 
-interface DatePickerProps {
+type DatePickerProps = {
   label: string;
   name: string;
   control: Control;
-}
+};
 
 export const DatePicker: React.FC<DatePickerProps> = ({
   label,
