@@ -17,7 +17,7 @@ export type ProfileDetailsListProps = {
 
 export const ProfileDetailsList: FC<ProfileDetailsListProps> = ({ items }) => {
   return (
-    <YStack>
+    <YStack marginTop={30}>
       {items.map((item, i) => {
         const _icon = item.icon ? Edit : null;
         return (

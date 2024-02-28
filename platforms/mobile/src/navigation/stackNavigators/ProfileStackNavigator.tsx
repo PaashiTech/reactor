@@ -43,7 +43,7 @@ export const ProfileStackNavigator = () => {
               title: scr.title,
               headerShown: scr.title !== "Verify Number",
               headerBackground: () =>
-                scr.headerBackground === "linear-gradient" ? (
+                scr.headerBackground === "plain" ? (
                   <UnmzLinearGradient style={{ flex: 1 }} />
                 ) : (
                   <View flex={1} bg={"#fff"} />

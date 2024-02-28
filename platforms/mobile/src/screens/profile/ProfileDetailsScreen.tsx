@@ -47,7 +47,7 @@ export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   };
 
   return (
-    <View paddingVertical={10} paddingHorizontal={20} backgroundColor={"white"}>
+    <View backgroundColor={"#FAF9F2"} flex={1}>
       <ProfileDetails {...profile} />
 
       {/* Verification warning modal */}

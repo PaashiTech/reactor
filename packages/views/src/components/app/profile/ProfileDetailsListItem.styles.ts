@@ -4,7 +4,7 @@ export const ListItemFrameStyles: ThemeableStackProps = {
   flexDirection: "column",
   alignItems: "stretch",
   paddingVertical: 12,
-  paddingHorizontal: 0,
+  paddingHorizontal: 20,
   gap: 4,
 };
 
