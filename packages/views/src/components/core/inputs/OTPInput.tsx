@@ -6,7 +6,7 @@
  */
 
 import { Text, View } from "tamagui";
-import OTPTextView from "./OTPTextView";
+import { OTPTextView } from "./OTPTextView";
 import React, { LegacyRef } from "react";
 
 type OTPInputProps = {

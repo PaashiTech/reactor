@@ -3,17 +3,10 @@ import { useForm, FieldValues } from "react-hook-form";
 import { AddFamilyMemberScreenProps, FamilyScreen } from "./types";
 import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
-import {
-  FormTextInput,
-  MobileNumberInput,
-  TertiaryButton,
-} from "@unmaze/views/src/components";
+import { TertiaryButton } from "@unmaze/views/src/components";
 import { KeyBenefits } from "../../components/KeyBenefits";
-import {
-  RelationshipsType,
-  SelectRelationship,
-} from "../../components/SelectRelationship";
-import { DatePicker } from "../../components/DateTimePicker";
+import { RelationshipsType } from "../../components/SelectRelationship";
+import { AddFamilyMemberForm } from "../../components/AddFamilyMemberForm";
 
 type FormData = {
   firstName: string;
@@ -62,26 +55,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
           <View flex={1} p={20} justifyContent="space-between">
             <View gap={24}>
               <KeyBenefits />
-
-              <FormTextInput
-                control={control}
-                name="firstName"
-                label="First name"
-                placeholder="Enter first name"
-              />
-
-              <FormTextInput
-                control={control}
-                name="lastName"
-                label="Last name"
-                placeholder="Enter last name"
-              />
-
-              <SelectRelationship control={control} />
-
-              <DatePicker control={control} label="Date of birth" name="dob" />
-
-              <MobileNumberInput control={control} name="mobileNumber" />
+              <AddFamilyMemberForm control={control} />
             </View>
           </View>
         </ScrollView>

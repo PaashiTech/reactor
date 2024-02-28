@@ -1,4 +1,4 @@
-import { Text, View, UnmzGradientButton } from "@unmaze/views";
+import { Text, View, UnmzGradientButton, FormTextInput } from "@unmaze/views";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
@@ -8,7 +8,6 @@ import {
   VERIFICATION_SUCCESS_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
 } from "./types";
-import { EmailInput } from "../../components/EmailInput";
 import { useForm } from "react-hook-form";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
@@ -22,6 +21,8 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   } = useForm();
 
   const buttonDisabled = !isValid;
+
+  const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const handleEmailSubmit = (data) => {
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
@@ -60,7 +61,22 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
             Enter your email address. We'll send you a confirmation code there
           </Text>
         </View>
-        <EmailInput control={control} name="email" />
+        <FormTextInput
+          label="Email Address"
+          name="email"
+          control={control}
+          placeholder="eg. youremail@gmail.com"
+          rules={{
+            required: {
+              value: true,
+              message: `Email is required`,
+            },
+            pattern: EMAIL_REGEX,
+          }}
+          autoCapitalize="none"
+          autoComplete="email"
+          keyboardType="email-address"
+        />
       </View>
       <UnmzGradientButton
         disabled={buttonDisabled}

@@ -1,11 +1,11 @@
 import { Input, Label, Text, View } from "tamagui";
 import { TextInputProps } from "react-native";
-import { Controller, Control } from "react-hook-form";
+import { Controller, ControllerProps } from "react-hook-form";
 
-interface FormTextInputProps extends TextInputProps {
+interface FormTextInputProps
+  extends Omit<TextInputProps, "defaultValue">,
+    Pick<ControllerProps, "name" | "control" | "rules"> {
   label: string;
-  name: string;
-  control: Control;
 }
 
 export const FormTextInput: React.FC<FormTextInputProps> = ({
@@ -13,21 +13,13 @@ export const FormTextInput: React.FC<FormTextInputProps> = ({
   name,
   placeholder,
   control,
+  rules,
 }) => {
   return (
     <Controller
       control={control}
       name={name}
-      rules={{
-        required: {
-          value: true,
-          message: `${label} is required`,
-        },
-        minLength: {
-          value: 3,
-          message: `${label} should have more than 3 letters`,
-        },
-      }}
+      rules={rules}
       render={({
         field: { value, onChange, onBlur },
         fieldState: { error },
