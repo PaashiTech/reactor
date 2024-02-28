@@ -1,6 +1,25 @@
-import { FormTextInput, MobileNumberInput, DatePicker } from "@unmaze/views";
+import {
+  FormTextInput,
+  MobileNumberInput,
+  DatePicker,
+  DropdownList,
+} from "@unmaze/views";
 import { Control } from "react-hook-form";
-import { SelectRelationship } from "./SelectRelationship";
+
+const relationships = [
+  "Spouse/Life Partner",
+  "Son",
+  "Daughter",
+  "Father",
+  "Mother",
+  "Brother",
+  "Sister",
+  "Grandson",
+  "Granddaughter",
+  "Grandfather",
+  "Grandmother",
+  "Other",
+];
 
 type AddFamilyMembFormProps = {
   control: Control;
@@ -45,7 +64,19 @@ export const AddFamilyMemberForm: React.FC<AddFamilyMembFormProps> = ({
         }}
       />
 
-      <SelectRelationship control={control} />
+      <DropdownList
+        label="Relationship"
+        modalTitle="Select Relationship"
+        name="relationship"
+        selectItems={relationships}
+        control={control}
+        rules={{
+          required: {
+            value: true,
+            message: "Select Relationship",
+          },
+        }}
+      />
 
       <DatePicker control={control} label="Date of birth" name="dob" />
 
