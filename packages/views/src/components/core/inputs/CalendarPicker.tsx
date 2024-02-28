@@ -1,3 +1,12 @@
+/**
+ * @deprecated
+ *
+ * NOT USED FOR NOW - 28-02-2024
+ *
+ * Resource - https://www.npmjs.com/package/react-native-calendars
+ *
+ */
+
 import { useState } from "react";
 import { Label, View, Input, Button, XStack } from "tamagui";
 import { TouchableOpacity } from "react-native";
