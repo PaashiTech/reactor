@@ -10,7 +10,7 @@
 import { useState } from "react";
 import { Label, View, Input, Button, XStack } from "tamagui";
 import { TouchableOpacity } from "react-native";
-import { Calendar } from "react-native-calendars";
+// import { Calendar } from "react-native-calendars";
 import { NavigateNext, NavigateBefore } from "@unmaze/assets";
 import { PopupModal } from "../modals/PopupModal";
 
@@ -56,7 +56,7 @@ export const CalendarPicker: React.FC = () => {
           padding={20}
           borderRadius={20}
         >
-          <Calendar
+          {/* <Calendar
             style={{ height: 360, width: 296 }}
             renderArrow={(direction) =>
               direction === "left" ? <NavigateBefore /> : <NavigateNext />
@@ -72,7 +72,7 @@ export const CalendarPicker: React.FC = () => {
                 selectedColor: "orange",
               },
             }}
-          />
+          /> */}
           <XStack gap={8} alignSelf="flex-end">
             <Button
               size="$3"
