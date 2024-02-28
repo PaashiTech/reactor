@@ -15,7 +15,7 @@ export const MyProfileScreen: React.FC<MyProfileScreenProps> = ({
   route,
 }) => {
   return (
-    <View flex={1} bg="#FAF9F2">
+    <View flex={1}>
       <View
         flexDirection="row"
         gap={16}
