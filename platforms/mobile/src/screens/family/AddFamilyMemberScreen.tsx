@@ -44,7 +44,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
   };
 
   return (
-    <View flex={1} bg={"white"}>
+    <View flex={1}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior="padding"

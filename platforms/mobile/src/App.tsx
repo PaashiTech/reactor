@@ -4,7 +4,7 @@ import {
   UnmzToastProvider,
 } from "@unmaze/views";
 import { useUnmzFontsExpo } from "@unmaze/assets";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { MyProfileStackNavigator } from "./navigation";
 
 export function App() {
@@ -14,10 +14,18 @@ export function App() {
     return null;
   }
 
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: "#FAF9F2",
+    },
+  };
+
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
-        <NavigationContainer>
+        <NavigationContainer theme={MyTheme}>
           <MyProfileStackNavigator />
         </NavigationContainer>
       </UnmzToastProvider>
