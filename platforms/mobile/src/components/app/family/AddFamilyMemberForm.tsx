@@ -1,10 +1,6 @@
-import {
-  FormTextInput,
-  MobileNumberInput,
-  SelectRelationship,
-  DatePicker,
-} from "@unmaze/views";
+import { FormTextInput, MobileNumberInput, DatePicker } from "@unmaze/views";
 import { Control } from "react-hook-form";
+import { SelectRelationship } from "./SelectRelationship";
 
 interface AddFamilyMembFormProps {
   control: Control;

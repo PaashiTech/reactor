@@ -27,9 +27,8 @@ export { FormTextInput } from "./core/inputs/FormTextInput";
 export { MobileNumberInput } from "./core/inputs/MobileNumberInput";
 export { CalendarPicker } from "./core/inputs/CalendarPicker";
 export { OTPInput } from "./core/inputs/OTPInput";
-export { OTPTextView } from "./core/inputs/OTPTextView";
 export { DatePicker } from "./core/inputs/DatePicker";
-export { SelectRelationship } from "./core/inputs/SelectRelationship";
+export { SelectCustom } from "./core/inputs/SelectCustom";
 
 // Miscellaneous
 export { UnmzToast } from "./core/misc/UnmzToast";

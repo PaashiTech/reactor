@@ -1,47 +1,39 @@
 import { useState } from "react";
+import { Pressable } from "react-native";
 import { Input, Label, ScrollView, Text, View, XStack } from "tamagui";
 import { ChevronDown, Close } from "@unmaze/assets";
-import { Pressable } from "react-native";
-import { Control, Controller } from "react-hook-form";
+import { Controller, ControllerProps } from "react-hook-form";
 import { IconButton } from "../buttons/IconButton";
 import { PopupModal } from "../modals/PopupModal";
 
-const relationships = [
-  "Spouse/Life Partner",
-  "Son",
-  "Daughter",
-  "Father",
-  "Mother",
-  "Brother",
-  "Sister",
-  "Grandson",
-  "Granddaughter",
-  "Grandfather",
-  "Grandmother",
-  "Other",
-] as const;
-
-export type RelationshipsType = (typeof relationships)[number];
-
-interface SelectRelationShipProps {
-  control: Control;
+interface SelectCustomProps
+  extends Pick<ControllerProps, "name" | "control" | "rules"> {
+  selectItems: string[];
+  label: string;
+  modalTitle: string;
 }
 
-export const SelectRelationship: React.FC<SelectRelationShipProps> = ({
+interface SelectItemProps {
+  value: string;
+  selected: boolean;
+  onSelect: () => void;
+}
+
+export const SelectCustom: React.FC<SelectCustomProps> = ({
   control,
+  selectItems,
+  name,
+  rules,
+  label,
+  modalTitle,
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   return (
     <Controller
       control={control}
-      name="relationship"
-      rules={{
-        required: {
-          value: true,
-          message: "Select Relationship",
-        },
-      }}
+      name={name}
+      rules={rules}
       render={({ field: { value, onChange }, fieldState: { error } }) => (
         <View gap={4}>
           <Label
@@ -51,7 +43,7 @@ export const SelectRelationship: React.FC<SelectRelationShipProps> = ({
             color={"#525252"}
             fontWeight="400"
           >
-            Relationship
+            {label}
           </Label>
 
           <View
@@ -101,14 +93,14 @@ export const SelectRelationship: React.FC<SelectRelationShipProps> = ({
                   fontWeight={"600"}
                   letterSpacing={0.32}
                 >
-                  Select relation
+                  {modalTitle}
                 </Text>
                 <IconButton icon={Close} onPress={() => setIsVisible(false)} />
               </XStack>
               <View paddingHorizontal={12} height={294}>
                 <ScrollView>
-                  {relationships.map((item, i) => (
-                    <RelationListItem
+                  {selectItems.map((item, i) => (
+                    <SelectItem
                       key={i}
                       value={item}
                       selected={value === item}
@@ -128,14 +120,10 @@ export const SelectRelationship: React.FC<SelectRelationShipProps> = ({
   );
 };
 
-const RelationListItem = ({
+const SelectItem: React.FC<SelectItemProps> = ({
   value,
   selected,
   onSelect,
-}: {
-  value: RelationshipsType;
-  selected: boolean;
-  onSelect: () => void;
 }) => {
   return (
     <Pressable
