@@ -1,5 +1,5 @@
 import { Control } from "react-hook-form";
-import { SelectCustom } from "@unmaze/views";
+import { DropdownList } from "@unmaze/views";
 
 const relationships = [
   "Spouse/Life Partner",
@@ -18,15 +18,15 @@ const relationships = [
 
 export type RelationshipType = (typeof relationships)[number];
 
-interface SelectRelationShipProps {
+type SelectRelationShipProps = {
   control: Control;
-}
+};
 
 export const SelectRelationship: React.FC<SelectRelationShipProps> = ({
   control,
 }) => {
   return (
-    <SelectCustom
+    <DropdownList
       label="Relationship"
       modalTitle="Select Relationship"
       name="relationship"

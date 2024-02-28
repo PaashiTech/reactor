@@ -6,20 +6,20 @@ import { Controller, ControllerProps } from "react-hook-form";
 import { IconButton } from "../buttons/IconButton";
 import { PopupModal } from "../modals/PopupModal";
 
-interface SelectCustomProps
+interface DropdownListProps
   extends Pick<ControllerProps, "name" | "control" | "rules"> {
   selectItems: string[];
   label: string;
   modalTitle: string;
 }
 
-interface SelectItemProps {
+type SelectItemProps = {
   value: string;
   selected: boolean;
   onSelect: () => void;
-}
+};
 
-export const SelectCustom: React.FC<SelectCustomProps> = ({
+export const DropdownList: React.FC<DropdownListProps> = ({
   control,
   selectItems,
   name,
