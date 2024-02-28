@@ -12,7 +12,7 @@ export const screenOptions: NativeStackNavigationOptions = {
     fontFamily: "SatoshiSemibold",
   },
   statusBarTranslucent: true,
-  statusBarColor: "transparent",
+  statusBarColor: "#fff",
   headerShadowVisible: true,
   headerLeft: ({ canGoBack }): React.ReactNode => {
     const navigation = useNavigation();

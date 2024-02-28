@@ -31,12 +31,12 @@ export const FamilyStackNavigator = () => {
             options={{
               title: scr.title,
               headerShown: scr.title !== "Verify Number",
-              headerBackground: () =>
-                scr.headerBackground === "linear-gradient" ? (
-                  <UnmzLinearGradient style={{ flex: 1 }} />
-                ) : (
-                  <View flex={1} bg={"#fff"} />
-                ),
+              // headerBackground: () =>
+              //   scr.headerBackground === "linear-gradient" ? (
+              //     <UnmzLinearGradient style={{ flex: 1 }} />
+              //   ) : (
+              //     <View flex={1} bg={"#fff"} />
+              //   ),
             }}
           />
         );

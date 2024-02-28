@@ -47,7 +47,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   };
 
   return (
-    <View backgroundColor={"#FAF9F2"} flex={1}>
+    <View flex={1}>
       <ProfileDetails {...profile} />
 
       {/* Verification warning modal */}

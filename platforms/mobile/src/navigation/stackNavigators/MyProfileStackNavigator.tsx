@@ -8,13 +8,14 @@ import {
 import { MyProfileScreen } from "../../screens/my-profile/MyProfileScreen";
 import { FamilyStackNavigator } from "./FamilyStackNavigator";
 import { ProfileStackNavigator } from "./ProfileStackNavigator";
+import { screenOptions } from "../screenOptions";
 
 export const MyProfileStackNavigator = () => {
   const MyProfileStack = createNativeStackNavigator<MyProfileStackRouteProps>();
   return (
     <MyProfileStack.Navigator
       initialRouteName={MY_PROFILE_SCREEN_ID}
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ ...screenOptions, headerShown: false }}
     >
       <MyProfileStack.Screen
         key={MY_PROFILE_SCREEN_ID}
