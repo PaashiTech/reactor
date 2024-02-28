@@ -5,7 +5,7 @@
  */
 
 // Config providers
-export { APIGlobalConfigProvider } from "./_core/APIGlobalConfigProvider";
+export { APIGlobalConfigProvider } from "./core/APIGlobalConfigProvider";
 
 // API hooks
 export { useUser } from "./user/useUser";
