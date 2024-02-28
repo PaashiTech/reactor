@@ -1,7 +1,7 @@
 import { UserEmpty } from "@unmaze/assets";
 import { Text, View } from "@unmaze/views";
 
-export const FamilyEmpty = () => {
+export const FamilyEmpty: React.FC = () => {
   return (
     <View paddingHorizontal={20} paddingVertical={94} ai="center" gap={40}>
       <UserEmpty />

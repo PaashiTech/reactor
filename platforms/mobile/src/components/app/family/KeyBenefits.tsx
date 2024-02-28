@@ -1,6 +1,6 @@
 import { Text, View } from "@unmaze/views";
 
-export const KeyBenefits = () => {
+export const KeyBenefits: React.FC = () => {
   return (
     <View
       p={12}

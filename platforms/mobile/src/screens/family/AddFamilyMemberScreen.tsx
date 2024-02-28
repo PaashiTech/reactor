@@ -4,9 +4,8 @@ import { AddFamilyMemberScreenProps, FamilyScreen } from "./types";
 import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
-import { KeyBenefits } from "../../components/KeyBenefits";
-import { RelationshipsType } from "../../../../../packages/views/src/components/core/inputs/SelectRelationship";
-import { AddFamilyMemberForm } from "../../components/AddFamilyMemberForm";
+import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
+import { RelationshipsType } from "@unmaze/views/src/components/core/inputs/SelectRelationship";
 
 type FormData = {
   firstName: string;

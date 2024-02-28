@@ -6,7 +6,7 @@ import {
 } from "./types";
 import { UnmzGradientButton, View } from "@unmaze/views";
 import { Plus } from "@unmaze/assets";
-import { FamilyEmpty } from "../../components/FamilyEmpty";
+import { FamilyEmpty } from "../../components/app/family";
 
 const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
   navigation,
