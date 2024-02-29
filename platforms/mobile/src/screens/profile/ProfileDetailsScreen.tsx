@@ -8,11 +8,12 @@ import {
 } from "@unmaze/views";
 import {
   ProfileDetailsScreenProps,
-  OTP_VERIFICATION_SCREEN_ID,
   PROFILE_DETAILS_SCREEN_ID,
   EDIT_PH_NUMBER_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
 } from "./types";
+import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
+
 import { useState } from "react";
 import { Warning } from "@unmaze/assets";
 import { useVerificationContext } from "../shared/VerificationContextProvider";

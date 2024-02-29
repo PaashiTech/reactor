@@ -7,12 +7,11 @@ import {
 import { FC } from "react";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
+import { EditPhNumberScreenProps, EDIT_PH_NUMBER_SCREEN_ID } from "./types";
 import {
-  EditPhNumberScreenProps,
-  EDIT_PH_NUMBER_SCREEN_ID,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-} from "./types";
+} from "../shared";
 import { useForm } from "react-hook-form";
 import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";

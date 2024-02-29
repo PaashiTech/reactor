@@ -61,7 +61,7 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                   }}
                   onPress={() => {
                     if (option.navigateTo) {
-                      // navigation.navigate(option.navigateTo);
+                      navigation.navigate(option.navigateTo);
                     }
                   }}
                 >

@@ -5,7 +5,7 @@ import { EditEmailScreenProps, EDIT_EMAIL_SCREEN_ID } from "./types";
 import {
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-} from "../shared/types";
+} from "../shared";
 
 import { useForm } from "react-hook-form";
 import { useVerificationContext } from "../shared/VerificationContextProvider";
