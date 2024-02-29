@@ -15,7 +15,7 @@ import {
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "./types";
 import { useForm } from "react-hook-form";
-import { useVerificationContext } from "./VerificationContextProvider";
+import { useVerificationContext } from "../shared/VerificationContextProvider";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,

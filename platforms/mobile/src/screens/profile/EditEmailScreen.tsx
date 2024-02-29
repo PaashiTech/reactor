@@ -9,7 +9,7 @@ import {
   EDIT_EMAIL_SCREEN_ID,
 } from "./types";
 import { useForm } from "react-hook-form";
-import { useVerificationContext } from "./VerificationContextProvider";
+import { useVerificationContext } from "../shared/VerificationContextProvider";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,

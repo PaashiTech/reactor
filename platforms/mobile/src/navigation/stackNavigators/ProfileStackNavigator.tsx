@@ -12,7 +12,7 @@ import {
   ProfileDetailsScreen,
 } from "../../screens/profile";
 import { VerificationSuccessScreen } from "../../screens/shared";
-import { VerificationContextProvider } from "../../screens/profile/VerificationContextProvider";
+import { VerificationContextProvider } from "../../screens/shared/VerificationContextProvider";
 
 // Component which actually renders the entire screen hierarachy
 export const ProfileStackNavigator = () => {

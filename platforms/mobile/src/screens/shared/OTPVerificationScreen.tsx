@@ -19,7 +19,7 @@ import {
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../profile/types";
-import { useVerificationContext } from "../profile/VerificationContextProvider";
+import { useVerificationContext } from "./VerificationContextProvider";
 
 const CORRECT_OTP = "123456";
 

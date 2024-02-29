@@ -16,7 +16,7 @@ import {
 } from "./types";
 import { useState } from "react";
 import { Warning } from "@unmaze/assets";
-import { useVerificationContext } from "./VerificationContextProvider";
+import { useVerificationContext } from "../shared/VerificationContextProvider";
 
 const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,

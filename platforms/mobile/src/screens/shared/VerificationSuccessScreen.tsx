@@ -6,7 +6,7 @@ import {
   VerificationSuccessScreenProps,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../profile/types";
-import { useVerificationContext } from "../profile/VerificationContextProvider";
+import { useVerificationContext } from "./VerificationContextProvider";
 
 const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   navigation,
