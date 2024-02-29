@@ -9,13 +9,13 @@ import {
   EDIT_EMAIL_SCREEN_ID,
 } from "./types";
 import { useForm } from "react-hook-form";
-import { useProfileContext } from "./ProfileContextProvider";
+import { useVerificationContext } from "./VerificationContextProvider";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { setOTPSentTo, setVerifiedMessage } = useProfileContext();
+  const { setOTPSentTo, setVerifiedMessage } = useVerificationContext();
   const {
     control,
     handleSubmit,
@@ -28,10 +28,10 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
 
   const handleEmailSubmit = (data) => {
     setVerifiedMessage(`You have successfully updated your email address`);
-    setOTPSentTo(() => ({
+    setOTPSentTo({
       type: "email",
       value: data.email,
-    }));
+    });
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
       confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
     });

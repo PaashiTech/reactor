@@ -16,7 +16,7 @@ import {
 } from "./types";
 import { useState } from "react";
 import { Warning } from "@unmaze/assets";
-import { useProfileContext } from "./ProfileContextProvider";
+import { useVerificationContext } from "./VerificationContextProvider";
 
 const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,
@@ -26,7 +26,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   const [editType, setEditType] = useState<"email" | "primary" | "secondary">(
     "email"
   );
-  const { setOTPSentTo, setPhoneType } = useProfileContext();
+  const { setOTPSentTo, setPhoneType } = useVerificationContext();
 
   const profile: ProfileDetailsProps = {
     name: "Piyush Dhananjay Sarda",

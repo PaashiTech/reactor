@@ -1,20 +1,18 @@
 import { createContext, useContext, useState } from "react";
 
-type ProfileContextProps = {
+type VerificationContextProps = {
   phoneType: "primary" | "secondary";
   verifiedMessage: string;
   OTPSentTo: {
     type: string;
     value: string;
   };
-  setPhoneType: React.Dispatch<React.SetStateAction<"primary" | "secondary">>;
-  setVerifiedMessage: React.Dispatch<React.SetStateAction<string>>;
-  setOTPSentTo: React.Dispatch<
-    React.SetStateAction<{ type: string; value: string }>
-  >;
+  setPhoneType: (val: "primary" | "secondary") => void;
+  setVerifiedMessage: (val: string) => void;
+  setOTPSentTo: (val: { type: string; value: string }) => void;
 };
 
-const ProfileContext = createContext<ProfileContextProps>({
+const VerificationContext = createContext<VerificationContextProps>({
   phoneType: "primary",
   verifiedMessage: "",
   OTPSentTo: {
@@ -26,25 +24,24 @@ const ProfileContext = createContext<ProfileContextProps>({
   setOTPSentTo: () => {},
 });
 
-interface ProfileContextProviderProps {
+interface VerificationContextProviderProps {
   children: React.ReactNode;
 }
 
-export const ProfileContextProvider: React.FC<ProfileContextProviderProps> = ({
-  children,
-}) => {
+export const VerificationContextProvider: React.FC<
+  VerificationContextProviderProps
+> = ({ children }) => {
   const [phoneType, setPhoneType] = useState<"primary" | "secondary">(
     "primary"
   );
-
   const [verifiedMessage, setVerifiedMessage] = useState("placeholder");
-
   const [OTPSentTo, setOTPSentTo] = useState({
     type: "email",
     value: "",
   });
+
   return (
-    <ProfileContext.Provider
+    <VerificationContext.Provider
       value={{
         phoneType,
         verifiedMessage,
@@ -55,8 +52,8 @@ export const ProfileContextProvider: React.FC<ProfileContextProviderProps> = ({
       }}
     >
       {children}
-    </ProfileContext.Provider>
+    </VerificationContext.Provider>
   );
 };
 
-export const useProfileContext = () => useContext(ProfileContext);
+export const useVerificationContext = () => useContext(VerificationContext);

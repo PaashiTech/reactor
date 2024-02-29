@@ -12,7 +12,7 @@ import {
   ProfileDetailsScreen,
 } from "../../screens/profile";
 import { VerificationSuccessScreen } from "../../screens/shared";
-import { ProfileContextProvider } from "../../screens/profile/ProfileContextProvider";
+import { VerificationContextProvider } from "../../screens/profile/VerificationContextProvider";
 
 // Component which actually renders the entire screen hierarachy
 export const ProfileStackNavigator = () => {
@@ -29,7 +29,7 @@ export const ProfileStackNavigator = () => {
   const NavStack = createNativeStackNavigator<UnmzStackNavRouteProps>();
 
   return (
-    <ProfileContextProvider>
+    <VerificationContextProvider>
       <NavStack.Navigator
         initialRouteName={PROFILE_DETAILS_SCREEN_ID}
         screenOptions={screenOptions}
@@ -62,6 +62,6 @@ export const ProfileStackNavigator = () => {
           );
         })}
       </NavStack.Navigator>
-    </ProfileContextProvider>
+    </VerificationContextProvider>
   );
 };

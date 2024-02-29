@@ -19,7 +19,7 @@ import {
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../profile/types";
-import { useProfileContext } from "../profile/ProfileContextProvider";
+import { useVerificationContext } from "../profile/VerificationContextProvider";
 
 const CORRECT_OTP = "123456";
 
@@ -33,7 +33,7 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const otpRef = useRef<OTPTextView>(null);
 
-  const { OTPSentTo } = useProfileContext();
+  const { OTPSentTo } = useVerificationContext();
   const { confirmScreenId } = route.params;
 
   const buttonDisabled = OTPInputText.length < 6 || isSubmitting;

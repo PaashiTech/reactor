@@ -6,13 +6,13 @@ import {
   VerificationSuccessScreenProps,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../profile/types";
-import { useProfileContext } from "../profile/ProfileContextProvider";
+import { useVerificationContext } from "../profile/VerificationContextProvider";
 
 const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { verifiedMessage } = useProfileContext();
+  const { verifiedMessage } = useVerificationContext();
 
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
