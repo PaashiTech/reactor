@@ -6,16 +6,13 @@ import {
   VerificationSuccessScreenProps,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../profile/types";
+import { useProfileContext } from "../profile/ProfileContextProvider";
 
 const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { verifiedType } = route.params;
-  const updatedType =
-    verifiedType === "email"
-      ? "email address"
-      : `${verifiedType} mobile number`;
+  const { verifiedMessage } = useProfileContext();
 
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
@@ -39,7 +36,7 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
             fontWeight={"600"}
             color="#525252"
           >
-            You have successfully updated your {updatedType}
+            {verifiedMessage}
           </Text>
         </View>
       </View>

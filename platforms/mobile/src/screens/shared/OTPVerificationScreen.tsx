@@ -19,6 +19,7 @@ import {
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../profile/types";
+import { useProfileContext } from "../profile/ProfileContextProvider";
 
 const CORRECT_OTP = "123456";
 
@@ -32,10 +33,11 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const otpRef = useRef<OTPTextView>(null);
 
+  const { OTPSentTo } = useProfileContext();
+  const { confirmScreenId } = route.params;
+
   const buttonDisabled = OTPInputText.length < 6 || isSubmitting;
   const isError = error && !OTPInputText;
-
-  const { confirmScreenId, sentToType, sentToValue } = route.params;
 
   const clearOTP = () => {
     if (otpRef.current) {
@@ -50,14 +52,10 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
         setIsSuccess(true);
         setError(false);
         if (confirmScreenId === VERIFICATION_SUCCESS_SCREEN_ID) {
-          navigation.replace(confirmScreenId, {
-            verifiedType: sentToType,
-          });
+          navigation.replace(confirmScreenId);
         } else {
           setTimeout(() => {
-            navigation.replace(confirmScreenId, {
-              phoneType: "primary",
-            });
+            navigation.replace(confirmScreenId);
           }, 2000);
         }
       } else {
@@ -85,10 +83,10 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
           </Text>
           <View>
             <Text fontSize={14} color={"#6F6F6F"}>
-              Enter the OTP sent to your {sentToType}
+              Enter the OTP sent to your {OTPSentTo.type}
             </Text>
             <Text fontSize={14} fontWeight={"500"}>
-              {sentToValue}
+              {OTPSentTo.value}
             </Text>
           </View>
         </View>

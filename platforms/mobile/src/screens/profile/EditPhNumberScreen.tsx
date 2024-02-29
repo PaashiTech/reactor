@@ -15,12 +15,13 @@ import {
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "./types";
 import { useForm } from "react-hook-form";
+import { useProfileContext } from "./ProfileContextProvider";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { phoneType } = route.params;
+  const { phoneType, setVerifiedMessage, setOTPSentTo } = useProfileContext();
 
   const {
     control,
@@ -29,10 +30,15 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   } = useForm();
 
   const handleConfirm = (data) => {
+    setVerifiedMessage(
+      `You have successfully updated your ${phoneType} mobile number`
+    );
+    setOTPSentTo(() => ({
+      type: `${phoneType} number`,
+      value: data.mobileNumber,
+    }));
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
       confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
-      sentToType: phoneType,
-      sentToValue: `+91-${data.mobileNumber}`,
     });
   };
 
