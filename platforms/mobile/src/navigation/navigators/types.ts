@@ -31,10 +31,11 @@ export type StackRouteProps = {
   [ADD_FAMILY_MEMBER_SCREEN_ID]: undefined;
   // Profile screens
   [PROFILE_DETAILS_SCREEN_ID]: undefined;
+  [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
+  [EDIT_EMAIL_SCREEN_ID]: undefined;
+  // Shared screens
+  [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;
   [OTP_VERIFICATION_SCREEN_ID]: {
     confirmScreenId: keyof StackRouteProps;
   };
-  [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
-  [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;
-  [EDIT_EMAIL_SCREEN_ID]: undefined;
 };

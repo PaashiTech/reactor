@@ -17,7 +17,7 @@ import {
   OTPVerificationScreenProps,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-} from "../profile/types";
+} from "./types";
 import { useVerificationContext } from "./VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 

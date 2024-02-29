@@ -43,8 +43,8 @@ export const StackNavigator = () => {
     >
       {/* Profile section main screen */}
       <stackNav.Screen
-        key={UserProfileScreen.key as string}
-        name={UserProfileScreen.key as keyof StackRouteProps}
+        key={UserProfileScreen.key}
+        name={UserProfileScreen.key}
         component={UserProfileScreen.content}
         options={{ headerShown: false }}
       />
@@ -54,7 +54,7 @@ export const StackNavigator = () => {
         {familyScreens.map((scr) => {
           return (
             <stackNav.Screen
-              key={scr.key as string}
+              key={scr.key}
               name={scr.key as keyof StackRouteProps}
               component={scr.content}
               options={{
@@ -77,8 +77,8 @@ export const StackNavigator = () => {
         {profileScreens.map((scr) => {
           return (
             <stackNav.Screen
-              key={scr.key as string}
-              name={scr.key as keyof StackRouteProps}
+              key={scr.key}
+              name={scr.key}
               component={scr.content}
               options={{
                 title: scr.title,
@@ -108,7 +108,7 @@ export const StackNavigator = () => {
         {sharedScreens.map((scr) => {
           return (
             <stackNav.Screen
-              key={scr.key as string}
+              key={scr.key}
               name={scr.key as keyof StackRouteProps}
               component={scr.content}
               options={{

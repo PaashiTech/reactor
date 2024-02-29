@@ -1,5 +1,7 @@
+import { StackRouteProps } from "../navigation/navigators/types";
+
 export interface UnmzNavScreen {
-  key: string;
+  key: keyof StackRouteProps;
   title: string;
   content: React.FC<any>;
   headerBackground?: "plain" | "linear-gradient";
