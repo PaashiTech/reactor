@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 // Screen IDs
-import { USER_PROFILE_SCREEN_ID } from "../../screens/my-profile/types";
+import { USER_PROFILE_SCREEN_ID } from "../../screens/user-profile/types";
 import {
   ADD_FAMILY_MEMBER_SCREEN_ID,
   FAMILY_ACCOUNTS_SCREEN_ID,

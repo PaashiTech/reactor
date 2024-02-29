@@ -4,8 +4,8 @@ import { screenOptions } from "../helpers/screenOptions";
 import { UnmzNavScreen } from "../../screens/types";
 import { StackRouteProps } from "./types";
 
-import { UserProfileScreen } from "../../screens/my-profile";
-import { USER_PROFILE_SCREEN_ID } from "../../screens/my-profile/types";
+import { UserProfileScreen } from "../../screens/user-profile";
+import { USER_PROFILE_SCREEN_ID } from "../../screens/user-profile/types";
 import {
   EditEmailScreen,
   EditPhNumberScreen,

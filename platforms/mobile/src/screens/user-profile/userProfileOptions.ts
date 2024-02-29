@@ -12,14 +12,14 @@ import { StackRouteProps } from "../../navigation/navigators/types";
 import { PROFILE_DETAILS_SCREEN_ID } from "../profile/types";
 import { FAMILY_ACCOUNTS_SCREEN_ID } from "../family/types";
 
-type MyProfileOptionsType = {
+type UserProfileOptionsType = {
   id: number;
   title: string;
   icon: ReactElement;
   navigateTo?: keyof StackRouteProps;
 }[];
 
-export const myProfileOptions: MyProfileOptionsType = [
+export const userProfileOptions: UserProfileOptionsType = [
   {
     id: 1,
     title: "Profile",

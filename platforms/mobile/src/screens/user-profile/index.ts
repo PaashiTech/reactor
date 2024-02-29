@@ -1,3 +1,3 @@
-export { UserProfileScreen } from "./MyProfileScreen";
+export { UserProfileScreen } from "./UserProfileScreen";
 
 export { UserProfileScreenProps, USER_PROFILE_SCREEN_ID } from "./types";

@@ -7,7 +7,7 @@ import {
   LinkedIn,
   Instagram,
 } from "@unmaze/assets";
-import { myProfileOptions } from "./myProfileOptions";
+import { userProfileOptions } from "./userProfileOptions";
 import { USER_PROFILE_SCREEN_ID, UserProfileScreenProps } from "./types";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UnmzNavScreen } from "../types";
@@ -51,7 +51,7 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
             elevationAndroid={2}
             overflow="hidden"
           >
-            {myProfileOptions.map((option) => {
+            {userProfileOptions.map((option) => {
               return (
                 <Pressable
                   key={option.id}
