@@ -38,6 +38,7 @@
     "@types/react": "^18.2.45"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.22.3",
     "@tamagui/linear-gradient": "^1.90.2",
     "@tamagui/toast": "^1.90.2",
     "@unmaze/assets": "workspace:*",
@@ -48,6 +49,7 @@
     "react-native-material-datetime-picker": "^0.2.1",
     "react-native-otp-textinput": "^1.1.5",
     "react-timer-hook": "^3.0.7",
-    "tamagui": "^1.90.2"
+    "tamagui": "^1.90.2",
+    "zustand": "^4.5.1"
   }
 }

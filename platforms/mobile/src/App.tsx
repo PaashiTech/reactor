@@ -27,9 +27,6 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <SafeAreaProvider>
-          {/* <NavigationContainer theme={BaseTheme}>
-            <MyProfileStackNavigator />
-          </NavigationContainer> */}
           <NavigationContainer theme={BaseTheme}>
             <StackNavigator />
           </NavigationContainer>
