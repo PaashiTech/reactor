@@ -4,7 +4,7 @@ import { screenOptions } from "../helpers/screenOptions";
 import { UnmzNavScreen } from "../../screens/types";
 import { StackRouteProps } from "./types";
 
-import { UserProfileScreen } from "../../screens/my-profile/MyProfileScreen";
+import { UserProfileScreen } from "../../screens/my-profile";
 import { USER_PROFILE_SCREEN_ID } from "../../screens/my-profile/types";
 import {
   EditEmailScreen,
@@ -43,7 +43,7 @@ export const StackNavigator = () => {
     >
       {/* Profile section main screen */}
       <stackNav.Screen
-        key={UserProfileScreen.key}
+        key={UserProfileScreen.key as string}
         name={UserProfileScreen.key as keyof StackRouteProps}
         component={UserProfileScreen.content}
         options={{ headerShown: false }}
@@ -54,7 +54,7 @@ export const StackNavigator = () => {
         {familyScreens.map((scr) => {
           return (
             <stackNav.Screen
-              key={scr.key}
+              key={scr.key as string}
               name={scr.key as keyof StackRouteProps}
               component={scr.content}
               options={{
@@ -77,7 +77,7 @@ export const StackNavigator = () => {
         {profileScreens.map((scr) => {
           return (
             <stackNav.Screen
-              key={scr.key}
+              key={scr.key as string}
               name={scr.key as keyof StackRouteProps}
               component={scr.content}
               options={{
@@ -108,7 +108,7 @@ export const StackNavigator = () => {
         {sharedScreens.map((scr) => {
           return (
             <stackNav.Screen
-              key={scr.key}
+              key={scr.key as string}
               name={scr.key as keyof StackRouteProps}
               component={scr.content}
               options={{
