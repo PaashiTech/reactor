@@ -20,6 +20,8 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
   route,
 }) => {
+  const { phoneType } = route.params;
+
   const {
     control,
     formState: { isValid },
@@ -29,7 +31,7 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   const handleConfirm = (data) => {
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
       confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
-      sentToType: "number",
+      sentToType: phoneType,
       sentToValue: `+91-${data.mobileNumber}`,
     });
   };

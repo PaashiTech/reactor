@@ -35,7 +35,7 @@ export type VerificationSuccessScreenProps = NativeStackScreenProps<
   typeof VERIFICATION_SUCCESS_SCREEN_ID
 >;
 
-type EditType = "number" | "email";
+export type EditType = "email" | "primary" | "secondary";
 
 export type UnmzStackNavRouteProps = {
   [PROFILE_DETAILS_SCREEN_ID]: undefined;
@@ -44,7 +44,9 @@ export type UnmzStackNavRouteProps = {
     sentToType: EditType;
     sentToValue: string;
   };
-  [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
+  [EDIT_PH_NUMBER_SCREEN_ID]: {
+    phoneType: EditType;
+  };
   [VERIFICATION_SUCCESS_SCREEN_ID]: {
     verifiedType: EditType;
   };
