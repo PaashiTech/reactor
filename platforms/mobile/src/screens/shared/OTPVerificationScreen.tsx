@@ -55,7 +55,9 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
           });
         } else {
           setTimeout(() => {
-            navigation.replace(confirmScreenId);
+            navigation.replace(confirmScreenId, {
+              phoneType: "primary",
+            });
           }, 2000);
         }
       } else {

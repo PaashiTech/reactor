@@ -13,6 +13,7 @@ import {
   PROFILE_DETAILS_SCREEN_ID,
   EDIT_PH_NUMBER_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
+  EditType,
 } from "./types";
 import { useState } from "react";
 import { Warning } from "@unmaze/assets";
@@ -22,7 +23,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   route,
 }) => {
   const [warningModal, setWarningModal] = useState<boolean>(false);
-  const [emailOrPhone, setEmailOrPhone] = useState<"email" | "phone">("email");
+  const [editType, setEditType] = useState<EditType>();
 
   const profile: ProfileDetailsProps = {
     name: "Piyush Dhananjay Sarda",
@@ -34,14 +35,15 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
     email: "piyushsarda24@gmail.com",
     maritalStatus: "Single",
     onEditPrimaryPhone: () => {
-      setEmailOrPhone("email");
+      setEditType("email");
       setWarningModal(true);
     },
     onEditSecondaryPhone: () => {
-      alert("Edit secondary phone");
+      setEditType("email");
+      setWarningModal(true);
     },
     onEditEmail: () => {
-      setEmailOrPhone("phone");
+      setEditType("primary");
       setWarningModal(true);
     },
   };
@@ -70,23 +72,33 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
               account by entering OTP sent to
             </Text>
             <Text fontSize={12}>
-              {emailOrPhone === "email" ? profile.email : profile.primaryPhone}
+              {editType === "email"
+                ? profile.email
+                : editType === "primary"
+                ? profile.primaryPhone
+                : profile.secondaryPhone}
             </Text>
           </View>
         </View>
         <UnmzGradientButton
           onPress={() => {
             setWarningModal(false);
-            emailOrPhone === "email"
+            editType === "email"
               ? navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
                   confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
                   sentToType: "email",
-                  sentToValue: "piyushsarda24@gmail.com",
+                  sentToValue: profile.email,
+                })
+              : editType === "primary"
+              ? navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
+                  confirmScreenId: EDIT_EMAIL_SCREEN_ID,
+                  sentToType: "primary",
+                  sentToValue: profile.primaryPhone,
                 })
               : navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
-                  confirmScreenId: EDIT_EMAIL_SCREEN_ID,
-                  sentToType: "number",
-                  sentToValue: "+91-8327812999",
+                  confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
+                  sentToType: "email",
+                  sentToValue: profile.email,
                 });
           }}
         >

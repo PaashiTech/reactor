@@ -13,7 +13,9 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
 }) => {
   const { verifiedType } = route.params;
   const updatedType =
-    verifiedType === "email" ? "email address" : "primary mobile number";
+    verifiedType === "email"
+      ? "email address"
+      : `${verifiedType} mobile number`;
 
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
