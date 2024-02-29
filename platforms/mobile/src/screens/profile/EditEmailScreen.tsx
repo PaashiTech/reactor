@@ -1,12 +1,12 @@
 import { Text, View, UnmzGradientButton, FormTextInput } from "@unmaze/views";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
+import { EditEmailScreenProps, EDIT_EMAIL_SCREEN_ID } from "./types";
 import {
-  EditEmailScreenProps,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-  EDIT_EMAIL_SCREEN_ID,
-} from "./types";
+} from "../shared/types";
+
 import { useForm } from "react-hook-form";
 import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";

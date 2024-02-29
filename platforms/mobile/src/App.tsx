@@ -7,6 +7,7 @@ import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { MyProfileStackNavigator } from "./navigation";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StackNavigator } from "./navigation/navigators/StackNavigator";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -27,8 +28,11 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <SafeAreaProvider>
-          <NavigationContainer theme={BaseTheme}>
+          {/* <NavigationContainer theme={BaseTheme}>
             <MyProfileStackNavigator />
+          </NavigationContainer> */}
+          <NavigationContainer theme={BaseTheme}>
+            <StackNavigator />
           </NavigationContainer>
         </SafeAreaProvider>
       </UnmzToastProvider>
