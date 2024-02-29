@@ -6,12 +6,12 @@ import {
 } from "../../screens/family";
 import {
   FAMILY_ACCOUNTS_SCREEN_ID,
-  FamilyScreen,
   FamilyStackRouteProps,
 } from "../../screens/family/types";
+import { UnmzNavScreen } from "../../screens/types";
 
 export const FamilyStackNavigator = () => {
-  const screens: FamilyScreen[] = [FamilyDetailsScreen, AddFamilyMemberScreen];
+  const screens: UnmzNavScreen[] = [FamilyDetailsScreen, AddFamilyMemberScreen];
   const FamilyStack = createNativeStackNavigator<FamilyStackRouteProps>();
 
   return (
@@ -23,7 +23,7 @@ export const FamilyStackNavigator = () => {
         return (
           <FamilyStack.Screen
             key={scr.key}
-            name={scr.key}
+            name={scr.key as keyof FamilyStackRouteProps}
             component={scr.content}
             options={{
               title: scr.title,

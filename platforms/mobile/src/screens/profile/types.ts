@@ -1,9 +1,4 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Screen } from "../types";
-
-export interface ProfileScreen extends Screen {
-  key: keyof UnmzStackNavRouteProps;
-}
 
 export const PROFILE_DETAILS_SCREEN_ID = "0010";
 export type ProfileDetailsScreenProps = NativeStackScreenProps<

@@ -8,7 +8,6 @@ import { FC } from "react";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
-  ProfileScreen,
   EditPhNumberScreenProps,
   EDIT_PH_NUMBER_SCREEN_ID,
   OTP_VERIFICATION_SCREEN_ID,
@@ -16,6 +15,7 @@ import {
 } from "./types";
 import { useForm } from "react-hook-form";
 import { useVerificationContext } from "../shared/VerificationContextProvider";
+import { UnmzNavScreen } from "../types";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
@@ -84,7 +84,7 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   );
 };
 
-export const EditPhNumberScreen: ProfileScreen = {
+export const EditPhNumberScreen: UnmzNavScreen = {
   key: EDIT_PH_NUMBER_SCREEN_ID,
   title: "Edit number",
   content: _EditPhNumberScreen,

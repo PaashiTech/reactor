@@ -4,7 +4,6 @@ import { screenOptions } from "../screenOptions";
 import {
   UnmzStackNavRouteProps,
   PROFILE_DETAILS_SCREEN_ID,
-  ProfileScreen,
 } from "../../screens/profile/types";
 import {
   EditEmailScreen,
@@ -14,9 +13,11 @@ import {
 import { VerificationSuccessScreen } from "../../screens/shared";
 import { VerificationContextProvider } from "../../screens/shared/VerificationContextProvider";
 
+import { UnmzNavScreen } from "../../screens/types";
+
 // Component which actually renders the entire screen hierarachy
 export const ProfileStackNavigator = () => {
-  const screens: ProfileScreen[] = [
+  const screens: UnmzNavScreen[] = [
     ProfileDetailsScreen,
     OTPVerificationScreen,
     EditPhNumberScreen,
@@ -38,7 +39,7 @@ export const ProfileStackNavigator = () => {
           return (
             <NavStack.Screen
               key={scr.key}
-              name={scr.key}
+              name={scr.key as keyof UnmzStackNavRouteProps}
               component={scr.content}
               options={{
                 title: scr.title,

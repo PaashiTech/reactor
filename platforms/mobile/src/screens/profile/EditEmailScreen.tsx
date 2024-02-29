@@ -2,7 +2,6 @@ import { Text, View, UnmzGradientButton, FormTextInput } from "@unmaze/views";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import {
-  ProfileScreen,
   EditEmailScreenProps,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
@@ -10,6 +9,7 @@ import {
 } from "./types";
 import { useForm } from "react-hook-form";
 import { useVerificationContext } from "../shared/VerificationContextProvider";
+import { UnmzNavScreen } from "../types";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
@@ -93,7 +93,7 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   );
 };
 
-export const EditEmailScreen: ProfileScreen = {
+export const EditEmailScreen: UnmzNavScreen = {
   key: EDIT_EMAIL_SCREEN_ID,
   title: "Edit email address",
   content: _EditEmailScreen,
