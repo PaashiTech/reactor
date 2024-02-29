@@ -8,10 +8,11 @@ import {
   Instagram,
 } from "@unmaze/assets";
 import { myProfileOptions } from "./myProfileOptions";
-import { MyProfileScreenProps } from "./types";
+import { USER_PROFILE_SCREEN_ID, UserProfileScreenProps } from "./types";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { UnmzNavScreen } from "../types";
 
-export const MyProfileScreen: React.FC<MyProfileScreenProps> = ({
+const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
   navigation,
   route,
 }) => {
@@ -93,4 +94,10 @@ export const MyProfileScreen: React.FC<MyProfileScreenProps> = ({
       </View>
     </SafeAreaView>
   );
+};
+
+export const UserProfileScreen: UnmzNavScreen = {
+  key: USER_PROFILE_SCREEN_ID,
+  title: "User profile",
+  content: _UserProfileScreen,
 };

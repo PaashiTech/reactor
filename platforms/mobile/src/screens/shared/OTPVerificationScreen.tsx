@@ -14,12 +14,12 @@ import { FC, useRef, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { ToastViewport } from "@tamagui/toast";
 import {
-  ProfileScreen,
   OTPVerificationScreenProps,
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
-} from "../profile/types";
-import { useVerificationContext } from "../profile/VerificationContextProvider";
+} from "./types";
+import { useVerificationContext } from "./VerificationContextProvider";
+import { UnmzNavScreen } from "../types";
 
 const CORRECT_OTP = "123456";
 
@@ -132,7 +132,7 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   );
 };
 
-export const OTPVerificationScreen: ProfileScreen = {
+export const OTPVerificationScreen: UnmzNavScreen = {
   key: OTP_VERIFICATION_SCREEN_ID,
   title: "Verify your account",
   content: _OTPVerificationScreen,

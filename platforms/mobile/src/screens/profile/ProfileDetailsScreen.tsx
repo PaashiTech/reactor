@@ -7,16 +7,17 @@ import {
   Text,
 } from "@unmaze/views";
 import {
-  ProfileScreen,
   ProfileDetailsScreenProps,
-  OTP_VERIFICATION_SCREEN_ID,
   PROFILE_DETAILS_SCREEN_ID,
   EDIT_PH_NUMBER_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
 } from "./types";
+import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
+
 import { useState } from "react";
 import { Warning } from "@unmaze/assets";
-import { useVerificationContext } from "./VerificationContextProvider";
+import { useVerificationContext } from "../shared/VerificationContextProvider";
+import { UnmzNavScreen } from "../types";
 
 const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,
@@ -108,7 +109,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   );
 };
 
-export const ProfileDetailsScreen: ProfileScreen = {
+export const ProfileDetailsScreen: UnmzNavScreen = {
   key: PROFILE_DETAILS_SCREEN_ID,
   title: "Profile Details",
   content: _ProfileDetailsScreen,

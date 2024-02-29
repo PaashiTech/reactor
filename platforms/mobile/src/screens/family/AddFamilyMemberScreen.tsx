@@ -1,11 +1,12 @@
 import { KeyboardAvoidingView } from "react-native";
 import { useForm, FieldValues } from "react-hook-form";
-import { AddFamilyMemberScreenProps, FamilyScreen } from "./types";
+import { AddFamilyMemberScreenProps } from "./types";
 import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
 import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
 import { RelationshipType } from "../../components/app/family";
+import { UnmzNavScreen } from "../types";
 
 type FormData = {
   firstName: string;
@@ -84,7 +85,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
   );
 };
 
-export const AddFamilyMemberScreen: FamilyScreen = {
+export const AddFamilyMemberScreen: UnmzNavScreen = {
   key: "0020.b.1",
   title: "Add family member",
   content: _AddFamilyMemberScreen,

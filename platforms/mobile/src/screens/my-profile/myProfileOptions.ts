@@ -6,18 +6,17 @@ import {
   InviteIcon,
   FaqIcon,
 } from "@unmaze/assets";
-import {
-  FAMILY_STACK_NAVIGATOR,
-  MyProfileStackRouteProps,
-  PROFILE_STACK_NAVIGATOR,
-} from "./types";
+import {} from "./types";
 import { ReactElement } from "react";
+import { StackRouteProps } from "../../navigation/navigators/types";
+import { PROFILE_DETAILS_SCREEN_ID } from "../profile/types";
+import { FAMILY_ACCOUNTS_SCREEN_ID } from "../family/types";
 
 type MyProfileOptionsType = {
   id: number;
   title: string;
   icon: ReactElement;
-  navigateTo?: keyof MyProfileStackRouteProps;
+  navigateTo?: keyof StackRouteProps;
 }[];
 
 export const myProfileOptions: MyProfileOptionsType = [
@@ -25,13 +24,13 @@ export const myProfileOptions: MyProfileOptionsType = [
     id: 1,
     title: "Profile",
     icon: ProfileIcon,
-    navigateTo: PROFILE_STACK_NAVIGATOR,
+    navigateTo: PROFILE_DETAILS_SCREEN_ID as keyof StackRouteProps,
   },
   {
     id: 2,
     title: "Family",
     icon: FamilyIcon,
-    navigateTo: FAMILY_STACK_NAVIGATOR,
+    navigateTo: FAMILY_ACCOUNTS_SCREEN_ID as keyof StackRouteProps,
   },
   { id: 3, title: "Linked Accounts", icon: LinkedAccount },
   { id: 4, title: "Invite friends", icon: InviteIcon },
