@@ -3,6 +3,24 @@ import NetInfo from "@react-native-community/netinfo";
 import { AppState, AppStateStatus } from "react-native";
 import { FC, PropsWithChildren } from "react";
 import { useIsOnline } from "../hooks/useIsOnline";
+import { MMKV } from "react-native-mmkv";
+import { setupSWRCache } from "./swrCache";
+
+const mmkvProvider = () => {
+  const storage = new MMKV();
+  const { swrCacheMap, persistCache } = setupSWRCache({
+    set: storage.set.bind(storage),
+    get: storage.getString.bind(storage),
+  });
+
+  AppState.addEventListener("change", function persistCacheOnAppBackground(s) {
+    if (s === "background") {
+      persistCache();
+    }
+  });
+
+  return swrCacheMap;
+};
 
 export const APIGlobalConfigProvider: FC<PropsWithChildren> = ({
   children,
@@ -12,7 +30,7 @@ export const APIGlobalConfigProvider: FC<PropsWithChildren> = ({
   return (
     <SWRConfig
       value={{
-        provider: () => new Map(),
+        provider: mmkvProvider,
         isOnline: () => {
           return isOnline;
         },
