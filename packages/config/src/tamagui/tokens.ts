@@ -1,4 +1,5 @@
 import { createTokens } from "tamagui";
+import { space } from "./unmazeTokens";
 
 const size = {
   0: 0,
@@ -39,21 +40,6 @@ const size = {
   md: 46,
   lg: 60,
 };
-
-const spaces = Object.entries(size).map(
-  ([k, v]) =>
-    [
-      k,
-      Math.max(0, v <= 16 ? Math.round(v * 0.333) : Math.floor(v * 0.7 - 12)),
-    ] as const
-);
-
-const spacesNegative = spaces.slice(1).map(([k, v]) => [`-${k}`, -v]);
-
-const space = {
-  ...Object.fromEntries(spaces),
-  ...Object.fromEntries(spacesNegative),
-} as any;
 
 const zIndex = {
   0: 0,
