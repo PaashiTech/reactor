@@ -16,7 +16,7 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
 
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
-      <View paddingVertical={40} gap={40} mt={40} alignItems="center">
+      <View paddingVertical={40} gap={40} mt={168} alignItems="center">
         <CheckGreen width={96} height={96} />
         <View gap={8}>
           <Text
@@ -53,6 +53,6 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
 
 export const VerificationSuccessScreen: UnmzNavScreen = {
   key: VERIFICATION_SUCCESS_SCREEN_ID,
-  title: "Verify Number",
+  title: "Verification Success",
   content: _VerificationSuccessScreen,
 };
