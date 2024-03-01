@@ -1,24 +1,36 @@
 import { SWRConfig } from "swr";
-import { AppState } from "react-native";
+import NetInfo from "@react-native-community/netinfo";
+import { AppState, AppStateStatus } from "react-native";
 import { FC, PropsWithChildren } from "react";
+import { useIsOnline } from "../hooks/useIsOnline";
 
 export const APIGlobalConfigProvider: FC<PropsWithChildren> = ({
   children,
 }) => {
+  const { isOnline } = useIsOnline();
+
   return (
     <SWRConfig
       value={{
         provider: () => new Map(),
+        isOnline: () => {
+          return isOnline;
+        },
         isVisible: () => {
-          return true;
+          return AppState.currentState === "active";
         },
         initFocus(callback) {
           let appState = AppState.currentState;
 
-          const onAppStateChange = (nextAppState) => {
+          const onAppStateChange = (nextAppState: AppStateStatus) => {
             /* If it's resuming from background or inactive mode to active one */
             if (
-              appState.match(/inactive|background/) &&
+              /**
+               * Stricter check, conservative init focus -
+               * no need to check if the app's current state is
+               * either "inactive" or "background", do init focus stuff anyway
+               */
+              // appState.match(/inactive|background/) &&
               nextAppState === "active"
             ) {
               callback();
@@ -33,8 +45,19 @@ export const APIGlobalConfigProvider: FC<PropsWithChildren> = ({
           );
 
           return () => {
-            subscription.remove();
+            if (subscription) {
+              subscription.remove();
+            }
           };
+        },
+        initReconnect(callback) {
+          const unsubscribe = NetInfo.addEventListener((s) => {
+            if (s.isInternetReachable && s.isConnected) {
+              callback();
+            }
+          });
+
+          return unsubscribe;
         },
       }}
     >
