@@ -23,11 +23,7 @@ export const PersistantGlobalState = () => {
       <View flex={1} flexDirection="row">
         <Input
           value={incrementN.toString()}
-          onChangeText={(t) => {
-            t === undefined
-              ? setIncrementN(0)
-              : setIncrementN(incrementN + parseInt(t));
-          }}
+          onChangeText={(t) => setIncrementN(Number(t))}
           keyboardType="numeric"
           maxLength={2}
         />
@@ -38,11 +34,7 @@ export const PersistantGlobalState = () => {
       <View flex={1} flexDirection="row">
         <Input
           value={decrementN.toString()}
-          onChangeText={(t) => {
-            t === undefined
-              ? setIncrementN(0)
-              : setDecrementN(decrementN + parseInt(t));
-          }}
+          onChangeText={(t) => setDecrementN(Number(t))}
           keyboardType="numeric"
           maxLength={2}
         />
