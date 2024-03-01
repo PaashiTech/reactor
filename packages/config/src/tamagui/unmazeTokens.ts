@@ -12,8 +12,8 @@ const getSpaceTokens = (tokens: typeof figmaTokens) => {
 
 export const space = getSpaceTokens(figmaTokens);
 
-const getColorTokens = () => {
-  const colorEntries = figmaTokens[1]["Base Palette"]?.modes["Mode 1"];
+const getColorTokens = (tokens: typeof figmaTokens) => {
+  const colorEntries = tokens[1]["Base Palette"]?.modes["Mode 1"];
   const result: { [key: string]: number } = {};
   for (const colorKey in colorEntries) {
     const values = colorEntries[colorKey];
@@ -25,4 +25,4 @@ const getColorTokens = () => {
   return result;
 };
 
-export const color = getColorTokens();
+export const color = getColorTokens(figmaTokens);
