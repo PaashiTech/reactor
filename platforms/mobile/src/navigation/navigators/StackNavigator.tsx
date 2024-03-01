@@ -115,7 +115,13 @@ export const StackNavigator = () => {
                 component={scr.content}
                 options={{
                   title: scr.title,
-                  // headerShown: scr.title !== "Verify Number",
+                  headerShown: scr.title !== "Verification Success",
+                  headerStyle:
+                    scr.title === "Verification Success"
+                      ? {
+                          backgroundColor: "transparent",
+                        }
+                      : {},
                   // headerBackground: () =>
                   //   scr.headerBackground === "linear-gradient" ? (
                   //     <UnmzLinearGradient style={{ flex: 1 }} />
