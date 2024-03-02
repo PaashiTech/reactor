@@ -8,7 +8,7 @@ export const APITest = () => {
     <View flex={1} alignItems="center" justifyContent="center">
       {userError ? <Text>{userError.toString()}</Text> : null}
       {userIsLoading ? null : (
-        <Text>{userData.data.primary_mobile_number}</Text>
+        <Text>{userData?.data.primary_mobile_number}</Text>
       )}
     </View>
   );
