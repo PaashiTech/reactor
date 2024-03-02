@@ -8,6 +8,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StackNavigator } from "./navigation/navigators/StackNavigator";
 import { PersistantGlobalState } from "./playground/PersistantGlobalState";
+import { APITest } from "./playground/API";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -31,7 +32,8 @@ export function App() {
           {/* <NavigationContainer theme={BaseTheme}>
             <StackNavigator />
           </NavigationContainer> */}
-          <PersistantGlobalState />
+          {/* <PersistantGlobalState /> */}
+          <APITest />
         </SafeAreaProvider>
       </UnmzToastProvider>
     </TamaguiProvider>

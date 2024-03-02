@@ -3,7 +3,7 @@ type SWRCacheType = {
   get: (key: string) => any;
 };
 
-const persistCacheKeys = ["/v1/myinfo"];
+const persistCacheKeys = ["/user/nothing"];
 
 export const setupSWRCache = ({ set, get }: SWRCacheType) => {
   const appCache = get("app-cache");
