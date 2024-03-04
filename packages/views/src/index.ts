@@ -9,6 +9,10 @@
 // Unmaze Components
 export * from "./components";
 
+// Stores
+export { useTestStore } from "./stores/testStore";
+export { mmkvStorage } from "./stores/mmkvStorage";
+
 // Tamagui
 export * from "tamagui";
 export { tamaguiConfig } from "@unmaze/config";
