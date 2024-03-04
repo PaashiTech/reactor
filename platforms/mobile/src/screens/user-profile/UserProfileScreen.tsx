@@ -61,11 +61,8 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     foreground: true,
                   }}
                   onPress={() => {
-                    if (
-                      option.navigateTo &&
-                      option.navigateTo !== OTP_VERIFICATION_SCREEN_ID
-                    ) {
-                      navigation.navigate(option.navigateTo);
+                    if (option.navigateTo) {
+                      navigation.navigate(option.navigateTo, option.routeProps);
                     }
                   }}
                 >

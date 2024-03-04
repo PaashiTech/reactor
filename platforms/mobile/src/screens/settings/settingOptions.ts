@@ -8,7 +8,8 @@ type SettingOptions = {
   title: string;
   icon: ReactElement;
   showRightChevron: boolean | "switch";
-  navigateTo?: keyof Omit<StackRouteProps, "0012.b.1">;
+  navigateTo?: keyof StackRouteProps;
+  routeProps?: any;
 }[];
 
 export const appPreferences: SettingOptions = [

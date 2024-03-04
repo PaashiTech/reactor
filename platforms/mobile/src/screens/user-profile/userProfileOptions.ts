@@ -18,6 +18,7 @@ type UserProfileOptionsType = {
   title: string;
   icon: ReactElement;
   navigateTo?: keyof StackRouteProps;
+  routeProps?: any;
 }[];
 
 export const userProfileOptions: UserProfileOptionsType = [

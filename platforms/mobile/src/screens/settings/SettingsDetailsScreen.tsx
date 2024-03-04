@@ -37,7 +37,7 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
                   }}
                   onPress={() => {
                     if (option.navigateTo) {
-                      navigation.navigate(option.navigateTo);
+                      navigation.navigate(option.navigateTo, option.routeProps);
                     }
                   }}
                 >
