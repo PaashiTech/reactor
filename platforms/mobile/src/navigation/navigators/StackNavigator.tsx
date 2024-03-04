@@ -20,6 +20,8 @@ import {
   FamilyDetailsScreen,
 } from "../../screens/family";
 import { VerificationContextProvider } from "../../screens/shared/VerificationContextProvider";
+import { SettingsDetailsScreen } from "../../screens/settings/SettingsDetailsScreen";
+import { AppThemeScreen } from "../../screens/settings/AppThemeScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -33,6 +35,11 @@ const sharedScreens: UnmzNavScreen[] = [
 const familyScreens: UnmzNavScreen[] = [
   FamilyDetailsScreen,
   AddFamilyMemberScreen,
+];
+
+const settingsScreens: UnmzNavScreen[] = [
+  SettingsDetailsScreen,
+  AppThemeScreen,
 ];
 
 export const StackNavigator = () => {
@@ -99,6 +106,22 @@ export const StackNavigator = () => {
                   //       shadowRadius={10}
                   //     />
                   //   ),
+                }}
+              />
+            );
+          })}
+        </stackNav.Group>
+
+        {/* Setting screens group */}
+        <stackNav.Group>
+          {settingsScreens.map((scr) => {
+            return (
+              <stackNav.Screen
+                key={scr.key}
+                name={scr.key as keyof StackRouteProps}
+                component={scr.content}
+                options={{
+                  title: scr.title,
                 }}
               />
             );

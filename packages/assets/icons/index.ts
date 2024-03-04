@@ -25,8 +25,18 @@ import Instagram from "./svg/instagram.svg";
 import Twitter from "./svg/twitter.svg";
 import PlaceholderIcon from "./svg/placeholder-icon.svg";
 import PlaceholderIconDisabled from "./svg/placeholder-icon-disabled.svg";
+import Bell from "./svg/bell.svg";
+import Biometrics from "./svg/biometrics.svg";
+import Lock from "./svg/lock.svg";
+import Logout from "./svg/logout.svg";
+import Moon from "./svg/moon.svg";
 
 export {
+  Bell,
+  Biometrics,
+  Lock,
+  Logout,
+  Moon,
   LinkedIn,
   Instagram,
   Twitter,

@@ -31,6 +31,7 @@ export { OTPInput } from "./core/inputs/OTPInput";
 export { OTPTextView } from "./core/inputs/OTPTextView";
 export { DatePicker } from "./core/inputs/DatePicker";
 export { DropdownList } from "./core/inputs/DropdownList";
+export { CustomSwitch } from "./core/inputs/CustomSwitch";
 
 // Miscellaneous
 export { UnmzToast } from "./core/misc/UnmzToast";
