@@ -36,9 +36,6 @@ const size = {
   18: 244,
   19: 264,
   20: 284,
-  sm: 38,
-  md: 46,
-  lg: 60,
 };
 
 const zIndex = {
@@ -65,9 +62,6 @@ const radius = {
   10: 34,
   11: 42,
   12: 50,
-  sm: 4,
-  md: 8,
-  lg: 12,
 };
 
 const color = {
