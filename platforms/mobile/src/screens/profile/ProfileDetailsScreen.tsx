@@ -78,7 +78,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
               : `${editType} number`}
             ?
           </Text>
-          <Text fontSize={12}>
+          <Text fontSize={12} letterSpacing={0.24}>
             To edit your {editType === "email" ? "email" : "number"}, verify
             your account by entering the OTP sent to{" "}
             {editType === "email" ? profile.primaryPhone : profile.email}

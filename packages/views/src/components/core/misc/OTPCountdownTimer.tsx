@@ -38,7 +38,7 @@ export const OTPCountdownTimer: React.FC<OTPCountdownTimerProps> = ({
           color="#035E5D"
           pressStyle={{ textDecorationLine: "underline" }}
           onPress={() => {
-            toast.show("OTP sent to your family member's mobile number", {});
+            toast.show("OTP resent!", {});
             restart(getTime(timerSeconds));
           }}
         >
