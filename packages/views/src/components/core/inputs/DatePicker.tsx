@@ -75,7 +75,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
 
             {isVisible && (
               <RNMaterialDatetimePicker
-                value={new Date()}
+                value={value || new Date()}
                 mode={AndroidPickerMode.DATE}
                 onConfirm={(date) => {
                   onChange(date);
