@@ -23,6 +23,9 @@
   <style name="ThemeOverlay.Material3.MaterialCalendar" parent="ThemeOverlay.Material3.Dialog">
     <item name="materialCalendarStyle">@style/Widget.Material3.CustomMaterialCalendar</item>
     <item name="colorPrimary">@color/calendar_colorPrimary</item>
+    <item name="colorOnPrimary">@color/calendar_white</item>
+    <item name="colorSurface">@color/calendar_white</item>
+    <item name="colorOnSurface">@color/calendar_textColor</item>
 
     <!-- Header Styles -->
     <item name="materialCalendarHeaderLayout">@style/Widget.Material3.MaterialCalendar.HeaderLayout</item>
