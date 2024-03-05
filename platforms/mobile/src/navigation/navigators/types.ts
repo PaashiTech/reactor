@@ -15,6 +15,10 @@ import {
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
 } from "../../screens/shared/types";
+import {
+  APP_THEME_SCREEN_ID,
+  SETTINGS_DETAILS_SCREEN_ID,
+} from "../../screens/settings/types";
 
 export type UserProfileScreenProps = NativeStackScreenProps<
   StackRouteProps,
@@ -33,6 +37,9 @@ export type StackRouteProps = {
   [PROFILE_DETAILS_SCREEN_ID]: undefined;
   [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
   [EDIT_EMAIL_SCREEN_ID]: undefined;
+  // Settings screens
+  [SETTINGS_DETAILS_SCREEN_ID]: undefined;
+  [APP_THEME_SCREEN_ID]: undefined;
   // Shared screens
   [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;
   [OTP_VERIFICATION_SCREEN_ID]: {

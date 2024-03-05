@@ -15,7 +15,6 @@ import {
 import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
 
 import { useState } from "react";
-import { Warning } from "@unmaze/assets";
 import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 
@@ -66,19 +65,24 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
           gap: 20,
         }}
       >
-        <View flex={1} flexDirection="row" gap={10}>
-          <View alignItems="flex-start">
-            <Warning />
-          </View>
-          <View flex={1}>
-            <Text fontSize={12}>
-              To edit any KYC details, you need to first verify your registered
-              account by entering OTP sent to
-            </Text>
-            <Text fontSize={12}>
-              {editType === "email" ? profile.primaryPhone : profile.email}
-            </Text>
-          </View>
+        <View flex={1} gap={4}>
+          <Text
+            fontSize={16}
+            fontWeight={"600"}
+            letterSpacing={0.32}
+            color={"#262626"}
+          >
+            Update{" "}
+            {editType === "email"
+              ? `${editType} address`
+              : `${editType} number`}
+            ?
+          </Text>
+          <Text fontSize={12}>
+            To edit your {editType === "email" ? "email" : "number"}, verify
+            your account by entering the OTP sent to{" "}
+            {editType === "email" ? profile.primaryPhone : profile.email}
+          </Text>
         </View>
         <UnmzGradientButton
           onPress={() => {

@@ -11,6 +11,7 @@ import { userProfileOptions } from "./userProfileOptions";
 import { USER_PROFILE_SCREEN_ID, UserProfileScreenProps } from "./types";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UnmzNavScreen } from "../types";
+import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
 
 const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
   navigation,
@@ -61,7 +62,7 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                   }}
                   onPress={() => {
                     if (option.navigateTo) {
-                      navigation.navigate(option.navigateTo);
+                      navigation.navigate(option.navigateTo, option.routeProps);
                     }
                   }}
                 >
