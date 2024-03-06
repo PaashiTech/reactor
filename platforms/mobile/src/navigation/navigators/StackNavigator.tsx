@@ -22,11 +22,13 @@ import {
 import { VerificationContextProvider } from "../../screens/shared/VerificationContextProvider";
 import { SettingsDetailsScreen } from "../../screens/settings/SettingsDetailsScreen";
 import { AppThemeScreen } from "../../screens/settings/AppThemeScreen";
+import { AddSecondaryPhoneNumberScreen } from "../../screens/profile/AddSecondaryPhoneNumber";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
   EditPhNumberScreen,
   EditEmailScreen,
+  AddSecondaryPhoneNumberScreen,
 ];
 const sharedScreens: UnmzNavScreen[] = [
   OTPVerificationScreen,

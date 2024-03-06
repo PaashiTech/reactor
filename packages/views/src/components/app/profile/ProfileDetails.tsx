@@ -16,7 +16,7 @@ export type ProfileDetailsProps = {
   dob: string;
   pan: string;
   primaryPhone: string;
-  secondaryPhone: string;
+  secondaryPhone: string | null;
   gender: "Male" | "Female" | "Non-binary";
   email: string;
   maritalStatus: "Single" | "Married" | "Divorcee";

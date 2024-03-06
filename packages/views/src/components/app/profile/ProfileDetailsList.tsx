@@ -20,6 +20,7 @@ export const ProfileDetailsList: FC<ProfileDetailsListProps> = ({ items }) => {
     <YStack marginTop={24} paddingVertical={12} backgroundColor="#fff">
       {items.map((item, i) => {
         const _icon = item.icon ? Edit : null;
+        if (!item.title) return;
         return (
           <ProfileDetailsListItem
             iconAfter={_icon}
