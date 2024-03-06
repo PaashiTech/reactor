@@ -7,6 +7,7 @@ import {
   FAMILY_ACCOUNTS_SCREEN_ID,
 } from "../../screens/family/types";
 import {
+  ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
   EDIT_PH_NUMBER_SCREEN_ID,
   PROFILE_DETAILS_SCREEN_ID,
@@ -37,6 +38,7 @@ export type StackRouteProps = {
   [PROFILE_DETAILS_SCREEN_ID]: undefined;
   [EDIT_PH_NUMBER_SCREEN_ID]: undefined;
   [EDIT_EMAIL_SCREEN_ID]: undefined;
+  [ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID]: undefined;
   // Settings screens
   [SETTINGS_DETAILS_SCREEN_ID]: undefined;
   [APP_THEME_SCREEN_ID]: undefined;
