@@ -2,14 +2,21 @@ import {
   TamaguiProvider,
   tamaguiConfig,
   UnmzToastProvider,
+  View,
+  Spinner,
 } from "@unmaze/views";
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StackNavigator } from "./navigation/navigators/StackNavigator";
 
+import { useUser } from "@unmaze/api";
+
+import { APINoFetchTest } from "./playground/API";
+
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
+  const { userIsLoading } = useUser({ id: "nothing" });
 
   if (!fontsLoaded) {
     return null;
@@ -27,9 +34,16 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <SafeAreaProvider>
-          <NavigationContainer theme={BaseTheme}>
-            <StackNavigator />
-          </NavigationContainer>
+          {userIsLoading ? (
+            <View flex={1} justifyContent="center" alignItems="center">
+              <Spinner size="large" color="#035E5D" />
+            </View>
+          ) : (
+            // <NavigationContainer theme={BaseTheme}>
+            //   <StackNavigator />
+            // </NavigationContainer>
+            <APINoFetchTest />
+          )}
         </SafeAreaProvider>
       </UnmzToastProvider>
     </TamaguiProvider>

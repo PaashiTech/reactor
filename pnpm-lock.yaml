@@ -216,6 +216,9 @@ importers:
       '@react-native-community/netinfo':
         specifier: ^11.3.1
         version: 11.3.1(react-native@0.72.6)
+      '@unmaze/views':
+        specifier: workspace:*
+        version: link:../views
       axios:
         specifier: ^1.6.7
         version: 1.6.7

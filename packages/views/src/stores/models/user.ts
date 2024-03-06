@@ -1,25 +1,25 @@
-type MaritalStatus = "single" | "married" | "divorcee";
-type Gender = "male" | "female" | "non-binary" | "prefer-not-say";
+type MaritalStatus = "Single" | "Married" | "Divorcee" | "PreferNotToSay";
+type Gender = "Male" | "Female" | "NonBinary" | "PreferNotToSay";
 type Name = {
   first: string;
   middle: string;
   last: string;
 };
 type Relationship =
-  | "life-partner"
-  | "son"
-  | "daughter"
-  | "father"
-  | "mother"
-  | "brother"
-  | "sister"
-  | "grandson"
-  | "granddaughter"
-  | "grandfather"
-  | "grandmother"
-  | "other";
+  | "LifePartner"
+  | "Son"
+  | "Daughter"
+  | "Father"
+  | "Mother"
+  | "Brother"
+  | "Sister"
+  | "Grandson"
+  | "Granddaughter"
+  | "Grandfather"
+  | "Grandmother"
+  | "Other";
 
-type InvitationStatus = "invited" | "declined" | "expired" | "done";
+type InvitationStatus = "Invited" | "Declined" | "Expired" | "Done";
 type FamilyMember = {
   name: Name;
   status: InvitationStatus;
@@ -28,9 +28,10 @@ type FamilyMember = {
   relationship: Relationship;
 };
 
-type User = {
+export type UserState = {
   name: Name;
   dob: string; // ISO string
+  dobObj?: Date;
   pan: string;
   phone: {
     primary: string;
@@ -40,4 +41,12 @@ type User = {
   marital_status: MaritalStatus;
   gender: Gender;
   family: FamilyMember[];
+};
+
+export type UserActions = {
+  setName: (newName: Name) => void;
+  getFullName: () => string;
+  getPrimaryPhone: () => string;
+  getSecondaryPhone: () => string;
+  getDoBFormatted: () => string;
 };

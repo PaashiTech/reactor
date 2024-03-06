@@ -1,4 +1,4 @@
-import { View, Text } from "@unmaze/views";
+import { View, Text, useUserStore } from "@unmaze/views";
 import { useUser } from "@unmaze/api";
 
 export const APITest = () => {
@@ -7,9 +7,17 @@ export const APITest = () => {
   return (
     <View flex={1} alignItems="center" justifyContent="center">
       {userError ? <Text>{userError.toString()}</Text> : null}
-      {userIsLoading ? null : (
-        <Text>{userData?.data.primary_mobile_number}</Text>
-      )}
+      {userIsLoading ? null : <Text>{userData?.name}</Text>}
+    </View>
+  );
+};
+
+export const APINoFetchTest = () => {
+  const fullName = useUserStore((state) => state.getFullName());
+
+  return (
+    <View flex={1} alignItems="center" justifyContent="center">
+      <Text>{fullName}</Text>
     </View>
   );
 };
