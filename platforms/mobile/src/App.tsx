@@ -12,11 +12,13 @@ import { StackNavigator } from "./navigation/navigators/StackNavigator";
 
 import { useUser } from "@unmaze/api";
 
-import { APINoFetchTest } from "./playground/API";
+import { APINoFetchTest, APITest } from "./playground/API";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
-  const { userIsLoading } = useUser({ id: "nothing" });
+  const { userIsLoading } = useUser({
+    id: "16cd063a-071b-46bf-80eb-654766e4911c",
+  });
 
   if (!fontsLoaded) {
     return null;
@@ -39,9 +41,9 @@ export function App() {
               <Spinner size="large" color="#035E5D" />
             </View>
           ) : (
-            // <NavigationContainer theme={BaseTheme}>
+            /* // <NavigationContainer theme={BaseTheme}>
             //   <StackNavigator />
-            // </NavigationContainer>
+            // </NavigationContainer> */
             <APINoFetchTest />
           )}
         </SafeAreaProvider>

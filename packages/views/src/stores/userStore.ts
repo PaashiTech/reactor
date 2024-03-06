@@ -41,8 +41,8 @@ export const useUserStore = create<UserState & UserActions>()(
           family: [],
           getFullName: () => {
             return get().name.first + " " + get().name.middle
-              ? ""
-              : get().name.middle + " " + get().name.last;
+              ? get().name.middle
+              : "" + " " + get().name.last;
           },
           getDoBFormatted: () => {
             let _dateObj = new Date(get().dob);
