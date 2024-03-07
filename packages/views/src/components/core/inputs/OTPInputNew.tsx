@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Keyboard } from "react-native";
-import { Input, Text, View } from "tamagui";
+import { Input, Text, View, VisuallyHidden } from "tamagui";
 
 type OTPInputNewProps = {
   code: string;
@@ -98,23 +98,21 @@ export const OTPInputNew: React.FC<OTPInputNewProps> = ({
           Please enter the correct OTP
         </Text>
       )}
-      <Input
-        autoFocus
-        ref={textInputRef}
-        maxLength={OTP_MAX_LENGTH}
-        value={code}
-        onChangeText={handleCode}
-        onBlur={handleOnBlur}
-        borderColor={"gray"}
-        focusStyle={{ borderColor: "gray" }}
-        keyboardType="numeric"
-        returnKeyType="done"
-        textContentType="oneTimeCode"
-        position="absolute"
-        width={1}
-        height={1}
-        opacity={0}
-      />
+      <VisuallyHidden>
+        <Input
+          autoFocus
+          ref={textInputRef}
+          maxLength={OTP_MAX_LENGTH}
+          value={code}
+          onChangeText={handleCode}
+          onBlur={handleOnBlur}
+          borderColor={"gray"}
+          focusStyle={{ borderColor: "gray" }}
+          keyboardType="numeric"
+          returnKeyType="done"
+          textContentType="oneTimeCode"
+        />
+      </VisuallyHidden>
     </View>
   );
 };
