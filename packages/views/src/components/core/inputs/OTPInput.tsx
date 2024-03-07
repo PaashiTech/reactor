@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { Keyboard } from "react-native";
 import { Input, Text, View, VisuallyHidden } from "tamagui";
 
-type OTPInputNewProps = {
+type OTPInputProps = {
   code: string;
   setCode: (value: string) => void;
   isError: boolean;
 };
 
-export const OTPInputNew: React.FC<OTPInputNewProps> = ({
+export const OTPInput: React.FC<OTPInputProps> = ({
   code,
   setCode,
   isError,
@@ -89,7 +89,7 @@ export const OTPInputNew: React.FC<OTPInputNewProps> = ({
         flexDirection="row"
         width={"100%"}
         justifyContent="space-between"
-        gap={16}
+        // gap={16}
       >
         {codeDigitsArray.map(toCodeDigitInput)}
       </View>

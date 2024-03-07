@@ -30,7 +30,7 @@ export { CalendarPicker } from "./core/inputs/CalendarPicker";
 export { DatePicker } from "./core/inputs/DatePicker";
 export { DropdownList } from "./core/inputs/DropdownList";
 export { CustomSwitch } from "./core/inputs/CustomSwitch";
-export { OTPInputNew } from "./core/inputs/OTPInputNew";
+export { OTPInput } from "./core/inputs/OTPInput";
 // Miscellaneous
 export { UnmzToast } from "./core/misc/UnmzToast";
 export { UnmzToastProvider } from "./core/misc/UnmzToastProvider";

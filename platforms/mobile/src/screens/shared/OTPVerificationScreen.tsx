@@ -1,13 +1,12 @@
 import {
   UnmzGradientButton,
-  OTPInput,
   OTPCountdownTimer,
   Spinner,
   Text,
   View,
   XStack,
   UnmzToast,
-  OTPInputNew,
+  OTPInput,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import { FC, useState } from "react";
@@ -82,7 +81,7 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
         </View>
         <View gap={20}>
           {!isSubmitting && !isSuccess ? (
-            <OTPInputNew
+            <OTPInput
               code={OTPInputText}
               setCode={(value) => setOTPInputText(value)}
               isError={error}
