@@ -12,7 +12,7 @@ import { StackNavigator } from "./navigation/navigators/StackNavigator";
 
 import { useUser } from "@unmaze/api";
 
-import { APINoFetchTest, APITest } from "./playground/API";
+import { APICreateOTPTest } from "./playground/API";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -44,7 +44,7 @@ export function App() {
             /* // <NavigationContainer theme={BaseTheme}>
             //   <StackNavigator />
             // </NavigationContainer> */
-            <APINoFetchTest />
+            <APICreateOTPTest />
           )}
         </SafeAreaProvider>
       </UnmzToastProvider>

@@ -1,5 +1,5 @@
-import { View, Text, useUserStore } from "@unmaze/views";
-import { useUser } from "@unmaze/api";
+import { View, Text, useUserStore, Spinner } from "@unmaze/views";
+import { useUser, useCreateOTP } from "@unmaze/api";
 
 const months = [
   "Jan",
@@ -16,9 +16,12 @@ const months = [
   "Dec",
 ];
 
+const TEST_USER_ID = "16cd063a-071b-46bf-80eb-654766e4911c";
+const TEST_EMAIL_ID = "amogh.kulkarni@unmaze.app";
+
 export const APITest = () => {
   const { userData, userError, userIsLoading } = useUser({
-    id: "16cd063a-071b-46bf-80eb-654766e4911c",
+    id: TEST_USER_ID,
   });
 
   return (
@@ -71,6 +74,21 @@ export const APINoFetchTest = () => {
           .map((fm) => constructFullName(fm.name))
           .reduce((fm_n) => fm_n + ", ")}
       </Text>
+    </View>
+  );
+};
+
+export const APICreateOTPTest = () => {
+  const { createOTPData, createOTPError, createOTPIsLoading } = useCreateOTP({
+    email: TEST_EMAIL_ID,
+    user_id: TEST_USER_ID,
+  });
+
+  return (
+    <View flex={1} alignItems="center" justifyContent="center">
+      {createOTPIsLoading ? <Spinner size="large" color="#035E5D" /> : <></>}
+      {createOTPError ? <Text>Error!</Text> : <></>}
+      {createOTPData ? <Text>{createOTPData.session_id}</Text> : <></>}
     </View>
   );
 };
