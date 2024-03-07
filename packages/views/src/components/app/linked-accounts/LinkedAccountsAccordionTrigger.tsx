@@ -1,9 +1,9 @@
-import { Progress, Square, Text, View, XStack, YStack } from "@unmaze/views";
+import { Progress, Square, Text, View, XStack, YStack } from "tamagui";
 import { ChevronDown, PlaceholderIcon } from "@unmaze/assets";
 import {
   getLinkedAccountText,
   getProgressPercent,
-} from "./linkedAccountHelpers";
+} from "../../../helpers/linkedAccountHelpers";
 
 type LinkedAccountsAccordionTriggerProps = {
   open: boolean;
@@ -15,7 +15,7 @@ export const LinkedAccountsAccordionTrigger: React.FC<
 > = ({ open, item }) => {
   return (
     <View borderRadius={12} overflow="hidden">
-      <View padding={16} bg="#fff">
+      <View padding={16} backgroundColor="#fff">
         <XStack alignItems="center" gap={12}>
           <PlaceholderIcon />
           <YStack flex={1} gap={2}>

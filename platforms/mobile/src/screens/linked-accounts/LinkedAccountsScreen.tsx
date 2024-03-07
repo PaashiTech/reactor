@@ -6,13 +6,13 @@ import {
   ScrollView,
   XStack,
   Accordion,
+  LinkedAccountsAccordionTrigger,
+  LinkedAccountsAccordionContentItem,
+  getAllAccountsAmount,
 } from "@unmaze/views";
 import { Plus, SaafeLogo } from "@unmaze/assets";
 import { UnmzNavScreen } from "../types";
 import { linkedAccountsData } from "./linkedAccountsData";
-import { LinkedAccountsAccordionTrigger } from "../../components/app/linked-accounts/LinkedAccountsAccordionTrigger";
-import { LinkedAccountsAccordionContentItem } from "../../components/app/linked-accounts/LinkedAccountsAccordionContentItem";
-import { getAllAccountsAmount } from "../../components/app/linked-accounts/linkedAccountHelpers";
 
 const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
   navigation,

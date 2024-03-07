@@ -9,6 +9,9 @@
 // Unmaze Components
 export * from "./components";
 
+//Unmaze helpers
+export * from "./helpers/linkedAccountHelpers";
+
 // Stores
 export { useTestStore } from "./stores/testStore";
 export { mmkvStorage } from "./stores/mmkvStorage";

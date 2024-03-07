@@ -1,17 +1,19 @@
-import { Text, View, XStack, YStack } from "@unmaze/views";
+import { Text, View, XStack, YStack } from "tamagui";
 import { ChevronRight, PlaceholderIcon } from "@unmaze/assets";
 import {
   getFormattedAccountNumber,
   getFormattedAmount,
   getFormattedLinkedDateAndTime,
-} from "./linkedAccountHelpers";
+} from "../../../helpers/linkedAccountHelpers";
 
-export const LinkedAccountsAccordionContentItem = ({ account }) => {
+export const LinkedAccountsAccordionContentItem: React.FC<{ account: any }> = ({
+  account,
+}) => {
   return (
     <View
       key={account.id}
       padding={12}
-      bg="#fff"
+      backgroundColor="#fff"
       borderRadius={12}
       elevationAndroid={2}
     >
@@ -50,7 +52,7 @@ export const LinkedAccountsAccordionContentItem = ({ account }) => {
             >
               Link Now
             </Text>
-            <View mt={2}>
+            <View marginTop={2}>
               <ChevronRight width={16} height={16} />
             </View>
           </XStack>

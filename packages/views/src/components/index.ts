@@ -49,3 +49,7 @@ export {
   ProfileDetails,
   ProfileDetailsProps,
 } from "./app/profile/ProfileDetails";
+
+// Linked Accounts
+export { LinkedAccountsAccordionContentItem } from "./app/linked-accounts/LinkedAccountsAccordionContentItem";
+export { LinkedAccountsAccordionTrigger } from "./app/linked-accounts/LinkedAccountsAccordionTrigger";
