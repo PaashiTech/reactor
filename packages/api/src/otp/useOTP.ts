@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { axiosInstance, BASE_URL } from "../core/axiosProvider";
+import { axiosInstance } from "../core/axiosProvider";
 
 type GetOTPQueryBody = {
   email: string;
@@ -11,21 +11,22 @@ type GetOTPParams = {
   user_id: string;
 };
 
-// Caveat: Axios does not allow sending JSON body with a GET request. Hence, using fetch.
-// Ref. - https://axios-http.com/docs/req_config#:~:text=//%20%60data%60%20is%20the,only%3A%20Stream%2C%20Buffer
-const fetcher = (url: string, body: GetOTPQueryBody) =>
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: JSON.stringify(body), // body data type must match "Content-Type" header
-  }).then((res) => res.json());
+const fetcher = (url: string, body: GetOTPParams) =>
+  axiosInstance
+    .post(url, body, {
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   // 'Content-Type': 'application/x-www-form-urlencoded',
+      // },
+    })
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
 
-export const useCreateOTP = ({ email, user_id }: GetOTPParams) => {
+export const useGetOTP = ({ email, user_id }: GetOTPParams) => {
+  let requestBody: GetOTPQueryBody = { email: email, user_id: user_id };
+
   const { data, isLoading, error } = useSWR(
-    [`${BASE_URL}/otp/create`, { email: email, user_id: user_id }],
+    [`/otp/create`, requestBody],
     ([url, body]) => fetcher(url, body),
     {
       onError: (error, key) => {

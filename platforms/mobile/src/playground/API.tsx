@@ -1,5 +1,5 @@
 import { View, Text, useUserStore, Spinner } from "@unmaze/views";
-import { useUser, useCreateOTP } from "@unmaze/api";
+import { useUser, useGetOTP } from "@unmaze/api";
 
 const months = [
   "Jan",
@@ -79,7 +79,7 @@ export const APINoFetchTest = () => {
 };
 
 export const APICreateOTPTest = () => {
-  const { createOTPData, createOTPError, createOTPIsLoading } = useCreateOTP({
+  const { createOTPData, createOTPError, createOTPIsLoading } = useGetOTP({
     email: TEST_EMAIL_ID,
     user_id: TEST_USER_ID,
   });

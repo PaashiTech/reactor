@@ -9,4 +9,4 @@ export { APIGlobalConfigProvider } from "./core/APIGlobalConfigProvider";
 
 // API hooks
 export { useUser } from "./user/useUser";
-export { useCreateOTP } from "./otp/useOTP";
+export { useGetOTP } from "./otp/useOTP";
