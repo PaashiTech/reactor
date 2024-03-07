@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { axiosInstance } from "../core/axiosProvider";
+import { axiosInstance, BASE_URL } from "../core/axiosProvider";
 
 type GetOTPQueryBody = {
   email: string;
@@ -25,7 +25,7 @@ const fetcher = (url: string, body: GetOTPQueryBody) =>
 
 export const useCreateOTP = ({ email, user_id }: GetOTPParams) => {
   const { data, isLoading, error } = useSWR(
-    [`/otp/create`, { email: email, user_id: user_id }],
+    [`${BASE_URL}/otp/create`, { email: email, user_id: user_id }],
     ([url, body]) => fetcher(url, body),
     {
       onError: (error, key) => {
