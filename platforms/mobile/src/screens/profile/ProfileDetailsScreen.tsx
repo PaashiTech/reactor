@@ -6,6 +6,8 @@ import {
   View,
   Text,
   XStack,
+  useUserStore,
+  UserState,
 } from "@unmaze/views";
 import {
   ProfileDetailsScreenProps,
@@ -22,10 +24,52 @@ import { UnmzNavScreen } from "../types";
 import { ChevronRight } from "@unmaze/assets";
 import { Pressable } from "react-native";
 
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const constructFullName = (nameObj: {
+  first: string;
+  middle: string;
+  last: string;
+}) => {
+  return (
+    nameObj.first +
+    " " +
+    (nameObj.middle ? nameObj.middle + " " : "") +
+    nameObj.last
+  );
+};
+
+const constructDoBString = (dobISOString: string) => {
+  let dobObject = new Date(dobISOString);
+
+  return (
+    dobObject.getDate().toString() +
+    "-" +
+    months[dobObject.getMonth()] +
+    "-" +
+    dobObject.getFullYear().toString()
+  );
+};
+
 const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,
   route,
 }) => {
+  const user: UserState = useUserStore((state) => state);
+
   const [warningModal, setWarningModal] = useState<boolean>(false);
   const [editType, setEditType] = useState<"email" | "primary" | "secondary">(
     "email"
@@ -33,14 +77,16 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   const { setOTPSentTo, setPhoneType } = useVerificationContext();
 
   const profile: ProfileDetailsProps = {
-    name: "Piyush Dhananjay Sarda",
-    dob: "08-Nov-1998",
-    pan: "DJFPD8191A",
-    primaryPhone: "+91 - 8327812999",
-    secondaryPhone: null, // For add secondary number flow
-    gender: "Male",
-    email: "piyushsarda24@gmail.com",
-    maritalStatus: "Single",
+    name: constructFullName(user.name),
+    dob: constructDoBString(user.dob),
+    pan: user.pan,
+    primaryPhone: "+91 - " + user.phone.primary,
+    secondaryPhone: user.phone.secondary
+      ? "+91 - " + user.phone.secondary
+      : null,
+    gender: user.gender,
+    email: user.email,
+    maritalStatus: user.marital_status,
     onEditPrimaryPhone: () => {
       setEditType("primary");
       setWarningModal(true);

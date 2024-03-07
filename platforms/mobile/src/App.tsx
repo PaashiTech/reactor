@@ -41,10 +41,9 @@ export function App() {
               <Spinner size="large" color="#035E5D" />
             </View>
           ) : (
-            /* // <NavigationContainer theme={BaseTheme}>
-            //   <StackNavigator />
-            // </NavigationContainer> */
-            <APICreateOTPTest />
+            <NavigationContainer theme={BaseTheme}>
+              <StackNavigator />
+            </NavigationContainer>
           )}
         </SafeAreaProvider>
       </UnmzToastProvider>
