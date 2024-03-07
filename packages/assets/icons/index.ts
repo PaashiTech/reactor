@@ -30,6 +30,7 @@ import Biometrics from "./svg/biometrics.svg";
 import Lock from "./svg/lock.svg";
 import Logout from "./svg/logout.svg";
 import Moon from "./svg/moon.svg";
+import SaafeLogo from "./svg/saafe-logo.svg";
 
 export {
   Bell,
@@ -64,4 +65,5 @@ export {
   LogoWithUnmaze,
   PlaceholderIcon,
   PlaceholderIconDisabled,
+  SaafeLogo,
 };
