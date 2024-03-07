@@ -45,8 +45,4 @@ export type UserState = {
 
 export type UserActions = {
   setName: (newName: Name) => void;
-  getFullName: () => string;
-  getPrimaryPhone: () => string;
-  getSecondaryPhone: () => string;
-  getDoBFormatted: () => string;
 };
