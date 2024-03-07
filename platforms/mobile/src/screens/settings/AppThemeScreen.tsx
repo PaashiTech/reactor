@@ -3,7 +3,15 @@ import { UnmzNavScreen } from "../types";
 import { APP_THEME_SCREEN_ID, AppThemeScreenProps } from "./types";
 import { View, Label, RadioGroup, XStack } from "@unmaze/views";
 
-const themeOptions = [
+type ThemeType = "system" | "light" | "dark";
+
+type ThemeOptionsType = {
+  id: number;
+  title: string;
+  value: ThemeType;
+};
+
+const themeOptions: ThemeOptionsType[] = [
   {
     id: 1,
     title: "System Default",
@@ -19,9 +27,7 @@ const themeOptions = [
     title: "Dark",
     value: "dark",
   },
-] as const;
-
-type ThemeOption = (typeof themeOptions)[number]["value"];
+];
 
 const _AppThemeScreen: React.FC<AppThemeScreenProps> = ({
   navigation,
@@ -34,9 +40,9 @@ const _AppThemeScreen: React.FC<AppThemeScreenProps> = ({
    * hook it to that global state with its setter action
    */
 
-  const [selected, setSelected] = useState<ThemeOption>("system");
+  const [selected, setSelected] = useState<ThemeType>("system");
 
-  const handleRadioSelect = (val: ThemeOption) => {
+  const handleRadioSelect = (val: ThemeType) => {
     setSelected(val);
   };
 
