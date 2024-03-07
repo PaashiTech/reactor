@@ -31,6 +31,7 @@ import Lock from "./svg/lock.svg";
 import Logout from "./svg/logout.svg";
 import Moon from "./svg/moon.svg";
 import SaafeLogo from "./svg/saafe-logo.svg";
+import CheckSmall from "./svg/check-small.svg";
 
 export {
   Bell,
@@ -66,4 +67,5 @@ export {
   PlaceholderIcon,
   PlaceholderIconDisabled,
   SaafeLogo,
+  CheckSmall,
 };

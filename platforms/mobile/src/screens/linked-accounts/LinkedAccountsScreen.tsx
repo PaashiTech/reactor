@@ -67,6 +67,7 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
                           <LinkedAccountsAccordionContentItem
                             key={account.id}
                             account={account}
+                            type={account.isLinked ? "info" : "link"}
                           />
                         );
                       })}

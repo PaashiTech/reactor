@@ -35,7 +35,7 @@ export const linkedAccountsData = [
     accounts: [
       {
         id: 1,
-        type: "savings",
+        type: "Savings",
         accountNumber: "0000004561",
         isLinked: true,
         linkedDateAndTime: new Date(),
@@ -43,7 +43,7 @@ export const linkedAccountsData = [
       },
       {
         id: 2,
-        type: "fixedDeposit",
+        type: "Fixed Deposit",
         isLinked: false,
         accountNumber: "0000007845",
         linkedDateAndTime: null,
