@@ -12,13 +12,13 @@ type GetUserParams = {
 };
 
 export const useUser = (params: GetUserParams) => {
-  const setName = useUserStore((state) => state.setName);
-  const { data, isLoading, error } = useSWR<{data: UserState}>(
+  const setState = useUserStore((state) => state.setState);
+  const { data, isLoading, error } = useSWR<{ data: UserState }>(
     `/user/${params.id}`,
     _get,
     {
       onSuccess: ({ data }) => {
-        setName(data.name);
+        setState(data);
       },
     }
   );

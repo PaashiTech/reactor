@@ -5,21 +5,6 @@ import { mmkvZustandStorage } from "../helpers/mmkvStorage";
 
 import { UserState, UserActions } from "./models/user";
 
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
 export const useUserStore = create<UserState & UserActions>()(
   immer(
     devtools(
@@ -39,9 +24,13 @@ export const useUserStore = create<UserState & UserActions>()(
           marital_status: "PreferNotToSay" as const,
           gender: "PreferNotToSay" as const,
           family: [],
-          setName: (newName) =>
+          setState: (newState) =>
             set((state) => {
-              state.name = newName;
+              for (const key in newState) {
+                if (state.hasOwnProperty(key)) {
+                  state[key] = newState[key];
+                }
+              }
             }),
         }),
         {

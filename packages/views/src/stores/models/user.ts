@@ -31,7 +31,6 @@ type FamilyMember = {
 export type UserState = {
   name: Name;
   dob: string; // ISO string
-  dobObj?: Date;
   pan: string;
   phone: {
     primary: string;
@@ -44,5 +43,5 @@ export type UserState = {
 };
 
 export type UserActions = {
-  setName: (newName: Name) => void;
+  setState: (newState: UserState) => void;
 };
