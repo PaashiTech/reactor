@@ -7,10 +7,10 @@ import {
   View,
   XStack,
   UnmzToast,
+  OTPInputNew,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
-import { OTPTextView } from "@unmaze/views";
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { ToastViewport } from "@tamagui/toast";
 import {
@@ -31,19 +31,11 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   const [error, setError] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const otpRef = useRef<OTPTextView>(null);
 
   const { OTPSentTo } = useVerificationContext();
   const { confirmScreenId } = route.params;
 
   const buttonDisabled = OTPInputText.length < 6 || isSubmitting;
-  const isError = error && !OTPInputText;
-
-  const clearOTP = () => {
-    if (otpRef.current) {
-      otpRef.current.clear();
-    }
-  };
 
   const verifyOTP = () => {
     setIsSubmitting(true);
@@ -61,8 +53,6 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
       } else {
         setError(true);
       }
-      clearOTP();
-      setOTPInputText("");
       setIsSubmitting(false);
     }, 3000);
   };
@@ -92,13 +82,13 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
         </View>
         <View gap={20}>
           {!isSubmitting && !isSuccess ? (
-            <OTPInput
-              otpRef={otpRef}
-              isError={isError}
-              handleTextChange={setOTPInputText}
+            <OTPInputNew
+              code={OTPInputText}
+              setCode={(value) => setOTPInputText(value)}
+              isError={error}
             />
           ) : !isSuccess ? (
-            <View height={60} justifyContent="center">
+            <View height={40} justifyContent="center">
               <Spinner
                 alignSelf="flex-start"
                 size="large"

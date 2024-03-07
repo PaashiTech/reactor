@@ -27,12 +27,10 @@ export { PopupModal } from "./core/modals/PopupModal";
 export { FormTextInput } from "./core/inputs/FormTextInput";
 export { MobileNumberInput } from "./core/inputs/MobileNumberInput";
 export { CalendarPicker } from "./core/inputs/CalendarPicker";
-export { OTPInput } from "./core/inputs/OTPInput";
-export { OTPTextView } from "./core/inputs/OTPTextView";
 export { DatePicker } from "./core/inputs/DatePicker";
 export { DropdownList } from "./core/inputs/DropdownList";
 export { CustomSwitch } from "./core/inputs/CustomSwitch";
-
+export { OTPInputNew } from "./core/inputs/OTPInputNew";
 // Miscellaneous
 export { UnmzToast } from "./core/misc/UnmzToast";
 export { UnmzToastProvider } from "./core/misc/UnmzToastProvider";
