@@ -23,6 +23,7 @@ import { VerificationContextProvider } from "../../screens/shared/VerificationCo
 import { SettingsDetailsScreen } from "../../screens/settings/SettingsDetailsScreen";
 import { AppThemeScreen } from "../../screens/settings/AppThemeScreen";
 import { AddSecondaryPhoneNumberScreen } from "../../screens/profile/AddSecondaryPhoneNumber";
+import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccountsScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -38,6 +39,8 @@ const familyScreens: UnmzNavScreen[] = [
   FamilyDetailsScreen,
   AddFamilyMemberScreen,
 ];
+
+const linkedAccountsScreens: UnmzNavScreen[] = [LinkedAccountsScreen];
 
 const settingsScreens: UnmzNavScreen[] = [
   SettingsDetailsScreen,
@@ -117,6 +120,22 @@ export const StackNavigator = () => {
         {/* Setting screens group */}
         <stackNav.Group>
           {settingsScreens.map((scr) => {
+            return (
+              <stackNav.Screen
+                key={scr.key}
+                name={scr.key as keyof StackRouteProps}
+                component={scr.content}
+                options={{
+                  title: scr.title,
+                }}
+              />
+            );
+          })}
+        </stackNav.Group>
+
+        {/* Linked Accounds screens group*/}
+        <stackNav.Group>
+          {linkedAccountsScreens.map((scr) => {
             return (
               <stackNav.Screen
                 key={scr.key}
