@@ -22,7 +22,7 @@ type GetUserParams = {
  * @returns {userData, userIsLoading, userError} data, loading and error states
  * of the user data retrieval request sent to the server
  */
-export const useUser = (params: GetUserParams) => {
+export const useGetUser = (params: GetUserParams) => {
   const setState = useUserStore((state) => state.setState);
   const { data, isLoading, error, mutate } = useSWR<{ data: UserState }>(
     `/user/${params.id}`,
@@ -68,7 +68,7 @@ type UpdateUserParams = {
  */
 export const useUpdateUser = (params: UpdateUserParams) => {
   // const setState = useUserStore((state) => state.setState);
-  const { userMutate } = useUser({ id: params.id });
+  const { userMutate } = useGetUser({ id: params.id });
   const { data, isLoading, error } = useSWR(`/user/${params.id}`, _patch, {
     onSuccess: () => {
       userMutate();

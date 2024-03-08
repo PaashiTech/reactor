@@ -1,5 +1,5 @@
 import { View, Text, useUserStore, Spinner } from "@unmaze/views";
-import { useUser, useGetOTP } from "@unmaze/api";
+import { useGetUser, useGetOTP } from "@unmaze/api";
 
 const months = [
   "Jan",
@@ -20,7 +20,7 @@ const TEST_USER_ID = "16cd063a-071b-46bf-80eb-654766e4911c";
 const TEST_EMAIL_ID = "amogh.kulkarni@unmaze.app";
 
 export const APITest = () => {
-  const { userData, userError, userIsLoading } = useUser({
+  const { userData, userError, userIsLoading } = useGetUser({
     id: TEST_USER_ID,
   });
 

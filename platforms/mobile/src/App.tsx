@@ -10,13 +10,11 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StackNavigator } from "./navigation/navigators/StackNavigator";
 
-import { useUser } from "@unmaze/api";
-
-import { APICreateOTPTest } from "./playground/API";
+import { useGetUser } from "@unmaze/api";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
-  const { userIsLoading } = useUser({
+  const { userIsLoading } = useGetUser({
     id: "16cd063a-071b-46bf-80eb-654766e4911c",
   });
 
