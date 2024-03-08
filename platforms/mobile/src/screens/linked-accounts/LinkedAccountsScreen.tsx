@@ -13,6 +13,7 @@ import {
 import { Plus, SaafeLogo } from "@unmaze/assets";
 import { UnmzNavScreen } from "../types";
 import { linkedAccountsData } from "./linkedAccountsData";
+import DropShadow from "react-native-drop-shadow";
 
 const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
   navigation,
@@ -46,7 +47,7 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
             via RBI's Account Aggregator
           </Text>
         </View>
-        <View marginTop={20} paddingHorizontal={20}>
+        <View padding={20}>
           <Accordion width="100%" type="multiple" gap={16}>
             {linkedAccountsData.map((item) => {
               return (
@@ -79,21 +80,27 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
           </Accordion>
         </View>
       </ScrollView>
-      <View
-        paddingHorizontal={20}
-        paddingVertical={16}
-        gap={12}
-        bg="#fff"
-        elevationAndroid={2}
+      <DropShadow
+        style={{
+          shadowColor: "#21272a",
+          shadowOffset: {
+            width: 0,
+            height: -4,
+          },
+          shadowOpacity: 0.1,
+          shadowRadius: 8,
+        }}
       >
-        <UnmzGradientButton icon={Plus}>Add Account</UnmzGradientButton>
-        <XStack gap={8} alignSelf="center">
-          <Text fontSize={10} color="#6F6F6F">
-            Powered by RBI's Account Aggregator
-          </Text>
-          <SaafeLogo />
-        </XStack>
-      </View>
+        <View paddingHorizontal={20} paddingVertical={16} gap={12} bg="#fff">
+          <UnmzGradientButton icon={Plus}>Add Account</UnmzGradientButton>
+          <XStack gap={8} alignSelf="center">
+            <Text fontSize={10} color="#6F6F6F">
+              Powered by RBI's Account Aggregator
+            </Text>
+            <SaafeLogo />
+          </XStack>
+        </View>
+      </DropShadow>
     </View>
   );
 };

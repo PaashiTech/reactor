@@ -100,6 +100,9 @@ importers:
       react-native:
         specifier: 0.72.6
         version: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+      react-native-drop-shadow:
+        specifier: ^1.0.0
+        version: 1.0.0(react-native@0.72.6)(react@18.2.0)
       react-native-material-datetime-picker:
         specifier: ^0.2.1
         version: 0.2.1(react-native@0.72.6)(react@18.2.0)
@@ -302,6 +305,9 @@ importers:
       react-hook-form:
         specifier: ^7.50.1
         version: 7.50.1(react@18.2.0)
+      react-native-drop-shadow:
+        specifier: ^1.0.0
+        version: 1.0.0(react-native@0.72.6)(react@18.2.0)
       react-native-material-datetime-picker:
         specifier: ^0.2.1
         version: 0.2.1(react-native@0.72.6)(react@18.2.0)
@@ -366,6 +372,9 @@ importers:
       react-native:
         specifier: 0.72.6
         version: 0.72.6(@babel/core@7.23.9)(@babel/preset-env@7.23.6)(react@18.2.0)
+      react-native-drop-shadow:
+        specifier: ^1.0.0
+        version: 1.0.0(react-native@0.72.6)(react@18.2.0)
       react-native-material-datetime-picker:
         specifier: ^0.2.1
         version: 0.2.1(react-native@0.72.6)(react@18.2.0)
@@ -15654,6 +15663,16 @@ packages:
       '@babel/runtime': 7.23.6
       react-loadable: /@docusaurus/react-loadable@5.5.2(react@18.2.0)
       webpack: 5.89.0
+    dev: false
+
+  /react-native-drop-shadow@1.0.0(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-om6oMDDn90ClFa+tEGMsFcACKlea5TO4jYur8PJKRpzfz+SnDIJlddhzp2kbOLpRTe7lleq6Md5QqC3u7RfOow==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.6
+    dependencies:
+      react: 18.2.0
+      react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
     dev: false
 
   /react-native-material-datetime-picker@0.2.1(react-native@0.72.6)(react@18.2.0):
