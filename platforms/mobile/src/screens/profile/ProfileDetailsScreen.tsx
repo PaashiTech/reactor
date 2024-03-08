@@ -74,7 +74,8 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   const [editType, setEditType] = useState<"email" | "primary" | "secondary">(
     "email"
   );
-  const { setOTPSentTo, setPhoneType } = useVerificationContext();
+  const { setOTPSentTo, setPhoneType, setVerifyTargetType } =
+    useVerificationContext();
 
   const profile: ProfileDetailsProps = {
     name: constructFullName(user.name),
@@ -164,6 +165,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
         <UnmzGradientButton
           onPress={() => {
             setWarningModal(false);
+            setVerifyTargetType("existing");
             editType === "email"
               ? (() => {
                   setOTPSentTo({

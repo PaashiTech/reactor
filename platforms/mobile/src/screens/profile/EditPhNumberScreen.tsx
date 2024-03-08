@@ -20,7 +20,7 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { phoneType, setVerifiedMessage, setOTPSentTo } =
+  const { phoneType, setVerifiedMessage, setOTPSentTo, setVerifyTargetType } =
     useVerificationContext();
 
   const {
@@ -40,6 +40,7 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
       confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
     });
+    setVerifyTargetType("new");
   };
 
   return (
