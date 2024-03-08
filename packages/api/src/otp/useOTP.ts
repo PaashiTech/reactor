@@ -46,7 +46,7 @@ type ValidateOTPQueryBody = {
   session_id: string;
 };
 type ValidateOTPQueryParams = {}; // placeholder
-type ValidateOTPResponse = { status };
+type ValidateOTPResponse = { status: number };
 type ValidateOTPParams = ValidateOTPQueryBody & { startValidate: boolean };
 
 export const useValidateOTP = () => {

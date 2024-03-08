@@ -3,7 +3,7 @@ import { axiosInstance } from "./axiosProvider";
 
 type UseFetchProps = {
   url: string;
-  method?: "GET" | "POST" | "PUT" | "DELETE";
+  method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 };
 
 type CommonFetch = {

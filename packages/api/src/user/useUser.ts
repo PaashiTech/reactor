@@ -2,9 +2,9 @@ import useSWR from "swr";
 import { axiosInstance } from "../core/axiosProvider";
 
 import { useUserStore, UserState } from "@unmaze/views";
+import { useFetch } from "../core/useFetch";
 
 const _get = (url) => axiosInstance.get(url).then((res) => res.data);
-const _patch = (url) => axiosInstance.patch(url).then((res) => res.data);
 
 //////
 // Get User
@@ -47,15 +47,13 @@ export const useGetUser = (params: GetUserParams) => {
 //////
 
 type UpdateUserQueryBody = Partial<UserState> & {
-  otp: string;
+  otp: number;
   session_id: string;
 };
 type UpdateUserQueryParams = {};
+type UpdateUserResponse = { status: number };
 type UpdateUserParams = {
   id: string;
-  otp: string;
-  session_id: string;
-  user_details: Partial<UserState>;
 };
 
 /**
@@ -67,17 +65,24 @@ type UpdateUserParams = {
  * request returns successfully
  */
 export const useUpdateUser = (params: UpdateUserParams) => {
-  // const setState = useUserStore((state) => state.setState);
-  const { userMutate } = useGetUser({ id: params.id });
-  const { data, isLoading, error } = useSWR(`/user/${params.id}`, _patch, {
-    onSuccess: () => {
-      userMutate();
-    },
-  });
+  const { commonFetch, isLoading, data, status, error } =
+    useFetch<UpdateUserResponse>({
+      url: `/user/${params.id}`,
+      method: "PATCH",
+    });
+
+  const updateUser = (
+    params: UpdateUserQueryParams,
+    body: UpdateUserQueryBody
+  ) => {
+    commonFetch({ params, body });
+  };
 
   return {
-    userUpdateData: data,
-    userUpdateIsLoading: isLoading,
-    userUpdateError: error,
+    updateUser,
+    updateUserIsLoading: isLoading,
+    updateUserData: data,
+    updateUserStatus: status,
+    updateUserError: error,
   };
 };
