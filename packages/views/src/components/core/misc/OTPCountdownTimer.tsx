@@ -13,10 +13,12 @@ import { useToastController } from "@tamagui/toast";
 
 type OTPCountdownTimerProps = {
   timerSeconds: number;
+  onResendPress: () => void
 };
 
 export const OTPCountdownTimer: React.FC<OTPCountdownTimerProps> = ({
   timerSeconds,
+  onResendPress
 }) => {
   const { seconds, minutes, isRunning, restart } = useCountdown(
     getTime(timerSeconds)
@@ -39,6 +41,7 @@ export const OTPCountdownTimer: React.FC<OTPCountdownTimerProps> = ({
           pressStyle={{ textDecorationLine: "underline" }}
           onPress={() => {
             toast.show("OTP resent!", {});
+            onResendPress();
             restart(getTime(timerSeconds));
           }}
         >

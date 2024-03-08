@@ -78,17 +78,17 @@ export const APINoFetchTest = () => {
   );
 };
 
-export const APICreateOTPTest = () => {
-  const { createOTPData, createOTPError, createOTPIsLoading } = useGetOTP({
-    email: TEST_EMAIL_ID,
-    user_id: TEST_USER_ID,
-  });
+// export const APICreateOTPTest = () => {
+//   const { getOTPData, getOTPError, getOTPIsLoading } = useGetOTP({
+//     email: TEST_EMAIL_ID,
+//     user_id: TEST_USER_ID,
+//   });
 
-  return (
-    <View flex={1} alignItems="center" justifyContent="center">
-      {createOTPIsLoading ? <Spinner size="large" color="#035E5D" /> : <></>}
-      {createOTPError ? <Text>Error!</Text> : <></>}
-      {createOTPData ? <Text>{createOTPData.session_id}</Text> : <></>}
-    </View>
-  );
-};
+//   return (
+//     <View flex={1} alignItems="center" justifyContent="center">
+//       {getOTPIsLoading ? <Spinner size="large" color="#035E5D" /> : <></>}
+//       {getOTPError ? <Text>Error!</Text> : <></>}
+//       {getOTPData ? <Text>{getOTPData.data.session_id}</Text> : <></>}
+//     </View>
+//   );
+// };

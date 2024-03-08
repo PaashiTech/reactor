@@ -134,7 +134,19 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
           {!validateOTPSuccessfull ? (
             <XStack gap={4}>
               <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
-              <OTPCountdownTimer timerSeconds={60} />
+              <OTPCountdownTimer
+                timerSeconds={60}
+                onResendPress={() => {
+                  getOTP(
+                    {},
+                    {
+                      user_id: user_id,
+                      email: TEST_EMAIL_ID,
+                      // phone: TEST_PHONE,
+                    }
+                  );
+                }}
+              />
             </XStack>
           ) : (
             <Text color={"#6F6F6F"}>Account verifed successfully</Text>
