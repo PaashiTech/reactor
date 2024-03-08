@@ -29,6 +29,7 @@ type FamilyMember = {
 };
 
 export type UserState = {
+  user_id: string;
   name: Name;
   dob: string; // ISO string
   pan: string;

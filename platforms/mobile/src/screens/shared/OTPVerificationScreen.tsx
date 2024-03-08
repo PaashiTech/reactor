@@ -7,9 +7,10 @@ import {
   XStack,
   UnmzToast,
   OTPInput,
+  useUserStore,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { ToastViewport } from "@tamagui/toast";
 import {
@@ -19,41 +20,65 @@ import {
 } from "./types";
 import { useVerificationContext } from "./VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useGetOTP, useValidateOTP } from "@unmaze/api";
 
-const CORRECT_OTP = "123456";
+// const CORRECT_OTP = "123456";
+const TEST_EMAIL_ID = "amogh.kulkarni@unmaze.app";
+const TEST_PHONE = "919175950084";
 
 const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   navigation,
   route,
 }) => {
   const [OTPInputText, setOTPInputText] = useState<string>("");
-  const [error, setError] = useState<boolean>(false);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const user_id = useUserStore((state) => state.user_id);
+  const { getOTP, getOTPData } = useGetOTP();
+  const {
+    validateOTP,
+    validateOTPError,
+    validateOTPStatus,
+    validateOTPIsLoading,
+  } = useValidateOTP();
+  const validateOTPSuccessfull = validateOTPStatus && validateOTPStatus == 200;
 
-  const { OTPSentTo } = useVerificationContext();
+  const { OTPSentTo, verifyTargetType } = useVerificationContext();
   const { confirmScreenId } = route.params;
 
-  const buttonDisabled = OTPInputText.length < 6 || isSubmitting;
+  const buttonDisabled = OTPInputText.length < 6 || validateOTPIsLoading;
 
-  const verifyOTP = () => {
-    setIsSubmitting(true);
-    setTimeout(() => {
-      if (OTPInputText === CORRECT_OTP) {
-        setIsSuccess(true);
-        setError(false);
-        if (confirmScreenId === VERIFICATION_SUCCESS_SCREEN_ID) {
-          navigation.replace(confirmScreenId);
-        } else {
-          setTimeout(() => {
-            navigation.replace(confirmScreenId);
-          }, 2000);
-        }
-      } else {
-        setError(true);
+  useEffect(() => {
+    getOTP(
+      {},
+      {
+        user_id: user_id,
+        email: TEST_EMAIL_ID,
+        // phone: TEST_PHONE,
       }
-      setIsSubmitting(false);
-    }, 3000);
+    );
+  }, []);
+
+  const handleValidateOTP = () => {
+    if (validateOTPSuccessfull) {
+      if (confirmScreenId === VERIFICATION_SUCCESS_SCREEN_ID) {
+        setTimeout(() => {
+          navigation.replace(confirmScreenId);
+        }, 2000);
+      } else {
+        navigation.replace(confirmScreenId);
+      }
+    } else {
+      if (getOTPData) {
+        validateOTP(
+          {},
+          {
+            otp: Number(OTPInputText),
+            session_id: getOTPData.session_id ? getOTPData.session_id : "",
+          }
+        );
+      } else {
+        console.log("" + getOTPData);
+      }
+    }
   };
 
   return (
@@ -80,13 +105,13 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
           </View>
         </View>
         <View gap={20}>
-          {!isSubmitting && !isSuccess ? (
+          {!validateOTPIsLoading && !validateOTPSuccessfull ? (
             <OTPInput
               code={OTPInputText}
               setCode={(value) => setOTPInputText(value)}
-              isError={error}
+              isError={!!validateOTPError}
             />
-          ) : !isSuccess ? (
+          ) : validateOTPIsLoading ? (
             <View height={40} justifyContent="center">
               <Spinner
                 alignSelf="flex-start"
@@ -95,12 +120,18 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
                 style={{ transform: [{ scaleX: 1.11 }, { scaleY: 1.11 }] }}
               />
             </View>
-          ) : (
+          ) : validateOTPSuccessfull ? (
             <View height={60} justifyContent="center">
               <CheckGreen />
             </View>
+          ) : (
+            <OTPInput
+              code={OTPInputText}
+              setCode={(value) => setOTPInputText(value)}
+              isError={true}
+            />
           )}
-          {!isSuccess ? (
+          {!validateOTPSuccessfull ? (
             <XStack gap={4}>
               <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
               <OTPCountdownTimer timerSeconds={60} />
@@ -113,7 +144,10 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
       <View>
         <UnmzToast />
         <ToastViewport left={0} right={0} bottom={50} />
-        <UnmzGradientButton disabled={buttonDisabled} onPress={verifyOTP}>
+        <UnmzGradientButton
+          disabled={buttonDisabled}
+          onPress={handleValidateOTP}
+        >
           Confirm
         </UnmzGradientButton>
       </View>

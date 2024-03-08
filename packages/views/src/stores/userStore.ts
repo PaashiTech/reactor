@@ -10,6 +10,7 @@ export const useUserStore = create<UserState & UserActions>()(
     devtools(
       persist(
         (set, get) => ({
+          user_id: "",
           name: {
             first: "",
             middle: "",
