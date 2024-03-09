@@ -109,6 +109,12 @@ importers:
       react-native-mmkv:
         specifier: ^2.12.1
         version: 2.12.1(react-native@0.72.6)(react@18.2.0)
+      react-native-otp-verify:
+        specifier: ^1.1.8
+        version: 1.1.8(react-native@0.72.6)(react@18.2.0)
+      react-native-permissions:
+        specifier: ^4.1.4
+        version: 4.1.4(react-native@0.72.6)(react@18.2.0)
       react-native-safe-area-context:
         specifier: ^4.8.2
         version: 4.8.2(react-native@0.72.6)(react@18.2.0)
@@ -378,6 +384,12 @@ importers:
       react-native-material-datetime-picker:
         specifier: ^0.2.1
         version: 0.2.1(react-native@0.72.6)(react@18.2.0)
+      react-native-otp-verify:
+        specifier: ^1.1.8
+        version: 1.1.8(react-native@0.72.6)(react@18.2.0)
+      react-native-permissions:
+        specifier: ^4.1.4
+        version: 4.1.4(react-native@0.72.6)(react@18.2.0)
       react-native-safe-area-context:
         specifier: 4.8.2
         version: 4.8.2(react-native@0.72.6)(react@18.2.0)
@@ -15699,6 +15711,30 @@ packages:
     resolution: {integrity: sha512-zV5aq5gyU54SPn5WGC8el0P1RdOEb0FiuPg9O+yBhwieDy2/ov16830KCHPG0ZNN5DErTPtzwLbrXQUdrt7tNA==}
     peerDependencies:
       react-native: 0.72.6
+    dependencies:
+      react: 18.2.0
+      react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+    dev: false
+
+  /react-native-otp-verify@1.1.8(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-hlgNqVBhmsxh/LHJWEVrbku81GXMS0QDJiHLhQW96dr3awYYbrkVf7979zYqi5rSTEajUQzHShvMQwOc0gIlBA==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.6
+    dependencies:
+      react: 18.2.0
+      react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
+    dev: false
+
+  /react-native-permissions@4.1.4(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-el6u90VZNFDEtmHpSheirwRhGvs6M5rSZcoqIqB128IPO00f2c1q+PP4kEaM1u19Q0ldQ+R+S7C/l8Zrduy6JQ==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.6
+      react-native-windows: '>=0.70.0'
+    peerDependenciesMeta:
+      react-native-windows:
+        optional: true
     dependencies:
       react: 18.2.0
       react-native: 0.72.6(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
