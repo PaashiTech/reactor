@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 module.exports = function (api) {
   api.cache(true);
   return {
@@ -9,13 +10,6 @@ module.exports = function (api) {
         // },
       ],
     ],
-    // plugins: [
-    //   [
-    //     "@babel/plugin-transform-private-methods",
-    //     {
-    //       loose: true,
-    //     },
-    //   ],
-    // ],
+    plugins: ["react-native-reanimated/plugin"],
   };
 };

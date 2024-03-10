@@ -14,6 +14,15 @@ import { Plus, SaafeLogo } from "@unmaze/assets";
 import { UnmzNavScreen } from "../types";
 import { linkedAccountsData } from "./linkedAccountsData";
 import DropShadow from "react-native-drop-shadow";
+import Animated, {
+  useAnimatedRef,
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  measure,
+  runOnUI,
+} from "react-native-reanimated";
+import { useEffect, useState } from "react";
 
 const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
   navigation,
@@ -50,9 +59,34 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
         <View padding={20}>
           <Accordion width="100%" type="multiple" gap={16}>
             {linkedAccountsData.map((item) => {
+              const listRef = useAnimatedRef();
+              const heightValue = useSharedValue(0);
+
+              const heightAnimationStyle = useAnimatedStyle(() => ({
+                height: heightValue.value,
+              }));
+
               return (
-                <Accordion.Item value={item.name} key={item.id}>
-                  <Accordion.Trigger unstyled>
+                <Accordion.Item
+                  value={item.name}
+                  key={item.id}
+                  overflow="hidden"
+                >
+                  <Accordion.Trigger
+                    unstyled
+                    onPress={() => {
+                      if (heightValue.value === 0) {
+                        runOnUI(() => {
+                          "worklet";
+                          heightValue.value = withTiming(
+                            measure(listRef)!.height + 12
+                          );
+                        })();
+                      } else {
+                        heightValue.value = withTiming(0);
+                      }
+                    }}
+                  >
                     {({ open }) => (
                       <LinkedAccountsAccordionTrigger
                         key={item.id}
@@ -61,18 +95,31 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
                       />
                     )}
                   </Accordion.Trigger>
-                  <Accordion.Content unstyled>
-                    <View marginVertical={12} gap={8} paddingHorizontal={6}>
-                      {item.accounts.map((account) => {
-                        return (
-                          <LinkedAccountsAccordionContentItem
-                            key={account.id}
-                            account={account}
-                            type={account.isLinked ? "info" : "link"}
-                          />
-                        );
-                      })}
-                    </View>
+
+                  <Accordion.Content unstyled forceMount>
+                    <Animated.View style={heightAnimationStyle}>
+                      <Animated.View
+                        style={{
+                          marginVertical: 12,
+                          gap: 8,
+                          paddingHorizontal: 6,
+                          position: "absolute",
+                          top: 0,
+                          width: "100%",
+                        }}
+                        ref={listRef}
+                      >
+                        {item.accounts.map((account) => {
+                          return (
+                            <LinkedAccountsAccordionContentItem
+                              key={account.id}
+                              account={account}
+                              type={account.isLinked ? "info" : "link"}
+                            />
+                          );
+                        })}
+                      </Animated.View>
+                    </Animated.View>
                   </Accordion.Content>
                 </Accordion.Item>
               );
