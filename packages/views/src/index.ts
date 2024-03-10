@@ -14,7 +14,11 @@ export * from "./helpers/linkedAccountHelpers";
 
 // Stores
 export { useTestStore } from "./stores/testStore";
-export { mmkvStorage } from "./stores/mmkvStorage";
+export { useUserStore } from "./stores/userStore";
+export { mmkvStorage } from "./helpers/mmkvStorage";
+
+// Models
+export { UserState, UserActions } from "./stores/models/user";
 
 // Tamagui
 export * from "tamagui";
