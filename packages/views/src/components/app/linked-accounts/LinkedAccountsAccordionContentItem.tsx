@@ -1,4 +1,4 @@
-import { AnimatePresence, Text, View, XStack, YStack } from "tamagui";
+import { Text, View, XStack, YStack } from "tamagui";
 import { ChevronRight, PlaceholderIcon } from "@unmaze/assets";
 import {
   getFormattedAccountNumber,
@@ -65,33 +65,26 @@ export const LinkedAccountsAccordionContentItem: React.FC<
   };
 
   return (
-    <AnimatePresence>
-      <UnmzListItemCard
-        borderWidth={2}
-        borderColor={getBorderColor()}
-        pressStyle={{
-          borderColor: props.type === "link" ? "#009D9A" : undefined,
-        }}
-        animation="medium"
-        enterStyle={{
-          opacity: 0.2,
-          y: 20,
-        }}
-      >
-        <XStack alignItems="center" gap={12}>
-          <PlaceholderIcon />
-          <YStack flex={1} gap={2}>
-            <Text fontWeight={"500"} color="#262626">
-              {account.type}
-            </Text>
-            <Text fontSize={12} fontWeight={"500"} color="#6F6F6F">
-              {getFormattedAccountNumber(account.accountNumber)}
-            </Text>
-          </YStack>
-          <RightComponent />
-        </XStack>
-      </UnmzListItemCard>
-    </AnimatePresence>
+    <UnmzListItemCard
+      borderWidth={2}
+      borderColor={getBorderColor()}
+      pressStyle={{
+        borderColor: props.type === "link" ? "#009D9A" : undefined,
+      }}
+    >
+      <XStack alignItems="center" gap={12}>
+        <PlaceholderIcon />
+        <YStack flex={1} gap={2}>
+          <Text fontWeight={"500"} color="#262626">
+            {account.type}
+          </Text>
+          <Text fontSize={12} fontWeight={"500"} color="#6F6F6F">
+            {getFormattedAccountNumber(account.accountNumber)}
+          </Text>
+        </YStack>
+        <RightComponent />
+      </XStack>
+    </UnmzListItemCard>
   );
 };
 

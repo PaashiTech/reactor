@@ -19,8 +19,10 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
+  measure,
+  runOnUI,
 } from "react-native-reanimated";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
   navigation,
@@ -59,7 +61,6 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
             {linkedAccountsData.map((item) => {
               const listRef = useAnimatedRef();
               const heightValue = useSharedValue(0);
-              const [isOpen, setIsOpen] = useState(false);
 
               const heightAnimationStyle = useAnimatedStyle(() => ({
                 height: heightValue.value,
@@ -74,10 +75,16 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
                   <Accordion.Trigger
                     unstyled
                     onPress={() => {
-                      if (isOpen) {
+                      if (heightValue.value === 0) {
+                        runOnUI(() => {
+                          "worklet";
+                          heightValue.value = withTiming(
+                            measure(listRef)!.height + 12
+                          );
+                        })();
+                      } else {
                         heightValue.value = withTiming(0);
                       }
-                      setIsOpen(!isOpen);
                     }}
                   >
                     {({ open }) => (
@@ -89,7 +96,7 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
                     )}
                   </Accordion.Trigger>
 
-                  <Accordion.Content unstyled>
+                  <Accordion.Content unstyled forceMount>
                     <Animated.View style={heightAnimationStyle}>
                       <Animated.View
                         style={{
@@ -101,13 +108,6 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
                           width: "100%",
                         }}
                         ref={listRef}
-                        onLayout={(e) => {
-                          if (isOpen) {
-                            heightValue.value = withTiming(
-                              e.nativeEvent.layout.height + 12
-                            );
-                          }
-                        }}
                       >
                         {item.accounts.map((account) => {
                           return (
