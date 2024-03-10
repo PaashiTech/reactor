@@ -10,10 +10,9 @@ import {
   LinkedAccountsAccordionContentItem,
   getAllAccountsAmount,
 } from "@unmaze/views";
-import { Plus, SaafeLogo } from "@unmaze/assets";
+import { Plus } from "@unmaze/assets";
 import { UnmzNavScreen } from "../types";
 import { linkedAccountsData } from "./linkedAccountsData";
-import DropShadow from "react-native-drop-shadow";
 import Animated, {
   useAnimatedRef,
   useSharedValue,
@@ -22,7 +21,7 @@ import Animated, {
   measure,
   runOnUI,
 } from "react-native-reanimated";
-import { useEffect, useState } from "react";
+import { SaafeFooter } from "../../components/app/core/SaafeFooter";
 
 const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
   navigation,
@@ -127,27 +126,9 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
           </Accordion>
         </View>
       </ScrollView>
-      <DropShadow
-        style={{
-          shadowColor: "#21272a",
-          shadowOffset: {
-            width: 0,
-            height: -4,
-          },
-          shadowOpacity: 0.1,
-          shadowRadius: 8,
-        }}
-      >
-        <View paddingHorizontal={20} paddingVertical={16} gap={12} bg="#fff">
-          <UnmzGradientButton icon={Plus}>Add Account</UnmzGradientButton>
-          <XStack gap={8} alignSelf="center">
-            <Text fontSize={10} color="#6F6F6F">
-              Powered by RBI's Account Aggregator
-            </Text>
-            <SaafeLogo />
-          </XStack>
-        </View>
-      </DropShadow>
+      <SaafeFooter>
+        <UnmzGradientButton icon={Plus}>Add Account</UnmzGradientButton>
+      </SaafeFooter>
     </View>
   );
 };
