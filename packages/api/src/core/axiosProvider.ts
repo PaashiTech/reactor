@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 
-export const BASE_URL = "http://54.95.55.220:8080";
+export const BASE_URL = "https://backend-jppb.onrender.com";
 
 const axiosGlobalConfig = {
   // `url` is the server URL that will be used for the request

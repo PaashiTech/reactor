@@ -6,3 +6,9 @@ export type LinkedAccountsScreenProps = NativeStackScreenProps<
   StackRouteProps,
   typeof LINKED_ACCOUNTS_SCREEN_ID
 >;
+
+export const GIVE_CONSENT_SCREEN_ID = "0020.d.1";
+export type GiveConsentScreenProps = NativeStackScreenProps<
+  StackRouteProps,
+  typeof GIVE_CONSENT_SCREEN_ID
+>;

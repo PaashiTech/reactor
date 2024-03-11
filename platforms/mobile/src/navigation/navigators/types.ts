@@ -20,7 +20,10 @@ import {
   APP_THEME_SCREEN_ID,
   SETTINGS_DETAILS_SCREEN_ID,
 } from "../../screens/settings/types";
-import { LINKED_ACCOUNTS_SCREEN_ID } from "../../screens/linked-accounts/types";
+import {
+  GIVE_CONSENT_SCREEN_ID,
+  LINKED_ACCOUNTS_SCREEN_ID,
+} from "../../screens/linked-accounts/types";
 
 export type UserProfileScreenProps = NativeStackScreenProps<
   StackRouteProps,
@@ -49,6 +52,7 @@ export type StackRouteProps = {
 
   // Linked Accounts Screens
   [LINKED_ACCOUNTS_SCREEN_ID]: undefined;
+  [GIVE_CONSENT_SCREEN_ID]: undefined;
 
   // Shared screens
   [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;

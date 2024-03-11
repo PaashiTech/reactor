@@ -24,6 +24,7 @@ import { SettingsDetailsScreen } from "../../screens/settings/SettingsDetailsScr
 import { AppThemeScreen } from "../../screens/settings/AppThemeScreen";
 import { AddSecondaryPhoneNumberScreen } from "../../screens/profile/AddSecondaryPhoneNumber";
 import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccountsScreen";
+import { GiveConsentScreen } from "../../screens/linked-accounts/GiveConsentScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -40,7 +41,10 @@ const familyScreens: UnmzNavScreen[] = [
   AddFamilyMemberScreen,
 ];
 
-const linkedAccountsScreens: UnmzNavScreen[] = [LinkedAccountsScreen];
+const linkedAccountsScreens: UnmzNavScreen[] = [
+  LinkedAccountsScreen,
+  GiveConsentScreen,
+];
 
 const settingsScreens: UnmzNavScreen[] = [
   SettingsDetailsScreen,

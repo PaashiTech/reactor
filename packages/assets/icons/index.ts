@@ -33,6 +33,11 @@ import Moon from "./svg/moon.svg";
 import SaafeLogo from "./svg/saafe-logo.svg";
 import CheckSmall from "./svg/check-small.svg";
 
+// Bank Logos
+import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
+import UnionBankLogo from "./bank-logos/union-bank-logo.svg";
+import HDFCBankLogo from "./bank-logos/hdfc-bank-logo.svg";
+
 export {
   Bell,
   Biometrics,
@@ -68,4 +73,7 @@ export {
   PlaceholderIconDisabled,
   SaafeLogo,
   CheckSmall,
+  CanaraBankLogo,
+  HDFCBankLogo,
+  UnionBankLogo,
 };

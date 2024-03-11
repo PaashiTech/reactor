@@ -1,4 +1,8 @@
-import { LinkedAccountsScreenProps, LINKED_ACCOUNTS_SCREEN_ID } from "./types";
+import {
+  LinkedAccountsScreenProps,
+  LINKED_ACCOUNTS_SCREEN_ID,
+  GIVE_CONSENT_SCREEN_ID,
+} from "./types";
 import {
   UnmzGradientButton,
   View,
@@ -127,7 +131,12 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
         </View>
       </ScrollView>
       <SaafeFooter>
-        <UnmzGradientButton icon={Plus}>Add Account</UnmzGradientButton>
+        <UnmzGradientButton
+          icon={Plus}
+          onPress={() => navigation.navigate(GIVE_CONSENT_SCREEN_ID)}
+        >
+          Add Account
+        </UnmzGradientButton>
       </SaafeFooter>
     </View>
   );

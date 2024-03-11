@@ -19,6 +19,9 @@ export { TertiaryButton } from "./core/buttons/TertiaryButton";
 export { IconButton } from "./core/buttons/IconButton";
 export { SecondaryButton } from "./core/buttons/SecondaryButton";
 
+// Cards
+export { UnmzCard } from "./core/cards/UnmzCard";
+
 // Modals
 export { BottomModal } from "./core/modals/BottomModal";
 export { PopupModal } from "./core/modals/PopupModal";
