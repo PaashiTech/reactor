@@ -681,21 +681,7 @@
               "Teal": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$libraryName": "",
-                "$collectionName": "Base Palette",
-                "$value": "{Teal.70}"
-              }
-            },
-            "Neutral": {
-              "Black": {
-                "$scopes": ["ALL_SCOPES"],
-                "$type": "color",
-                "$value": "#000000"
-              },
-              "White": {
-                "$scopes": ["ALL_SCOPES"],
-                "$type": "color",
-                "$value": "#ffffff"
+                "$value": "#035e5d"
               }
             },
             "Primary": {
@@ -708,6 +694,23 @@
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
                 "$value": "#fff000"
+              }
+            },
+            "Neutral": {
+              "Temp": {
+                "$scopes": ["ALL_SCOPES"],
+                "$type": "color",
+                "$value": "#ffffff"
+              },
+              "Black": {
+                "$scopes": ["ALL_SCOPES"],
+                "$type": "color",
+                "$value": "#000000"
+              },
+              "White": {
+                "$scopes": ["ALL_SCOPES"],
+                "$type": "color",
+                "$value": "#ffffff"
               }
             }
           }
@@ -747,7 +750,7 @@
                 "$type": "color",
                 "$libraryName": "",
                 "$collectionName": "Base Palette",
-                "$value": "{System.Secondary.Teal}"
+                "$value": "{Teal.70}"
               },
               "stroke_subdued": {
                 "$scopes": ["ALL_SCOPES"],
@@ -774,17 +777,23 @@
             "stroke_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "stroke_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "stroke_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "on-primary": {
               "stroke_disabledalt": {
@@ -813,7 +822,7 @@
                 "$type": "color",
                 "$libraryName": "",
                 "$collectionName": "Base Palette",
-                "$value": "{System.Secondary.Teal}"
+                "$value": "{Teal.70}"
               },
               "stroke_subdued": {
                 "$scopes": ["ALL_SCOPES"],
@@ -852,7 +861,7 @@
                 "$type": "color",
                 "$libraryName": "",
                 "$collectionName": "Base Palette",
-                "$value": "{System.Secondary.Teal}"
+                "$value": "{Teal.70}"
               },
               "icon_subdued": {
                 "$scopes": ["ALL_SCOPES"],
@@ -872,7 +881,9 @@
             "icon_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "icon_warning": {
               "$scopes": ["ALL_SCOPES"],
@@ -891,7 +902,9 @@
             "icon_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "on-primary": {
               "icon_disabled": {
@@ -913,7 +926,7 @@
                 "$type": "color",
                 "$libraryName": "",
                 "$collectionName": "Base Palette",
-                "$value": "{System.Secondary.Teal}"
+                "$value": "{Teal.70}"
               },
               "icon_subdued": {
                 "$scopes": ["ALL_SCOPES"],
@@ -952,7 +965,7 @@
                 "$type": "color",
                 "$libraryName": "",
                 "$collectionName": "Base Palette",
-                "$value": "{System.Secondary.Teal}"
+                "$value": "{Teal.70}"
               },
               "text_subdued": {
                 "$scopes": ["ALL_SCOPES"],
@@ -979,12 +992,16 @@
             "text_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "text_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "text_info": {
               "$scopes": ["ALL_SCOPES"],
@@ -1013,7 +1030,7 @@
                 "$type": "color",
                 "$libraryName": "",
                 "$collectionName": "Base Palette",
-                "$value": "{System.Secondary.Teal}"
+                "$value": "{Teal.70}"
               },
               "text_subdued": {
                 "$scopes": ["ALL_SCOPES"],
@@ -1035,37 +1052,51 @@
             "buttonIcon_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_filled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_focussed": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_hover": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_disabled": {
               "$scopes": ["ALL_SCOPES"],
@@ -1077,7 +1108,9 @@
             "buttonIcon_secondary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_primary": {
               "$scopes": ["ALL_SCOPES"],
@@ -1091,32 +1124,44 @@
             "buttonBackground_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_filled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_focussed": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_hover": {
               "$scopes": ["ALL_SCOPES"],
@@ -1142,29 +1187,39 @@
             "buttonBackground_primary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             }
           },
           "background": {
             "background_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "background_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "background_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "background_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "background_selected": {
               "$scopes": ["ALL_SCOPES"],
@@ -1176,7 +1231,9 @@
             "background_focussed": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "background_hover": {
               "$scopes": ["ALL_SCOPES"],
@@ -1188,12 +1245,16 @@
             "background_disabled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "background_accentalt": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "background_accent": {
               "$scopes": ["ALL_SCOPES"],
@@ -1224,84 +1285,116 @@
               "stroke_disabledalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_disabled": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_accentalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_accent": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_subdued": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_base": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               }
             },
             "stroke_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "stroke_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "stroke_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "stroke_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "on-primary": {
               "stroke_disabledalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_disabled": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_accentalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_accent": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_subdued": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "stroke_base": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               }
             }
           },
@@ -1310,74 +1403,102 @@
               "icon_disabled": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_accentalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_accent": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_subdued": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_base": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               }
             },
             "icon_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "icon_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "icon_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "icon_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "on-primary": {
               "icon_disabled": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_accentalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_accent": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_subdued": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "icon_base": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               }
             }
           },
@@ -1386,74 +1507,102 @@
               "text_disabled": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_accentalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_accent": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_subdued": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_base": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               }
             },
             "text_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "text_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "text_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "text_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "on-primary": {
               "text_disabled": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_accentalt": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_accent": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_subdued": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               },
               "text_base": {
                 "$scopes": ["ALL_SCOPES"],
                 "$type": "color",
-                "$value": "#ffffff"
+                "$libraryName": "",
+                "$collectionName": "Base Palette",
+                "$value": "{System.Neutral.Temp}"
               }
             }
           },
@@ -1461,166 +1610,230 @@
             "buttonIcon_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_filled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_focussed": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_hover": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_disabled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_secondary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonIcon_primary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             }
           },
           "buttonBackground": {
             "buttonBackground_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_filled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_focussed": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_hover": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_disabled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_secondary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             },
             "buttonBackground_primary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.Temp}"
             }
           },
           "background": {
             "background_error": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_warning": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_success": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_info": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_selected": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_focussed": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_hover": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_disabled": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_accentalt": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_accent": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_secondary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             },
             "background_primary": {
               "$scopes": ["ALL_SCOPES"],
               "$type": "color",
-              "$value": "#ffffff"
+              "$libraryName": "",
+              "$collectionName": "Base Palette",
+              "$value": "{System.Neutral.White}"
             }
           }
         }

@@ -13,9 +13,6 @@ export const fonts = {
       8: 26,
       9: 32,
       10: 38,
-      sm: 12,
-      md: 16,
-      lg: 24,
     },
     letterSpacing: {},
     weight: {

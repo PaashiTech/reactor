@@ -18,7 +18,7 @@ const getColorTokens = (tokens: typeof figmaTokens) => {
   for (const colorKey in colorEntries) {
     const values = colorEntries[colorKey];
     for (const valueKey in values) {
-      result[`${colorKey.replace(" ", "").toLocaleLowerCase()}-${valueKey}`] =
+      result[`${colorKey.replace(" ", "").toLowerCase()}-${valueKey}`] =
         values[valueKey]["$value"];
     }
   }
