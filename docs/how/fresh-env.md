@@ -44,13 +44,25 @@ Follow [these instructions](https://www.howtogeek.com/787217/how-to-edit-environ
 
 Add following fields/paths to your system `Path` variable. See [these instructions](https://techpp.com/2021/08/26/set-path-variable-in-windows-guide/#:~:text=If%20you%E2%80%99re%20on%20Windows%2010%2C%20hit%20the%20New%20button%20and%20paste%20the%20copied%20path%20on%20the%20new%20line.%20Alternatively%2C%20hit%20the%20Edit%20text%2C%20add%20a%20semi%2Dcolon%20to%20the%20end%20of%20the%20field%20for%20Variable%20value%2C%20and%20paste%20the%20program%E2%80%99s%20path.) to do it. 
 
+`<Absolute path to your Android SDK` is the path that can be checked from in -
+
+Android studio > SDK manager > Android SDK location 
+
+##### Install following packages from the Android SDK manager
+- Android SDK command-line tools (latest)
+- Google USB driver
+- Android emulator
+- Android platform tools
+- Android 14.0 ("UpsideDownCake") - API 34
+- Android 13.0 ("Tiramisu") - API 33
+
 > [!CAUTION]
 > ALWAYS make **additive** changes to the system `Path` variable, unless you are absolutely sure about what you are doing. 
 
 ```
- <Absolute path to your android SDK>/emulator
- <Absolute path to your android SDK>/platform-tools
- <Absolute path to your android SDK>/cmdline-tools/latest/bin/
+ <Absolute path to your Android SDK>/emulator
+ <Absolute path to your Android SDK>/platform-tools
+ <Absolute path to your Android SDK>/cmdline-tools/latest/bin/
 
 ```
 
