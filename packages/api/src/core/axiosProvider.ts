@@ -1,5 +1,7 @@
 const axios = require("axios").default;
 
+export const BASE_URL = "https://backend-jppb.onrender.com";
+
 const axiosGlobalConfig = {
   // `url` is the server URL that will be used for the request
   // url: "/user",
@@ -10,7 +12,7 @@ const axiosGlobalConfig = {
   // `baseURL` will be prepended to `url` unless `url` is absolute.
   // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
   // to methods of that instance.
-  baseURL: "http://54.95.55.220:8080/",
+  baseURL: BASE_URL,
 
   // `transformRequest` allows changes to the request data before it is sent to the server
   // This is only applicable for request methods 'PUT', 'POST', 'PATCH' and 'DELETE'

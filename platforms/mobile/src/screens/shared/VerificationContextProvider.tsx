@@ -7,9 +7,11 @@ type VerificationContextProps = {
     type: string;
     value: string;
   };
+  verifyTargetType: "existing" | "new";
   setPhoneType: (val: "primary" | "secondary") => void;
   setVerifiedMessage: (val: string) => void;
   setOTPSentTo: (val: { type: string; value: string }) => void;
+  setVerifyTargetType: (val: "existing" | "new") => void;
 };
 
 const VerificationContext = createContext<VerificationContextProps>({
@@ -19,9 +21,11 @@ const VerificationContext = createContext<VerificationContextProps>({
     type: "",
     value: "",
   },
+  verifyTargetType: "existing",
   setPhoneType: () => {},
   setVerifiedMessage: () => {},
   setOTPSentTo: () => {},
+  setVerifyTargetType: () => {},
 });
 
 interface VerificationContextProviderProps {
@@ -39,6 +43,9 @@ export const VerificationContextProvider: React.FC<
     type: "email",
     value: "",
   });
+  const [verifyTargetType, setVerifyTargetType] = useState<"existing" | "new">(
+    "existing"
+  );
 
   return (
     <VerificationContext.Provider
@@ -46,9 +53,11 @@ export const VerificationContextProvider: React.FC<
         phoneType,
         verifiedMessage,
         OTPSentTo,
+        verifyTargetType,
         setPhoneType,
         setVerifiedMessage,
         setOTPSentTo,
+        setVerifyTargetType,
       }}
     >
       {children}

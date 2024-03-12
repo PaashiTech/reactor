@@ -13,6 +13,12 @@ export type EditPhNumberScreenProps = NativeStackScreenProps<
   typeof EDIT_PH_NUMBER_SCREEN_ID
 >;
 
+export const ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID = "0011.a";
+export type AddSecondaryPhoneNumberScreenProps = NativeStackScreenProps<
+  StackRouteProps,
+  typeof ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID
+>;
+
 export const EDIT_EMAIL_SCREEN_ID = "0013.h";
 export type EditEmailScreenProps = NativeStackScreenProps<
   StackRouteProps,

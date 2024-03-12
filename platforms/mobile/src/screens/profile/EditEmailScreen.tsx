@@ -15,7 +15,8 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { setOTPSentTo, setVerifiedMessage } = useVerificationContext();
+  const { setOTPSentTo, setVerifiedMessage, setVerifyTargetType } =
+    useVerificationContext();
   const {
     control,
     handleSubmit,
@@ -35,6 +36,7 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
       confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
     });
+    setVerifyTargetType("new");
   };
 
   return (

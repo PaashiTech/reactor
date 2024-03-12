@@ -49,7 +49,7 @@ const _AppThemeScreen: React.FC<AppThemeScreenProps> = ({
   return (
     <View flex={1}>
       <View paddingHorizontal={20} mt={24}>
-        <RadioGroup defaultValue={selected} onValueChange={handleRadioSelect}>
+        <RadioGroup value={selected} onValueChange={handleRadioSelect}>
           <View gap={20}>
             {themeOptions.map((option) => (
               <RadioGroupItemWithLabel

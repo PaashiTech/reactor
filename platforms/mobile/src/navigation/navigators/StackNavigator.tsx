@@ -22,11 +22,15 @@ import {
 import { VerificationContextProvider } from "../../screens/shared/VerificationContextProvider";
 import { SettingsDetailsScreen } from "../../screens/settings/SettingsDetailsScreen";
 import { AppThemeScreen } from "../../screens/settings/AppThemeScreen";
+import { AddSecondaryPhoneNumberScreen } from "../../screens/profile/AddSecondaryPhoneNumber";
+import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccountsScreen";
+import { GiveConsentScreen } from "../../screens/linked-accounts/GiveConsentScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
   EditPhNumberScreen,
   EditEmailScreen,
+  AddSecondaryPhoneNumberScreen,
 ];
 const sharedScreens: UnmzNavScreen[] = [
   OTPVerificationScreen,
@@ -35,6 +39,11 @@ const sharedScreens: UnmzNavScreen[] = [
 const familyScreens: UnmzNavScreen[] = [
   FamilyDetailsScreen,
   AddFamilyMemberScreen,
+];
+
+const linkedAccountsScreens: UnmzNavScreen[] = [
+  LinkedAccountsScreen,
+  GiveConsentScreen,
 ];
 
 const settingsScreens: UnmzNavScreen[] = [
@@ -115,6 +124,22 @@ export const StackNavigator = () => {
         {/* Setting screens group */}
         <stackNav.Group>
           {settingsScreens.map((scr) => {
+            return (
+              <stackNav.Screen
+                key={scr.key}
+                name={scr.key as keyof StackRouteProps}
+                component={scr.content}
+                options={{
+                  title: scr.title,
+                }}
+              />
+            );
+          })}
+        </stackNav.Group>
+
+        {/* Linked Accounds screens group*/}
+        <stackNav.Group>
+          {linkedAccountsScreens.map((scr) => {
             return (
               <stackNav.Screen
                 key={scr.key}

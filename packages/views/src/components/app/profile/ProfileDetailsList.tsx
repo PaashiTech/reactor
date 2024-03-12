@@ -17,9 +17,10 @@ export type ProfileDetailsListProps = {
 
 export const ProfileDetailsList: FC<ProfileDetailsListProps> = ({ items }) => {
   return (
-    <YStack marginTop={30}>
+    <YStack marginTop={24} paddingVertical={12} backgroundColor="#fff">
       {items.map((item, i) => {
         const _icon = item.icon ? Edit : null;
+        if (!item.title) return;
         return (
           <ProfileDetailsListItem
             iconAfter={_icon}

@@ -19,6 +19,9 @@ export { TertiaryButton } from "./core/buttons/TertiaryButton";
 export { IconButton } from "./core/buttons/IconButton";
 export { SecondaryButton } from "./core/buttons/SecondaryButton";
 
+// Cards
+export { UnmzCard } from "./core/cards/UnmzCard";
+
 // Modals
 export { BottomModal } from "./core/modals/BottomModal";
 export { PopupModal } from "./core/modals/PopupModal";
@@ -27,12 +30,10 @@ export { PopupModal } from "./core/modals/PopupModal";
 export { FormTextInput } from "./core/inputs/FormTextInput";
 export { MobileNumberInput } from "./core/inputs/MobileNumberInput";
 export { CalendarPicker } from "./core/inputs/CalendarPicker";
-export { OTPInput } from "./core/inputs/OTPInput";
-export { OTPTextView } from "./core/inputs/OTPTextView";
 export { DatePicker } from "./core/inputs/DatePicker";
 export { DropdownList } from "./core/inputs/DropdownList";
 export { CustomSwitch } from "./core/inputs/CustomSwitch";
-
+export { OTPInput } from "./core/inputs/OTPInput";
 // Miscellaneous
 export { UnmzToast } from "./core/misc/UnmzToast";
 export { UnmzToastProvider } from "./core/misc/UnmzToastProvider";
@@ -51,3 +52,7 @@ export {
   ProfileDetails,
   ProfileDetailsProps,
 } from "./app/profile/ProfileDetails";
+
+// Linked Accounts
+export { LinkedAccountsAccordionContentItem } from "./app/linked-accounts/LinkedAccountsAccordionContentItem";
+export { LinkedAccountsAccordionTrigger } from "./app/linked-accounts/LinkedAccountsAccordionTrigger";

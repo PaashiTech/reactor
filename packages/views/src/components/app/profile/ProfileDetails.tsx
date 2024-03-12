@@ -16,10 +16,10 @@ export type ProfileDetailsProps = {
   dob: string;
   pan: string;
   primaryPhone: string;
-  secondaryPhone: string;
-  gender: "Male" | "Female" | "Non-binary";
+  secondaryPhone: string | null;
+  gender: "Male" | "Female" | "NonBinary" | "PreferNotToSay";
   email: string;
-  maritalStatus: "Single" | "Married" | "Divorcee";
+  maritalStatus: "Single" | "Married" | "Divorcee" | "PreferNotToSay";
   onEditPrimaryPhone: () => void;
   onEditEmail: () => void;
   onEditSecondaryPhone: () => void;

@@ -7,7 +7,10 @@ import {
 import { FC } from "react";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
-import { EditPhNumberScreenProps, EDIT_PH_NUMBER_SCREEN_ID } from "./types";
+import {
+  ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
+  AddSecondaryPhoneNumberScreenProps,
+} from "./types";
 import {
   OTP_VERIFICATION_SCREEN_ID,
   VERIFICATION_SUCCESS_SCREEN_ID,
@@ -16,11 +19,10 @@ import { useForm } from "react-hook-form";
 import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 
-const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
-  navigation,
-  route,
-}) => {
-  const { phoneType, setVerifiedMessage, setOTPSentTo, setVerifyTargetType } =
+const _AddSecondaryPhoneNumberScreen: FC<
+  AddSecondaryPhoneNumberScreenProps
+> = ({ navigation, route }) => {
+  const { phoneType, setVerifiedMessage, setOTPSentTo, setPhoneType } =
     useVerificationContext();
 
   const {
@@ -30,8 +32,9 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   } = useForm();
 
   const handleConfirm = (data) => {
+    // Handle the store action over here with data
     setVerifiedMessage(
-      `You have successfully updated your ${phoneType} mobile number`
+      `You have successfully added your secondary mobile number`
     );
     setOTPSentTo({
       type: `${phoneType} number`,
@@ -40,7 +43,6 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
     navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
       confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
     });
-    setVerifyTargetType("new");
   };
 
   return (
@@ -60,7 +62,7 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
             letterSpacing={0.32}
             color={"#262626"}
           >
-            Edit your mobile number
+            Add your secondary number
           </Text>
           <Text
             fontWeight={"$4"}
@@ -84,8 +86,8 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   );
 };
 
-export const EditPhNumberScreen: UnmzNavScreen = {
-  key: EDIT_PH_NUMBER_SCREEN_ID,
-  title: "Edit number",
-  content: _EditPhNumberScreen,
+export const AddSecondaryPhoneNumberScreen: UnmzNavScreen = {
+  key: ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
+  title: "Add number",
+  content: _AddSecondaryPhoneNumberScreen,
 };
