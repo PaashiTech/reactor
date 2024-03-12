@@ -1,31 +1,33 @@
 import { createContext, useContext, useState } from "react";
 
+export enum OTPSentToType {
+  EMAIL,
+  PRIMARY_NUMBER,
+  SECONDARY_NUMBER,
+}
+
 type VerificationContextProps = {
   phoneType: "primary" | "secondary";
   verifiedMessage: string;
   OTPSentTo: {
-    type: string;
+    type: OTPSentToType;
     value: string;
   };
-  verifyTargetType: "existing" | "new";
   setPhoneType: (val: "primary" | "secondary") => void;
   setVerifiedMessage: (val: string) => void;
-  setOTPSentTo: (val: { type: string; value: string }) => void;
-  setVerifyTargetType: (val: "existing" | "new") => void;
+  setOTPSentTo: (val: { type: OTPSentToType; value: string }) => void;
 };
 
 const VerificationContext = createContext<VerificationContextProps>({
   phoneType: "primary",
   verifiedMessage: "",
   OTPSentTo: {
-    type: "",
+    type: OTPSentToType.EMAIL,
     value: "",
   },
-  verifyTargetType: "existing",
   setPhoneType: () => {},
   setVerifiedMessage: () => {},
   setOTPSentTo: () => {},
-  setVerifyTargetType: () => {},
 });
 
 interface VerificationContextProviderProps {
@@ -40,12 +42,9 @@ export const VerificationContextProvider: React.FC<
   );
   const [verifiedMessage, setVerifiedMessage] = useState("placeholder");
   const [OTPSentTo, setOTPSentTo] = useState({
-    type: "email",
+    type: OTPSentToType.EMAIL,
     value: "",
   });
-  const [verifyTargetType, setVerifyTargetType] = useState<"existing" | "new">(
-    "existing"
-  );
 
   return (
     <VerificationContext.Provider
@@ -53,11 +52,9 @@ export const VerificationContextProvider: React.FC<
         phoneType,
         verifiedMessage,
         OTPSentTo,
-        verifyTargetType,
         setPhoneType,
         setVerifiedMessage,
         setOTPSentTo,
-        setVerifyTargetType,
       }}
     >
       {children}

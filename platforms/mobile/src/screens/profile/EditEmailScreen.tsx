@@ -3,20 +3,22 @@ import { Text, View, UnmzGradientButton, FormTextInput } from "@unmaze/views";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { EditEmailScreenProps, EDIT_EMAIL_SCREEN_ID } from "./types";
 import {
-  OTP_VERIFICATION_SCREEN_ID,
-  VERIFICATION_SUCCESS_SCREEN_ID,
+  OTP_ACCOUNT_UPDATE_SCREEN_ID,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared";
 
 import { useForm } from "react-hook-form";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
+import {
+  OTPSentToType,
+  useVerificationContext,
+} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { setOTPSentTo, setVerifiedMessage, setVerifyTargetType } =
-    useVerificationContext();
+  const { setOTPSentTo, setVerifiedMessage } = useVerificationContext();
   const {
     control,
     handleSubmit,
@@ -30,13 +32,12 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   const handleEmailSubmit = (data) => {
     setVerifiedMessage(`You have successfully updated your email address`);
     setOTPSentTo({
-      type: "email",
+      type: OTPSentToType.EMAIL,
       value: data.email,
     });
-    navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
-      confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
+    navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
+      confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
     });
-    setVerifyTargetType("new");
   };
 
   return (

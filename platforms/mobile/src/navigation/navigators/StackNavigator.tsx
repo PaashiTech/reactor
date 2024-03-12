@@ -12,8 +12,10 @@ import {
   ProfileDetailsScreen,
 } from "../../screens/profile";
 import {
-  OTPVerificationScreen,
-  VerificationSuccessScreen,
+  OTPAccountUpdateScreen,
+  AccountUpdateSuccessScreen,
+  OTPAccountVerificationScreen,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../../screens/shared";
 import {
   AddFamilyMemberScreen,
@@ -33,8 +35,9 @@ const profileScreens: UnmzNavScreen[] = [
   AddSecondaryPhoneNumberScreen,
 ];
 const sharedScreens: UnmzNavScreen[] = [
-  OTPVerificationScreen,
-  VerificationSuccessScreen,
+  OTPAccountUpdateScreen,
+  OTPAccountVerificationScreen,
+  AccountUpdateSuccessScreen,
 ];
 const familyScreens: UnmzNavScreen[] = [
   FamilyDetailsScreen,
@@ -163,7 +166,7 @@ export const StackNavigator = () => {
                 component={scr.content}
                 options={{
                   title: scr.title,
-                  headerShown: scr.title !== "Verification Success",
+                  headerShown: scr.key !== ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
                   headerStyle:
                     scr.title === "Verification Success"
                       ? {

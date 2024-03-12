@@ -9,18 +9,21 @@ import { FC } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { EditPhNumberScreenProps, EDIT_PH_NUMBER_SCREEN_ID } from "./types";
 import {
-  OTP_VERIFICATION_SCREEN_ID,
-  VERIFICATION_SUCCESS_SCREEN_ID,
+  OTP_ACCOUNT_UPDATE_SCREEN_ID,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared";
 import { useForm } from "react-hook-form";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
+import {
+  OTPSentToType,
+  useVerificationContext,
+} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { phoneType, setVerifiedMessage, setOTPSentTo, setVerifyTargetType } =
+  const { phoneType, setVerifiedMessage, setOTPSentTo } =
     useVerificationContext();
 
   const {
@@ -34,13 +37,15 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
       `You have successfully updated your ${phoneType} mobile number`
     );
     setOTPSentTo({
-      type: `${phoneType} number`,
+      type:
+        phoneType === "primary"
+          ? OTPSentToType.PRIMARY_NUMBER
+          : OTPSentToType.SECONDARY_NUMBER,
       value: data.mobileNumber,
     });
-    navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
-      confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
+    navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
+      confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
     });
-    setVerifyTargetType("new");
   };
 
   return (

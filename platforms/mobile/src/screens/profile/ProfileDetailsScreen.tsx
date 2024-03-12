@@ -16,10 +16,13 @@ import {
   EDIT_EMAIL_SCREEN_ID,
   ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
 } from "./types";
-import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
+import { OTP_ACCOUNT_VERIFICATION_SCREEN_ID } from "../shared";
 
 import { useState } from "react";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
+import {
+  OTPSentToType,
+  useVerificationContext,
+} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 import { ChevronRight } from "@unmaze/assets";
 import { Pressable } from "react-native";
@@ -74,8 +77,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   const [editType, setEditType] = useState<"email" | "primary" | "secondary">(
     "email"
   );
-  const { setOTPSentTo, setPhoneType, setVerifyTargetType } =
-    useVerificationContext();
+  const { setOTPSentTo, setPhoneType } = useVerificationContext();
 
   const profile: ProfileDetailsProps = {
     name: constructFullName(user.name),
@@ -165,21 +167,24 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
         <UnmzGradientButton
           onPress={() => {
             setWarningModal(false);
-            setVerifyTargetType("existing");
+
             editType === "email"
               ? (() => {
                   setOTPSentTo({
-                    type: "primary number",
+                    type: OTPSentToType.PRIMARY_NUMBER,
                     value: profile.primaryPhone,
                   });
-                  navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
+                  navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
                     confirmScreenId: EDIT_EMAIL_SCREEN_ID,
                   });
                 })()
               : (() => {
-                  setOTPSentTo({ type: "email", value: profile.email });
+                  setOTPSentTo({
+                    type: OTPSentToType.EMAIL,
+                    value: profile.email,
+                  });
                   setPhoneType(editType);
-                  navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
+                  navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
                     confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
                   });
                 })();

@@ -2,16 +2,15 @@ import { CheckGreen } from "@unmaze/assets";
 import { UnmzGradientButton, Text, View } from "@unmaze/views";
 
 import {
-  VerificationSuccessScreenProps,
-  VERIFICATION_SUCCESS_SCREEN_ID,
-} from "./types";
-import { useVerificationContext } from "./VerificationContextProvider";
+  AccountUpdateSuccessScreenProps,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+} from "../shared/types";
+import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 
-const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
-  navigation,
-  route,
-}) => {
+const _AccountUpdateSuccessScreen: React.FC<
+  AccountUpdateSuccessScreenProps
+> = ({ navigation, route }) => {
   const { verifiedMessage } = useVerificationContext();
 
   return (
@@ -51,8 +50,8 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   );
 };
 
-export const VerificationSuccessScreen: UnmzNavScreen = {
-  key: VERIFICATION_SUCCESS_SCREEN_ID,
-  title: "Verification Success",
-  content: _VerificationSuccessScreen,
+export const AccountUpdateSuccessScreen: UnmzNavScreen = {
+  key: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+  title: "Account Update Success",
+  content: _AccountUpdateSuccessScreen,
 };

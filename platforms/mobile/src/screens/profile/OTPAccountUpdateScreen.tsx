@@ -14,11 +14,13 @@ import { FC, useEffect, useState } from "react";
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { ToastViewport } from "@tamagui/toast";
 import {
-  OTPVerificationScreenProps,
-  OTP_VERIFICATION_SCREEN_ID,
-  VERIFICATION_SUCCESS_SCREEN_ID,
-} from "./types";
-import { useVerificationContext } from "./VerificationContextProvider";
+  OTPAccountUpdateScreenProps,
+  OTP_ACCOUNT_UPDATE_SCREEN_ID,
+} from "../shared/types";
+import {
+  OTPSentToType,
+  useVerificationContext,
+} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 import {
   useGetOTP,
@@ -26,12 +28,9 @@ import {
   useUpdateUser,
   useGetUser,
 } from "@unmaze/api";
+import { TEST_EMAIL_ID } from "../shared/testCredentials";
 
-// const CORRECT_OTP = "123456";
-const TEST_EMAIL_ID = "amogh.kulkarni@unmaze.app";
-const TEST_PHONE = "919175950084";
-
-const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
+const _OTPAccountUpdateScreen: FC<OTPAccountUpdateScreenProps> = ({
   navigation,
   route,
 }) => {
@@ -39,22 +38,14 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   const user_id = useUserStore((state) => state.user_id);
   const currentPrimaryNumber = useUserStore((state) => state.phone.primary);
   const { getOTP, getOTPData } = useGetOTP();
-  const {
-    validateOTP,
-    validateOTPError,
-    validateOTPStatus,
-    validateOTPIsLoading,
-  } = useValidateOTP();
   const { updateUser, updateUserIsLoading, updateUserError, updateUserStatus } =
     useUpdateUser({ id: user_id });
   const { userMutate } = useGetUser({ id: user_id });
-  const { OTPSentTo, verifyTargetType } = useVerificationContext();
+  const { OTPSentTo } = useVerificationContext();
 
   const { confirmScreenId } = route.params;
-  const validateOTPSuccessfull = validateOTPStatus && validateOTPStatus == 200;
-  const updateUserSuccessfull = updateUserStatus && updateUserStatus == 200;
-  const buttonDisabled =
-    OTPInputText.length < 6 || validateOTPIsLoading || updateUserIsLoading;
+  const updateUserSuccessfull = updateUserStatus === 200;
+  const buttonDisabled = OTPInputText.length < 6 || updateUserIsLoading;
 
   useEffect(() => {
     getOTP(
@@ -68,53 +59,33 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   }, []);
 
   const handleValidateOTP = () => {
-    if (validateOTPSuccessfull || updateUserSuccessfull) {
-      if (confirmScreenId === VERIFICATION_SUCCESS_SCREEN_ID) {
-        userMutate();
-        setTimeout(() => {
-          navigation.replace(confirmScreenId);
-        }, 2000);
-      } else {
-        navigation.replace(confirmScreenId);
-      }
+    if (updateUserSuccessfull) {
+      userMutate();
+      navigation.replace(confirmScreenId);
     } else {
       if (getOTPData) {
-        switch (verifyTargetType) {
-          case "existing":
-            // Only validates OTP and allows further navigation
-            validateOTP(
-              {},
-              {
-                otp: Number(OTPInputText),
-                session_id: getOTPData.session_id ? getOTPData.session_id : "",
-              }
-            );
-            return;
-          case "new":
-            let fieldToBeUpdated: any | null = null;
-            if (OTPSentTo.type === "email") {
-              fieldToBeUpdated = { email: OTPSentTo.value };
-            } else if (OTPSentTo.type === "primary number") {
-              fieldToBeUpdated = { phone: { primary: OTPSentTo.value } };
-            } else if (OTPSentTo.type === "secondary number") {
-              fieldToBeUpdated = {
-                phone: {
-                  primary: currentPrimaryNumber,
-                  secondary: OTPSentTo.value,
-                },
-              };
-            }
-
-            // Sends the user details to be updated
-            updateUser(
-              {},
-              {
-                otp: Number(OTPInputText),
-                session_id: getOTPData.session_id ? getOTPData.session_id : "",
-                ...fieldToBeUpdated,
-              }
-            );
+        let fieldToBeUpdated: any | null = null;
+        if (OTPSentTo.type === OTPSentToType.EMAIL) {
+          fieldToBeUpdated = { email: OTPSentTo.value };
+        } else if (OTPSentTo.type === OTPSentToType.PRIMARY_NUMBER) {
+          fieldToBeUpdated = { phone: { primary: OTPSentTo.value } };
+        } else if (OTPSentTo.type === OTPSentToType.SECONDARY_NUMBER) {
+          fieldToBeUpdated = {
+            phone: {
+              primary: currentPrimaryNumber,
+              secondary: OTPSentTo.value,
+            },
+          };
         }
+        // Sends the user details to be updated
+        updateUser(
+          {},
+          {
+            otp: Number(OTPInputText),
+            session_id: getOTPData.session_id ? getOTPData.session_id : "",
+            ...fieldToBeUpdated,
+          }
+        );
       } else {
         console.log("OTP Data: " + getOTPData);
       }
@@ -145,14 +116,13 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
           </View>
         </View>
         <View gap={20}>
-          {!(validateOTPIsLoading || updateUserIsLoading) &&
-          !(validateOTPSuccessfull || updateUserSuccessfull) ? (
+          {!updateUserIsLoading && !updateUserSuccessfull ? (
             <OTPInput
               code={OTPInputText}
               setCode={(value) => setOTPInputText(value)}
-              isError={!!(validateOTPError || updateUserError)}
+              isError={!!updateUserError}
             />
-          ) : validateOTPIsLoading || updateUserIsLoading ? (
+          ) : updateUserIsLoading ? (
             <View height={40} justifyContent="center">
               <Spinner
                 alignSelf="flex-start"
@@ -161,18 +131,12 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
                 style={{ transform: [{ scaleX: 1.11 }, { scaleY: 1.11 }] }}
               />
             </View>
-          ) : validateOTPSuccessfull || updateUserSuccessfull ? (
+          ) : (
             <View height={60} justifyContent="center">
               <CheckGreen />
             </View>
-          ) : (
-            <OTPInput
-              code={OTPInputText}
-              setCode={(value) => setOTPInputText(value)}
-              isError={true}
-            />
           )}
-          {!(validateOTPSuccessfull || updateUserSuccessfull) ? (
+          {!updateUserSuccessfull ? (
             <XStack gap={4}>
               <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
               <OTPCountdownTimer
@@ -190,7 +154,7 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
               />
             </XStack>
           ) : (
-            <Text color={"#6F6F6F"}>Account verifed successfully</Text>
+            <Text color={"#6F6F6F"}>Account updated successfully</Text>
           )}
         </View>
       </View>
@@ -208,8 +172,8 @@ const _OTPVerificationScreen: FC<OTPVerificationScreenProps> = ({
   );
 };
 
-export const OTPVerificationScreen: UnmzNavScreen = {
-  key: OTP_VERIFICATION_SCREEN_ID,
-  title: "Verify your account",
-  content: _OTPVerificationScreen,
+export const OTPAccountUpdateScreen: UnmzNavScreen = {
+  key: OTP_ACCOUNT_UPDATE_SCREEN_ID,
+  title: "Update your account",
+  content: _OTPAccountUpdateScreen,
 };

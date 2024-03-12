@@ -13,8 +13,9 @@ import {
   PROFILE_DETAILS_SCREEN_ID,
 } from "../../screens/profile/types";
 import {
-  OTP_VERIFICATION_SCREEN_ID,
-  VERIFICATION_SUCCESS_SCREEN_ID,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+  OTP_ACCOUNT_UPDATE_SCREEN_ID,
+  OTP_ACCOUNT_VERIFICATION_SCREEN_ID,
 } from "../../screens/shared/types";
 import {
   APP_THEME_SCREEN_ID,
@@ -55,8 +56,11 @@ export type StackRouteProps = {
   [GIVE_CONSENT_SCREEN_ID]: undefined;
 
   // Shared screens
-  [VERIFICATION_SUCCESS_SCREEN_ID]: undefined;
-  [OTP_VERIFICATION_SCREEN_ID]: {
+  [ACCOUNT_UPDATE_SUCCESS_SCREEN_ID]: undefined;
+  [OTP_ACCOUNT_UPDATE_SCREEN_ID]: {
+    confirmScreenId: keyof StackRouteProps;
+  };
+  [OTP_ACCOUNT_VERIFICATION_SCREEN_ID]: {
     confirmScreenId: keyof StackRouteProps;
   };
 };
