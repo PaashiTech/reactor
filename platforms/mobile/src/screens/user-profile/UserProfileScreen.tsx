@@ -5,6 +5,8 @@ import {
   View,
   XStack,
   SVGWrapper,
+  useUserStore,
+  computeUserFullName,
 } from "@unmaze/views";
 import { Pressable } from "react-native";
 import {
@@ -23,6 +25,10 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
   navigation,
   route,
 }) => {
+  const name = useUserStore((state) => state.name);
+  const pan = useUserStore((state) => state.pan);
+  const primaryPh = useUserStore((state) => state.phone.primary);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View flex={1}>
@@ -46,9 +52,9 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
             </Avatar.Fallback>
           </Avatar>
           <View>
-            <Text>Piyush Dhananhaya Sathe</Text>
-            <Text>DJFPD8191A</Text>
-            <Text>+91-8327812999</Text>
+            <Text>{computeUserFullName(name)}</Text>
+            <Text>{pan}</Text>
+            <Text>{"+91-" + primaryPh}</Text>
           </View>
         </View>
         <View paddingHorizontal={20} paddingVertical={24}>

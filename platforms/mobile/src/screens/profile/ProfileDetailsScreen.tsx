@@ -8,6 +8,8 @@ import {
   XStack,
   useUserStore,
   UserState,
+  computeUserFullName,
+  computeDoBString,
 } from "@unmaze/views";
 import {
   ProfileDetailsScreenProps,
@@ -27,46 +29,6 @@ import { UnmzNavScreen } from "../types";
 import { ChevronRight } from "@unmaze/assets";
 import { Pressable } from "react-native";
 
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-const constructFullName = (nameObj: {
-  first: string;
-  middle: string;
-  last: string;
-}) => {
-  return (
-    nameObj.first +
-    " " +
-    (nameObj.middle ? nameObj.middle + " " : "") +
-    nameObj.last
-  );
-};
-
-const constructDoBString = (dobISOString: string) => {
-  let dobObject = new Date(dobISOString);
-
-  return (
-    dobObject.getDate().toString() +
-    "-" +
-    months[dobObject.getMonth()] +
-    "-" +
-    dobObject.getFullYear().toString()
-  );
-};
-
 const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,
   route,
@@ -80,8 +42,8 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   const { setOTPSentTo, setPhoneType } = useVerificationContext();
 
   const profile: ProfileDetailsProps = {
-    name: constructFullName(user.name),
-    dob: constructDoBString(user.dob),
+    name: computeUserFullName(user.name),
+    dob: computeDoBString(user.dob),
     pan: user.pan,
     primaryPhone: "+91 - " + user.phone.primary,
     secondaryPhone: user.phone.secondary

@@ -15,7 +15,8 @@ export * from "./helpers/linkedAccountHelpers";
 // Stores
 export { useTestStore } from "./stores/testStore";
 export { useUserStore } from "./stores/userStore";
-export { mmkvStorage } from "./helpers/mmkvStorage";
+export { mmkvStorage } from "./stores/helpers/mmkvStorage";
+export { computeUserFullName, computeDoBString } from "./stores/helpers/user";
 
 // Models
 export { UserState, UserActions } from "./stores/models/user";

@@ -80,13 +80,6 @@ export const StackNavigator = () => {
                 component={scr.content}
                 options={{
                   title: scr.title,
-                  // headerShown: scr.title !== "Verify Number",
-                  // headerBackground: () =>
-                  //   scr.headerBackground === "linear-gradient" ? (
-                  //     <UnmzLinearGradient style={{ flex: 1 }} />
-                  //   ) : (
-                  //     <View flex={1} bg={"#fff"} />
-                  //   ),
                 }}
               />
             );
@@ -103,21 +96,6 @@ export const StackNavigator = () => {
                 component={scr.content}
                 options={{
                   title: scr.title,
-                  // headerShown: scr.title !== "Verify Number",
-                  // headerBackground: () =>
-                  //   scr.headerBackground === "linear-gradient" ? (
-                  //     <UnmzLinearGradient style={{ flex: 1 }} />
-                  //   ) : (
-                  //     <View
-                  //       flex={1}
-                  //       bg={"#fff"}
-                  //       elevationAndroid={5}
-                  //       shadowColor={"red"}
-                  //       shadowOffset={{ width: 10, height: 10 }}
-                  //       shadowOpacity={10}
-                  //       shadowRadius={10}
-                  //     />
-                  //   ),
                 }}
               />
             );
@@ -173,12 +151,6 @@ export const StackNavigator = () => {
                           backgroundColor: "transparent",
                         }
                       : {},
-                  // headerBackground: () =>
-                  //   scr.headerBackground === "linear-gradient" ? (
-                  //     <UnmzLinearGradient style={{ flex: 1 }} />
-                  //   ) : (
-                  //     <View flex={1} bg={"#fff"} />
-                  //   ),
                 }}
               />
             );

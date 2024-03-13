@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist, devtools, createJSONStorage } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-import { mmkvZustandStorage } from "../helpers/mmkvStorage";
+import { mmkvZustandStorage } from "./helpers/mmkvStorage";
 
 type TestState = {
   testNumber: number;
