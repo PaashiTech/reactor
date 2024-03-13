@@ -8,6 +8,7 @@
     "expo-font": "11.10.2"
   },
   "peerDependencies": {
-    "@babel/core": "^7.23.9"
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.24.0"
   }
 }

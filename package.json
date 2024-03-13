@@ -19,7 +19,8 @@
     "url": "github:PaashiTech/reactor"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pnpm-clear-cache": "pnpm store prune"
   },
   "engines": {
     "node": ">=18",
@@ -33,7 +34,7 @@
     "overrides": {
       "react": "$react",
       "react-dom": "$react",
-      "react-native": "0.72.6",
+      "react-native": "0.72.1",
       "@tamagui/core": "$@tamagui/core"
     }
   },
