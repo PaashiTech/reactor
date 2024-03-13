@@ -5,6 +5,7 @@ import {
   getFormattedAmount,
   getFormattedLinkedDateAndTime,
 } from "../../../helpers/linkedAccountHelpers";
+import { SVGWrapper } from "../../shared/SVGWrapper";
 import { UnmzListItemCard } from "../../core/cards/UnmzListItemCard";
 import { Checkbox } from "../../core/inputs/Checkbox";
 import { RadioItem } from "../../core/inputs/RadioItem";
@@ -114,7 +115,7 @@ const LinkNow: React.FC = () => {
         Link Now
       </Text>
       <View marginTop={2}>
-        <ChevronRight width={16} height={16} />
+        <SVGWrapper iconSVG={ChevronRight} size="sm" svgColor="#08BDBA" />
       </View>
     </XStack>
   );

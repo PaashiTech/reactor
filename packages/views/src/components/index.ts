@@ -43,6 +43,7 @@ export { UnmzLinearGradient } from "./core/misc/UnmzLinearGradient";
 /**
  * Shared components
  */
+export { SVGWrapper } from "./shared/SVGWrapper";
 
 /**
  * Section-specific components

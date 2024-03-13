@@ -1,4 +1,11 @@
-import { Avatar, ListItem, Text, View, XStack } from "@unmaze/views";
+import {
+  Avatar,
+  ListItem,
+  Text,
+  View,
+  XStack,
+  SVGWrapper,
+} from "@unmaze/views";
 import { Pressable } from "react-native";
 import {
   ChevronRight,
@@ -11,7 +18,6 @@ import { userProfileOptions } from "./userProfileOptions";
 import { USER_PROFILE_SCREEN_ID, UserProfileScreenProps } from "./types";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UnmzNavScreen } from "../types";
-import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
 
 const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
   navigation,
@@ -66,7 +72,11 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     }
                   }}
                 >
-                  <ListItem icon={option.icon} iconAfter={ChevronRight} p={20}>
+                  <ListItem
+                    icon={option.icon}
+                    iconAfter={<SVGWrapper iconSVG={ChevronRight} />}
+                    p={20}
+                  >
                     {option.title}
                   </ListItem>
                 </Pressable>

@@ -77,3 +77,5 @@ export {
   HDFCBankLogo,
   UnionBankLogo,
 };
+
+export { SvgProps } from "react-native-svg";
