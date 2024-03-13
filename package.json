@@ -34,7 +34,7 @@
     "overrides": {
       "react": "$react",
       "react-dom": "$react",
-      "react-native": "0.72.1",
+      "react-native": "0.72.10",
       "@tamagui/core": "$@tamagui/core"
     }
   },
