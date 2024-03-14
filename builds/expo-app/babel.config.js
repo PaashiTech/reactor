@@ -5,7 +5,8 @@ module.exports = function (api) {
     presets: [
       ["@babel/preset-env", { targets: { node: "current" } }],
       ["@babel/preset-typescript"],
-      ["babel-preset-expo", 
+      [
+        "babel-preset-expo",
         // {
         //   loose: true,
         // },

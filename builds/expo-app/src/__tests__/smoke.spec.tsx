@@ -7,24 +7,24 @@ import {
   TamaguiProvider,
   tamaguiConfig,
 } from "@unmaze/mobile";
-import { App } from "@unmaze/mobile";
+// import { App } from "@unmaze/mobile";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { useUnmzFontsExpo } from "@unmaze/assets";
 
-const AppWithNavigator = () => {
-  const [fontsLoaded] = useUnmzFontsExpo();
+// const AppWithNavigator = () => {
+//   const [fontsLoaded] = useUnmzFontsExpo();
 
-  if (!fontsLoaded) {
-    return null;
-  }
+//   if (!fontsLoaded) {
+//     return null;
+//   }
 
-  return (
-    <NavigationContainer>
-      <App />
-    </NavigationContainer>
-  );
-};
+//   return (
+//     <NavigationContainer>
+//       <App />
+//     </NavigationContainer>
+//   );
+// };
 
 const SimpleView = () => {
   return (
@@ -55,8 +55,8 @@ describe("Rendering test suit", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test.skip("App renders correctly", () => {
-    const tree = renderer.create(<AppWithNavigator />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+  // test("App renders correctly", () => {
+  //   const tree = renderer.create(<AppWithNavigator />).toJSON();
+  //   expect(tree).toMatchSnapshot();
+  // });
 });

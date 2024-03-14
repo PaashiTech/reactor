@@ -4,7 +4,8 @@
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "types": ["jest"]
   },
   "references": []
 }
