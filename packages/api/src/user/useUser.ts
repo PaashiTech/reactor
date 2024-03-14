@@ -3,6 +3,7 @@ import { axiosInstance } from "../core/axiosProvider";
 
 import { useUserStore, UserState } from "@unmaze/views";
 import { useFetch } from "../core/useFetch";
+import { RelationshipType } from "platforms/mobile/src/components/app/family";
 
 const _get = (url) => axiosInstance.get(url).then((res) => res.data);
 
@@ -84,5 +85,49 @@ export const useUpdateUser = (params: UpdateUserParams) => {
     updateUserData: data,
     updateUserStatus: status,
     updateUserError: error,
+  };
+};
+
+//////
+// Add Family User
+//////
+
+type AddFamilyMemberQueryBody = {
+  name: {
+    first: string;
+    last: string;
+  };
+  relationship: RelationshipType | undefined;
+  dob: Date | undefined;
+  phone: string;
+};
+type AddFamilyMemberQueryParams = {};
+type AddFamilyMemberResponse = { status: number };
+type AddFamilyMemberParams = {
+  id: string;
+};
+
+export const useAddFamilyMember = (params: AddFamilyMemberParams) => {
+  const { commonFetch, isLoading, data, status, error } =
+    useFetch<AddFamilyMemberResponse>({
+      url: `/user/${params.id}/family`,
+      method: "POST",
+    });
+
+  const addFamilyMember = (args: {
+    params: AddFamilyMemberQueryParams;
+    body: AddFamilyMemberQueryBody;
+    onSuccess?: () => void;
+    onError?: () => void;
+  }) => {
+    commonFetch(args);
+  };
+
+  return {
+    addFamilyMember,
+    addFamilyMemberIsLoading: isLoading,
+    addFamilyMemberData: data,
+    addFamilyMemberStatus: status,
+    addFamilyMemberError: error,
   };
 };

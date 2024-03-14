@@ -5,13 +5,17 @@ import {
   AccountUpdateSuccessScreenProps,
   ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared/types";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
 
 const _AccountUpdateSuccessScreen: React.FC<
   AccountUpdateSuccessScreenProps
 > = ({ navigation, route }) => {
-  const { verifiedMessage } = useVerificationContext();
+  const {
+    state: {
+      shared: { verifiedMessage },
+    },
+  } = useStackContext();
 
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
