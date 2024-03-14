@@ -1,4 +1,5 @@
 import {
+  SVGWrapper,
   ScrollView,
   SecondaryButton,
   Text,
@@ -152,7 +153,7 @@ export const _GiveConsentScreen: React.FC<GiveConsentScreenProps> = ({
               rotate={expanded ? "180deg" : "0deg"}
               onPress={() => setExpanded(!expanded)}
             >
-              <ChevronDown width={16} />
+              <SVGWrapper iconSVG={ChevronDown} svgColor="#035E5D" size="sm" />
             </View>
           </XStack>
         </UnmzCard>

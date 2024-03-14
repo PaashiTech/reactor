@@ -5,6 +5,7 @@ import {
   getProgressPercent,
 } from "../../../helpers/linkedAccountHelpers";
 import DropShadow from "react-native-drop-shadow";
+import { SVGWrapper } from "../../shared/SVGWrapper";
 
 type LinkedAccountsAccordionTriggerProps = {
   open: boolean;
@@ -39,7 +40,7 @@ export const LinkedAccountsAccordionTrigger: React.FC<
               </Text>
             </YStack>
             <Square animation="quick" rotate={open ? "180deg" : "0deg"}>
-              <ChevronDown size="$1" />
+              <SVGWrapper iconSVG={ChevronDown} size="lg" />
             </Square>
           </XStack>
         </View>
