@@ -21,12 +21,12 @@ import {
   AddFamilyMemberScreen,
   FamilyDetailsScreen,
 } from "../../screens/family";
-import { VerificationContextProvider } from "../../screens/shared/VerificationContextProvider";
 import { SettingsDetailsScreen } from "../../screens/settings/SettingsDetailsScreen";
 import { AppThemeScreen } from "../../screens/settings/AppThemeScreen";
 import { AddSecondaryPhoneNumberScreen } from "../../screens/profile/AddSecondaryPhoneNumber";
 import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccountsScreen";
 import { GiveConsentScreen } from "../../screens/linked-accounts/GiveConsentScreen";
+import { StackContextProvider } from "./stackContext/StackContextProvider";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -57,7 +57,7 @@ const settingsScreens: UnmzNavScreen[] = [
 export const StackNavigator = () => {
   const stackNav = createNativeStackNavigator<StackRouteProps>();
   return (
-    <VerificationContextProvider>
+    <StackContextProvider>
       <stackNav.Navigator
         initialRouteName={USER_PROFILE_SCREEN_ID}
         screenOptions={screenOptions}
@@ -157,6 +157,6 @@ export const StackNavigator = () => {
           })}
         </stackNav.Group>
       </stackNav.Navigator>
-    </VerificationContextProvider>
+    </StackContextProvider>
   );
 };

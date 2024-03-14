@@ -17,13 +17,11 @@ import {
   OTPAccountVerificationScreenProps,
   OTP_ACCOUNT_VERIFICATION_SCREEN_ID,
 } from "./types";
-import {
-  OTPSentToType,
-  useVerificationContext,
-} from "./VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 import { useGetOTP, useValidateOTP } from "@unmaze/api";
 import { TEST_EMAIL_ID } from "./testCredentials";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _OTPAccountVerificationScreen: FC<OTPAccountVerificationScreenProps> = ({
   navigation,
@@ -39,7 +37,11 @@ const _OTPAccountVerificationScreen: FC<OTPAccountVerificationScreenProps> = ({
     validateOTPIsLoading,
   } = useValidateOTP();
 
-  const { OTPSentTo } = useVerificationContext();
+  const {
+    state: {
+      shared: { OTPSentTo },
+    },
+  } = useStackContext();
 
   const { confirmScreenId } = route.params;
   const validateOTPSuccessfull = validateOTPStatus === 200;

@@ -16,17 +16,14 @@ import {
   ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared";
 import { useForm } from "react-hook-form";
-import {
-  OTPSentToType,
-  useVerificationContext,
-} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _AddSecondaryPhoneNumberScreen: FC<
   AddSecondaryPhoneNumberScreenProps
 > = ({ navigation, route }) => {
-  const { phoneType, setVerifiedMessage, setOTPSentTo, setPhoneType } =
-    useVerificationContext();
+  const { dispatch } = useStackContext();
 
   const {
     control,
@@ -36,12 +33,17 @@ const _AddSecondaryPhoneNumberScreen: FC<
 
   const handleConfirm = (data) => {
     // Handle the action over here with data
-    setVerifiedMessage(
-      `You have successfully added your secondary mobile number`
-    );
-    setOTPSentTo({
-      type: OTPSentToType.SECONDARY_NUMBER,
-      value: data.mobileNumber,
+
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully added your secondary mobile number`,
+    });
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: {
+        type: OTPSentToType.SECONDARY_NUMBER,
+        value: data.mobileNumber,
+      },
     });
     navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
       confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,

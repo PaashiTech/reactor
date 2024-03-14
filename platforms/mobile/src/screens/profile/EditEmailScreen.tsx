@@ -8,17 +8,15 @@ import {
 } from "../shared";
 
 import { useForm } from "react-hook-form";
-import {
-  OTPSentToType,
-  useVerificationContext,
-} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { setOTPSentTo, setVerifiedMessage } = useVerificationContext();
+  const { dispatch } = useStackContext();
   const {
     control,
     handleSubmit,
@@ -30,10 +28,16 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const handleEmailSubmit = (data) => {
-    setVerifiedMessage(`You have successfully updated your email address`);
-    setOTPSentTo({
-      type: OTPSentToType.EMAIL,
-      value: data.email,
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully updated your email address`,
+    });
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: {
+        type: OTPSentToType.EMAIL,
+        value: data.mobileNumber,
+      },
     });
     navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
       confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,

@@ -13,18 +13,21 @@ import {
   ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared";
 import { useForm } from "react-hook-form";
-import {
-  OTPSentToType,
-  useVerificationContext,
-} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { phoneType, setVerifiedMessage, setOTPSentTo } =
-    useVerificationContext();
+  const { dispatch } = useStackContext();
+
+  const {
+    state: {
+      profile: { phoneType },
+    },
+  } = useStackContext();
 
   const {
     control,
@@ -33,15 +36,20 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   } = useForm();
 
   const handleConfirm = (data) => {
-    setVerifiedMessage(
-      `You have successfully updated your ${phoneType} mobile number`
-    );
-    setOTPSentTo({
-      type:
-        phoneType === "primary"
-          ? OTPSentToType.PRIMARY_NUMBER
-          : OTPSentToType.SECONDARY_NUMBER,
-      value: data.mobileNumber,
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully updated your ${phoneType} mobile number`,
+    });
+
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: {
+        type:
+          phoneType === "primary"
+            ? OTPSentToType.PRIMARY_NUMBER
+            : OTPSentToType.SECONDARY_NUMBER,
+        value: data.mobileNumber,
+      },
     });
     navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
       confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
