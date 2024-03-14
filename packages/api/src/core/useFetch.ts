@@ -4,6 +4,8 @@ import { axiosInstance } from "./axiosProvider";
 type UseFetchProps = {
   url: string;
   method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+  onSuccess?: () => void;
+  onError?: () => void;
 };
 
 type CommonFetch = {
@@ -18,7 +20,12 @@ type CommonFetch = {
 
 // <T> turns this into a generic component. We will take advantage of this
 // by assigning the `data` variable the type T.
-export function useFetch<TState>({ url, method }: UseFetchProps) {
+export function useFetch<TState>({
+  url,
+  method,
+  onError,
+  onSuccess,
+}: UseFetchProps) {
   const [isLoading, setIsLoading] = useState(false);
   // we are assigning the generic type T to our data value here
   // This is the type of the payload that is going to be returned by this API.
@@ -36,6 +43,10 @@ export function useFetch<TState>({ url, method }: UseFetchProps) {
         params: params,
         data: body,
       });
+
+      if (onSuccess) {
+        onSuccess();
+      }
 
       setStatus(status);
       setData(data);
@@ -57,6 +68,9 @@ export function useFetch<TState>({ url, method }: UseFetchProps) {
       } else {
         // Something happened in setting up the request that triggered an Error
         console.log("Error", error.response.data);
+      }
+      if (onError) {
+        onError();
       }
     }
 

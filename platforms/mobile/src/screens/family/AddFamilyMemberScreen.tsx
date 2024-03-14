@@ -1,14 +1,22 @@
 import { KeyboardAvoidingView } from "react-native";
 import { useForm, FieldValues } from "react-hook-form";
 import { AddFamilyMemberScreenProps } from "./types";
-import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
+import {
+  ScrollView,
+  UnmzGradientButton,
+  View,
+  useUserStore,
+} from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
 import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
 import { RelationshipType } from "../../components/app/family";
 import { UnmzNavScreen } from "../types";
+import { useAddFamilyMember } from "@unmaze/api";
+import { USER_PROFILE_SCREEN_ID } from "../user-profile";
+import { useEffect } from "react";
 
-type FormData = {
+type FamilyFormData = {
   firstName: string;
   lastName: string;
   relationship: RelationshipType | undefined;
@@ -16,7 +24,7 @@ type FormData = {
   mobileNumber: string;
 };
 
-const defaultValues: FormData = {
+const defaultValues: FamilyFormData = {
   firstName: "",
   lastName: "",
   relationship: undefined,
@@ -24,7 +32,10 @@ const defaultValues: FormData = {
   mobileNumber: "",
 };
 
-const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
+const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const {
     control,
     handleSubmit,
@@ -33,13 +44,39 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
     defaultValues,
   });
 
+  const user_id = useUserStore((state) => state.user_id);
+  const {
+    addFamilyMember,
+    addFamilyMemberData,
+    addFamilyMemberError,
+    addFamilyMemberIsLoading,
+    addFamilyMemberStatus,
+  } = useAddFamilyMember({
+    id: user_id,
+    onSuccess: () => navigation.navigate(USER_PROFILE_SCREEN_ID),
+  });
+
   const isButtonDisabled = !isDirty;
 
-  const handleInviteOTP = (data) => {
+  const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
+
+  const handleInviteOTP = (data: FamilyFormData) => {
     console.log(data);
+    addFamilyMember(
+      {},
+      {
+        name: {
+          first: capitalize(data.firstName),
+          last: capitalize(data.lastName),
+        },
+        dob: data.dob,
+        phone: data.mobileNumber,
+        relationship: data.relationship,
+      }
+    );
   };
 
-  const handleInviteWhatsapp = (data) => {
+  const handleInviteWhatsapp = (data: FamilyFormData) => {
     console.log(data);
   };
 
