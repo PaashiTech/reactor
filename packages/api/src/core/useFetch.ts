@@ -16,16 +16,14 @@ type CommonFetch = {
   /** this allows you to override any default fetch options on a 
   case by case basis. think of it like an escape hatch. */
   fetchOptions?: RequestInit;
+
+  onSuccess?: () => void;
+  onError?: () => void;
 };
 
 // <T> turns this into a generic component. We will take advantage of this
 // by assigning the `data` variable the type T.
-export function useFetch<TState>({
-  url,
-  method,
-  onError,
-  onSuccess,
-}: UseFetchProps) {
+export function useFetch<TState>({ url, method }: UseFetchProps) {
   const [isLoading, setIsLoading] = useState(false);
   // we are assigning the generic type T to our data value here
   // This is the type of the payload that is going to be returned by this API.
@@ -33,7 +31,12 @@ export function useFetch<TState>({
   const [status, setStatus] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const commonFetch = async ({ params, body }: CommonFetch) => {
+  const commonFetch = async ({
+    params,
+    body,
+    onSuccess,
+    onError,
+  }: CommonFetch) => {
     setIsLoading(true);
 
     try {

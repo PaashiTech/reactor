@@ -53,12 +53,13 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
     addFamilyMemberStatus,
   } = useAddFamilyMember({
     id: user_id,
-    onSuccess: () => navigation.navigate(USER_PROFILE_SCREEN_ID),
   });
 
   const isButtonDisabled = !isDirty;
 
   const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
+
+  const navigateOnSuccess = () => navigation.navigate(USER_PROFILE_SCREEN_ID);
 
   const handleInviteOTP = (data: FamilyFormData) => {
     console.log(data);
@@ -72,7 +73,8 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
         dob: data.dob,
         phone: data.mobileNumber,
         relationship: data.relationship,
-      }
+      },
+      navigateOnSuccess
     );
   };
 

@@ -105,8 +105,6 @@ type AddFamilyMemberQueryParams = {};
 type AddFamilyMemberResponse = { status: number };
 type AddFamilyMemberParams = {
   id: string;
-  onSuccess?: () => void;
-  onError?: () => void;
 };
 
 export const useAddFamilyMember = (params: AddFamilyMemberParams) => {
@@ -114,15 +112,15 @@ export const useAddFamilyMember = (params: AddFamilyMemberParams) => {
     useFetch<AddFamilyMemberResponse>({
       url: `/user/${params.id}/family`,
       method: "POST",
-      onSuccess: params.onSuccess,
-      onError: params.onError,
     });
 
-  const addFamilyMember = async (
-    params: AddFamilyMemberQueryParams,
-    body: AddFamilyMemberQueryBody
-  ) => {
-    commonFetch({ params, body });
+  const addFamilyMember = (args: {
+    params: AddFamilyMemberQueryParams;
+    body: AddFamilyMemberQueryBody;
+    onSuccess?: () => void;
+    onError?: () => void;
+  }) => {
+    commonFetch(args);
   };
 
   return {
