@@ -1,4 +1,4 @@
-# Steps for setting up the "Review" environment on a PC/Mac
+# Steps for setting up the Dev/Review environment on a PC/Mac
 
 ## 1. Install Node
 
@@ -25,19 +25,47 @@ corepack enable pnpm
 ### 3.1 Install Microsoft binarie of OpenJDK-17
 
 Install from [here](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-17)
+or [here](https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe)
 
-> **_NOTE:_** Select JAVA_HOME variable install option.
+> [!NOTE]
+> Select "Set `JAVA_HOME` variable" option in the install process (unchecked by default).
 
-### 3.2 Install android SDK
+### 3.2 Install Android SDK / Android Studio
+
+[Android Studio](https://developer.android.com/studio) is the main toolsuit required for developing Android apps. It also includes [Android SDK](https://developer.android.com/tools) that is required to build React Native apps and run them on emulator. 
 
 ### 3.3 Set `ANDROID_HOME` to Android sdk path
 
+Follow [these instructions](https://www.howtogeek.com/787217/how-to-edit-environment-variables-on-windows-10-or-11/) to set `ANDROID_HOME` system variable in that points to the location where the Android SDK got installed in the previous step. 
+
+The path which your SDK was installed at can be seen at -
+
+Android studio > SDK manager > Android SDK location
+
+> [!IMPORTANT]
+> Always be careful when updating system environment variables. Incorrect configurations can make your system irrecoverable ways.
+
 ### 3.4 Setup PATH in environment variables
 
+Add following fields/paths to your system `Path` variable. See [these instructions](https://techpp.com/2021/08/26/set-path-variable-in-windows-guide/#:~:text=If%20you%E2%80%99re%20on%20Windows%2010%2C%20hit%20the%20New%20button%20and%20paste%20the%20copied%20path%20on%20the%20new%20line.%20Alternatively%2C%20hit%20the%20Edit%20text%2C%20add%20a%20semi%2Dcolon%20to%20the%20end%20of%20the%20field%20for%20Variable%20value%2C%20and%20paste%20the%20program%E2%80%99s%20path.) to do it. 
+
+`<Absolute path to your Android SDK>` is the same path that you set to `ANDROID_HOME` in the previous step. 
+
+##### Install following packages from the Android SDK manager
+- Android SDK command-line tools (latest)
+- Google USB driver
+- Android emulator
+- Android platform tools
+- Android 14.0 ("UpsideDownCake") - API 34
+- Android 13.0 ("Tiramisu") - API 33
+
+> [!CAUTION]
+> ALWAYS make **additive** changes to the system `Path` variable, unless you are absolutely sure about what you are doing. 
+
 ```
- PATH=$PATH:$ANDROID_HOME/emulator
- PATH=$PATH:$ANDROID_HOME/platform-tools
- PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin/
+ <Absolute path to your Android SDK>/emulator
+ <Absolute path to your Android SDK>/platform-tools
+ <Absolute path to your Android SDK>/cmdline-tools/latest/bin/
 
 ```
 

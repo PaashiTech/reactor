@@ -1,1 +1,0 @@
-export { UnmzLinearGradient } from "./UnmzLinearGradient";

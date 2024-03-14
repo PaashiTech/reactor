@@ -2,11 +2,11 @@ import {
   ADD_FAMILY_MEMBER_SCREEN_ID,
   FAMILY_ACCOUNTS_SCREEN_ID,
   FamilyAccountsScreenProps,
-  FamilyScreen,
 } from "./types";
 import { UnmzGradientButton, View } from "@unmaze/views";
 import { Plus } from "@unmaze/assets";
-import { FamilyEmpty } from "../../components/FamilyEmpty";
+import { FamilyEmpty } from "../../components/app/family";
+import { UnmzNavScreen } from "../types";
 
 const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
   navigation,
@@ -29,9 +29,8 @@ const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
   );
 };
 
-export const FamilyDetailsScreen: FamilyScreen = {
+export const FamilyDetailsScreen: UnmzNavScreen = {
   key: FAMILY_ACCOUNTS_SCREEN_ID,
   title: "Family Accounts",
-  headerBackground: "plain",
   content: _FamilyDetailsScreen,
 };

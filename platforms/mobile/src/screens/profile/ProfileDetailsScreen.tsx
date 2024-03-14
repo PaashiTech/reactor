@@ -5,50 +5,97 @@ import {
   UnmzGradientButton,
   View,
   Text,
+  XStack,
+  useUserStore,
+  UserState,
+  computeUserFullName,
+  computeDoBString,
 } from "@unmaze/views";
 import {
-  ProfileScreen,
   ProfileDetailsScreenProps,
-  OTP_VERIFICATION_SCREEN_ID,
   PROFILE_DETAILS_SCREEN_ID,
   EDIT_PH_NUMBER_SCREEN_ID,
   EDIT_EMAIL_SCREEN_ID,
+  ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
 } from "./types";
-import { useState } from "react";
-import { Warning } from "@unmaze/assets";
+import { OTP_ACCOUNT_VERIFICATION_SCREEN_ID } from "../shared";
 
-export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
+import { useState } from "react";
+import {
+  OTPSentToType,
+  useVerificationContext,
+} from "../shared/VerificationContextProvider";
+import { UnmzNavScreen } from "../types";
+import { ChevronRight } from "@unmaze/assets";
+import { Pressable } from "react-native";
+
+const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,
   route,
 }) => {
+  const user: UserState = useUserStore((state) => state);
+
   const [warningModal, setWarningModal] = useState<boolean>(false);
-  const [emailOrPhone, setEmailOrPhone] = useState<"email" | "phone">("email");
+  const [editType, setEditType] = useState<"email" | "primary" | "secondary">(
+    "email"
+  );
+  const { setOTPSentTo, setPhoneType } = useVerificationContext();
 
   const profile: ProfileDetailsProps = {
-    name: "Piyush Dhananjay Sarda",
-    dob: "08-Nov-1998",
-    pan: "DJFPD8191A",
-    primaryPhone: "+91 - 8327812999",
-    secondaryPhone: "+91 - 8327812999",
-    gender: "Male",
-    email: "piyushsarda24@gmail.com",
-    maritalStatus: "Single",
+    name: computeUserFullName(user.name),
+    dob: computeDoBString(user.dob),
+    pan: user.pan,
+    primaryPhone: "+91 - " + user.phone.primary,
+    secondaryPhone: user.phone.secondary
+      ? "+91 - " + user.phone.secondary
+      : null,
+    gender: user.gender,
+    email: user.email,
+    maritalStatus: user.marital_status,
     onEditPrimaryPhone: () => {
-      setEmailOrPhone("email");
+      setEditType("primary");
       setWarningModal(true);
     },
     onEditSecondaryPhone: () => {
-      alert("Edit secondary phone");
+      setEditType("secondary");
+      setWarningModal(true);
     },
     onEditEmail: () => {
-      setEmailOrPhone("phone");
+      setEditType("email");
       setWarningModal(true);
     },
   };
 
   return (
-    <View paddingVertical={10} paddingHorizontal={20} backgroundColor={"white"}>
+    <View flex={1}>
       <ProfileDetails {...profile} />
+
+      {/* To add secondary phone number if not present */}
+
+      {!profile.secondaryPhone && (
+        <Pressable
+          onPress={() => {
+            setPhoneType("secondary");
+            navigation.navigate(ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID);
+          }}
+        >
+          <XStack
+            paddingHorizontal={20}
+            alignItems="center"
+            paddingVertical={12}
+            gap={4}
+            bg="#fff"
+            paddingBottom={22}
+          >
+            <Text color="#009D9A" fontWeight={"600"}>
+              Add secondary number
+            </Text>
+            <View mt={3}>
+              <ChevronRight width={16} height={16} />
+            </View>
+          </XStack>
+        </Pressable>
+      )}
 
       {/* Verification warning modal */}
       <BottomModal
@@ -60,34 +107,49 @@ export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
           gap: 20,
         }}
       >
-        <View flex={1} flexDirection="row" gap={10}>
-          <View alignItems="flex-start">
-            <Warning />
-          </View>
-          <View flex={1}>
-            <Text fontSize={12}>
-              To edit any KYC details, you need to first verify your registered
-              account by entering OTP sent to
-            </Text>
-            <Text fontSize={12}>
-              {emailOrPhone === "email" ? profile.email : profile.primaryPhone}
-            </Text>
-          </View>
+        <View flex={1} gap={4}>
+          <Text
+            fontSize={16}
+            fontWeight={"600"}
+            letterSpacing={0.32}
+            color={"#262626"}
+          >
+            Update{" "}
+            {editType === "email"
+              ? `${editType} address`
+              : `${editType} number`}
+            ?
+          </Text>
+          <Text fontSize={12} letterSpacing={0.24}>
+            To edit your {editType === "email" ? "email" : "number"}, verify
+            your account by entering the OTP sent to{" "}
+            {editType === "email" ? profile.primaryPhone : profile.email}
+          </Text>
         </View>
         <UnmzGradientButton
           onPress={() => {
             setWarningModal(false);
-            emailOrPhone === "email"
-              ? navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
-                  confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
-                  sentToType: "email",
-                  sentToValue: "piyushsarda24@gmail.com",
-                })
-              : navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
-                  confirmScreenId: EDIT_EMAIL_SCREEN_ID,
-                  sentToType: "number",
-                  sentToValue: "+91-8327812999",
-                });
+
+            editType === "email"
+              ? (() => {
+                  setOTPSentTo({
+                    type: OTPSentToType.PRIMARY_NUMBER,
+                    value: profile.primaryPhone,
+                  });
+                  navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
+                    confirmScreenId: EDIT_EMAIL_SCREEN_ID,
+                  });
+                })()
+              : (() => {
+                  setOTPSentTo({
+                    type: OTPSentToType.EMAIL,
+                    value: profile.email,
+                  });
+                  setPhoneType(editType);
+                  navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
+                    confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
+                  });
+                })();
           }}
         >
           Continue
@@ -97,9 +159,8 @@ export const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   );
 };
 
-export const ProfileDetailsScreen: ProfileScreen = {
+export const ProfileDetailsScreen: UnmzNavScreen = {
   key: PROFILE_DETAILS_SCREEN_ID,
   title: "Profile Details",
-  headerBackground: "linear-gradient",
   content: _ProfileDetailsScreen,
 };

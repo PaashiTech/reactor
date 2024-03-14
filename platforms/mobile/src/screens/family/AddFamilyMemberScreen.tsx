@@ -1,23 +1,50 @@
-import { AddFamilyMemberScreenProps, FamilyScreen } from "./types";
-import {
-  UnmzGradientButton,
-  View,
-  FormTextInput,
-  MobileNumberInput,
-  CalendarPicker,
-  ScrollView,
-} from "@unmaze/views";
-import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
-import { KeyBenefits } from "../../components/KeyBenefits";
-import { SelectRelationship } from "../../components/SelectRelationship";
 import { KeyboardAvoidingView } from "react-native";
+import { useForm, FieldValues } from "react-hook-form";
+import { AddFamilyMemberScreenProps } from "./types";
+import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
+import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
+import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
+import { RelationshipType } from "../../components/app/family";
+import { UnmzNavScreen } from "../types";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  relationship: RelationshipType | undefined;
+  dob: Date | undefined;
+  mobileNumber: string;
+};
+
+const defaultValues: FormData = {
+  firstName: "",
+  lastName: "",
+  relationship: undefined,
+  dob: undefined,
+  mobileNumber: "",
+};
 
 const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
-  const buttonDisabled = false;
+  const {
+    control,
+    handleSubmit,
+    formState: { isDirty },
+  } = useForm<FieldValues>({
+    defaultValues,
+  });
+
+  const isButtonDisabled = !isDirty;
+
+  const handleInviteOTP = (data) => {
+    console.log(data);
+  };
+
+  const handleInviteWhatsapp = (data) => {
+    console.log(data);
+  };
 
   return (
-    <View flex={1} bg={"white"}>
+    <View flex={1}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior="padding"
@@ -28,34 +55,28 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
           <View flex={1} p={20} justifyContent="space-between">
             <View gap={24}>
               <KeyBenefits />
-              <FormTextInput
-                label="First name"
-                placeholder="Enter first name"
-              />
-              <FormTextInput label="Last name" placeholder="Enter last name" />
-              <SelectRelationship />
-              <CalendarPicker />
-              <MobileNumberInput
-                mobileNumberValue=""
-                handleMobileNumberChange={() => {}}
-              />
+              <AddFamilyMemberForm control={control} />
             </View>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
       <View gap={12} padding={20}>
-        <TertiaryButton disabled={buttonDisabled}>
+        <TertiaryButton
+          disabled={isButtonDisabled}
+          onPress={handleSubmit(handleInviteOTP)}
+        >
           Invite using OTP
         </TertiaryButton>
         <UnmzGradientButton
-          disabled={buttonDisabled}
+          disabled={isButtonDisabled}
           icon={
-            buttonDisabled ? (
+            isButtonDisabled ? (
               <WhatsappDisabled width={20} height={20} />
             ) : (
               <Whatsapp width={20} height={20} />
             )
           }
+          onPress={handleSubmit(handleInviteWhatsapp)}
         >
           Invite using Whatsapp
         </UnmzGradientButton>
@@ -64,9 +85,8 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
   );
 };
 
-export const AddFamilyMemberScreen: FamilyScreen = {
+export const AddFamilyMemberScreen: UnmzNavScreen = {
   key: "0020.b.1",
   title: "Add family member",
-  headerBackground: "plain",
   content: _AddFamilyMemberScreen,
 };

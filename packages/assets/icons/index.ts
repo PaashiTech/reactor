@@ -23,8 +23,27 @@ import LogoWithUnmaze from "./svg/logo-with-unmaze.svg";
 import LinkedIn from "./svg/linkedin.svg";
 import Instagram from "./svg/instagram.svg";
 import Twitter from "./svg/twitter.svg";
+import PlaceholderIcon from "./svg/placeholder-icon.svg";
+import PlaceholderIconDisabled from "./svg/placeholder-icon-disabled.svg";
+import Bell from "./svg/bell.svg";
+import Biometrics from "./svg/biometrics.svg";
+import Lock from "./svg/lock.svg";
+import Logout from "./svg/logout.svg";
+import Moon from "./svg/moon.svg";
+import SaafeLogo from "./svg/saafe-logo.svg";
+import CheckSmall from "./svg/check-small.svg";
+
+// Bank Logos
+import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
+import UnionBankLogo from "./bank-logos/union-bank-logo.svg";
+import HDFCBankLogo from "./bank-logos/hdfc-bank-logo.svg";
 
 export {
+  Bell,
+  Biometrics,
+  Lock,
+  Logout,
+  Moon,
   LinkedIn,
   Instagram,
   Twitter,
@@ -50,4 +69,13 @@ export {
   ProfileIcon,
   Settings,
   LogoWithUnmaze,
+  PlaceholderIcon,
+  PlaceholderIconDisabled,
+  SaafeLogo,
+  CheckSmall,
+  CanaraBankLogo,
+  HDFCBankLogo,
+  UnionBankLogo,
 };
+
+export { SvgProps } from "react-native-svg";

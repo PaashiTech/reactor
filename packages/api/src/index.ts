@@ -5,7 +5,8 @@
  */
 
 // Config providers
-export { APIGlobalConfigProvider } from "./_core/APIGlobalConfigProvider";
+export { APIGlobalConfigProvider } from "./core/APIGlobalConfigProvider";
 
 // API hooks
-export { useUser } from "./user/useUser";
+export { useGetUser, useUpdateUser } from "./user/useUser";
+export { useGetOTP, useValidateOTP } from "./otp/useOTP";
