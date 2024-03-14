@@ -63,9 +63,9 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
 
   const handleInviteOTP = (data: FamilyFormData) => {
     console.log(data);
-    addFamilyMember(
-      {},
-      {
+    addFamilyMember({
+      params: {},
+      body: {
         name: {
           first: capitalize(data.firstName),
           last: capitalize(data.lastName),
@@ -74,8 +74,8 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
         phone: data.mobileNumber,
         relationship: data.relationship,
       },
-      navigateOnSuccess
-    );
+      onSuccess: navigateOnSuccess,
+    });
   };
 
   const handleInviteWhatsapp = (data: FamilyFormData) => {
