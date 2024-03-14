@@ -19,13 +19,11 @@ import {
 import { OTP_ACCOUNT_VERIFICATION_SCREEN_ID } from "../shared";
 
 import { useState } from "react";
-import {
-  OTPSentToType,
-  useVerificationContext,
-} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 import { ChevronRight } from "@unmaze/assets";
 import { Pressable } from "react-native";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const months = [
   "Jan",
@@ -77,7 +75,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   const [editType, setEditType] = useState<"email" | "primary" | "secondary">(
     "email"
   );
-  const { setOTPSentTo, setPhoneType } = useVerificationContext();
+  const { dispatch } = useStackContext();
 
   const profile: ProfileDetailsProps = {
     name: constructFullName(user.name),
@@ -113,7 +111,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
       {!profile.secondaryPhone && (
         <Pressable
           onPress={() => {
-            setPhoneType("secondary");
+            dispatch({ type: "SET_PHONE_TYPE", payload: "secondary" });
             navigation.navigate(ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID);
           }}
         >
@@ -170,20 +168,26 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
 
             editType === "email"
               ? (() => {
-                  setOTPSentTo({
-                    type: OTPSentToType.PRIMARY_NUMBER,
-                    value: profile.primaryPhone,
+                  dispatch({
+                    type: "SET_OTP_SENT_TO",
+                    payload: {
+                      type: OTPSentToType.PRIMARY_NUMBER,
+                      value: profile.primaryPhone,
+                    },
                   });
                   navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
                     confirmScreenId: EDIT_EMAIL_SCREEN_ID,
                   });
                 })()
               : (() => {
-                  setOTPSentTo({
-                    type: OTPSentToType.EMAIL,
-                    value: profile.email,
+                  dispatch({
+                    type: "SET_OTP_SENT_TO",
+                    payload: {
+                      type: OTPSentToType.EMAIL,
+                      value: profile.email,
+                    },
                   });
-                  setPhoneType(editType);
+                  dispatch({ type: "SET_PHONE_TYPE", payload: editType });
                   navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
                     confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
                   });

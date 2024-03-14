@@ -17,10 +17,6 @@ import {
   OTPAccountUpdateScreenProps,
   OTP_ACCOUNT_UPDATE_SCREEN_ID,
 } from "../shared/types";
-import {
-  OTPSentToType,
-  useVerificationContext,
-} from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 import {
   useGetOTP,
@@ -29,6 +25,8 @@ import {
   useGetUser,
 } from "@unmaze/api";
 import { TEST_EMAIL_ID } from "../shared/testCredentials";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _OTPAccountUpdateScreen: FC<OTPAccountUpdateScreenProps> = ({
   navigation,
@@ -41,7 +39,11 @@ const _OTPAccountUpdateScreen: FC<OTPAccountUpdateScreenProps> = ({
   const { updateUser, updateUserIsLoading, updateUserError, updateUserStatus } =
     useUpdateUser({ id: user_id });
   const { userMutate } = useGetUser({ id: user_id });
-  const { OTPSentTo } = useVerificationContext();
+  const {
+    state: {
+      shared: { OTPSentTo },
+    },
+  } = useStackContext();
 
   const { confirmScreenId } = route.params;
   const updateUserSuccessfull = updateUserStatus === 200;
