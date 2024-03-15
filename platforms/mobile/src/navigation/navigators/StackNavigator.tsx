@@ -27,6 +27,7 @@ import { AddSecondaryPhoneNumberScreen } from "../../screens/profile/AddSecondar
 import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccountsScreen";
 import { GiveConsentScreen } from "../../screens/linked-accounts/GiveConsentScreen";
 import { StackContextProvider } from "./stackContext/StackContextProvider";
+import { OTPFamilyMemberScreen } from "../../screens/family/OTPFamilyMemberScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -42,6 +43,7 @@ const sharedScreens: UnmzNavScreen[] = [
 const familyScreens: UnmzNavScreen[] = [
   FamilyDetailsScreen,
   AddFamilyMemberScreen,
+  OTPFamilyMemberScreen,
 ];
 
 const linkedAccountsScreens: UnmzNavScreen[] = [

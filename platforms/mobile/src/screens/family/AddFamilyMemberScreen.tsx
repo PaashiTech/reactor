@@ -1,6 +1,9 @@
 import { KeyboardAvoidingView } from "react-native";
 import { useForm, FieldValues } from "react-hook-form";
-import { AddFamilyMemberScreenProps } from "./types";
+import {
+  AddFamilyMemberScreenProps,
+  OTP_FAMILY_MEMBER_SCREEN_ID,
+} from "./types";
 import {
   ScrollView,
   UnmzGradientButton,
@@ -14,7 +17,9 @@ import { RelationshipType } from "../../components/app/family";
 import { UnmzNavScreen } from "../types";
 import { useAddFamilyMember } from "@unmaze/api";
 import { USER_PROFILE_SCREEN_ID } from "../user-profile";
-import { useEffect } from "react";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
+import { ACCOUNT_UPDATE_SUCCESS_SCREEN_ID } from "../shared";
 
 type FamilyFormData = {
   firstName: string;
@@ -55,11 +60,25 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
     id: user_id,
   });
 
+  const { dispatch } = useStackContext();
+
   const isButtonDisabled = !isDirty;
 
   const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
 
-  const navigateOnSuccess = () => navigation.navigate(USER_PROFILE_SCREEN_ID);
+  const navigateOnSuccess = (data: FamilyFormData) => {
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: { type: OTPSentToType.PRIMARY_NUMBER, value: data.mobileNumber },
+    });
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully added your ${data.relationship} in your family account`,
+    });
+    navigation.navigate(OTP_FAMILY_MEMBER_SCREEN_ID, {
+      confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+    });
+  };
 
   const handleInviteOTP = (data: FamilyFormData) => {
     console.log(data);
@@ -74,7 +93,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
         phone: data.mobileNumber,
         relationship: data.relationship,
       },
-      onSuccess: navigateOnSuccess,
+      onSuccess: () => navigateOnSuccess(data),
     });
   };
 

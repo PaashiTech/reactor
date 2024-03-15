@@ -4,10 +4,10 @@ export const KeyBenefits: React.FC = () => {
   return (
     <View
       p={12}
-      bg="$teal-10"
+      bg="#EBFFFF"
       gap={8}
-      borderRadius={"$5"}
-      borderColor={"$teal-20"}
+      borderRadius={12}
+      borderColor={"#9EF0F0"}
       borderWidth={1}
     >
       <Text fontSize={16} fontWeight={"700"} letterSpacing={0.32}>
