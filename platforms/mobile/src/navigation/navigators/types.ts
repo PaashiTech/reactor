@@ -5,6 +5,7 @@ import { USER_PROFILE_SCREEN_ID } from "../../screens/user-profile/types";
 import {
   ADD_FAMILY_MEMBER_SCREEN_ID,
   FAMILY_ACCOUNTS_SCREEN_ID,
+  OTP_FAMILY_MEMBER_SCREEN_ID,
 } from "../../screens/family/types";
 import {
   ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
@@ -40,6 +41,9 @@ export type StackRouteProps = {
   // Family screens
   [FAMILY_ACCOUNTS_SCREEN_ID]: undefined;
   [ADD_FAMILY_MEMBER_SCREEN_ID]: undefined;
+  [OTP_FAMILY_MEMBER_SCREEN_ID]: {
+    confirmScreenId: keyof StackRouteProps;
+  };
 
   // Profile screens
   [PROFILE_DETAILS_SCREEN_ID]: undefined;
