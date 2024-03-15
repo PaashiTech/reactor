@@ -2,7 +2,7 @@ import { SaafeLogo } from "@unmaze/assets";
 import { Text, View, XStack } from "@unmaze/views";
 import DropShadow from "react-native-drop-shadow";
 
-export const SaafeFooter: React.FC<{ children: React.ReactNode }> = ({
+export const FooterWithShadow: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
@@ -19,13 +19,23 @@ export const SaafeFooter: React.FC<{ children: React.ReactNode }> = ({
     >
       <View paddingHorizontal={20} paddingVertical={16} gap={12} bg="#fff">
         {children}
-        <XStack gap={8} alignSelf="center">
-          <Text fontSize={10} color="#6F6F6F">
-            Powered by RBI's Account Aggregator
-          </Text>
-          <SaafeLogo />
-        </XStack>
       </View>
     </DropShadow>
+  );
+};
+
+export const SaafeFooter: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
+    <FooterWithShadow>
+      {children}
+      <XStack gap={8} alignSelf="center">
+        <Text fontSize={10} color="#6F6F6F">
+          Powered by RBI's Account Aggregator
+        </Text>
+        <SaafeLogo />
+      </XStack>
+    </FooterWithShadow>
   );
 };
