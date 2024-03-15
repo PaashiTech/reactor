@@ -10,6 +10,7 @@ import {
   UserState,
   computeUserFullName,
   computeDoBString,
+  SVGWrapper,
 } from "@unmaze/views";
 import {
   ProfileDetailsScreenProps,
@@ -89,7 +90,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
               Add secondary number
             </Text>
             <View mt={3}>
-              <ChevronRight width={16} height={16} />
+              <SVGWrapper iconSVG={ChevronRight} svgColor="#009D9A" size="sm" />
             </View>
           </XStack>
         </Pressable>
