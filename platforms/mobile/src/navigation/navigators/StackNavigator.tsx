@@ -28,6 +28,8 @@ import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccoun
 import { GiveConsentScreen } from "../../screens/linked-accounts/GiveConsentScreen";
 import { StackContextProvider } from "./stackContext/StackContextProvider";
 import { OTPFamilyMemberScreen } from "../../screens/family/OTPFamilyMemberScreen";
+import { ADD_ACCOUNTS_SCREEN_ID } from "../../screens/linked-accounts/types";
+import { AddAccountsScreen } from "../../screens/linked-accounts/AddAccountsScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -49,6 +51,7 @@ const familyScreens: UnmzNavScreen[] = [
 const linkedAccountsScreens: UnmzNavScreen[] = [
   LinkedAccountsScreen,
   GiveConsentScreen,
+  AddAccountsScreen,
 ];
 
 const settingsScreens: UnmzNavScreen[] = [
@@ -61,7 +64,7 @@ export const StackNavigator = () => {
   return (
     <StackContextProvider>
       <stackNav.Navigator
-        initialRouteName={USER_PROFILE_SCREEN_ID}
+        initialRouteName={ADD_ACCOUNTS_SCREEN_ID}
         screenOptions={screenOptions}
       >
         {/* Profile section main screen */}

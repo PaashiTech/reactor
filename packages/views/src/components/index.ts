@@ -57,3 +57,5 @@ export {
 // Linked Accounts
 export { LinkedAccountsAccordionContentItem } from "./app/linked-accounts/LinkedAccountsAccordionContentItem";
 export { LinkedAccountsAccordionTrigger } from "./app/linked-accounts/LinkedAccountsAccordionTrigger";
+export { PopularBanksSelect } from "./app/linked-accounts/PopularBanksSelect";
+export { BankSelect } from "./app/linked-accounts/BankSelect";

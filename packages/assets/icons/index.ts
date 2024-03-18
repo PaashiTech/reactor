@@ -37,6 +37,10 @@ import CheckSmall from "./svg/check-small.svg";
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
 import UnionBankLogo from "./bank-logos/union-bank-logo.svg";
 import HDFCBankLogo from "./bank-logos/hdfc-bank-logo.svg";
+import AxisBankLogo from "./bank-logos/axis-bank-logo.svg";
+import SbiBankLogo from "./bank-logos/sbi-bank-logo.svg";
+import ICICIBankLogo from "./bank-logos/icici-bank-logo.svg";
+import BOBBankLogo from "./bank-logos/bob-bank-logo.svg";
 
 export {
   Bell,
@@ -76,6 +80,10 @@ export {
   CanaraBankLogo,
   HDFCBankLogo,
   UnionBankLogo,
+  AxisBankLogo,
+  SbiBankLogo,
+  ICICIBankLogo,
+  BOBBankLogo,
 };
 
 export { SvgProps } from "react-native-svg";
