@@ -18,3 +18,9 @@ export type AddAccountsScreenProps = NativeStackScreenProps<
   StackRouteProps,
   typeof ADD_ACCOUNTS_SCREEN_ID
 >;
+
+export const COMING_SOON_SCREEN_ID = "0040.g.2";
+export type ComingSoonScreenProps = NativeStackScreenProps<
+  StackRouteProps,
+  typeof COMING_SOON_SCREEN_ID
+>;

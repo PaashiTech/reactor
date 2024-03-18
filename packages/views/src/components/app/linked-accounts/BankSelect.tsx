@@ -24,10 +24,7 @@ export const BankSelect: React.FC<BankSelectProps> = ({
     <UnmzCard
       padding={16}
       flexDirection="row"
-      gap={12}
       alignItems="center"
-      borderRadius={12}
-      backgroundColor="#fff"
       justifyContent="space-between"
       onPress={() => handleSelectedBanks(bank.title)}
     >
@@ -37,7 +34,6 @@ export const BankSelect: React.FC<BankSelectProps> = ({
           fontSize={14}
           fontWeight={"500"}
           letterSpacing={0.24}
-          lineHeight={16}
           textAlign="center"
         >
           {bank.title}

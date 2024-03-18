@@ -59,3 +59,4 @@ export { LinkedAccountsAccordionContentItem } from "./app/linked-accounts/Linked
 export { LinkedAccountsAccordionTrigger } from "./app/linked-accounts/LinkedAccountsAccordionTrigger";
 export { PopularBanksSelect } from "./app/linked-accounts/PopularBanksSelect";
 export { BankSelect } from "./app/linked-accounts/BankSelect";
+export { ComingSoonBankItem } from "./app/linked-accounts/ComingSoonBankItem";

@@ -28,8 +28,12 @@ import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccoun
 import { GiveConsentScreen } from "../../screens/linked-accounts/GiveConsentScreen";
 import { StackContextProvider } from "./stackContext/StackContextProvider";
 import { OTPFamilyMemberScreen } from "../../screens/family/OTPFamilyMemberScreen";
-import { ADD_ACCOUNTS_SCREEN_ID } from "../../screens/linked-accounts/types";
+import {
+  ADD_ACCOUNTS_SCREEN_ID,
+  COMING_SOON_SCREEN_ID,
+} from "../../screens/linked-accounts/types";
 import { AddAccountsScreen } from "../../screens/linked-accounts/AddAccountsScreen";
+import { ComingSoonScreen } from "../../screens/linked-accounts/ComingSoonScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -52,6 +56,7 @@ const linkedAccountsScreens: UnmzNavScreen[] = [
   LinkedAccountsScreen,
   GiveConsentScreen,
   AddAccountsScreen,
+  ComingSoonScreen,
 ];
 
 const settingsScreens: UnmzNavScreen[] = [

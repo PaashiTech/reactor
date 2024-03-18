@@ -1,6 +1,10 @@
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { UnmzNavScreen } from "../types";
-import { ADD_ACCOUNTS_SCREEN_ID, AddAccountsScreenProps } from "./types";
+import {
+  ADD_ACCOUNTS_SCREEN_ID,
+  AddAccountsScreenProps,
+  COMING_SOON_SCREEN_ID,
+} from "./types";
 import { ScrollView, Text, UnmzGradientButton, View } from "@unmaze/views";
 import {
   AxisBankLogo,
@@ -175,7 +179,11 @@ export const _AddAccountsScreen: React.FC<AddAccountsScreenProps> = ({
             color={"#6F6F6F"}
           >
             Couldn't find your bank?{" "}
-            <Text fontWeight={"700"} color={"#035E5D"}>
+            <Text
+              fontWeight={"700"}
+              color={"#035E5D"}
+              onPress={() => navigation.navigate(COMING_SOON_SCREEN_ID)}
+            >
               Tell us{" "}
             </Text>
             your bank, we will notify you when we start supporting it.
