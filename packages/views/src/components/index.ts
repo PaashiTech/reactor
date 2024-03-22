@@ -40,6 +40,9 @@ export { UnmzToastProvider } from "./core/misc/UnmzToastProvider";
 export { OTPCountdownTimer } from "./core/misc/OTPCountdownTimer";
 export { UnmzLinearGradient } from "./core/misc/UnmzLinearGradient";
 
+// Shadow
+export { ShadowWrapper } from "./core/shadow/ShadowWrapper";
+
 /**
  * Shared components
  */
