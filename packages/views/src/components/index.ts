@@ -40,6 +40,12 @@ export { UnmzToastProvider } from "./core/misc/UnmzToastProvider";
 export { OTPCountdownTimer } from "./core/misc/OTPCountdownTimer";
 export { UnmzLinearGradient } from "./core/misc/UnmzLinearGradient";
 
+// Typography
+export { HeadingText } from "./core/typography/HeadingText";
+export { BodyText } from "./core/typography/BodyText";
+export { AccentText } from "./core/typography/AccentText";
+export { LabelText } from "./core/typography/LabelText";
+
 /**
  * Shared components
  */
