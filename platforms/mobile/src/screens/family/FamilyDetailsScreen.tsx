@@ -44,8 +44,11 @@ const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
             <FamilyMemberList
               members={family.map((fm) => ({
                 ...fm,
-                optionsCb: () => {
-                  alert(fm.name.first);
+                onOptions: () => {
+                  alert("Delete " + fm.name.first + "'s invite!");
+                },
+                onRemind: () => {
+                  alert("Remind " + fm.name.first + "!");
                 },
               }))}
             />

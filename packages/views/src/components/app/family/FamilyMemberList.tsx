@@ -3,10 +3,13 @@ import { YStack } from "tamagui";
 import { FamilyMember } from "../../../stores/models/user";
 import { FamilyMemberCard } from "./FamilyMemberCard";
 
-type FamilyMemberWithOptionsCb = FamilyMember & { optionsCb: () => void };
+export type FamilyMemberWithCb = FamilyMember & {
+  onOptions: () => void;
+  onRemind: () => void;
+};
 
 type FamilyMemberListProps = {
-  members: FamilyMemberWithOptionsCb[];
+  members: FamilyMemberWithCb[];
 };
 
 export const FamilyMemberList: FC<FamilyMemberListProps> = ({ members }) => {
@@ -21,7 +24,8 @@ export const FamilyMemberList: FC<FamilyMemberListProps> = ({ members }) => {
             name={member.name}
             phone={member.phone}
             relationship={member.relationship}
-            optionsCb={member.optionsCb}
+            onOptions={member.onOptions}
+            onRemind={member.onRemind}
           />
         );
       })}

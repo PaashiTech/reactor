@@ -1,22 +1,31 @@
 import { FC } from "react";
 import { Text, View, XStack, YStack } from "tamagui";
-import { FamilyMember } from "../../../stores/models/user";
-import { computeUserFullName } from "../../../stores/helpers/user";
+import { Pressable } from "react-native";
 
-export type FamilyMemberCardProps = FamilyMember & { optionsCb: () => void };
+import { computeUserFullName } from "../../../stores/helpers/user";
+import { SVGWrapper } from "../../shared/SVGWrapper";
+import { ChevronRight, MoreVert } from "@unmaze/assets";
+
+import { FamilyMemberWithCb } from "./FamilyMemberList";
+
+type FamilyMemberCardProps = FamilyMemberWithCb;
 
 export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
   name,
   invitation,
   phone,
-  optionsCb,
+  onOptions,
+  onRemind,
 }) => {
+  const fullName = computeUserFullName(name);
+
   const shouldBeReminded = (inviteSentAt: string) => {
     const todayDate = new Date();
     const inviteSentAtDate = new Date(inviteSentAt);
+    const DURATION_IN_MS = 24 * 3600 * 1000; // 24 Hrs
     return (
       Math.floor(
-        (todayDate.getTime() - inviteSentAtDate.getTime()) / (24 * 3600 * 1000)
+        (todayDate.getTime() - inviteSentAtDate.getTime()) / DURATION_IN_MS
       ) > 0
     );
   };
@@ -45,7 +54,7 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
               lineHeight={18}
               letterSpacing={0.28}
             >
-              {computeUserFullName(name)}
+              {fullName}
             </Text>
 
             {/* Status */}
@@ -62,12 +71,7 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
               </Text>
             )}
             {invitation.status === "Done" && (
-              <View
-                height={20}
-                width={20}
-                backgroundColor="green"
-                onPress={optionsCb}
-              ></View>
+              <View height={20} width={20} backgroundColor="green"></View>
             )}
           </XStack>
 
@@ -86,19 +90,22 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
 
         {/* 3-dot menu */}
         <YStack>
-          {/* TODO: Icon button */}
-          <View
-            height={20}
-            width={20}
-            backgroundColor="red"
-            onPress={optionsCb}
-          ></View>
+          <Pressable
+            android_ripple={{
+              color: "#d1d1d1",
+              borderless: true,
+              radius: 16,
+            }}
+            onPress={onOptions}
+          >
+            <SVGWrapper svgColor="#009D9A" iconSVG={MoreVert} size="md" />
+          </Pressable>
         </YStack>
       </XStack>
 
       {/* Remind me link */}
       {shouldBeReminded(invitation.created_at) && (
-        <XStack gap={4}>
+        <XStack gap={4} onPress={onRemind}>
           <Text
             color="#009D9A"
             fontSize={12}
@@ -109,7 +116,8 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
           >
             Remind
           </Text>
-          <View height={16} width={16} backgroundColor="red"></View>
+
+          <SVGWrapper svgColor="#009D9A" iconSVG={ChevronRight} size="sm" />
         </XStack>
       )}
     </View>

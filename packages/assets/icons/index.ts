@@ -33,6 +33,7 @@ import Moon from "./svg/moon.svg";
 import SaafeLogo from "./svg/saafe-logo.svg";
 import CheckSmall from "./svg/check-small.svg";
 import NotifyBell from "./svg/notify-bell.svg";
+import MoreVert from "./svg/more_vert.svg";
 
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
@@ -86,6 +87,7 @@ export {
   ICICIBankLogo,
   BOBBankLogo,
   NotifyBell,
+  MoreVert,
 };
 
 export { SvgProps } from "react-native-svg";
