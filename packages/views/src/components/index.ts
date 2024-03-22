@@ -57,3 +57,6 @@ export {
 // Linked Accounts
 export { LinkedAccountsAccordionContentItem } from "./app/linked-accounts/LinkedAccountsAccordionContentItem";
 export { LinkedAccountsAccordionTrigger } from "./app/linked-accounts/LinkedAccountsAccordionTrigger";
+
+// Family
+export { FamilyMemberList } from "./app/family/FamilyMemberList";
