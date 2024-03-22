@@ -1,4 +1,10 @@
-import { AccentText, BodyText, HeadingText, View } from "@unmaze/views";
+import {
+  AccentText,
+  BodyText,
+  HeadingText,
+  LabelText,
+  View,
+} from "@unmaze/views";
 
 export const Typography: React.FC = () => {
   return (
@@ -15,6 +21,10 @@ export const Typography: React.FC = () => {
       <AccentText size="sm">This is Accent Text</AccentText>
       <AccentText size="md">This is Accent Text</AccentText>
       <AccentText size="lg">This is Accent Text</AccentText>
+      <LabelText size="xs">This is Label Text</LabelText>
+      <LabelText size="sm">This is Label Text</LabelText>
+      <LabelText size="md">This is Label Text</LabelText>
+      <LabelText size="lg">This is Label Text</LabelText>
     </View>
   );
 };
