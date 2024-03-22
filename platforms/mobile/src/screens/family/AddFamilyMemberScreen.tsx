@@ -1,6 +1,7 @@
 import { KeyboardAvoidingView } from "react-native";
 import { useForm, FieldValues } from "react-hook-form";
 import {
+  ADD_FAMILY_MEMBER_SCREEN_ID,
   AddFamilyMemberScreenProps,
   OTP_FAMILY_MEMBER_SCREEN_ID,
 } from "./types";
@@ -140,7 +141,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
 };
 
 export const AddFamilyMemberScreen: UnmzNavScreen = {
-  key: "0020.b.1",
+  key: ADD_FAMILY_MEMBER_SCREEN_ID,
   title: "Add family member",
   content: _AddFamilyMemberScreen,
 };

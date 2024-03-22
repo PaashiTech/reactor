@@ -23,6 +23,8 @@ import {
   SETTINGS_DETAILS_SCREEN_ID,
 } from "../../screens/settings/types";
 import {
+  ADD_ACCOUNTS_SCREEN_ID,
+  COMING_SOON_SCREEN_ID,
   GIVE_CONSENT_SCREEN_ID,
   LINKED_ACCOUNTS_SCREEN_ID,
 } from "../../screens/linked-accounts/types";
@@ -58,6 +60,8 @@ export type StackRouteProps = {
   // Linked Accounts Screens
   [LINKED_ACCOUNTS_SCREEN_ID]: undefined;
   [GIVE_CONSENT_SCREEN_ID]: undefined;
+  [ADD_ACCOUNTS_SCREEN_ID]: undefined;
+  [COMING_SOON_SCREEN_ID]: undefined;
 
   // Shared screens
   [ACCOUNT_UPDATE_SUCCESS_SCREEN_ID]: undefined;
