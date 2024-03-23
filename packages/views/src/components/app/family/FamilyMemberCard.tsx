@@ -1,3 +1,10 @@
+/**
+ * @name FamilyMemberCard
+ *
+ * @description
+ * A component to a card for each family member that exists in User's family
+ */
+
 import { FC } from "react";
 import { Text, View, XStack, YStack } from "tamagui";
 import { Pressable } from "react-native";
