@@ -84,11 +84,13 @@ const _DeleteInviteRemoveMemberBAM: React.FC<BAMProps> = ({
   );
 };
 
+
 const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
   navigation,
 }) => {
   const family = useUserStore((state) => state.family);
-
+  // const family = [];
+  
   const [deleteInviteBAM, setDeleteInviteBAM] = useState(false);
   const [modalCtx, setModalCtx] = useState<ModalCtxType>({
     type: "RemoveMember",
