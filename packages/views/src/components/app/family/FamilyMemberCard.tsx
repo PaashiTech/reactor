@@ -1,6 +1,35 @@
+import { FC } from "react";
 import { Text, View, XStack, YStack } from "tamagui";
+import { Pressable } from "react-native";
 
-export const FamilyMemberCard: React.FC = () => {
+import { computeUserFullName } from "../../../stores/helpers/user";
+import { SVGWrapper } from "../../shared/SVGWrapper";
+import { ChevronRight, MoreVert } from "@unmaze/assets";
+
+import { FamilyMemberWithCb } from "./FamilyMemberList";
+
+type FamilyMemberCardProps = FamilyMemberWithCb;
+
+export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
+  name,
+  invitation,
+  phone,
+  onOptions,
+  onRemind,
+}) => {
+  const fullName = computeUserFullName(name);
+
+  const shouldBeReminded = (inviteSentAt: string) => {
+    const todayDate = new Date();
+    const inviteSentAtDate = new Date(inviteSentAt);
+    const DURATION_IN_MS = 24 * 3600 * 1000; // 24 Hrs
+    return (
+      Math.floor(
+        (todayDate.getTime() - inviteSentAtDate.getTime()) / DURATION_IN_MS
+      ) > 0
+    );
+  };
+
   return (
     <View
       paddingVertical={20}
@@ -25,20 +54,25 @@ export const FamilyMemberCard: React.FC = () => {
               lineHeight={18}
               letterSpacing={0.28}
             >
-              Pankaj Purushottam Sarda
+              {fullName}
             </Text>
 
             {/* Status */}
-            <Text
-              color="#262626"
-              fontSize={14}
-              fontStyle="normal"
-              fontWeight="500"
-              lineHeight={18}
-              letterSpacing={0.28}
-            >
-              (Invited)
-            </Text>
+            {invitation.status === "Invited" && (
+              <Text
+                color="#262626"
+                fontSize={14}
+                fontStyle="normal"
+                fontWeight="500"
+                lineHeight={18}
+                letterSpacing={0.28}
+              >
+                (Invited)
+              </Text>
+            )}
+            {invitation.status === "Done" && (
+              <View height={20} width={20} backgroundColor="green"></View>
+            )}
           </XStack>
 
           {/* Phone number */}
@@ -50,31 +84,42 @@ export const FamilyMemberCard: React.FC = () => {
             lineHeight={16}
             letterSpacing={0.24}
           >
-            8945612311
+            {phone}
           </Text>
         </YStack>
 
         {/* 3-dot menu */}
         <YStack>
-          {/* TODO: Icon button */}
-          <View height={20} width={20} backgroundColor="red"></View>
+          <Pressable
+            android_ripple={{
+              color: "#d1d1d1",
+              borderless: true,
+              radius: 16,
+            }}
+            onPress={onOptions}
+          >
+            <SVGWrapper svgColor="#009D9A" iconSVG={MoreVert} size="md" />
+          </Pressable>
         </YStack>
       </XStack>
 
       {/* Remind me link */}
-      <XStack gap={4}>
-        <Text
-          color="#009D9A"
-          fontSize={12}
-          fontStyle="normal"
-          fontWeight="700"
-          lineHeight={16}
-          letterSpacing={0.24}
-        >
-          Remind
-        </Text>
-        <View height={16} width={16} backgroundColor="red"></View>
-      </XStack>
+      {shouldBeReminded(invitation.created_at) && (
+        <XStack gap={4} onPress={onRemind}>
+          <Text
+            color="#009D9A"
+            fontSize={12}
+            fontStyle="normal"
+            fontWeight="700"
+            lineHeight={16}
+            letterSpacing={0.24}
+          >
+            Remind
+          </Text>
+
+          <SVGWrapper svgColor="#009D9A" iconSVG={ChevronRight} size="sm" />
+        </XStack>
+      )}
     </View>
   );
 };

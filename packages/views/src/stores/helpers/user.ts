@@ -1,3 +1,5 @@
+import { Name } from "../models/user";
+
 const months = [
   "Jan",
   "Feb",
@@ -13,11 +15,7 @@ const months = [
   "Dec",
 ];
 
-export const computeUserFullName = (nameObj: {
-  first: string;
-  middle: string;
-  last: string;
-}) => {
+export const computeUserFullName = (nameObj: Name) => {
   return (
     nameObj.first +
     " " +

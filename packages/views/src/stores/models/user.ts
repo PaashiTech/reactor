@@ -1,11 +1,15 @@
-type MaritalStatus = "Single" | "Married" | "Divorcee" | "PreferNotToSay";
-type Gender = "Male" | "Female" | "NonBinary" | "PreferNotToSay";
-type Name = {
+export type MaritalStatus =
+  | "Single"
+  | "Married"
+  | "Divorcee"
+  | "PreferNotToSay";
+export type Gender = "Male" | "Female" | "NonBinary" | "PreferNotToSay";
+export type Name = {
   first: string;
   middle: string;
   last: string;
 };
-type Relationship =
+export type Relationship =
   | "LifePartner"
   | "Son"
   | "Daughter"
@@ -19,10 +23,14 @@ type Relationship =
   | "Grandmother"
   | "Other";
 
-type InvitationStatus = "Invited" | "Declined" | "Expired" | "Done";
-type FamilyMember = {
-  name: Name;
+export type InvitationStatus = "Invited" | "Declined" | "Expired" | "Done";
+export type Invitation = {
   status: InvitationStatus;
+  created_at: string; // ISO string
+};
+export type FamilyMember = {
+  name: Name;
+  invitation: Invitation;
   phone: string;
   dob: string; // ISO string
   relationship: Relationship;
