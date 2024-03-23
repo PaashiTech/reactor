@@ -43,6 +43,12 @@ export { UnmzLinearGradient } from "./core/misc/UnmzLinearGradient";
 // Shadow
 export { ShadowWrapper } from "./core/shadow/ShadowWrapper";
 
+// Typography
+export { HeadingText } from "./core/typography/HeadingText";
+export { BodyText } from "./core/typography/BodyText";
+export { AccentText } from "./core/typography/AccentText";
+export { LabelText } from "./core/typography/LabelText";
+
 /**
  * Shared components
  */
