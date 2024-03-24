@@ -13,6 +13,7 @@ import { StackNavigator } from "./navigation/navigators/StackNavigator";
 import { useGetUser } from "@unmaze/api";
 import { Shadows } from "./playground/Shadows";
 import { Typography } from "./playground/Typography";
+import { DashboardScreen } from "./screens/dashboard/DashboardScreen";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -34,7 +35,7 @@ export function App() {
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-      <UnmzToastProvider>
+      {/* <UnmzToastProvider>
         <SafeAreaProvider>
           {userIsLoading ? (
             <View flex={1} justifyContent="center" alignItems="center">
@@ -46,8 +47,8 @@ export function App() {
             </NavigationContainer>
           )}
         </SafeAreaProvider>
-      </UnmzToastProvider>
-      {/* <Shadows /> */}
+      </UnmzToastProvider> */}
+      <DashboardScreen />
     </TamaguiProvider>
   );
 }

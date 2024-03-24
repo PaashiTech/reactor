@@ -387,6 +387,9 @@ importers:
       react-native:
         specifier: 0.72.10
         version: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
+      react-native-chart-kit:
+        specifier: ^6.12.0
+        version: 6.12.0(react-native-svg@13.9.0)(react-native@0.72.10)(react@18.2.0)
       react-native-drop-shadow:
         specifier: ^1.0.0
         version: 1.0.0(react-native@0.72.10)(react@18.2.0)
@@ -15282,6 +15285,11 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /paths-js@0.4.11:
+    resolution: {integrity: sha512-3mqcLomDBXOo7Fo+UlaenG6f71bk1ZezPQy2JCmYHy2W2k5VKpP+Jbin9H0bjXynelTbglCqdFhSEkeIkKTYUA==}
+    engines: {node: '>=0.11.0'}
+    dev: false
+
   /performant-array-to-tree@1.11.0:
     resolution: {integrity: sha512-YwCqIDvnaebXaKuKQhI5yJD6ryDc3FxvoeX/5ougXTKDUWb7s5S2BuBgIyftCa4sBe1+ZU5Kmi4RJy+pjjjrpw==}
     dev: false
@@ -15347,6 +15355,10 @@ packages:
   /pngjs@3.4.0:
     resolution: {integrity: sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==}
     engines: {node: '>=4.0.0'}
+    dev: false
+
+  /point-in-polygon@1.1.0:
+    resolution: {integrity: sha512-3ojrFwjnnw8Q9242TzgXuTD+eKiutbzyslcq1ydfu82Db2y+Ogbmyrkpv0Hgj31qwT3lbS9+QAAO/pIQM35XRw==}
     dev: false
 
   /postcss-calc@8.2.4(postcss@8.4.32):
@@ -16098,6 +16110,21 @@ packages:
       webpack: 5.89.0
     dev: false
 
+  /react-native-chart-kit@6.12.0(react-native-svg@13.9.0)(react-native@0.72.10)(react@18.2.0):
+    resolution: {integrity: sha512-nZLGyCFzZ7zmX0KjYeeSV1HKuPhl1wOMlTAqa0JhlyW62qV/1ZPXHgT8o9s8mkFaGxdqbspOeuaa6I9jUQDgnA==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.10
+      react-native-svg: '> 6.4.1'
+    dependencies:
+      lodash: 4.17.21
+      paths-js: 0.4.11
+      point-in-polygon: 1.1.0
+      react: 18.2.0
+      react-native: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
+      react-native-svg: 13.9.0(react-native@0.72.10)(react@18.2.0)
+    dev: false
+
   /react-native-drop-shadow@1.0.0(react-native@0.72.10)(react@18.2.0):
     resolution: {integrity: sha512-om6oMDDn90ClFa+tEGMsFcACKlea5TO4jYur8PJKRpzfz+SnDIJlddhzp2kbOLpRTe7lleq6Md5QqC3u7RfOow==}
     peerDependencies:
@@ -16229,7 +16256,7 @@ packages:
       css-select: 5.1.0
       css-tree: 1.1.3
       react: 18.2.0
-      react-native: 0.72.10(@babel/core@7.23.6)(@babel/preset-env@7.24.0)(react@18.2.0)
+      react-native: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
     dev: false
 
   /react-native-url-polyfill@2.0.0(react-native@0.72.10):
