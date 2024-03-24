@@ -1,12 +1,11 @@
-import { FontSizeTokens } from "tamagui";
+import { FontSizeTokens, TextProps } from "tamagui";
 
-type TextPropsWithSize = {
-  fontSize: FontSizeTokens;
-  lineHeight: FontSizeTokens;
-  letterSpacing: FontSizeTokens;
-};
+type TextPropsForVariant = Pick<
+  TextProps,
+  "fontSize" | "lineHeight" | "letterSpacing"
+>;
 
-const getTextPropsWithSize = (size: FontSizeTokens): TextPropsWithSize => {
+const getTextPropsWithSize = (size: FontSizeTokens): TextPropsForVariant => {
   return {
     fontSize: size,
     lineHeight: size,
