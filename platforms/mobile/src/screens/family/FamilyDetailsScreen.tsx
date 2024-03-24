@@ -84,13 +84,12 @@ const _DeleteInviteRemoveMemberBAM: React.FC<BAMProps> = ({
   );
 };
 
-
 const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
   navigation,
 }) => {
   const family = useUserStore((state) => state.family);
   // const family = [];
-  
+
   const [deleteInviteBAM, setDeleteInviteBAM] = useState(false);
   const [modalCtx, setModalCtx] = useState<ModalCtxType>({
     type: "RemoveMember",
@@ -121,12 +120,12 @@ const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
                   // alert("Delete " + fm.name.first + "'s invite!");
                   setModalCtx({
                     type:
-                      fm.invitation.status === "Done"
+                      fm.invitation.status === "Accepted"
                         ? "RemoveMember"
                         : "DeleteInvite",
                     phoneNumber: fm.phone,
                     onConfirm: () => {
-                      fm.invitation.status === "Done"
+                      fm.invitation.status === "Accepted"
                         ? alert("Call remove member API here")
                         : alert("Call delete invite API here");
                     },

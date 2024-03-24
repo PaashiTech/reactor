@@ -11,7 +11,7 @@ import { Pressable } from "react-native";
 
 import { computeUserFullName } from "../../../stores/helpers/user";
 import { SVGWrapper } from "../../shared/SVGWrapper";
-import { ChevronRight, MoreVert } from "@unmaze/assets";
+import { Check2, ChevronRight, MoreVert } from "@unmaze/assets";
 
 import { FamilyMemberWithCb } from "./FamilyMemberList";
 
@@ -51,7 +51,7 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
       <XStack justifyContent="space-between">
         {/* Family member details */}
         <YStack gap={4}>
-          <XStack gap={6}>
+          <XStack alignItems="center" gap={6}>
             {/* Name */}
             <Text
               color="#262626"
@@ -77,8 +77,9 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
                 (Invited)
               </Text>
             )}
-            {invitation.status === "Done" && (
-              <View height={20} width={20} backgroundColor="green"></View>
+            {invitation.status === "Accepted" && (
+              // <View height={20} width={20} backgroundColor="green"></View>
+              <SVGWrapper iconSVG={Check2} size="sm" />
             )}
           </XStack>
 
@@ -105,7 +106,7 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
             }}
             onPress={onOptions}
           >
-            <SVGWrapper svgColor="#009D9A" iconSVG={MoreVert} size="md" />
+            <SVGWrapper iconSVG={MoreVert} size="md" />
           </Pressable>
         </YStack>
       </XStack>

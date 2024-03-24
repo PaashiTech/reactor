@@ -23,7 +23,7 @@ export type Relationship =
   | "Grandmother"
   | "Other";
 
-export type InvitationStatus = "Invited" | "Declined" | "Expired" | "Done";
+export type InvitationStatus = "Invited" | "Declined" | "Expired" | "Accepted";
 export type Invitation = {
   status: InvitationStatus;
   created_at: string; // ISO string

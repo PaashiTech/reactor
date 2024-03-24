@@ -34,7 +34,7 @@ export function App() {
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-      {/* <UnmzToastProvider>
+      <UnmzToastProvider>
         <SafeAreaProvider>
           {userIsLoading ? (
             <View flex={1} justifyContent="center" alignItems="center">
@@ -46,8 +46,8 @@ export function App() {
             </NavigationContainer>
           )}
         </SafeAreaProvider>
-      </UnmzToastProvider> */}
-      <Shadows />
+      </UnmzToastProvider>
+      {/* <Shadows /> */}
     </TamaguiProvider>
   );
 }
