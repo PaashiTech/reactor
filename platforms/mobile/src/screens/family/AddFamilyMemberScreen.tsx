@@ -16,8 +16,7 @@ import { TertiaryButton } from "@unmaze/views/src/components";
 import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
 import { RelationshipType } from "../../components/app/family";
 import { UnmzNavScreen } from "../types";
-import { useAddFamilyMember } from "@unmaze/api";
-import { USER_PROFILE_SCREEN_ID } from "../user-profile";
+import { useAddFamilyMember, useGetUser } from "@unmaze/api";
 import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
 import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 import { ACCOUNT_UPDATE_SUCCESS_SCREEN_ID } from "../shared";
@@ -51,15 +50,11 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
   });
 
   const user_id = useUserStore((state) => state.user_id);
-  const {
-    addFamilyMember,
-    addFamilyMemberData,
-    addFamilyMemberError,
-    addFamilyMemberIsLoading,
-    addFamilyMemberStatus,
-  } = useAddFamilyMember({
+  const { addFamilyMember } = useAddFamilyMember({
     id: user_id,
   });
+
+  const { userMutate } = useGetUser({ id: user_id });
 
   const { dispatch } = useStackContext();
 
@@ -76,6 +71,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
       type: "SET_VERIFIED_MESSAGE",
       payload: `You have successfully added your ${data.relationship} in your family account`,
     });
+    userMutate();
     navigation.navigate(OTP_FAMILY_MEMBER_SCREEN_ID, {
       confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
     });

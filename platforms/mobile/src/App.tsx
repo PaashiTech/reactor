@@ -11,6 +11,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StackNavigator } from "./navigation/navigators/StackNavigator";
 
 import { useGetUser } from "@unmaze/api";
+import { Shadows } from "./playground/Shadows";
+import { Typography } from "./playground/Typography";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -45,6 +47,7 @@ export function App() {
           )}
         </SafeAreaProvider>
       </UnmzToastProvider>
+      {/* <Shadows /> */}
     </TamaguiProvider>
   );
 }
