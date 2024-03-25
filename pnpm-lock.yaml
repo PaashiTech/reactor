@@ -393,6 +393,9 @@ importers:
       react-native-drop-shadow:
         specifier: ^1.0.0
         version: 1.0.0(react-native@0.72.10)(react@18.2.0)
+      react-native-gifted-charts:
+        specifier: ^1.4.7
+        version: 1.4.7(react-native-linear-gradient@2.8.3)(react-native-svg@13.9.0)(react-native@0.72.10)(react@18.2.0)
       react-native-material-datetime-picker:
         specifier: ^0.2.1
         version: 0.2.1(react-native@0.72.10)(react@18.2.0)
@@ -11816,6 +11819,16 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /gifted-charts-core@0.0.21(react-native@0.72.10)(react@18.2.0):
+    resolution: {integrity: sha512-5eFamhAbvlcodvQHs5Wp/MImZiSYLWNie9aQiprZ2w7H3A5KcCtqnW/+eb58ml2Hc7MjzIUXhszGVDMmJcsXDg==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.10
+    dependencies:
+      react: 18.2.0
+      react-native: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
+    dev: false
+
   /github-slugger@1.5.0:
     resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
     dev: false
@@ -16135,8 +16148,33 @@ packages:
       react-native: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
     dev: false
 
+  /react-native-gifted-charts@1.4.7(react-native-linear-gradient@2.8.3)(react-native-svg@13.9.0)(react-native@0.72.10)(react@18.2.0):
+    resolution: {integrity: sha512-KifKvVTXedtju7WLNKE+amY1LjS7DNUpj/YOa+9kzB0kgMEl2XyW592SyZi07S5iKs8tYvvZy2tkNg452PRH4w==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.10
+      react-native-linear-gradient: '*'
+      react-native-svg: '*'
+    dependencies:
+      gifted-charts-core: 0.0.21(react-native@0.72.10)(react@18.2.0)
+      react: 18.2.0
+      react-native: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
+      react-native-linear-gradient: 2.8.3(react-native@0.72.10)(react@18.2.0)
+      react-native-svg: 13.9.0(react-native@0.72.10)(react@18.2.0)
+    dev: false
+
   /react-native-gradle-plugin@0.71.19:
     resolution: {integrity: sha512-1dVk9NwhoyKHCSxcrM6vY6cxmojeATsBobDicX0ZKr7DgUF2cBQRTKsimQFvzH8XhOVXyH8p4HyDSZNIFI8OlQ==}
+    dev: false
+
+  /react-native-linear-gradient@2.8.3(react-native@0.72.10)(react@18.2.0):
+    resolution: {integrity: sha512-KflAXZcEg54PXkLyflaSZQ3PJp4uC4whM7nT/Uot9m0e/qxFV3p6uor1983D1YOBJbJN7rrWdqIjq0T42jOJyA==}
+    peerDependencies:
+      react: 18.2.0
+      react-native: 0.72.10
+    dependencies:
+      react: 18.2.0
+      react-native: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
     dev: false
 
   /react-native-material-datetime-picker@0.2.1(react-native@0.72.10)(react@18.2.0):
