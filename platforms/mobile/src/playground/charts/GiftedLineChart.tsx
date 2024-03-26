@@ -98,7 +98,7 @@ const data3 = [
   },
 ];
 
-export const GiftedCharts: React.FC = () => {
+export const GiftedLineChart: React.FC = () => {
   return (
     <>
       <View mt={30} bg={"#fff"} borderRadius={12} padding={16}>
@@ -134,22 +134,28 @@ export const GiftedCharts: React.FC = () => {
           yAxisLabelTexts={["₹0L", "₹2.5L", "₹5L", "₹7.5L", "₹10L"]}
         />
         <View position="absolute" top={30} left={20}>
-          <YStack gap={4}>
-            <XStack gap={8} ai={"center"}>
-              <Circle width={12} height={12} backgroundColor={"#08BDBA"} />
-              <Text fontSize={12} fontWeight={"400"} letterSpacing={0.24}>
-                Assets
-              </Text>
-            </XStack>
-            <XStack gap={8} ai={"center"}>
-              <Circle width={12} height={12} backgroundColor={"#FF7EB6"} />
-              <Text fontSize={12} fontWeight={"400"} letterSpacing={0.24}>
-                Liabilities
-              </Text>
-            </XStack>
-          </YStack>
+          <Legend />
         </View>
       </View>
     </>
+  );
+};
+
+const Legend: React.FC = () => {
+  return (
+    <YStack gap={4}>
+      <XStack gap={8} ai={"center"}>
+        <Circle width={12} height={12} backgroundColor={"#08BDBA"} />
+        <Text fontSize={12} fontWeight={"400"} letterSpacing={0.24}>
+          Assets
+        </Text>
+      </XStack>
+      <XStack gap={8} ai={"center"}>
+        <Circle width={12} height={12} backgroundColor={"#FF7EB6"} />
+        <Text fontSize={12} fontWeight={"400"} letterSpacing={0.24}>
+          Liabilities
+        </Text>
+      </XStack>
+    </YStack>
   );
 };

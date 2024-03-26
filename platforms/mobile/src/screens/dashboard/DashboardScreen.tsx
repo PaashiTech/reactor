@@ -1,6 +1,7 @@
 import { HeadingText, ShadowWrapper, View } from "@unmaze/views";
 import { ChartKitLineChart } from "../../playground/charts/ChartKitLineChart";
-import { GiftedCharts } from "../../playground/charts/GiftedCharts";
+import { GiftedLineChart } from "../../playground/charts/GiftedLineChart";
+import { GiftedAreaChart } from "../../playground/charts/GiftedAreaChart";
 
 export const DashboardScreen: React.FC = () => {
   return (
@@ -9,7 +10,8 @@ export const DashboardScreen: React.FC = () => {
       <ShadowWrapper size="sm">
         {/* <View> */}
         {/* <ChartKitLineChart /> */}
-        <GiftedCharts />
+        <GiftedLineChart />
+        <GiftedAreaChart />
         {/* </View> */}
       </ShadowWrapper>
     </View>
