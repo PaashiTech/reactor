@@ -1,10 +1,18 @@
 import { createContext, useContext, useReducer } from "react";
 import { StackActions, StackState } from "./stackContext.types";
 import { reducer } from "./reducer";
+import { OTPSentToType } from "./utility.types";
 
 const initialState: StackState = {
   profile: {
     phoneType: "primary",
+  },
+  shared: {
+    verifiedMessage: "",
+    OTPSentTo: {
+      type: OTPSentToType.PRIMARY_NUMBER,
+      value: "",
+    },
   },
 };
 

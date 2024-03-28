@@ -1,5 +1,4 @@
 import { HeadingText, ShadowWrapper, View } from "@unmaze/views";
-import { ChartKitLineChart } from "../../playground/charts/ChartKitLineChart";
 import { GiftedLineChart } from "../../playground/charts/GiftedLineChart";
 import { GiftedAreaChart } from "../../playground/charts/GiftedAreaChart";
 
