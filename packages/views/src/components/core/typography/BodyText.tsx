@@ -5,7 +5,6 @@ export const BodyText = styled(Text, {
   unstyled: true,
   fontWeight: "400",
   fontFamily: "$body",
-  color: "#000",
 
   variants: {
     size: bodySize,
