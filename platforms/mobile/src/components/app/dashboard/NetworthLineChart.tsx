@@ -1,7 +1,7 @@
 import { LineChart, yAxisSides } from "react-native-gifted-charts";
-import { View, Text, YStack, XStack, Circle } from "@unmaze/views";
+import { View, Text, YStack, XStack, Circle, BodyText } from "@unmaze/views";
 import { Dimensions } from "react-native";
-import { TabOptions } from "../../components/app/dashboard/NetworthTabs";
+import { TabOptions } from "./NetworthTabs";
 
 const customLabel = (val: string) => {
   return (
@@ -126,11 +126,11 @@ const dummyDataForXAxis = [
   },
 ];
 
-interface GifedLineChartProps {
+interface NetworthLineChartProps {
   selectedTab: TabOptions;
 }
 
-export const GiftedLineChart: React.FC<GifedLineChartProps> = ({
+export const NetworthLineChart: React.FC<NetworthLineChartProps> = ({
   selectedTab,
 }) => {
   const maxValue = Math.ceil(
@@ -181,28 +181,40 @@ export const GiftedLineChart: React.FC<GifedLineChartProps> = ({
           maxValue={maxValue}
         />
         <View position="absolute" top={30} left={20}>
-          <Legend />
+          <Legend selectedTab={selectedTab} />
         </View>
       </View>
     </>
   );
 };
 
-const Legend: React.FC = () => {
+const Legend: React.FC<{ selectedTab: TabOptions }> = ({ selectedTab }) => {
   return (
     <YStack gap={4}>
-      <XStack gap={8} ai={"center"}>
-        <Circle width={12} height={12} backgroundColor={"#08BDBA"} />
-        <Text fontSize={12} fontWeight={"400"} letterSpacing={0.24}>
-          Assets
-        </Text>
-      </XStack>
-      <XStack gap={8} ai={"center"}>
-        <Circle width={12} height={12} backgroundColor={"#FF7EB6"} />
-        <Text fontSize={12} fontWeight={"400"} letterSpacing={0.24}>
-          Liabilities
-        </Text>
-      </XStack>
+      {selectedTab !== "Liabilities" && (
+        <XStack
+          gap={8}
+          ai={"center"}
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
+          animation="100ms"
+        >
+          <Circle width={12} height={12} backgroundColor={"#08BDBA"} />
+          <BodyText size="sm">Assets</BodyText>
+        </XStack>
+      )}
+      {selectedTab !== "Assets" && (
+        <XStack
+          gap={8}
+          ai={"center"}
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
+          animation="100ms"
+        >
+          <Circle width={12} height={12} backgroundColor={"#FF7EB6"} />
+          <BodyText size="sm">Liabilities</BodyText>
+        </XStack>
+      )}
     </YStack>
   );
 };
