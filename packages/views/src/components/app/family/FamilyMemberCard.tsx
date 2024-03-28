@@ -6,7 +6,7 @@
  */
 
 import { FC } from "react";
-import { Text, View, XStack, YStack } from "tamagui";
+import { View, XStack, YStack } from "tamagui";
 import { Pressable } from "react-native";
 
 import { computeUserFullName } from "../../../stores/helpers/user";
@@ -14,6 +14,7 @@ import { SVGWrapper } from "../../shared/SVGWrapper";
 import { Check2, ChevronRight, MoreVert } from "@unmaze/assets";
 
 import { FamilyMemberWithCb } from "./FamilyMemberList";
+import { AccentText } from "../../core/typography/AccentText";
 
 type FamilyMemberCardProps = FamilyMemberWithCb;
 
@@ -53,29 +54,11 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
         <YStack gap={4}>
           <XStack alignItems="center" gap={6}>
             {/* Name */}
-            <Text
-              color="#262626"
-              fontSize={14}
-              fontStyle="normal"
-              fontWeight="500"
-              lineHeight={18}
-              letterSpacing={0.28}
-            >
-              {fullName}
-            </Text>
+            <AccentText color="#262626">{fullName}</AccentText>
 
             {/* Status */}
             {invitation.status === "Invited" && (
-              <Text
-                color="#262626"
-                fontSize={14}
-                fontStyle="normal"
-                fontWeight="500"
-                lineHeight={18}
-                letterSpacing={0.28}
-              >
-                (Invited)
-              </Text>
+              <AccentText color="#262626">(Invited)</AccentText>
             )}
             {invitation.status === "Accepted" && (
               // <View height={20} width={20} backgroundColor="green"></View>
@@ -84,16 +67,9 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
           </XStack>
 
           {/* Phone number */}
-          <Text
-            color="#6F6F6F"
-            fontSize={12}
-            fontStyle="normal"
-            fontWeight="500"
-            lineHeight={16}
-            letterSpacing={0.24}
-          >
+          <AccentText size="sm" color="#6F6F6F">
             {phone}
-          </Text>
+          </AccentText>
         </YStack>
 
         {/* 3-dot menu */}
@@ -114,16 +90,9 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
       {/* Remind me link */}
       {shouldBeReminded(invitation.created_at) && (
         <XStack gap={4} onPress={onRemind}>
-          <Text
-            color="#009D9A"
-            fontSize={12}
-            fontStyle="normal"
-            fontWeight="700"
-            lineHeight={16}
-            letterSpacing={0.24}
-          >
+          <AccentText fontWeight="700" size="sm" color="#009D9A">
             Remind
-          </Text>
+          </AccentText>
 
           <SVGWrapper svgColor="#009D9A" iconSVG={ChevronRight} size="sm" />
         </XStack>

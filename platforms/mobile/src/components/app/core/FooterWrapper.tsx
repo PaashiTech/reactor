@@ -1,5 +1,5 @@
 import { SaafeLogo } from "@unmaze/assets";
-import { Text, View, XStack } from "@unmaze/views";
+import { BodyText, View, XStack } from "@unmaze/views";
 import DropShadow from "react-native-drop-shadow";
 
 export const FooterWithShadow: React.FC<{ children: React.ReactNode }> = ({
@@ -31,9 +31,9 @@ export const SaafeFooter: React.FC<{ children: React.ReactNode }> = ({
     <FooterWithShadow>
       {children}
       <XStack gap={8} alignSelf="center">
-        <Text fontSize={10} color="#6F6F6F">
+        <BodyText size="sm" color="#6F6F6F">
           Powered by RBI's Account Aggregator
-        </Text>
+        </BodyText>
         <SaafeLogo />
       </XStack>
     </FooterWithShadow>

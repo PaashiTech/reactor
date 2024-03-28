@@ -2,12 +2,14 @@ import {
   UnmzGradientButton,
   OTPCountdownTimer,
   Spinner,
-  Text,
   View,
   XStack,
   UnmzToast,
   OTPInput,
   useUserStore,
+  HeadingText,
+  BodyText,
+  AccentText,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import { FC, useEffect, useState } from "react";
@@ -18,12 +20,7 @@ import {
   OTP_ACCOUNT_UPDATE_SCREEN_ID,
 } from "../shared/types";
 import { UnmzNavScreen } from "../types";
-import {
-  useGetOTP,
-  useValidateOTP,
-  useUpdateUser,
-  useGetUser,
-} from "@unmaze/api";
+import { useGetOTP, useUpdateUser, useGetUser } from "@unmaze/api";
 import { TEST_EMAIL_ID } from "../shared/testCredentials";
 import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
 import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
@@ -105,16 +102,12 @@ const _OTPAccountUpdateScreen: FC<OTPAccountUpdateScreenProps> = ({
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text fontWeight={"$6"} fontSize={16} color={"#262626"}>
-            Account verfication code
-          </Text>
+          <HeadingText size="lg">Account verfication code</HeadingText>
           <View>
-            <Text fontSize={14} color={"#6F6F6F"}>
+            <BodyText color="#6F6F6F">
               Enter the OTP sent to your {OTPSentTo.type}
-            </Text>
-            <Text fontSize={14} fontWeight={"500"}>
-              {OTPSentTo.value}
-            </Text>
+            </BodyText>
+            <AccentText>{OTPSentTo.value}</AccentText>
           </View>
         </View>
         <View gap={20}>
@@ -140,7 +133,7 @@ const _OTPAccountUpdateScreen: FC<OTPAccountUpdateScreenProps> = ({
           )}
           {!updateUserSuccessfull ? (
             <XStack gap={4}>
-              <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
+              <BodyText color="#6F6F6F">Didn't receive the OTP?</BodyText>
               <OTPCountdownTimer
                 timerSeconds={60}
                 onResendPress={() => {
@@ -156,7 +149,7 @@ const _OTPAccountUpdateScreen: FC<OTPAccountUpdateScreenProps> = ({
               />
             </XStack>
           ) : (
-            <Text color={"#6F6F6F"}>Account updated successfully</Text>
+            <BodyText color="#6F6F6F">Account updated successfully</BodyText>
           )}
         </View>
       </View>

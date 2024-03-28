@@ -4,7 +4,13 @@ import {
   SETTINGS_DETAILS_SCREEN_ID,
   SettingsDetailsScreenProps,
 } from "./types";
-import { ListItem, Text, View, CustomSwitch, SVGWrapper } from "@unmaze/views";
+import {
+  ListItem,
+  View,
+  CustomSwitch,
+  SVGWrapper,
+  HeadingText,
+} from "@unmaze/views";
 import { appPreferences, privacyAndSecurity } from "./settingOptions";
 import { ChevronRight } from "@unmaze/assets";
 
@@ -16,15 +22,7 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
     <View flex={1}>
       <View mt={24} gap={20}>
         <View gap={12}>
-          <Text
-            paddingHorizontal={20}
-            fontSize={12}
-            fontWeight={"600"}
-            letterSpacing={0.24}
-            color="#161616"
-          >
-            App preferences
-          </Text>
+          <HeadingText size="sm">App preferences</HeadingText>
           <View>
             {appPreferences.map((option) => {
               return (
@@ -53,15 +51,8 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
           </View>
         </View>
         <View gap={12}>
-          <Text
-            paddingHorizontal={20}
-            fontSize={12}
-            fontWeight={"600"}
-            letterSpacing={0.24}
-            color="#161616"
-          >
-            Privacy & Security
-          </Text>
+          <HeadingText size="sm">Privacy & Security</HeadingText>
+
           <View>
             {privacyAndSecurity.map((option) => {
               return (

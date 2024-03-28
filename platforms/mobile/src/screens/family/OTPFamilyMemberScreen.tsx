@@ -2,12 +2,14 @@ import {
   UnmzGradientButton,
   OTPCountdownTimer,
   Spinner,
-  Text,
   View,
   XStack,
   UnmzToast,
   OTPInput,
   useUserStore,
+  HeadingText,
+  BodyText,
+  AccentText,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import { FC, useEffect, useState } from "react";
@@ -16,7 +18,6 @@ import { ToastViewport } from "@tamagui/toast";
 import { UnmzNavScreen } from "../types";
 import { useGetOTP, useValidateOTP } from "@unmaze/api";
 import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
-import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 import { TEST_EMAIL_ID } from "../shared/testCredentials";
 import {
   OTPFamilyMemberScreenProps,
@@ -88,16 +89,14 @@ const _OTPFamilyMemberScreen: FC<OTPFamilyMemberScreenProps> = ({
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text fontWeight={"$6"} fontSize={16} color={"#262626"}>
+          <HeadingText size="lg" color="#161616">
             Member Verification
-          </Text>
+          </HeadingText>
           <View>
-            <Text fontSize={14} color={"#6F6F6F"}>
+            <BodyText color="#6F6F6F">
               Enter the OTP sent to your family member received on
-            </Text>
-            <Text fontSize={14} fontWeight={"500"}>
-              {OTPSentTo.value}
-            </Text>
+            </BodyText>
+            <AccentText color="#161616">{OTPSentTo.value}</AccentText>
           </View>
         </View>
         <View gap={20}>
@@ -123,7 +122,7 @@ const _OTPFamilyMemberScreen: FC<OTPFamilyMemberScreenProps> = ({
           )}
           {!validateOTPSuccessfull ? (
             <XStack gap={4}>
-              <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
+              <BodyText color="#6F6F6F">Didn't receive the OTP?</BodyText>
               <OTPCountdownTimer
                 timerSeconds={60}
                 onResendPress={() => {
@@ -139,7 +138,7 @@ const _OTPFamilyMemberScreen: FC<OTPFamilyMemberScreenProps> = ({
               />
             </XStack>
           ) : (
-            <Text color={"#6F6F6F"}>Account verifed successfully</Text>
+            <BodyText color="#6F6F6F">Account verifed successfully</BodyText>
           )}
         </View>
       </View>

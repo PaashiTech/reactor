@@ -6,7 +6,6 @@ import {
 import {
   UnmzGradientButton,
   View,
-  Text,
   useUserStore,
   FamilyMemberList,
   ScrollView,
@@ -15,6 +14,9 @@ import {
   CustomSwitch,
   BottomModal,
   SecondaryButton,
+  HeadingText,
+  BodyText,
+  AccentText,
 } from "@unmaze/views";
 import { Plus } from "@unmaze/assets";
 import { FamilyEmpty } from "../../components/app/family";
@@ -51,20 +53,15 @@ const _DeleteInviteRemoveMemberBAM: React.FC<BAMProps> = ({
       }}
     >
       <View flex={1} gap={4}>
-        <Text
-          fontSize={16}
-          fontWeight={"600"}
-          letterSpacing={0.32}
-          color={"#262626"}
-        >
+        <HeadingText size="lg">
           {modalCtx.type === "DeleteInvite"
             ? "Delete Invite?"
             : "Remove Member?"}
-        </Text>
-        <Text fontSize={12} letterSpacing={0.24}>
+        </HeadingText>
+        <BodyText size="sm" color="#6F6F6F">
           You won’t be able to access their investment details or benefit from
           family financial insights.
-        </Text>
+        </BodyText>
       </View>
 
       {/* Confirm / Cancel Buttons  */}
@@ -103,16 +100,7 @@ const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
       {family.length > 0 ? (
         <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           <YStack rowGap={16} paddingHorizontal={20} paddingVertical={24}>
-            <Text
-              color="#262626"
-              fontSize={16}
-              fontStyle="normal"
-              fontWeight="600"
-              lineHeight={20}
-              letterSpacing={0.32}
-            >
-              Family Members
-            </Text>
+            <HeadingText size="sm">Family Members</HeadingText>
             <FamilyMemberList
               members={family.map((fm) => ({
                 ...fm,
@@ -145,16 +133,9 @@ const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
               paddingHorizontal={4}
               paddingVertical={8}
             >
-              <Text
-                color="#161616"
-                fontSize={14}
-                fontStyle="normal"
-                fontWeight="500"
-                lineHeight={18}
-                letterSpacing={0.28}
-              >
+              <AccentText color="#161616">
                 Share my investment details with the family members
-              </Text>
+              </AccentText>
               <CustomSwitch />
             </XStack>
           </YStack>

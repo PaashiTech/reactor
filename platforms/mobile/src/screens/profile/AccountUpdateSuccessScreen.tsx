@@ -1,5 +1,5 @@
 import { CheckGreen } from "@unmaze/assets";
-import { UnmzGradientButton, Text, View } from "@unmaze/views";
+import { UnmzGradientButton, Text, View, HeadingText } from "@unmaze/views";
 
 import {
   AccountUpdateSuccessScreenProps,
@@ -31,16 +31,14 @@ const _AccountUpdateSuccessScreen: React.FC<
           >
             Congratulations!
           </Text>
-          <Text
+          <HeadingText
+            size="lg"
+            color="#525252"
             textAlign="center"
             paddingHorizontal={40}
-            fontSize={16}
-            letterSpacing={0.32}
-            fontWeight={"600"}
-            color="#525252"
           >
             {verifiedMessage}
-          </Text>
+          </HeadingText>
         </View>
       </View>
       <UnmzGradientButton

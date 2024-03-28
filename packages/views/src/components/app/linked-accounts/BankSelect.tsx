@@ -1,8 +1,9 @@
 import { ViewStyle } from "@tamagui/core";
 import { SvgProps } from "@unmaze/assets";
-import { Text, XStack } from "tamagui";
+import { XStack } from "tamagui";
 import { Checkbox } from "../../core/inputs/Checkbox";
 import { UnmzCard } from "../../core/cards/UnmzCard";
+import { AccentText } from "../../core/typography/AccentText";
 
 interface BankSelectProps extends ViewStyle {
   bank: {
@@ -30,14 +31,7 @@ export const BankSelect: React.FC<BankSelectProps> = ({
     >
       <XStack gap={12}>
         <Logo width={20} height={20} />
-        <Text
-          fontSize={14}
-          fontWeight={"500"}
-          letterSpacing={0.24}
-          textAlign="center"
-        >
-          {bank.title}
-        </Text>
+        <AccentText textAlign="center">{bank.title}</AccentText>
       </XStack>
       <Checkbox checked={checked} />
     </UnmzCard>

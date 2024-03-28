@@ -1,8 +1,9 @@
 import {
-  Text,
   View,
   MobileNumberInput,
   UnmzGradientButton,
+  HeadingText,
+  BodyText,
 } from "@unmaze/views";
 import { FC } from "react";
 
@@ -67,23 +68,10 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text
-            fontSize={"$4"}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color={"#262626"}
-          >
-            Edit your mobile number
-          </Text>
-          <Text
-            fontWeight={"$4"}
-            fontSize={14}
-            lineHeight={18}
-            letterSpacing={0.28}
-            color={"#6F6F6F"}
-          >
+          <HeadingText>Edit your mobile number</HeadingText>
+          <BodyText color="#6F6F6F">
             Enter your mobile number. We'll send you a confirmation code there
-          </Text>
+          </BodyText>
         </View>
         <MobileNumberInput control={control} name="mobileNumber" />
       </View>

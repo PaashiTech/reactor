@@ -1,17 +1,12 @@
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { UnmzNavScreen } from "../types";
-import {
-  ADD_ACCOUNTS_SCREEN_ID,
-  AddAccountsScreenProps,
-  COMING_SOON_SCREEN_ID,
-  ComingSoonScreenProps,
-} from "./types";
+import { COMING_SOON_SCREEN_ID, ComingSoonScreenProps } from "./types";
 import {
   ScrollView,
-  Text,
   UnmzGradientButton,
   View,
-  XStack,
+  BodyText,
+  ComingSoonBankItem,
+  HeadingText,
 } from "@unmaze/views";
 import {
   AxisBankLogo,
@@ -21,17 +16,7 @@ import {
   ICICIBankLogo,
   BOBBankLogo,
   SvgProps,
-  ChevronRight,
 } from "@unmaze/assets";
-
-import {
-  BankSelect,
-  ComingSoonBankItem,
-  PopularBanksSelect,
-  SVGWrapper,
-  UnmzCard,
-} from "@unmaze/views/src/components";
-import { useState } from "react";
 
 type ListItemType = {
   id: number;
@@ -88,23 +73,11 @@ export const _ComingSoonScreen: React.FC<ComingSoonScreenProps> = ({
         showsVerticalScrollIndicator={false}
       >
         <View gap={2}>
-          <Text
-            fontSize={16}
-            fontWeight={"600"}
-            lineHeight={20}
-            letterSpacing={0.32}
-          >
-            Coming Soon
-          </Text>
-          <Text
-            fontSize={12}
-            fontWeight={"400"}
-            lineHeight={16}
-            letterSpacing={0.24}
-          >
+          <HeadingText size="lg">Coming Soon</HeadingText>
+          <BodyText size="sm" color="#525252">
             Set up an alert to get notified when your bank starts upporting
             Unmaze
-          </Text>
+          </BodyText>
         </View>
 
         <View gap={6} marginTop={24}>

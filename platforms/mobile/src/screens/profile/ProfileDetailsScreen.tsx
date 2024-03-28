@@ -4,13 +4,14 @@ import {
   BottomModal,
   UnmzGradientButton,
   View,
-  Text,
   XStack,
   useUserStore,
   UserState,
   computeUserFullName,
   computeDoBString,
   SVGWrapper,
+  BodyText,
+  HeadingText,
 } from "@unmaze/views";
 import {
   ProfileDetailsScreenProps,
@@ -86,9 +87,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
             bg="#fff"
             paddingBottom={22}
           >
-            <Text color="#009D9A" fontWeight={"600"}>
-              Add secondary number
-            </Text>
+            <HeadingText color="#009D9A">Add secondary number</HeadingText>
             <View mt={3}>
               <SVGWrapper iconSVG={ChevronRight} svgColor="#009D9A" size="sm" />
             </View>
@@ -107,23 +106,18 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
         }}
       >
         <View flex={1} gap={4}>
-          <Text
-            fontSize={16}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color={"#262626"}
-          >
+          <HeadingText>
             Update{" "}
             {editType === "email"
               ? `${editType} address`
               : `${editType} number`}
             ?
-          </Text>
-          <Text fontSize={12} letterSpacing={0.24}>
+          </HeadingText>
+          <BodyText size="sm">
             To edit your {editType === "email" ? "email" : "number"}, verify
             your account by entering the OTP sent to{" "}
             {editType === "email" ? profile.primaryPhone : profile.email}
-          </Text>
+          </BodyText>
         </View>
         <UnmzGradientButton
           onPress={() => {

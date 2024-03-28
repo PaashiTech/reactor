@@ -3,6 +3,7 @@ import { SvgProps } from "@unmaze/assets";
 import DropShadow from "react-native-drop-shadow";
 import { Text, View } from "tamagui";
 import { Checkbox } from "../../core/inputs/Checkbox";
+import { AccentText } from "../../core/typography/AccentText";
 
 interface PopularBanksSelectProps extends ViewStyle {
   bank: {
@@ -50,15 +51,9 @@ export const PopularBanksSelect: React.FC<PopularBanksSelectProps> = ({
           <Checkbox checked={checked} borderHidden />
         </View>
         <Logo width={32} height={32} />
-        <Text
-          fontSize={12}
-          fontWeight={"500"}
-          letterSpacing={0.24}
-          lineHeight={16}
-          textAlign="center"
-        >
+        <AccentText size="sm" textAlign="center">
           {bank.title}
-        </Text>
+        </AccentText>
       </View>
     </DropShadow>
   );

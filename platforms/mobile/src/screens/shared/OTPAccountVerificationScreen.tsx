@@ -8,6 +8,9 @@ import {
   UnmzToast,
   OTPInput,
   useUserStore,
+  HeadingText,
+  BodyText,
+  AccentText,
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import { FC, useEffect, useState } from "react";
@@ -88,17 +91,13 @@ const _OTPAccountVerificationScreen: FC<OTPAccountVerificationScreenProps> = ({
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text fontWeight={"$6"} fontSize={16} color={"#262626"}>
-            Account verfication code
-          </Text>
+          <HeadingText size="lg">Account verfication code</HeadingText>
           <View>
-            <Text fontSize={14} color={"#6F6F6F"}>
+            <BodyText color="#6F6F6F">
               Enter the OTP sent to your{" "}
               {OTPSentTo.type === OTPSentToType.EMAIL ? "email" : "number"}
-            </Text>
-            <Text fontSize={14} fontWeight={"500"}>
-              {OTPSentTo.value}
-            </Text>
+            </BodyText>
+            <AccentText>{OTPSentTo.value}</AccentText>
           </View>
         </View>
         <View gap={20}>
@@ -124,7 +123,7 @@ const _OTPAccountVerificationScreen: FC<OTPAccountVerificationScreenProps> = ({
           )}
           {!validateOTPSuccessfull ? (
             <XStack gap={4}>
-              <Text color={"#6F6F6F"}>Didn't receive the OTP?</Text>
+              <BodyText color="#6F6F6F">Didn't receive the OTP?</BodyText>
               <OTPCountdownTimer
                 timerSeconds={60}
                 onResendPress={() => {

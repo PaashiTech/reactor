@@ -6,13 +6,14 @@ import {
 import {
   UnmzGradientButton,
   View,
-  Text,
   ScrollView,
   XStack,
   Accordion,
   LinkedAccountsAccordionTrigger,
   LinkedAccountsAccordionContentItem,
   getAllAccountsAmount,
+  HeadingText,
+  BodyText,
 } from "@unmaze/views";
 import { Plus } from "@unmaze/assets";
 import { UnmzNavScreen } from "../types";
@@ -36,28 +37,14 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         <View marginTop={24} paddingHorizontal={20} gap={2}>
           <XStack justifyContent="space-between">
-            <Text
-              fontSize={16}
-              fontWeight={"600"}
-              letterSpacing={0.32}
-              color="#262626"
-              lineHeight={20}
-            >
-              All Accounts
-            </Text>
-            <Text
-              fontSize={16}
-              fontWeight={"600"}
-              letterSpacing={0.32}
-              color="#262626"
-              lineHeight={20}
-            >
+            <HeadingText size="lg">All Accounts</HeadingText>
+            <HeadingText size="lg">
               {getAllAccountsAmount(linkedAccountsData)}
-            </Text>
+            </HeadingText>
           </XStack>
-          <Text fontSize={12} letterSpacing={0.24} color="#6F6F6F">
+          <BodyText size="sm" color="#6F6F6F">
             via RBI's Account Aggregator
-          </Text>
+          </BodyText>
         </View>
         <View padding={20}>
           <Accordion width="100%" type="multiple" gap={16}>

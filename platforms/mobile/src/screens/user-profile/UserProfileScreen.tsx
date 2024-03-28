@@ -7,6 +7,8 @@ import {
   SVGWrapper,
   useUserStore,
   computeUserFullName,
+  BodyText,
+  AccentText,
 } from "@unmaze/views";
 import { Pressable } from "react-native";
 import {
@@ -47,14 +49,14 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                 color="#fff"
                 letterSpacing={0.48}
               >
-                PS
+                {name.first[0].toUpperCase() + name.last[0].toUpperCase()}
               </Text>
             </Avatar.Fallback>
           </Avatar>
           <View>
-            <Text>{computeUserFullName(name)}</Text>
-            <Text>{pan}</Text>
-            <Text>{"+91-" + primaryPh}</Text>
+            <BodyText>{computeUserFullName(name)}</BodyText>
+            <BodyText>{pan}</BodyText>
+            <BodyText>{"+91-" + primaryPh}</BodyText>
           </View>
         </View>
         <View paddingHorizontal={20} paddingVertical={24}>
@@ -100,12 +102,12 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
             </XStack>
           </View>
           <XStack justifyContent="space-between">
-            <Text fontSize={12} color="#161616" fontWeight="500">
+            <AccentText size="sm" color="#161616">
               {`T&C  •  Privay Policy`}
-            </Text>
-            <Text fontSize={12} color="#161616" fontWeight="500">
+            </AccentText>
+            <AccentText size="sm" color="#161616">
               version 1.1.2
-            </Text>
+            </AccentText>
           </XStack>
         </View>
       </View>

@@ -1,4 +1,10 @@
-import { Text, View, UnmzGradientButton, FormTextInput } from "@unmaze/views";
+import {
+  View,
+  UnmzGradientButton,
+  FormTextInput,
+  BodyText,
+  HeadingText,
+} from "@unmaze/views";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { EditEmailScreenProps, EDIT_EMAIL_SCREEN_ID } from "./types";
@@ -55,23 +61,10 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text
-            fontSize={"$4"}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color={"#262626"}
-          >
-            Edit your email address
-          </Text>
-          <Text
-            fontWeight={"$4"}
-            fontSize={14}
-            lineHeight={18}
-            letterSpacing={0.28}
-            color={"#6F6F6F"}
-          >
+          <HeadingText>Edit your email address</HeadingText>
+          <BodyText color={"#6F6F6F"}>
             Enter your email address. We'll send you a confirmation code there
-          </Text>
+          </BodyText>
         </View>
         <FormTextInput
           label="Email Address"

@@ -16,7 +16,13 @@ import {
   SvgProps,
 } from "@unmaze/assets";
 
-import { BankSelect, PopularBanksSelect } from "@unmaze/views/src/components";
+import {
+  AccentText,
+  BankSelect,
+  BodyText,
+  HeadingText,
+  PopularBanksSelect,
+} from "@unmaze/views/src/components";
 import { useState } from "react";
 
 type ListItemType = {
@@ -115,22 +121,8 @@ export const _AddAccountsScreen: React.FC<AddAccountsScreenProps> = ({
         showsVerticalScrollIndicator={false}
       >
         <View gap={2}>
-          <Text
-            fontSize={16}
-            fontWeight={"600"}
-            lineHeight={20}
-            letterSpacing={0.32}
-          >
-            Popular Banks
-          </Text>
-          <Text
-            fontSize={12}
-            fontWeight={"400"}
-            lineHeight={16}
-            letterSpacing={0.24}
-          >
-            You can select multiple banks
-          </Text>
+          <HeadingText>Popular Banks</HeadingText>
+          <BodyText color="#525252">You can select multiple banks</BodyText>
         </View>
 
         <View marginTop={16} flexDirection="row" gap={12} flexWrap="wrap">
@@ -147,14 +139,7 @@ export const _AddAccountsScreen: React.FC<AddAccountsScreenProps> = ({
         </View>
 
         <View marginTop={32}>
-          <Text
-            fontSize={14}
-            fontWeight={"500"}
-            lineHeight={18}
-            letterSpacing={0.28}
-          >
-            Other Banks
-          </Text>
+          <AccentText>Other Banks</AccentText>
         </View>
 
         <View gap={8} marginTop={16}>
@@ -171,13 +156,7 @@ export const _AddAccountsScreen: React.FC<AddAccountsScreenProps> = ({
         </View>
 
         <View marginTop={32} marginBottom={40}>
-          <Text
-            textAlign="center"
-            fontSize={12}
-            fontWeight={"400"}
-            letterSpacing={0.24}
-            color={"#6F6F6F"}
-          >
+          <BodyText size="sm" textAlign="center" color="#6F6F6F">
             Couldn't find your bank?{" "}
             <Text
               fontWeight={"700"}
@@ -187,29 +166,25 @@ export const _AddAccountsScreen: React.FC<AddAccountsScreenProps> = ({
               Tell us{" "}
             </Text>
             your bank, we will notify you when we start supporting it.
-          </Text>
+          </BodyText>
         </View>
       </ScrollView>
       <SaafeFooter>
         <View gap={12}>
-          <Text
-            textAlign="center"
-            fontSize={12}
-            fontWeight={"400"}
-            lineHeight={16}
-            letterSpacing={0.24}
-          >
-            By continuing you agree Unmaze's & Saafe's{" "}
+          <BodyText size="sm" color="#6F6F6F">
+            By continuing, you agree to Unmaze's & Saafe's{" "}
             <Text
               textDecorationLine="underline"
               textDecorationColor={"#035E5D"}
               textDecorationDistance={6}
               color={"#035E5D"}
+              onPress={() => {
+                alert("Show T&C here");
+              }}
             >
               T&C
             </Text>
-          </Text>
-
+          </BodyText>
           <UnmzGradientButton>Confirm</UnmzGradientButton>
         </View>
       </SaafeFooter>

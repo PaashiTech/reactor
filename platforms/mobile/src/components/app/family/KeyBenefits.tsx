@@ -1,4 +1,4 @@
-import { Text, View } from "@unmaze/views";
+import { BodyText, HeadingText, View } from "@unmaze/views";
 
 export const KeyBenefits: React.FC = () => {
   return (
@@ -10,25 +10,27 @@ export const KeyBenefits: React.FC = () => {
       borderColor={"#9EF0F0"}
       borderWidth={1}
     >
-      <Text fontSize={16} fontWeight={"700"} letterSpacing={0.32}>
+      <HeadingText size="sm" fontWeight="700" color="#262626">
         Key benefits
-      </Text>
+      </HeadingText>
       <View paddingHorizontal={2}>
         <View flexDirection="row" gap={8}>
-          <Text fontSize={12}>{`\u25CF`}</Text>
+          <BodyText size="sm" color="#262626">{`\u25CF`}</BodyText>
           <View flex={1}>
-            <Text fontSize={12} letterSpacing={0.24}>
+            <BodyText size="sm" color="#262626">
               Manage all of your family member's accounts in one place
-            </Text>
+            </BodyText>
           </View>
         </View>
         <View flexDirection="row" gap={8} flexShrink={1}>
-          <Text fontSize={12}>{`\u25CF`}</Text>
+          <BodyText size="sm" color="#262626">
+            {`\u25CF`}
+          </BodyText>
           <View flex={1}>
-            <Text fontSize={12} letterSpacing={0.24}>
+            <BodyText size="sm" color="#262626">
               View your families' net worth to decide next steps in wealth
               creation and planning
-            </Text>
+            </BodyText>
           </View>
         </View>
       </View>
