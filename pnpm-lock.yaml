@@ -387,9 +387,6 @@ importers:
       react-native:
         specifier: 0.72.10
         version: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
-      react-native-chart-kit:
-        specifier: ^6.12.0
-        version: 6.12.0(react-native-svg@13.9.0)(react-native@0.72.10)(react@18.2.0)
       react-native-drop-shadow:
         specifier: ^1.0.0
         version: 1.0.0(react-native@0.72.10)(react@18.2.0)
@@ -2559,7 +2556,7 @@ packages:
     dependencies:
       '@babel/core': 7.23.9
       '@babel/helper-create-class-features-plugin': 7.23.7(@babel/core@7.23.9)
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
 
   /@babel/plugin-transform-private-property-in-object@7.23.4(@babel/core@7.23.6):
     resolution: {integrity: sha512-9G3K1YqTq3F4Vt88Djx1UZ79PDyj+yKRnUy7cZGSMe+a7jkwD259uKKuUzQlPkGam7R+8RJwh5z4xO27fA1o2A==}
@@ -10626,7 +10623,7 @@ packages:
       esbuild: 0.19.11
       get-tsconfig: 4.7.2
       loader-utils: 2.0.4
-      webpack: 5.89.0(esbuild@0.19.11)(webpack-cli@4.10.0)
+      webpack: 5.89.0(esbuild@0.19.11)
       webpack-sources: 1.4.3
     dev: true
 
@@ -15298,11 +15295,6 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /paths-js@0.4.11:
-    resolution: {integrity: sha512-3mqcLomDBXOo7Fo+UlaenG6f71bk1ZezPQy2JCmYHy2W2k5VKpP+Jbin9H0bjXynelTbglCqdFhSEkeIkKTYUA==}
-    engines: {node: '>=0.11.0'}
-    dev: false
-
   /performant-array-to-tree@1.11.0:
     resolution: {integrity: sha512-YwCqIDvnaebXaKuKQhI5yJD6ryDc3FxvoeX/5ougXTKDUWb7s5S2BuBgIyftCa4sBe1+ZU5Kmi4RJy+pjjjrpw==}
     dev: false
@@ -15368,10 +15360,6 @@ packages:
   /pngjs@3.4.0:
     resolution: {integrity: sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==}
     engines: {node: '>=4.0.0'}
-    dev: false
-
-  /point-in-polygon@1.1.0:
-    resolution: {integrity: sha512-3ojrFwjnnw8Q9242TzgXuTD+eKiutbzyslcq1ydfu82Db2y+Ogbmyrkpv0Hgj31qwT3lbS9+QAAO/pIQM35XRw==}
     dev: false
 
   /postcss-calc@8.2.4(postcss@8.4.32):
@@ -16121,21 +16109,6 @@ packages:
       '@babel/runtime': 7.23.6
       react-loadable: /@docusaurus/react-loadable@5.5.2(react@18.2.0)
       webpack: 5.89.0
-    dev: false
-
-  /react-native-chart-kit@6.12.0(react-native-svg@13.9.0)(react-native@0.72.10)(react@18.2.0):
-    resolution: {integrity: sha512-nZLGyCFzZ7zmX0KjYeeSV1HKuPhl1wOMlTAqa0JhlyW62qV/1ZPXHgT8o9s8mkFaGxdqbspOeuaa6I9jUQDgnA==}
-    peerDependencies:
-      react: 18.2.0
-      react-native: 0.72.10
-      react-native-svg: '> 6.4.1'
-    dependencies:
-      lodash: 4.17.21
-      paths-js: 0.4.11
-      point-in-polygon: 1.1.0
-      react: 18.2.0
-      react-native: 0.72.10(@babel/core@7.23.9)(@babel/preset-env@7.24.0)(react@18.2.0)
-      react-native-svg: 13.9.0(react-native@0.72.10)(react@18.2.0)
     dev: false
 
   /react-native-drop-shadow@1.0.0(react-native@0.72.10)(react@18.2.0):
@@ -18026,7 +17999,7 @@ packages:
       schema-utils: 3.3.0
       serialize-javascript: 6.0.1
       terser: 5.26.0
-      webpack: 5.89.0(esbuild@0.19.11)(webpack-cli@4.10.0)
+      webpack: 5.89.0(esbuild@0.19.11)
 
   /terser-webpack-plugin@5.3.9(webpack@5.89.0):
     resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
@@ -19038,6 +19011,45 @@ packages:
       schema-utils: 3.3.0
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.9(webpack@5.89.0)
+      watchpack: 2.4.0
+      webpack-sources: 3.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+
+  /webpack@5.89.0(esbuild@0.19.11):
+    resolution: {integrity: sha512-qyfIC10pOr70V+jkmud8tMfajraGCZMBWJtrmuBymQKCrLTRejBI8STDp1MCyZu/QTdZSeacCQYpYNQVOzX5kw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    peerDependencies:
+      webpack-cli: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
+    dependencies:
+      '@types/eslint-scope': 3.7.7
+      '@types/estree': 1.0.5
+      '@webassemblyjs/ast': 1.11.6
+      '@webassemblyjs/wasm-edit': 1.11.6
+      '@webassemblyjs/wasm-parser': 1.11.6
+      acorn: 8.11.2
+      acorn-import-assertions: 1.9.0(acorn@8.11.2)
+      browserslist: 4.22.2
+      chrome-trace-event: 1.0.3
+      enhanced-resolve: 5.15.0
+      es-module-lexer: 1.4.1
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+      json-parse-even-better-errors: 2.3.1
+      loader-runner: 4.3.0
+      mime-types: 2.1.35
+      neo-async: 2.6.2
+      schema-utils: 3.3.0
+      tapable: 2.2.1
+      terser-webpack-plugin: 5.3.9(esbuild@0.19.11)(webpack@5.89.0)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
