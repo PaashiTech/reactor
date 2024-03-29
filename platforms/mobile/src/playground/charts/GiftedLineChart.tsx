@@ -1,7 +1,7 @@
 import { LineChart, yAxisSides } from "react-native-gifted-charts";
 import { View, Text, YStack, XStack, Circle } from "@unmaze/views";
 import { Dimensions } from "react-native";
-import { TabOptions } from "../../components/app/dashboard/NetworthTabs";
+import { TabOptions } from "../../components/app/dashboard/networth/NetworthTabs";
 
 const customLabel = (val: string) => {
   return (

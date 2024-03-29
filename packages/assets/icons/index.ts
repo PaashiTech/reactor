@@ -37,6 +37,7 @@ import MoreVert from "./svg/more-vert.svg";
 import Check2 from "./svg/check-2.svg";
 import EyeVisible from "./svg/eye-visible.svg";
 import EyeHidden from "./svg/eye-hidden.svg";
+import Filter from "./svg/filter.svg";
 
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
@@ -94,6 +95,7 @@ export {
   Check2,
   EyeVisible,
   EyeHidden,
+  Filter,
 };
 
 export { SvgProps } from "react-native-svg";

@@ -12,9 +12,9 @@ import { Pressable } from "react-native";
 import {
   NetworthTabs,
   TabOptions,
-} from "../../components/app/dashboard/NetworthTabs";
-import { NetworthHeader } from "../../components/app/dashboard/NetworthHeader";
-import { NetworthLineChart } from "../../components/app/dashboard/NetworthLineChart";
+} from "../../components/app/dashboard/networth/NetworthTabs";
+import { NetworthHeader } from "../../components/app/dashboard/networth/NetworthHeader";
+import { NetworthLineChart } from "../../components/app/dashboard/networth/NetworthLineChart";
 
 export const Networth = () => {
   const [selectedTab, setSelectedTab] = useState<TabOptions>("Net");
