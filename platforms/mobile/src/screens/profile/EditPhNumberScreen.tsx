@@ -1,27 +1,34 @@
 import {
-  Text,
   View,
   MobileNumberInput,
   UnmzGradientButton,
+  HeadingText,
+  BodyText,
 } from "@unmaze/views";
 import { FC } from "react";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { EditPhNumberScreenProps, EDIT_PH_NUMBER_SCREEN_ID } from "./types";
 import {
-  OTP_VERIFICATION_SCREEN_ID,
-  VERIFICATION_SUCCESS_SCREEN_ID,
+  OTP_ACCOUNT_UPDATE_SCREEN_ID,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared";
 import { useForm } from "react-hook-form";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { phoneType, setVerifiedMessage, setOTPSentTo, setVerifyTargetType } =
-    useVerificationContext();
+  const { dispatch } = useStackContext();
+
+  const {
+    state: {
+      profile: { phoneType },
+    },
+  } = useStackContext();
 
   const {
     control,
@@ -30,17 +37,24 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
   } = useForm();
 
   const handleConfirm = (data) => {
-    setVerifiedMessage(
-      `You have successfully updated your ${phoneType} mobile number`
-    );
-    setOTPSentTo({
-      type: `${phoneType} number`,
-      value: data.mobileNumber,
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully updated your ${phoneType} mobile number`,
     });
-    navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
-      confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
+
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: {
+        type:
+          phoneType === "primary"
+            ? OTPSentToType.PRIMARY_NUMBER
+            : OTPSentToType.SECONDARY_NUMBER,
+        value: data.mobileNumber,
+      },
     });
-    setVerifyTargetType("new");
+    navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
+      confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+    });
   };
 
   return (
@@ -54,23 +68,10 @@ const _EditPhNumberScreen: FC<EditPhNumberScreenProps> = ({
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text
-            fontSize={"$4"}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color={"#262626"}
-          >
-            Edit your mobile number
-          </Text>
-          <Text
-            fontWeight={"$4"}
-            fontSize={14}
-            lineHeight={18}
-            letterSpacing={0.28}
-            color={"#6F6F6F"}
-          >
+          <HeadingText>Edit your mobile number</HeadingText>
+          <BodyText color="#6F6F6F">
             Enter your mobile number. We'll send you a confirmation code there
-          </Text>
+          </BodyText>
         </View>
         <MobileNumberInput control={control} name="mobileNumber" />
       </View>

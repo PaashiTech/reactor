@@ -4,6 +4,8 @@ import { axiosInstance } from "./axiosProvider";
 type UseFetchProps = {
   url: string;
   method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+  onSuccess?: () => void;
+  onError?: () => void;
 };
 
 type CommonFetch = {
@@ -14,6 +16,9 @@ type CommonFetch = {
   /** this allows you to override any default fetch options on a 
   case by case basis. think of it like an escape hatch. */
   fetchOptions?: RequestInit;
+
+  onSuccess?: () => void;
+  onError?: () => void;
 };
 
 // <T> turns this into a generic component. We will take advantage of this
@@ -26,7 +31,12 @@ export function useFetch<TState>({ url, method }: UseFetchProps) {
   const [status, setStatus] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const commonFetch = async ({ params, body }: CommonFetch) => {
+  const commonFetch = async ({
+    params,
+    body,
+    onSuccess,
+    onError,
+  }: CommonFetch) => {
     setIsLoading(true);
 
     try {
@@ -36,6 +46,10 @@ export function useFetch<TState>({ url, method }: UseFetchProps) {
         params: params,
         data: body,
       });
+
+      if (onSuccess) {
+        onSuccess();
+      }
 
       setStatus(status);
       setData(data);
@@ -57,6 +71,9 @@ export function useFetch<TState>({ url, method }: UseFetchProps) {
       } else {
         // Something happened in setting up the request that triggered an Error
         console.log("Error", error.response.data);
+      }
+      if (onError) {
+        onError();
       }
     }
 

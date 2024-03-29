@@ -4,10 +4,14 @@ import {
   BottomModal,
   UnmzGradientButton,
   View,
-  Text,
   XStack,
   useUserStore,
   UserState,
+  computeUserFullName,
+  computeDoBString,
+  SVGWrapper,
+  BodyText,
+  HeadingText,
 } from "@unmaze/views";
 import {
   ProfileDetailsScreenProps,
@@ -16,53 +20,14 @@ import {
   EDIT_EMAIL_SCREEN_ID,
   ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
 } from "./types";
-import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
+import { OTP_ACCOUNT_VERIFICATION_SCREEN_ID } from "../shared";
 
 import { useState } from "react";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
 import { ChevronRight } from "@unmaze/assets";
 import { Pressable } from "react-native";
-
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-const constructFullName = (nameObj: {
-  first: string;
-  middle: string;
-  last: string;
-}) => {
-  return (
-    nameObj.first +
-    " " +
-    (nameObj.middle ? nameObj.middle + " " : "") +
-    nameObj.last
-  );
-};
-
-const constructDoBString = (dobISOString: string) => {
-  let dobObject = new Date(dobISOString);
-
-  return (
-    dobObject.getDate().toString() +
-    "-" +
-    months[dobObject.getMonth()] +
-    "-" +
-    dobObject.getFullYear().toString()
-  );
-};
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   navigation,
@@ -74,12 +39,11 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
   const [editType, setEditType] = useState<"email" | "primary" | "secondary">(
     "email"
   );
-  const { setOTPSentTo, setPhoneType, setVerifyTargetType } =
-    useVerificationContext();
+  const { dispatch } = useStackContext();
 
   const profile: ProfileDetailsProps = {
-    name: constructFullName(user.name),
-    dob: constructDoBString(user.dob),
+    name: computeUserFullName(user.name),
+    dob: computeDoBString(user.dob),
     pan: user.pan,
     primaryPhone: "+91 - " + user.phone.primary,
     secondaryPhone: user.phone.secondary
@@ -111,7 +75,7 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
       {!profile.secondaryPhone && (
         <Pressable
           onPress={() => {
-            setPhoneType("secondary");
+            dispatch({ type: "SET_PHONE_TYPE", payload: "secondary" });
             navigation.navigate(ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID);
           }}
         >
@@ -123,11 +87,9 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
             bg="#fff"
             paddingBottom={22}
           >
-            <Text color="#009D9A" fontWeight={"600"}>
-              Add secondary number
-            </Text>
+            <HeadingText color="#009D9A">Add secondary number</HeadingText>
             <View mt={3}>
-              <ChevronRight width={16} height={16} />
+              <SVGWrapper iconSVG={ChevronRight} svgColor="#009D9A" size="sm" />
             </View>
           </XStack>
         </Pressable>
@@ -144,42 +106,46 @@ const _ProfileDetailsScreen: React.FC<ProfileDetailsScreenProps> = ({
         }}
       >
         <View flex={1} gap={4}>
-          <Text
-            fontSize={16}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color={"#262626"}
-          >
+          <HeadingText>
             Update{" "}
             {editType === "email"
               ? `${editType} address`
               : `${editType} number`}
             ?
-          </Text>
-          <Text fontSize={12} letterSpacing={0.24}>
+          </HeadingText>
+          <BodyText size="sm">
             To edit your {editType === "email" ? "email" : "number"}, verify
             your account by entering the OTP sent to{" "}
             {editType === "email" ? profile.primaryPhone : profile.email}
-          </Text>
+          </BodyText>
         </View>
         <UnmzGradientButton
           onPress={() => {
             setWarningModal(false);
-            setVerifyTargetType("existing");
+
             editType === "email"
               ? (() => {
-                  setOTPSentTo({
-                    type: "primary number",
-                    value: profile.primaryPhone,
+                  dispatch({
+                    type: "SET_OTP_SENT_TO",
+                    payload: {
+                      type: OTPSentToType.PRIMARY_NUMBER,
+                      value: profile.primaryPhone,
+                    },
                   });
-                  navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
+                  navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
                     confirmScreenId: EDIT_EMAIL_SCREEN_ID,
                   });
                 })()
               : (() => {
-                  setOTPSentTo({ type: "email", value: profile.email });
-                  setPhoneType(editType);
-                  navigation.navigate(OTP_VERIFICATION_SCREEN_ID, {
+                  dispatch({
+                    type: "SET_OTP_SENT_TO",
+                    payload: {
+                      type: OTPSentToType.EMAIL,
+                      value: profile.email,
+                    },
+                  });
+                  dispatch({ type: "SET_PHONE_TYPE", payload: editType });
+                  navigation.navigate(OTP_ACCOUNT_VERIFICATION_SCREEN_ID, {
                     confirmScreenId: EDIT_PH_NUMBER_SCREEN_ID,
                   });
                 })();

@@ -1,22 +1,28 @@
-import { Text, View, UnmzGradientButton, FormTextInput } from "@unmaze/views";
+import {
+  View,
+  UnmzGradientButton,
+  FormTextInput,
+  BodyText,
+  HeadingText,
+} from "@unmaze/views";
 
 import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
 import { EditEmailScreenProps, EDIT_EMAIL_SCREEN_ID } from "./types";
 import {
-  OTP_VERIFICATION_SCREEN_ID,
-  VERIFICATION_SUCCESS_SCREEN_ID,
+  OTP_ACCOUNT_UPDATE_SCREEN_ID,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared";
 
 import { useForm } from "react-hook-form";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   navigation,
   route,
 }) => {
-  const { setOTPSentTo, setVerifiedMessage, setVerifyTargetType } =
-    useVerificationContext();
+  const { dispatch } = useStackContext();
   const {
     control,
     handleSubmit,
@@ -28,15 +34,20 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
   const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const handleEmailSubmit = (data) => {
-    setVerifiedMessage(`You have successfully updated your email address`);
-    setOTPSentTo({
-      type: "email",
-      value: data.email,
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully updated your email address`,
     });
-    navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
-      confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: {
+        type: OTPSentToType.EMAIL,
+        value: data.mobileNumber,
+      },
     });
-    setVerifyTargetType("new");
+    navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
+      confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+    });
   };
 
   return (
@@ -50,23 +61,10 @@ const _EditEmailScreen: React.FC<EditEmailScreenProps> = ({
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text
-            fontSize={"$4"}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color={"#262626"}
-          >
-            Edit your email address
-          </Text>
-          <Text
-            fontWeight={"$4"}
-            fontSize={14}
-            lineHeight={18}
-            letterSpacing={0.28}
-            color={"#6F6F6F"}
-          >
+          <HeadingText>Edit your email address</HeadingText>
+          <BodyText color={"#6F6F6F"}>
             Enter your email address. We'll send you a confirmation code there
-          </Text>
+          </BodyText>
         </View>
         <FormTextInput
           label="Email Address"

@@ -5,6 +5,7 @@ import {
   getFormattedAmount,
   getFormattedLinkedDateAndTime,
 } from "../../../helpers/linkedAccountHelpers";
+import { SVGWrapper } from "../../shared/SVGWrapper";
 import { UnmzListItemCard } from "../../core/cards/UnmzListItemCard";
 import { Checkbox } from "../../core/inputs/Checkbox";
 import { RadioItem } from "../../core/inputs/RadioItem";
@@ -15,6 +16,7 @@ import {
   CheckboxType,
   RadioType,
 } from "./LinkedAccountsAccordionContentItem.types";
+import { AccentText } from "../../core/typography/AccentText";
 
 type LinkedAccountsAccordionContentItemProps = AccountType &
   (InfoType | LinkType | CheckboxType | RadioType);
@@ -75,12 +77,10 @@ export const LinkedAccountsAccordionContentItem: React.FC<
       <XStack alignItems="center" gap={12}>
         <PlaceholderIcon />
         <YStack flex={1} gap={2}>
-          <Text fontWeight={"500"} color="#262626">
-            {account.type}
-          </Text>
-          <Text fontSize={12} fontWeight={"500"} color="#6F6F6F">
+          <AccentText color="#262626">{account.type}</AccentText>
+          <AccentText size="sm" color="#6F6F6F">
             {getFormattedAccountNumber(account.accountNumber)}
-          </Text>
+          </AccentText>
         </YStack>
         <RightComponent />
       </XStack>
@@ -91,18 +91,12 @@ export const LinkedAccountsAccordionContentItem: React.FC<
 const AcountInfo: React.FC<{ account: any }> = ({ account }) => {
   return (
     <YStack gap={2}>
-      <Text
-        fontSize={12}
-        fontWeight="500"
-        alignSelf="flex-end"
-        letterSpacing={0.24}
-        color="#262626"
-      >
+      <AccentText size="sm" alignSelf="flex-end" color="#262626">
         {getFormattedAmount(account.amount)}
-      </Text>
-      <Text fontSize={12} letterSpacing={0.24} color="#6F6F6F">
+      </AccentText>
+      <AccentText size="sm" color="#6F6F6F">
         {getFormattedLinkedDateAndTime(account.linkedDateAndTime)}
-      </Text>
+      </AccentText>
     </YStack>
   );
 };
@@ -114,7 +108,7 @@ const LinkNow: React.FC = () => {
         Link Now
       </Text>
       <View marginTop={2}>
-        <ChevronRight width={16} height={16} />
+        <SVGWrapper iconSVG={ChevronRight} size="sm" svgColor="#08BDBA" />
       </View>
     </XStack>
   );

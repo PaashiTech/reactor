@@ -1,10 +1,12 @@
-import { Progress, Square, Text, View, XStack, YStack } from "tamagui";
+import { Progress, Square, View, XStack, YStack } from "tamagui";
 import { ChevronDown, PlaceholderIcon } from "@unmaze/assets";
 import {
   getLinkedAccountText,
   getProgressPercent,
 } from "../../../helpers/linkedAccountHelpers";
 import DropShadow from "react-native-drop-shadow";
+import { SVGWrapper } from "../../shared/SVGWrapper";
+import { AccentText } from "../../core/typography/AccentText";
 
 type LinkedAccountsAccordionTriggerProps = {
   open: boolean;
@@ -31,15 +33,13 @@ export const LinkedAccountsAccordionTrigger: React.FC<
           <XStack alignItems="center" gap={12}>
             <PlaceholderIcon />
             <YStack flex={1} gap={2}>
-              <Text fontWeight={"500"} color="#262626">
-                {item.name}
-              </Text>
-              <Text fontSize={12} fontWeight={"500"} color="#6F6F6F">
+              <AccentText color="#262626">{item.name}</AccentText>
+              <AccentText size="sm" color="#6F6F6F">
                 {getLinkedAccountText(item.accounts)}
-              </Text>
+              </AccentText>
             </YStack>
             <Square animation="quick" rotate={open ? "180deg" : "0deg"}>
-              <ChevronDown size="$1" />
+              <SVGWrapper iconSVG={ChevronDown} size="lg" />
             </Square>
           </XStack>
         </View>

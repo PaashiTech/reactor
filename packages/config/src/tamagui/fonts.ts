@@ -2,19 +2,23 @@ import { createFont } from "tamagui";
 
 export const fonts = {
   body: createFont({
-    family: `Satoshi`,
+    family: "Satoshi",
     size: {
+      1: 10,
       2: 12,
       3: 14,
       4: 16,
-      5: 18,
-      6: 20,
-      7: 22,
-      8: 26,
-      9: 32,
-      10: 38,
+      5: 20,
+      6: 24,
     },
-    letterSpacing: {},
+    letterSpacing: {
+      1: 10 * 0.02,
+      2: 12 * 0.02,
+      3: 14 * 0.02,
+      4: 16 * 0.02,
+      5: 20 * 0.02,
+      6: 24 * 0.02,
+    },
     weight: {
       3: "300",
       4: "400",
@@ -23,14 +27,12 @@ export const fonts = {
       7: "700",
     },
     lineHeight: {
-      2: 15,
-      3: 17,
+      1: 14,
+      2: 16,
+      3: 18,
       4: 20,
       5: 24,
-      7: 29,
-      8: 33,
-      9: 39,
-      10: 46,
+      6: 28,
     },
     face: {
       "300": { normal: "SatoshiLight" },

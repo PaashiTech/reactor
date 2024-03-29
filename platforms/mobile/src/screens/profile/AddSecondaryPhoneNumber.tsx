@@ -1,8 +1,9 @@
 import {
-  Text,
   View,
   MobileNumberInput,
   UnmzGradientButton,
+  HeadingText,
+  BodyText,
 } from "@unmaze/views";
 import { FC } from "react";
 
@@ -12,18 +13,18 @@ import {
   AddSecondaryPhoneNumberScreenProps,
 } from "./types";
 import {
-  OTP_VERIFICATION_SCREEN_ID,
-  VERIFICATION_SUCCESS_SCREEN_ID,
+  OTP_ACCOUNT_UPDATE_SCREEN_ID,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../shared";
 import { useForm } from "react-hook-form";
-import { useVerificationContext } from "../shared/VerificationContextProvider";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 
 const _AddSecondaryPhoneNumberScreen: FC<
   AddSecondaryPhoneNumberScreenProps
 > = ({ navigation, route }) => {
-  const { phoneType, setVerifiedMessage, setOTPSentTo, setPhoneType } =
-    useVerificationContext();
+  const { dispatch } = useStackContext();
 
   const {
     control,
@@ -32,16 +33,21 @@ const _AddSecondaryPhoneNumberScreen: FC<
   } = useForm();
 
   const handleConfirm = (data) => {
-    // Handle the store action over here with data
-    setVerifiedMessage(
-      `You have successfully added your secondary mobile number`
-    );
-    setOTPSentTo({
-      type: `${phoneType} number`,
-      value: data.mobileNumber,
+    // Handle the action over here with data
+
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully added your secondary mobile number`,
     });
-    navigation.replace(OTP_VERIFICATION_SCREEN_ID, {
-      confirmScreenId: VERIFICATION_SUCCESS_SCREEN_ID,
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: {
+        type: OTPSentToType.SECONDARY_NUMBER,
+        value: data.mobileNumber,
+      },
+    });
+    navigation.replace(OTP_ACCOUNT_UPDATE_SCREEN_ID, {
+      confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
     });
   };
 
@@ -56,23 +62,10 @@ const _AddSecondaryPhoneNumberScreen: FC<
     >
       <View paddingTop={40} gap={40}>
         <View gap={12}>
-          <Text
-            fontSize={"$4"}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color={"#262626"}
-          >
-            Add your secondary number
-          </Text>
-          <Text
-            fontWeight={"$4"}
-            fontSize={14}
-            lineHeight={18}
-            letterSpacing={0.28}
-            color={"#6F6F6F"}
-          >
+          <HeadingText size="lg">Add your secondary number</HeadingText>
+          <BodyText color="#6F6F6F">
             Enter your mobile number. We'll send you a confirmation code there
-          </Text>
+          </BodyText>
         </View>
         <MobileNumberInput control={control} name="mobileNumber" />
       </View>

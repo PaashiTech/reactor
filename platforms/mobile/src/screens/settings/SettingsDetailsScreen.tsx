@@ -4,10 +4,15 @@ import {
   SETTINGS_DETAILS_SCREEN_ID,
   SettingsDetailsScreenProps,
 } from "./types";
-import { ListItem, Text, View, CustomSwitch } from "@unmaze/views";
+import {
+  ListItem,
+  View,
+  CustomSwitch,
+  SVGWrapper,
+  HeadingText,
+} from "@unmaze/views";
 import { appPreferences, privacyAndSecurity } from "./settingOptions";
 import { ChevronRight } from "@unmaze/assets";
-import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
 
 const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
   navigation,
@@ -17,15 +22,7 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
     <View flex={1}>
       <View mt={24} gap={20}>
         <View gap={12}>
-          <Text
-            paddingHorizontal={20}
-            fontSize={12}
-            fontWeight={"600"}
-            letterSpacing={0.24}
-            color="#161616"
-          >
-            App preferences
-          </Text>
+          <HeadingText size="sm">App preferences</HeadingText>
           <View>
             {appPreferences.map((option) => {
               return (
@@ -41,7 +38,11 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
                     }
                   }}
                 >
-                  <ListItem icon={option.icon} iconAfter={ChevronRight} p={20}>
+                  <ListItem
+                    icon={option.icon}
+                    iconAfter={<SVGWrapper iconSVG={ChevronRight} size="lg" />}
+                    p={20}
+                  >
                     {option.title}
                   </ListItem>
                 </Pressable>
@@ -50,15 +51,8 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
           </View>
         </View>
         <View gap={12}>
-          <Text
-            paddingHorizontal={20}
-            fontSize={12}
-            fontWeight={"600"}
-            letterSpacing={0.24}
-            color="#161616"
-          >
-            Privacy & Security
-          </Text>
+          <HeadingText size="sm">Privacy & Security</HeadingText>
+
           <View>
             {privacyAndSecurity.map((option) => {
               return (
@@ -80,7 +74,7 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
                       option.showRightChevron === "switch" ? (
                         <CustomSwitch />
                       ) : option.showRightChevron ? (
-                        ChevronRight
+                        <SVGWrapper iconSVG={ChevronRight} size="lg" />
                       ) : null
                     }
                     p={20}

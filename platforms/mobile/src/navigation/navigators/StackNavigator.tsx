@@ -12,19 +12,28 @@ import {
   ProfileDetailsScreen,
 } from "../../screens/profile";
 import {
-  OTPVerificationScreen,
-  VerificationSuccessScreen,
+  OTPAccountUpdateScreen,
+  AccountUpdateSuccessScreen,
+  OTPAccountVerificationScreen,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
 } from "../../screens/shared";
 import {
   AddFamilyMemberScreen,
   FamilyDetailsScreen,
 } from "../../screens/family";
-import { VerificationContextProvider } from "../../screens/shared/VerificationContextProvider";
 import { SettingsDetailsScreen } from "../../screens/settings/SettingsDetailsScreen";
 import { AppThemeScreen } from "../../screens/settings/AppThemeScreen";
 import { AddSecondaryPhoneNumberScreen } from "../../screens/profile/AddSecondaryPhoneNumber";
 import { LinkedAccountsScreen } from "../../screens/linked-accounts/LinkedAccountsScreen";
 import { GiveConsentScreen } from "../../screens/linked-accounts/GiveConsentScreen";
+import { StackContextProvider } from "./stackContext/StackContextProvider";
+import { OTPFamilyMemberScreen } from "../../screens/family/OTPFamilyMemberScreen";
+import {
+  ADD_ACCOUNTS_SCREEN_ID,
+  COMING_SOON_SCREEN_ID,
+} from "../../screens/linked-accounts/types";
+import { AddAccountsScreen } from "../../screens/linked-accounts/AddAccountsScreen";
+import { ComingSoonScreen } from "../../screens/linked-accounts/ComingSoonScreen";
 
 const profileScreens: UnmzNavScreen[] = [
   ProfileDetailsScreen,
@@ -33,17 +42,21 @@ const profileScreens: UnmzNavScreen[] = [
   AddSecondaryPhoneNumberScreen,
 ];
 const sharedScreens: UnmzNavScreen[] = [
-  OTPVerificationScreen,
-  VerificationSuccessScreen,
+  OTPAccountUpdateScreen,
+  OTPAccountVerificationScreen,
+  AccountUpdateSuccessScreen,
 ];
 const familyScreens: UnmzNavScreen[] = [
   FamilyDetailsScreen,
   AddFamilyMemberScreen,
+  OTPFamilyMemberScreen,
 ];
 
 const linkedAccountsScreens: UnmzNavScreen[] = [
   LinkedAccountsScreen,
   GiveConsentScreen,
+  AddAccountsScreen,
+  ComingSoonScreen,
 ];
 
 const settingsScreens: UnmzNavScreen[] = [
@@ -54,7 +67,7 @@ const settingsScreens: UnmzNavScreen[] = [
 export const StackNavigator = () => {
   const stackNav = createNativeStackNavigator<StackRouteProps>();
   return (
-    <VerificationContextProvider>
+    <StackContextProvider>
       <stackNav.Navigator
         initialRouteName={USER_PROFILE_SCREEN_ID}
         screenOptions={screenOptions}
@@ -77,13 +90,6 @@ export const StackNavigator = () => {
                 component={scr.content}
                 options={{
                   title: scr.title,
-                  // headerShown: scr.title !== "Verify Number",
-                  // headerBackground: () =>
-                  //   scr.headerBackground === "linear-gradient" ? (
-                  //     <UnmzLinearGradient style={{ flex: 1 }} />
-                  //   ) : (
-                  //     <View flex={1} bg={"#fff"} />
-                  //   ),
                 }}
               />
             );
@@ -100,21 +106,6 @@ export const StackNavigator = () => {
                 component={scr.content}
                 options={{
                   title: scr.title,
-                  // headerShown: scr.title !== "Verify Number",
-                  // headerBackground: () =>
-                  //   scr.headerBackground === "linear-gradient" ? (
-                  //     <UnmzLinearGradient style={{ flex: 1 }} />
-                  //   ) : (
-                  //     <View
-                  //       flex={1}
-                  //       bg={"#fff"}
-                  //       elevationAndroid={5}
-                  //       shadowColor={"red"}
-                  //       shadowOffset={{ width: 10, height: 10 }}
-                  //       shadowOpacity={10}
-                  //       shadowRadius={10}
-                  //     />
-                  //   ),
                 }}
               />
             );
@@ -163,25 +154,19 @@ export const StackNavigator = () => {
                 component={scr.content}
                 options={{
                   title: scr.title,
-                  headerShown: scr.title !== "Verification Success",
+                  headerShown: scr.key !== ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
                   headerStyle:
                     scr.title === "Verification Success"
                       ? {
                           backgroundColor: "transparent",
                         }
                       : {},
-                  // headerBackground: () =>
-                  //   scr.headerBackground === "linear-gradient" ? (
-                  //     <UnmzLinearGradient style={{ flex: 1 }} />
-                  //   ) : (
-                  //     <View flex={1} bg={"#fff"} />
-                  //   ),
                 }}
               />
             );
           })}
         </stackNav.Group>
       </stackNav.Navigator>
-    </VerificationContextProvider>
+    </StackContextProvider>
   );
 };

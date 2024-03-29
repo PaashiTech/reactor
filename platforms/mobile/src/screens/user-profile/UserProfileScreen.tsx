@@ -1,4 +1,15 @@
-import { Avatar, ListItem, Text, View, XStack } from "@unmaze/views";
+import {
+  Avatar,
+  ListItem,
+  Text,
+  View,
+  XStack,
+  SVGWrapper,
+  useUserStore,
+  computeUserFullName,
+  BodyText,
+  AccentText,
+} from "@unmaze/views";
 import { Pressable } from "react-native";
 import {
   ChevronRight,
@@ -11,12 +22,15 @@ import { userProfileOptions } from "./userProfileOptions";
 import { USER_PROFILE_SCREEN_ID, UserProfileScreenProps } from "./types";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UnmzNavScreen } from "../types";
-import { OTP_VERIFICATION_SCREEN_ID } from "../shared";
 
 const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
   navigation,
   route,
 }) => {
+  const name = useUserStore((state) => state.name);
+  const pan = useUserStore((state) => state.pan);
+  const primaryPh = useUserStore((state) => state.phone.primary);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View flex={1}>
@@ -35,14 +49,14 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                 color="#fff"
                 letterSpacing={0.48}
               >
-                PS
+                {name.first[0].toUpperCase() + name.last[0].toUpperCase()}
               </Text>
             </Avatar.Fallback>
           </Avatar>
           <View>
-            <Text>Piyush Dhananhaya Sathe</Text>
-            <Text>DJFPD8191A</Text>
-            <Text>+91-8327812999</Text>
+            <BodyText>{computeUserFullName(name)}</BodyText>
+            <BodyText>{pan}</BodyText>
+            <BodyText>{"+91-" + primaryPh}</BodyText>
           </View>
         </View>
         <View paddingHorizontal={20} paddingVertical={24}>
@@ -66,7 +80,11 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     }
                   }}
                 >
-                  <ListItem icon={option.icon} iconAfter={ChevronRight} p={20}>
+                  <ListItem
+                    icon={option.icon}
+                    iconAfter={<SVGWrapper iconSVG={ChevronRight} />}
+                    p={20}
+                  >
                     {option.title}
                   </ListItem>
                 </Pressable>
@@ -84,12 +102,12 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
             </XStack>
           </View>
           <XStack justifyContent="space-between">
-            <Text fontSize={12} color="#161616" fontWeight="500">
+            <AccentText size="sm" color="#161616">
               {`T&C  •  Privay Policy`}
-            </Text>
-            <Text fontSize={12} color="#161616" fontWeight="500">
+            </AccentText>
+            <AccentText size="sm" color="#161616">
               version 1.1.2
-            </Text>
+            </AccentText>
           </XStack>
         </View>
       </View>

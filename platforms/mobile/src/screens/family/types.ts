@@ -12,3 +12,9 @@ export type AddFamilyMemberScreenProps = NativeStackScreenProps<
   StackRouteProps,
   typeof ADD_FAMILY_MEMBER_SCREEN_ID
 >;
+
+export const OTP_FAMILY_MEMBER_SCREEN_ID = "0012.b.1.family";
+export type OTPFamilyMemberScreenProps = NativeStackScreenProps<
+  StackRouteProps,
+  typeof OTP_FAMILY_MEMBER_SCREEN_ID
+>;

@@ -1,18 +1,21 @@
 import { CheckGreen } from "@unmaze/assets";
-import { UnmzGradientButton, Text, View } from "@unmaze/views";
+import { UnmzGradientButton, Text, View, HeadingText } from "@unmaze/views";
 
 import {
-  VerificationSuccessScreenProps,
-  VERIFICATION_SUCCESS_SCREEN_ID,
-} from "./types";
-import { useVerificationContext } from "./VerificationContextProvider";
+  AccountUpdateSuccessScreenProps,
+  ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+} from "../shared/types";
 import { UnmzNavScreen } from "../types";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
 
-const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
-  navigation,
-  route,
-}) => {
-  const { verifiedMessage } = useVerificationContext();
+const _AccountUpdateSuccessScreen: React.FC<
+  AccountUpdateSuccessScreenProps
+> = ({ navigation, route }) => {
+  const {
+    state: {
+      shared: { verifiedMessage },
+    },
+  } = useStackContext();
 
   return (
     <View flex={1} jc="space-between" paddingHorizontal={20} paddingBottom={20}>
@@ -28,16 +31,14 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
           >
             Congratulations!
           </Text>
-          <Text
+          <HeadingText
+            size="lg"
+            color="#525252"
             textAlign="center"
             paddingHorizontal={40}
-            fontSize={16}
-            letterSpacing={0.32}
-            fontWeight={"600"}
-            color="#525252"
           >
             {verifiedMessage}
-          </Text>
+          </HeadingText>
         </View>
       </View>
       <UnmzGradientButton
@@ -51,8 +52,8 @@ const _VerificationSuccessScreen: React.FC<VerificationSuccessScreenProps> = ({
   );
 };
 
-export const VerificationSuccessScreen: UnmzNavScreen = {
-  key: VERIFICATION_SUCCESS_SCREEN_ID,
-  title: "Verification Success",
-  content: _VerificationSuccessScreen,
+export const AccountUpdateSuccessScreen: UnmzNavScreen = {
+  key: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+  title: "Account Update Success",
+  content: _AccountUpdateSuccessScreen,
 };

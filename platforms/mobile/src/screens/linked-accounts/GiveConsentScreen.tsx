@@ -1,7 +1,10 @@
 import {
+  AccentText,
+  BodyText,
+  HeadingText,
+  SVGWrapper,
   ScrollView,
   SecondaryButton,
-  Text,
   UnmzCard,
   UnmzGradientButton,
   View,
@@ -9,7 +12,7 @@ import {
 } from "@unmaze/views";
 import { GIVE_CONSENT_SCREEN_ID, GiveConsentScreenProps } from "./types";
 import { UnmzNavScreen } from "../types";
-import { SaafeFooter } from "../../components/app/core/SaafeFooter";
+import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { TextWithHeader } from "../../components/app/core/TextWithHeader";
 import {
   HDFCBankLogo,
@@ -53,18 +56,10 @@ export const _GiveConsentScreen: React.FC<GiveConsentScreenProps> = ({
     <View flex={1} jc="space-between">
       <ScrollView flex={1} padding={20} showsVerticalScrollIndicator={false}>
         <View gap={2}>
-          <Text
-            fontSize={16}
-            fontWeight={"600"}
-            letterSpacing={0.32}
-            color="#262626"
-            lineHeight={20}
-          >
-            Approve consent
-          </Text>
-          <Text fontSize={12} letterSpacing={0.24} color="#6F6F6F">
+          <HeadingText size="lg">Approve consent</HeadingText>
+          <BodyText size="sm" color="#6F6F6F">
             RBI's AA enables Unmaze to receive end-to-end encrypted data safely!
-          </Text>
+          </BodyText>
         </View>
 
         <UnmzCard
@@ -139,20 +134,16 @@ export const _GiveConsentScreen: React.FC<GiveConsentScreenProps> = ({
             </View>
           </Animated.View>
           <XStack mt={20} gap={4}>
-            <Text
-              color={"#035E5D"}
-              fontWeight={"500"}
-              onPress={() => setExpanded(!expanded)}
-            >
+            <AccentText color="#035E5D">
               View {expanded ? "less" : "more"}
-            </Text>
+            </AccentText>
             <View
               mt={2}
               animation="medium"
               rotate={expanded ? "180deg" : "0deg"}
               onPress={() => setExpanded(!expanded)}
             >
-              <ChevronDown width={16} />
+              <SVGWrapper iconSVG={ChevronDown} svgColor="#035E5D" size="sm" />
             </View>
           </XStack>
         </UnmzCard>

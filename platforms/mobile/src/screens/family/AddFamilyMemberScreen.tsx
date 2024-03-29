@@ -1,14 +1,27 @@
 import { KeyboardAvoidingView } from "react-native";
 import { useForm, FieldValues } from "react-hook-form";
-import { AddFamilyMemberScreenProps } from "./types";
-import { ScrollView, UnmzGradientButton, View } from "@unmaze/views";
+import {
+  ADD_FAMILY_MEMBER_SCREEN_ID,
+  AddFamilyMemberScreenProps,
+  OTP_FAMILY_MEMBER_SCREEN_ID,
+} from "./types";
+import {
+  ScrollView,
+  UnmzGradientButton,
+  View,
+  useUserStore,
+} from "@unmaze/views";
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
 import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
 import { RelationshipType } from "../../components/app/family";
 import { UnmzNavScreen } from "../types";
+import { useAddFamilyMember, useGetUser } from "@unmaze/api";
+import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
+import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
+import { ACCOUNT_UPDATE_SUCCESS_SCREEN_ID } from "../shared";
 
-type FormData = {
+type FamilyFormData = {
   firstName: string;
   lastName: string;
   relationship: RelationshipType | undefined;
@@ -16,7 +29,7 @@ type FormData = {
   mobileNumber: string;
 };
 
-const defaultValues: FormData = {
+const defaultValues: FamilyFormData = {
   firstName: "",
   lastName: "",
   relationship: undefined,
@@ -24,7 +37,10 @@ const defaultValues: FormData = {
   mobileNumber: "",
 };
 
-const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
+const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const {
     control,
     handleSubmit,
@@ -33,13 +49,52 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
     defaultValues,
   });
 
+  const user_id = useUserStore((state) => state.user_id);
+  const { addFamilyMember } = useAddFamilyMember({
+    id: user_id,
+  });
+
+  const { userMutate } = useGetUser({ id: user_id });
+
+  const { dispatch } = useStackContext();
+
   const isButtonDisabled = !isDirty;
 
-  const handleInviteOTP = (data) => {
-    console.log(data);
+  const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
+
+  const navigateOnSuccess = (data: FamilyFormData) => {
+    dispatch({
+      type: "SET_OTP_SENT_TO",
+      payload: { type: OTPSentToType.PRIMARY_NUMBER, value: data.mobileNumber },
+    });
+    dispatch({
+      type: "SET_VERIFIED_MESSAGE",
+      payload: `You have successfully added your ${data.relationship} in your family account`,
+    });
+    userMutate();
+    navigation.navigate(OTP_FAMILY_MEMBER_SCREEN_ID, {
+      confirmScreenId: ACCOUNT_UPDATE_SUCCESS_SCREEN_ID,
+    });
   };
 
-  const handleInviteWhatsapp = (data) => {
+  const handleInviteOTP = (data: FamilyFormData) => {
+    console.log(data);
+    addFamilyMember({
+      params: {},
+      body: {
+        name: {
+          first: capitalize(data.firstName),
+          last: capitalize(data.lastName),
+        },
+        dob: data.dob,
+        phone: data.mobileNumber,
+        relationship: data.relationship,
+      },
+      onSuccess: () => navigateOnSuccess(data),
+    });
+  };
+
+  const handleInviteWhatsapp = (data: FamilyFormData) => {
     console.log(data);
   };
 
@@ -86,7 +141,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = () => {
 };
 
 export const AddFamilyMemberScreen: UnmzNavScreen = {
-  key: "0020.b.1",
+  key: ADD_FAMILY_MEMBER_SCREEN_ID,
   title: "Add family member",
   content: _AddFamilyMemberScreen,
 };
