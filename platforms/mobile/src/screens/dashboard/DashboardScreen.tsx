@@ -36,13 +36,11 @@ export const DashboardScreen: React.FC = () => {
             <Cashflow openFilters={() => setShowFiltersModal(true)} />
           </CashflowContextProvider>
         </ScrollView>
-        <CashflowContextProvider>
-          <FilterBAM
-            modalVisible={showFiltersModal}
-            toggle={setShowFiltersModal}
-            close={() => setShowFiltersModal(false)}
-          />
-        </CashflowContextProvider>
+        <FilterBAM
+          modalVisible={showFiltersModal}
+          toggle={setShowFiltersModal}
+          close={() => setShowFiltersModal(false)}
+        />
       </View>
     </>
   );

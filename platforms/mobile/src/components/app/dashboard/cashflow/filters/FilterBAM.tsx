@@ -9,6 +9,7 @@ import {
 } from "@unmaze/views";
 import { Close } from "@unmaze/assets";
 import { FilterTabs } from "./FilterTabs";
+import { CashflowContextProvider } from "../context/CashflowContextProvider";
 
 type FilterBAMProps = {
   modalVisible: boolean;
@@ -47,7 +48,9 @@ export const FilterBAM: React.FC<FilterBAMProps> = ({
        * Tabs to select the type of filter
        * ---------------------------------
        * */}
-      <FilterTabs />
+      <CashflowContextProvider>
+        <FilterTabs />
+      </CashflowContextProvider>
 
       {/**
        * ---------------------------------

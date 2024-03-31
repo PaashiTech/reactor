@@ -8,7 +8,6 @@ type CashflowReducerType = {
 };
 
 export const reducer: CashflowReducerType = (state, action) => {
-  console.log(state.appliedFilters.bankAccounts);
   switch (action.type) {
     case "SET_DURATION":
       return {
