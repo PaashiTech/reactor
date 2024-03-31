@@ -1,9 +1,9 @@
 import { ViewStyle } from "@tamagui/core";
 import { SvgProps } from "@unmaze/assets";
-import DropShadow from "react-native-drop-shadow";
-import { Text, View } from "tamagui";
+import { View } from "tamagui";
 import { Checkbox } from "../../core/inputs/Checkbox";
 import { AccentText } from "../../core/typography/AccentText";
+import { ShadowWrapper } from "../../core/shadow/ShadowWrapper";
 
 interface PopularBanksSelectProps extends ViewStyle {
   bank: {
@@ -22,20 +22,7 @@ export const PopularBanksSelect: React.FC<PopularBanksSelectProps> = ({
 }) => {
   const Logo = bank.logo;
   return (
-    <DropShadow
-      style={{
-        shadowColor: "#21272a",
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowOpacity: 0.06,
-        shadowRadius: 2,
-        flexGrow: 1,
-        flexBasis: "30%",
-      }}
-      key={bank.id}
-    >
+    <ShadowWrapper size="sm" key={bank.id}>
       <View
         paddingHorizontal={12}
         paddingVertical={20}
@@ -55,6 +42,6 @@ export const PopularBanksSelect: React.FC<PopularBanksSelectProps> = ({
           {bank.title}
         </AccentText>
       </View>
-    </DropShadow>
+    </ShadowWrapper>
   );
 };

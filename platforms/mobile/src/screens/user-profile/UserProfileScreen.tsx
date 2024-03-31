@@ -9,6 +9,7 @@ import {
   computeUserFullName,
   BodyText,
   AccentText,
+  ShadowWrapper,
 } from "@unmaze/views";
 import { Pressable } from "react-native";
 import {
@@ -34,63 +35,59 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View flex={1}>
-        <View
-          flexDirection="row"
-          gap={16}
-          padding={20}
-          bg="#fff"
-          elevationAndroid={4}
-        >
-          <Avatar circular size="$6">
-            <Avatar.Fallback ai="center" jc="center" bg="#035E5D">
-              <Text
-                fontSize={24}
-                fontWeight="$7"
-                color="#fff"
-                letterSpacing={0.48}
-              >
-                {name.first[0].toUpperCase() + name.last[0].toUpperCase()}
-              </Text>
-            </Avatar.Fallback>
-          </Avatar>
-          <View>
-            <BodyText>{computeUserFullName(name)}</BodyText>
-            <BodyText>{pan}</BodyText>
-            <BodyText>{"+91-" + primaryPh}</BodyText>
-          </View>
-        </View>
-        <View paddingHorizontal={20} paddingVertical={24}>
-          <View
-            marginVertical={8}
-            borderRadius={16}
-            elevationAndroid={2}
-            overflow="hidden"
-          >
-            {userProfileOptions.map((option) => {
-              return (
-                <Pressable
-                  key={option.id}
-                  android_ripple={{
-                    borderless: false,
-                    foreground: true,
-                  }}
-                  onPress={() => {
-                    if (option.navigateTo) {
-                      navigation.navigate(option.navigateTo, option.routeProps);
-                    }
-                  }}
+        <ShadowWrapper size="sm">
+          <View flexDirection="row" gap={16} padding={20} bg="#fff">
+            <Avatar circular size="$6">
+              <Avatar.Fallback ai="center" jc="center" bg="#035E5D">
+                <Text
+                  fontSize={24}
+                  fontWeight="$7"
+                  color="#fff"
+                  letterSpacing={0.48}
                 >
-                  <ListItem
-                    icon={option.icon}
-                    iconAfter={<SVGWrapper iconSVG={ChevronRight} />}
-                    p={20}
-                  >
-                    {option.title}
-                  </ListItem>
-                </Pressable>
-              );
-            })}
+                  {name.first[0].toUpperCase() + name.last[0].toUpperCase()}
+                </Text>
+              </Avatar.Fallback>
+            </Avatar>
+            <View>
+              <BodyText>{computeUserFullName(name)}</BodyText>
+              <BodyText>{pan}</BodyText>
+              <BodyText>{"+91-" + primaryPh}</BodyText>
+            </View>
           </View>
+        </ShadowWrapper>
+        <View paddingHorizontal={20} paddingVertical={24}>
+          <ShadowWrapper size="sm">
+            <View marginVertical={8} borderRadius={16} overflow="hidden">
+              {userProfileOptions.map((option) => {
+                return (
+                  <Pressable
+                    key={option.id}
+                    android_ripple={{
+                      borderless: false,
+                      foreground: true,
+                    }}
+                    onPress={() => {
+                      if (option.navigateTo) {
+                        navigation.navigate(
+                          option.navigateTo,
+                          option.routeProps
+                        );
+                      }
+                    }}
+                  >
+                    <ListItem
+                      icon={option.icon}
+                      iconAfter={<SVGWrapper iconSVG={ChevronRight} />}
+                      p={20}
+                    >
+                      {option.title}
+                    </ListItem>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </ShadowWrapper>
         </View>
         <View p={24} gap={20}>
           <View alignItems="center" gap={24}>

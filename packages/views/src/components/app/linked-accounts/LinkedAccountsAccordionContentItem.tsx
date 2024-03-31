@@ -33,12 +33,7 @@ export const LinkedAccountsAccordionContentItem: React.FC<
         return <LinkNow />;
 
       case "checkbox":
-        return (
-          <Checkbox
-            checked={props.checked}
-            onCheckedChange={props.setChecked}
-          />
-        );
+        return <Checkbox checked={props.checked} />;
 
       case "radio":
         return (
