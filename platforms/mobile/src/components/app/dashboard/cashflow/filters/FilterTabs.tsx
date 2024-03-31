@@ -2,8 +2,17 @@ import { AccentText, Tabs } from "@unmaze/views";
 import { useState } from "react";
 import { DurationTabContent } from "./DurationTabContent";
 import { AccountTabContent } from "./AccountTabContent";
+import {
+  CashflowContextActions,
+  CashflowContextState,
+} from "../context/cashflowContext.types";
 
-export const FilterTabs = () => {
+type FilterTabsProps = {
+  state: CashflowContextState;
+  dispatch: React.Dispatch<CashflowContextActions>;
+};
+
+export const FilterTabs: React.FC<FilterTabsProps> = ({ state, dispatch }) => {
   const [activeTab, setActiveTab] = useState<"account" | "duration">("account");
   return (
     <Tabs defaultValue="account" flexDirection="row" orientation="vertical">
@@ -37,10 +46,16 @@ export const FilterTabs = () => {
         </Tabs.Tab>
       </Tabs.List>
       <Tabs.Content flex={1} value="account" paddingHorizontal={16}>
-        <AccountTabContent />
+        <AccountTabContent
+          bankAccounts={state.appliedFilters.bankAccounts}
+          dispatch={dispatch}
+        />
       </Tabs.Content>
       <Tabs.Content flex={1} value="duration" paddingHorizontal={16}>
-        <DurationTabContent />
+        <DurationTabContent
+          duration={state.appliedFilters.duration}
+          dispatch={dispatch}
+        />
       </Tabs.Content>
     </Tabs>
   );

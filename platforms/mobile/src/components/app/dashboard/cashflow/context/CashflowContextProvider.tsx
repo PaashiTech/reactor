@@ -8,7 +8,7 @@ import { reducer } from "./reducer";
 const initialState: CashflowContextState = {
   appliedFilters: {
     duration: "LAST_30_DAYS",
-    bankAccounts: [],
+    bankAccounts: ["HDFC_BANK"],
   },
 };
 

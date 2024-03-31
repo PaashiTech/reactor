@@ -7,19 +7,20 @@ import {
 } from "@unmaze/views";
 import { PlaceholderIcon } from "@unmaze/assets";
 import { Checkbox } from "@unmaze/views/src/components/core/inputs/Checkbox";
-import { useCashflowContext } from "../context/CashflowContextProvider";
 import { Pressable } from "react-native";
 import { banksList } from "../context/data";
 import { BankListItemType } from "../context/utility.types";
+import { CashflowContextActions } from "../context/cashflowContext.types";
 
-export const AccountTabContent = () => {
-  const {
-    state: {
-      appliedFilters: { bankAccounts },
-    },
-    dispatch,
-  } = useCashflowContext();
+type AccountTabContentProps = {
+  bankAccounts: string[];
+  dispatch: React.Dispatch<CashflowContextActions>;
+};
 
+export const AccountTabContent: React.FC<AccountTabContentProps> = ({
+  bankAccounts,
+  dispatch,
+}) => {
   const isAllSelect = bankAccounts.length === banksList.length;
 
   const handleBankSelect = (checked: boolean, value: string) => {

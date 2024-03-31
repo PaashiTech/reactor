@@ -11,7 +11,7 @@ export const DashboardScreen: React.FC = () => {
   const [showFiltersModal, setShowFiltersModal] = useState<boolean>(false);
 
   return (
-    <>
+    <CashflowContextProvider>
       {/**
        * Remove Status bar and the wrapper react fragment
        * once the screen is used with a navigator.
@@ -32,9 +32,7 @@ export const DashboardScreen: React.FC = () => {
         >
           <DashboardHeader />
           <Networth />
-          <CashflowContextProvider>
-            <Cashflow openFilters={() => setShowFiltersModal(true)} />
-          </CashflowContextProvider>
+          <Cashflow openFilters={() => setShowFiltersModal(true)} />
         </ScrollView>
         <FilterBAM
           modalVisible={showFiltersModal}
@@ -42,6 +40,6 @@ export const DashboardScreen: React.FC = () => {
           close={() => setShowFiltersModal(false)}
         />
       </View>
-    </>
+    </CashflowContextProvider>
   );
 };

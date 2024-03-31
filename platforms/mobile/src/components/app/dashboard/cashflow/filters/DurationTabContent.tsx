@@ -1,17 +1,18 @@
 import { AccentText, RadioGroup, View, XStack, YStack } from "@unmaze/views";
 import { RadioItem } from "@unmaze/views/src/components/core/inputs/RadioItem";
-import { useCashflowContext } from "../context/CashflowContextProvider";
 import { DurationType } from "../context/utility.types";
 import { durationInputList } from "../context/data";
+import { CashflowContextActions } from "../context/cashflowContext.types";
 
-export const DurationTabContent = () => {
-  const {
-    state: {
-      appliedFilters: { duration },
-    },
-    dispatch,
-  } = useCashflowContext();
+type DurationTabContentProps = {
+  duration: DurationType;
+  dispatch: React.Dispatch<CashflowContextActions>;
+};
 
+export const DurationTabContent: React.FC<DurationTabContentProps> = ({
+  duration,
+  dispatch,
+}) => {
   const handleRadioSelect = (val: DurationType) => {
     dispatch({ type: "SET_DURATION", payload: { duration: val } });
   };
