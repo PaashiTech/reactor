@@ -72,12 +72,19 @@ export const AccountTabContent = () => {
     dispatch,
   } = useCashflowContext();
 
+  const isAllSelect = bankAccounts.length === banksList.length;
+
   const handleBankSelect = (checked: boolean, value: string) => {
     if (checked) {
-      dispatch({
-        type: "REMOVE_BANK_ACCOUNT",
-        payload: { value: value },
-      });
+      if (isAllSelect) {
+        dispatch({ type: "REMOVE_ALL_BANK_ACCOUNTS" });
+        dispatch({ type: "ADD_BANK_ACCOUNT", payload: { value: value } });
+      } else {
+        dispatch({
+          type: "REMOVE_BANK_ACCOUNT",
+          payload: { value: value },
+        });
+      }
     } else {
       dispatch({
         type: "ADD_BANK_ACCOUNT",
@@ -85,8 +92,6 @@ export const AccountTabContent = () => {
       });
     }
   };
-
-  const isAllSelect = bankAccounts.length === banksList.length;
 
   const handleAllSelect = () => {
     if (isAllSelect) {
