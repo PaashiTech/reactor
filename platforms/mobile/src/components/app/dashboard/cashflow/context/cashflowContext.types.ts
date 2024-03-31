@@ -1,4 +1,4 @@
-export type DurationType = "LAST_30_DAYS" | "MONTHLY";
+import { DurationType } from "./utility.types";
 
 export type CashflowContextState = {
   appliedFilters: {

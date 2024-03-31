@@ -1,14 +1,8 @@
 import { AccentText, RadioGroup, View, XStack, YStack } from "@unmaze/views";
 import { RadioItem } from "@unmaze/views/src/components/core/inputs/RadioItem";
-import { DurationType } from "../context/types";
 import { useCashflowContext } from "../context/CashflowContextProvider";
-
-type DurationListType = {
-  id: number;
-  title: string;
-  subtitle: string;
-  value: DurationType;
-}[];
+import { DurationType } from "../context/utility.types";
+import { durationInputList } from "../context/data";
 
 export const DurationTabContent = () => {
   const {
@@ -21,21 +15,6 @@ export const DurationTabContent = () => {
   const handleRadioSelect = (val: DurationType) => {
     dispatch({ type: "SET_DURATION", payload: { duration: val } });
   };
-
-  const durationInputList: DurationListType = [
-    {
-      id: 1,
-      title: "Last 30 days",
-      subtitle: "24 Dec 24' - Today",
-      value: "LAST_30_DAYS",
-    },
-    {
-      id: 2,
-      title: "Montly",
-      subtitle: "1 Jan 24' - 31 Jan 24'",
-      value: "MONTHLY",
-    },
-  ];
 
   return (
     <View>

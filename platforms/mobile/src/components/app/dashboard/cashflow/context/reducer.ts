@@ -1,4 +1,7 @@
-import { CashflowContextActions, CashflowContextState } from "./types";
+import {
+  CashflowContextActions,
+  CashflowContextState,
+} from "./cashflowContext.types";
 
 type CashflowReducerType = {
   (

@@ -1,5 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
-import { CashflowContextState, CashflowContextType } from "./types";
+import {
+  CashflowContextState,
+  CashflowContextType,
+} from "./cashflowContext.types";
 import { reducer } from "./reducer";
 
 const initialState: CashflowContextState = {

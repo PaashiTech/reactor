@@ -5,64 +5,12 @@ import {
   XStack,
   YStack,
 } from "@unmaze/views";
-import {
-  PlaceholderIcon,
-  SbiBankLogo,
-  ICICIBankLogo,
-  CanaraBankLogo,
-  AxisBankLogo,
-  BOBBankLogo,
-  SvgProps,
-} from "@unmaze/assets";
+import { PlaceholderIcon } from "@unmaze/assets";
 import { Checkbox } from "@unmaze/views/src/components/core/inputs/Checkbox";
 import { useCashflowContext } from "../context/CashflowContextProvider";
 import { Pressable } from "react-native";
-
-type BankListItemType = {
-  id: number;
-  value: string;
-  title: string;
-  accountNumber: string;
-  icon: React.FC<SvgProps>;
-};
-
-const banksList: BankListItemType[] = [
-  {
-    id: 1,
-    value: "HDFC_BANK",
-    title: "HDFC Bank",
-    accountNumber: "1234567894567",
-    icon: ICICIBankLogo,
-  },
-  {
-    id: 2,
-    value: "CANARA_BANK",
-    title: "Canara Bank",
-    accountNumber: "1234567894567",
-    icon: CanaraBankLogo,
-  },
-  {
-    id: 3,
-    value: "AXIS_BANK",
-    title: "Axis Bank",
-    accountNumber: "1234567894567",
-    icon: AxisBankLogo,
-  },
-  {
-    id: 4,
-    value: "SBI_BANK",
-    title: "SBI Bank",
-    accountNumber: "1234567894567",
-    icon: SbiBankLogo,
-  },
-  {
-    id: 5,
-    value: "BOB_BANK",
-    title: "BOB Bank",
-    accountNumber: "1234567894567",
-    icon: BOBBankLogo,
-  },
-];
+import { banksList } from "../context/data";
+import { BankListItemType } from "../context/utility.types";
 
 export const AccountTabContent = () => {
   const {
