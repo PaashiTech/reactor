@@ -57,7 +57,14 @@ export const FilterBAM: React.FC<FilterBAMProps> = ({
        * */}
       <ShadowWrapper size="sm">
         <View bg="#fff" p={16}>
-          <UnmzGradientButton>Apply</UnmzGradientButton>
+          <UnmzGradientButton
+            onPress={() => {
+              dispatch({ type: "APPLY_FILTERS" });
+              close();
+            }}
+          >
+            Apply
+          </UnmzGradientButton>
         </View>
       </ShadowWrapper>
     </BottomModal>

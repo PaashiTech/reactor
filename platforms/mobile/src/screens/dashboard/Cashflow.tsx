@@ -9,15 +9,7 @@ import {
   XStack,
   formatNetWorth,
 } from "@unmaze/views";
-import {
-  Filter,
-  ChevronRight,
-  HDFCBankLogo,
-  SbiBankLogo,
-  CanaraBankLogo,
-  AxisBankLogo,
-  BOBBankLogo,
-} from "@unmaze/assets";
+import { Filter, ChevronRight } from "@unmaze/assets";
 import { CashflowAreaChart } from "../../components/app/dashboard/cashflow/CashflowAreaChart";
 import { BankAccountChip } from "../../components/app/dashboard/cashflow/BankAccountChip";
 import { HelpUsImprove } from "../../components/app/dashboard/cashflow/HelpUsImprove";

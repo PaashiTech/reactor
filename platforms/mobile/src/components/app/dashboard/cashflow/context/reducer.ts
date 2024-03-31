@@ -15,8 +15,8 @@ export const reducer: CashflowReducerType = (state, action) => {
     case "SET_DURATION":
       return {
         ...state,
-        appliedFilters: {
-          ...state.appliedFilters,
+        selectedFilters: {
+          ...state.selectedFilters,
           duration: action.payload.duration,
         },
       };
@@ -24,10 +24,10 @@ export const reducer: CashflowReducerType = (state, action) => {
     case "ADD_BANK_ACCOUNT":
       return {
         ...state,
-        appliedFilters: {
-          ...state.appliedFilters,
+        selectedFilters: {
+          ...state.selectedFilters,
           bankAccounts: [
-            ...state.appliedFilters.bankAccounts,
+            ...state.selectedFilters.bankAccounts,
             action.payload.value,
           ],
         },
@@ -36,9 +36,9 @@ export const reducer: CashflowReducerType = (state, action) => {
     case "REMOVE_BANK_ACCOUNT":
       return {
         ...state,
-        appliedFilters: {
-          ...state.appliedFilters,
-          bankAccounts: state.appliedFilters.bankAccounts.filter(
+        selectedFilters: {
+          ...state.selectedFilters,
+          bankAccounts: state.selectedFilters.bankAccounts.filter(
             (bankAccount) => bankAccount !== action.payload.value
           ),
         },
@@ -47,8 +47,8 @@ export const reducer: CashflowReducerType = (state, action) => {
     case "ADD_ALL_BANK_ACCOUNTS":
       return {
         ...state,
-        appliedFilters: {
-          ...state.appliedFilters,
+        selectedFilters: {
+          ...state.selectedFilters,
           bankAccounts: action.payload.bankAccounts,
         },
       };
@@ -56,10 +56,16 @@ export const reducer: CashflowReducerType = (state, action) => {
     case "REMOVE_ALL_BANK_ACCOUNTS":
       return {
         ...state,
-        appliedFilters: {
-          ...state.appliedFilters,
+        selectedFilters: {
+          ...state.selectedFilters,
           bankAccounts: [],
         },
+      };
+
+    case "APPLY_FILTERS":
+      return {
+        ...state,
+        appliedFilters: state.selectedFilters,
       };
 
     default:

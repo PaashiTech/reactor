@@ -10,6 +10,10 @@ const initialState: CashflowContextState = {
     duration: "LAST_30_DAYS",
     bankAccounts: ["HDFC_BANK"],
   },
+  selectedFilters: {
+    duration: "LAST_30_DAYS",
+    bankAccounts: ["HDFC_BANK"],
+  },
 };
 
 const CashflowContext = createContext<CashflowContextType>({

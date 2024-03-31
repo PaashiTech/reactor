@@ -5,6 +5,10 @@ export type CashflowContextState = {
     duration: DurationType;
     bankAccounts: string[];
   };
+  selectedFilters: {
+    duration: DurationType;
+    bankAccounts: string[];
+  };
 };
 
 type SetDuration = {
@@ -33,12 +37,17 @@ type RemoveAllBankAccounts = {
   type: "REMOVE_ALL_BANK_ACCOUNTS";
 };
 
+type ApplyFilters = {
+  type: "APPLY_FILTERS";
+};
+
 export type CashflowContextActions =
   | SetDuration
   | AddBankAccount
   | RemoveBankAccount
   | AddAllBankAccounts
-  | RemoveAllBankAccounts;
+  | RemoveAllBankAccounts
+  | ApplyFilters;
 
 export type CashflowContextType = {
   state: CashflowContextState;

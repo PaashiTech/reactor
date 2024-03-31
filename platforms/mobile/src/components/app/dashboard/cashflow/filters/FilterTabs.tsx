@@ -47,13 +47,13 @@ export const FilterTabs: React.FC<FilterTabsProps> = ({ state, dispatch }) => {
       </Tabs.List>
       <Tabs.Content flex={1} value="account" paddingHorizontal={16}>
         <AccountTabContent
-          bankAccounts={state.appliedFilters.bankAccounts}
+          bankAccounts={state.selectedFilters.bankAccounts}
           dispatch={dispatch}
         />
       </Tabs.Content>
       <Tabs.Content flex={1} value="duration" paddingHorizontal={16}>
         <DurationTabContent
-          duration={state.appliedFilters.duration}
+          duration={state.selectedFilters.duration}
           dispatch={dispatch}
         />
       </Tabs.Content>
