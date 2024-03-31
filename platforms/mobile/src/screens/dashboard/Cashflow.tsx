@@ -22,14 +22,31 @@ import { CashflowAreaChart } from "../../components/app/dashboard/cashflow/Cashf
 import { BankAccountChip } from "../../components/app/dashboard/cashflow/BankAccountChip";
 import { HelpUsImprove } from "../../components/app/dashboard/cashflow/HelpUsImprove";
 import { CategoryList } from "../../components/app/dashboard/cashflow/CategoryList";
+import { useCashflowContext } from "../../components/app/dashboard/cashflow/context/CashflowContextProvider";
+import { banksList } from "../../components/app/dashboard/cashflow/context/data";
 
 type CashflowProps = {
   openFilters: () => void;
 };
 
 export const Cashflow: React.FC<CashflowProps> = ({ openFilters }) => {
+  const {
+    state: {
+      appliedFilters: { bankAccounts, duration },
+    },
+  } = useCashflowContext();
+
   // TODO - Use value from global store
   const bankBalance = 45.89;
+
+  const selectedDuration =
+    duration === "LAST_30_DAYS" ? "Last 30 Days" : "Monthly";
+
+  const isAllSelected = bankAccounts.length === banksList.length;
+
+  const selectedBankAccounts = banksList.filter((bank) =>
+    bankAccounts.includes(bank.value)
+  );
 
   return (
     <>
@@ -44,7 +61,7 @@ export const Cashflow: React.FC<CashflowProps> = ({ openFilters }) => {
            */}
           <XStack gap={4}>
             <BodyText size="sm" color="#525252">
-              Last 30 days
+              {selectedDuration}
             </BodyText>
 
             <BodyText size="sm" color="#525252">
@@ -55,9 +72,11 @@ export const Cashflow: React.FC<CashflowProps> = ({ openFilters }) => {
              * Text if all banks selected in filters
              */}
 
-            {/* <BodyText size="sm" color="#525252">
-              All bank accounts
-            </BodyText> */}
+            {isAllSelected && (
+              <BodyText size="sm" color="#525252">
+                All bank accounts
+              </BodyText>
+            )}
           </XStack>
 
           {/**
@@ -65,33 +84,14 @@ export const Cashflow: React.FC<CashflowProps> = ({ openFilters }) => {
            * in filters
            */}
 
-          <BankAccountChip
-            accountNumber="12346789454567"
-            bankLogo={HDFCBankLogo}
-          />
-
-          <BankAccountChip
-            accountNumber="12346789451234"
-            bankLogo={SbiBankLogo}
-          />
-          <BankAccountChip
-            accountNumber="12346789454567"
-            bankLogo={CanaraBankLogo}
-          />
-
-          <BankAccountChip
-            accountNumber="12346789454567"
-            bankLogo={AxisBankLogo}
-          />
-
-          <BankAccountChip
-            accountNumber="12346789451234"
-            bankLogo={BOBBankLogo}
-          />
-          <BankAccountChip
-            accountNumber="12346789454567"
-            bankLogo={SbiBankLogo}
-          />
+          {!isAllSelected &&
+            selectedBankAccounts.map((bank) => (
+              <BankAccountChip
+                key={bank.id}
+                accountNumber={bank.accountNumber}
+                bankLogo={bank.icon}
+              />
+            ))}
         </XStack>
       </View>
       <ShadowWrapper size="sm">
