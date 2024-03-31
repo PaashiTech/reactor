@@ -1,7 +1,7 @@
 import { AccentText, RadioGroup, View, XStack, YStack } from "@unmaze/views";
 import { RadioItem } from "@unmaze/views/src/components/core/inputs/RadioItem";
-import { DurationType } from "./context/types";
-import { useCashflowContext } from "./context/CashflowContextProvider";
+import { DurationType } from "../context/types";
+import { useCashflowContext } from "../context/CashflowContextProvider";
 
 type DurationListType = {
   id: number;

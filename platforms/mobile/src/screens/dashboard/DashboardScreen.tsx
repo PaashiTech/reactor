@@ -4,7 +4,7 @@ import { StatusBar } from "react-native";
 import { Networth } from "./Networth";
 import { Cashflow } from "./Cashflow";
 import { useState } from "react";
-import { FilterBAM } from "../../components/app/dashboard/cashflow/FilterBAM";
+import { FilterBAM } from "../../components/app/dashboard/cashflow/filters/FilterBAM";
 import { CashflowContextProvider } from "../../components/app/dashboard/cashflow/context/CashflowContextProvider";
 
 export const DashboardScreen: React.FC = () => {

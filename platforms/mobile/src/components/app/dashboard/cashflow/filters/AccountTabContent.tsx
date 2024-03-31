@@ -15,7 +15,7 @@ import {
   SvgProps,
 } from "@unmaze/assets";
 import { Checkbox } from "@unmaze/views/src/components/core/inputs/Checkbox";
-import { useCashflowContext } from "./context/CashflowContextProvider";
+import { useCashflowContext } from "../context/CashflowContextProvider";
 import { Pressable } from "react-native";
 
 type BankListItemType = {

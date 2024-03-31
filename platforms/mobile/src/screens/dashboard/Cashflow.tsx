@@ -20,7 +20,7 @@ import {
 } from "@unmaze/assets";
 import { CashflowAreaChart } from "../../components/app/dashboard/cashflow/CashflowAreaChart";
 import { BankAccountChip } from "../../components/app/dashboard/cashflow/BankAccountChip";
-import { HelpUsImprove } from "../../components/app/dashboard/HelpUsImprove";
+import { HelpUsImprove } from "../../components/app/dashboard/cashflow/HelpUsImprove";
 import { CategoryList } from "../../components/app/dashboard/cashflow/CategoryList";
 
 type CashflowProps = {
