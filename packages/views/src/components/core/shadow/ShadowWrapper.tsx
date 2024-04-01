@@ -1,19 +1,25 @@
 import DropShadow from "react-native-drop-shadow";
 import { ViewProps } from "react-native";
-import { ShadowSizeType, ShadowStyleType } from "./ShadowWrapper.types";
+import {
+  ShadowColorType,
+  ShadowSizeType,
+  ShadowStyleType,
+} from "./ShadowWrapper.types";
 import { shadowVariants } from "./shadowVariants";
 
 interface ShadowWrapperProps extends ViewProps {
   size: ShadowSizeType;
+  shadowColor?: ShadowColorType;
 }
 
 export const ShadowWrapper: React.FC<ShadowWrapperProps> = ({
   children,
   size,
+  shadowColor = ShadowColorType.onSecondary,
   ...props
 }) => {
   const shadowStyle: ShadowStyleType = {
-    shadowColor: "#222222",
+    shadowColor: shadowColor,
     ...shadowVariants[size],
   };
 
