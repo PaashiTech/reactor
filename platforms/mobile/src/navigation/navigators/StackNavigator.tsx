@@ -69,7 +69,7 @@ export const StackNavigator = () => {
   return (
     <StackContextProvider>
       <stackNav.Navigator
-        initialRouteName={USER_PROFILE_SCREEN_ID}
+        initialRouteName={ADD_ACCOUNTS_SCREEN_ID}
         screenOptions={screenOptions}
       >
         {/* Profile section main screen */}

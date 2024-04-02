@@ -22,26 +22,28 @@ export const PopularBanksSelect: React.FC<PopularBanksSelectProps> = ({
 }) => {
   const Logo = bank.logo;
   return (
-    <ShadowWrapper size="sm" key={bank.id}>
-      <View
-        paddingHorizontal={12}
-        paddingVertical={20}
-        gap={12}
-        alignItems="center"
-        borderRadius={12}
-        flexGrow={1}
-        backgroundColor="#fff"
-        position="relative"
-        onPress={() => handleSelectedBanks(bank.title)}
-      >
-        <View position="absolute" top={8} right={8}>
-          <Checkbox checked={checked} borderHidden />
+    <View flexGrow={1} flexBasis="30%">
+      <ShadowWrapper flex={1} size="sm" key={bank.id}>
+        <View
+          flex={1}
+          paddingHorizontal={12}
+          paddingVertical={20}
+          gap={12}
+          alignItems="center"
+          borderRadius={12}
+          backgroundColor="#fff"
+          position="relative"
+          onPress={() => handleSelectedBanks(bank.title)}
+        >
+          <View position="absolute" top={8} right={8}>
+            <Checkbox checked={checked} borderHidden />
+          </View>
+          <Logo width={32} height={32} />
+          <AccentText size="sm" textAlign="center">
+            {bank.title}
+          </AccentText>
         </View>
-        <Logo width={32} height={32} />
-        <AccentText size="sm" textAlign="center">
-          {bank.title}
-        </AccentText>
-      </View>
-    </ShadowWrapper>
+      </ShadowWrapper>
+    </View>
   );
 };

@@ -8,11 +8,13 @@ import {
 import { shadowVariants } from "./shadowVariants";
 
 interface ShadowWrapperProps extends ViewProps {
+  flex?: number;
   size: ShadowSizeType;
   shadowColor?: ShadowColorType;
 }
 
 export const ShadowWrapper: React.FC<ShadowWrapperProps> = ({
+  flex,
   children,
   size,
   shadowColor = ShadowColorType.onSecondary,
@@ -24,7 +26,7 @@ export const ShadowWrapper: React.FC<ShadowWrapperProps> = ({
   };
 
   return (
-    <DropShadow style={shadowStyle} {...props}>
+    <DropShadow style={{ ...shadowStyle, flex }} {...props}>
       {children}
     </DropShadow>
   );
