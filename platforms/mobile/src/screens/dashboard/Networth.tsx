@@ -16,8 +16,18 @@ import {
 import { NetworthHeader } from "../../components/app/dashboard/networth/NetworthHeader";
 import { NetworthLineChart } from "../../components/app/dashboard/networth/NetworthLineChart";
 
+type CTATextMapType = Record<TabOptions, string>;
+
+const CTATextMAP: CTATextMapType = {
+  Net: "View Balance Sheet",
+  Assets: "View Assets",
+  Liabilities: "View Liabilities",
+};
+
 export const Networth = () => {
   const [selectedTab, setSelectedTab] = useState<TabOptions>("Net");
+
+  const CTAText = CTATextMAP[selectedTab];
 
   return (
     <>
@@ -30,9 +40,13 @@ export const Networth = () => {
             <NetworthLineChart selectedTab={selectedTab} />
             <Separator borderColor={"#E7E7E7"} />
             <View paddingVertical={12} jc="center" ai="center">
-              <Pressable onPress={() => {}}>
+              <Pressable
+                onPress={() => {
+                  alert(CTAText);
+                }}
+              >
                 <XStack gap={4} ai="center">
-                  <HeadingText>View Balance Sheet</HeadingText>
+                  <HeadingText>{CTAText}</HeadingText>
                   <SVGWrapper iconSVG={ChevronRight} size="sm" />
                 </XStack>
               </Pressable>
