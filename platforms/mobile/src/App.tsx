@@ -8,10 +8,8 @@ import {
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { StackNavigator } from "./navigation/navigators/StackNavigator";
 
 import { useGetUser } from "@unmaze/api";
-import { DashboardScreen } from "./screens/dashboard/DashboardScreen";
 import { TabNavigator } from "./navigation/navigators/TabNavigator";
 
 export function App() {
@@ -34,7 +32,7 @@ export function App() {
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-      {/* <UnmzToastProvider>
+      <UnmzToastProvider>
         <SafeAreaProvider>
           {userIsLoading ? (
             <View flex={1} justifyContent="center" alignItems="center">
@@ -42,15 +40,11 @@ export function App() {
             </View>
           ) : (
             <NavigationContainer theme={BaseTheme}>
-              <StackNavigator />
+              <TabNavigator />
             </NavigationContainer>
           )}
         </SafeAreaProvider>
-      </UnmzToastProvider> */}
-      {/* <DashboardScreen /> */}
-      <NavigationContainer theme={BaseTheme}>
-        <TabNavigator />
-      </NavigationContainer>
+      </UnmzToastProvider>
     </TamaguiProvider>
   );
 }

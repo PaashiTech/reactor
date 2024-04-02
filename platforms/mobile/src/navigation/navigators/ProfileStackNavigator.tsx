@@ -62,17 +62,17 @@ const settingsScreens: UnmzNavScreen[] = [
   AppThemeScreen,
 ];
 
-export const StackNavigator = () => {
+export const ProfileStackNavigator = () => {
   const stackNav = createNativeStackNavigator<StackRouteProps>();
   return (
     <StackContextProvider>
       <stackNav.Navigator
-        initialRouteName={ADD_ACCOUNTS_SCREEN_ID}
+        initialRouteName={USER_PROFILE_SCREEN_ID}
         screenOptions={screenOptions}
       >
         {/* Profile section main screen */}
         <stackNav.Screen
-          name={UserProfileScreen.key}
+          name={UserProfileScreen.key as keyof StackRouteProps}
           component={UserProfileScreen.content}
           options={{ headerShown: false }}
         />
@@ -99,7 +99,7 @@ export const StackNavigator = () => {
             return (
               <stackNav.Screen
                 key={scr.key}
-                name={scr.key}
+                name={scr.key as keyof StackRouteProps}
                 component={scr.content}
                 options={{
                   title: scr.title,

@@ -2,43 +2,31 @@ import * as React from "react";
 import { SVGWrapper, Text, View } from "@unmaze/views";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { PlaceholderIcon, Market, ProfileIcon, Mind } from "@unmaze/assets";
+import { PlaceholderIcon, Market, ProfileInCircle, Mind } from "@unmaze/assets";
 import { TabRouteProps } from "./types";
 
 import { ME_TAB_ID, MARKET_TAB_ID, MIND_TAB_ID, PROFILE_TAB_ID } from "./types";
 import { TextStyle } from "react-native";
 
-function MeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Me!</Text>
-    </View>
-  );
-}
+import { MeStackNavigator } from "./MeStackNavigator";
+import { ProfileStackNavigator } from "./ProfileStackNavigator";
 
-function MarketScreen() {
+// Placeholders for the other stacks
+const MarketScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Market!</Text>
     </View>
   );
-}
+};
 
-function MindScreen() {
+const MindScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Mind!</Text>
     </View>
   );
-}
-
-function ProfileScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Profile!</Text>
-    </View>
-  );
-}
+};
 
 const labelStyles: TextStyle = {
   fontSize: 12,
@@ -89,9 +77,17 @@ export const TabNavigator = () => {
             );
           } else if (route.name === PROFILE_TAB_ID) {
             return focused ? (
-              <SVGWrapper iconSVG={ProfileIcon} svgColor="#035E5D" size="lg" />
+              <SVGWrapper
+                iconSVG={ProfileInCircle}
+                svgColor="#035E5D"
+                size="lg"
+              />
             ) : (
-              <SVGWrapper iconSVG={ProfileIcon} svgColor="#697077" size="lg" />
+              <SVGWrapper
+                iconSVG={ProfileInCircle}
+                svgColor="#697077"
+                size="lg"
+              />
             );
           }
         },
@@ -143,10 +139,10 @@ export const TabNavigator = () => {
         headerShown: false,
       })}
     >
-      <tabNav.Screen name={ME_TAB_ID} component={MeScreen} />
+      <tabNav.Screen name={ME_TAB_ID} component={MeStackNavigator} />
       <tabNav.Screen name={MARKET_TAB_ID} component={MarketScreen} />
       <tabNav.Screen name={MIND_TAB_ID} component={MindScreen} />
-      <tabNav.Screen name={PROFILE_TAB_ID} component={ProfileScreen} />
+      <tabNav.Screen name={PROFILE_TAB_ID} component={ProfileStackNavigator} />
     </tabNav.Navigator>
   );
 };

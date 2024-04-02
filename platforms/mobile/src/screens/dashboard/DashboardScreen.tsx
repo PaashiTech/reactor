@@ -7,7 +7,10 @@ import { useState } from "react";
 import { FilterBAM } from "../../components/app/dashboard/cashflow/filters/FilterBAM";
 import { CashflowContextProvider } from "../../components/app/dashboard/cashflow/context/CashflowContextProvider";
 
-export const DashboardScreen: React.FC = () => {
+import { UnmzNavScreen } from "../types";
+import { ME_DASHBOARD_SCREEN_ID } from "./types";
+
+export const _MeDashboardScreen: React.FC = () => {
   const [showFiltersModal, setShowFiltersModal] = useState<boolean>(false);
 
   return (
@@ -42,4 +45,10 @@ export const DashboardScreen: React.FC = () => {
       </View>
     </CashflowContextProvider>
   );
+};
+
+export const MeDashboardScreen: UnmzNavScreen = {
+  key: ME_DASHBOARD_SCREEN_ID,
+  title: "User profile",
+  content: _MeDashboardScreen,
 };
