@@ -51,14 +51,12 @@ const familyScreens: UnmzNavScreen[] = [
   AddFamilyMemberScreen,
   OTPFamilyMemberScreen,
 ];
-
 const linkedAccountsScreens: UnmzNavScreen[] = [
   LinkedAccountsScreen,
   GiveConsentScreen,
   AddAccountsScreen,
   ComingSoonScreen,
 ];
-
 const settingsScreens: UnmzNavScreen[] = [
   SettingsDetailsScreen,
   AppThemeScreen,
@@ -74,7 +72,6 @@ export const StackNavigator = () => {
       >
         {/* Profile section main screen */}
         <stackNav.Screen
-          key={UserProfileScreen.key}
           name={UserProfileScreen.key}
           component={UserProfileScreen.content}
           options={{ headerShown: false }}
