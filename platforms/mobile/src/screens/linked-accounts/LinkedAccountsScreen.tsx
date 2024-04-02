@@ -14,6 +14,7 @@ import {
   getAllAccountsAmount,
   HeadingText,
   BodyText,
+  ShadowWrapper,
 } from "@unmaze/views";
 import { Plus } from "@unmaze/assets";
 import { UnmzNavScreen } from "../types";
@@ -57,61 +58,59 @@ const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
               }));
 
               return (
-                <Accordion.Item
-                  value={item.name}
-                  key={item.id}
-                  overflow="hidden"
-                >
-                  <Accordion.Trigger
-                    unstyled
-                    onPress={() => {
-                      if (heightValue.value === 0) {
-                        runOnUI(() => {
-                          "worklet";
-                          heightValue.value = withTiming(
-                            measure(listRef)!.height + 12
-                          );
-                        })();
-                      } else {
-                        heightValue.value = withTiming(0);
-                      }
-                    }}
-                  >
-                    {({ open }) => (
-                      <LinkedAccountsAccordionTrigger
-                        key={item.id}
-                        open={open}
-                        item={item}
-                      />
-                    )}
-                  </Accordion.Trigger>
+                <ShadowWrapper size="sm" key={item.id}>
+                  <Accordion.Item value={item.name} overflow="hidden">
+                    <Accordion.Trigger
+                      unstyled
+                      onPress={() => {
+                        if (heightValue.value === 0) {
+                          runOnUI(() => {
+                            "worklet";
+                            heightValue.value = withTiming(
+                              measure(listRef)!.height + 12
+                            );
+                          })();
+                        } else {
+                          heightValue.value = withTiming(0);
+                        }
+                      }}
+                    >
+                      {({ open }) => (
+                        <LinkedAccountsAccordionTrigger
+                          key={item.id}
+                          open={open}
+                          item={item}
+                        />
+                      )}
+                    </Accordion.Trigger>
 
-                  <Accordion.Content unstyled forceMount>
-                    <Animated.View style={heightAnimationStyle}>
-                      <Animated.View
-                        style={{
-                          marginVertical: 12,
-                          gap: 8,
-                          paddingHorizontal: 6,
-                          position: "absolute",
-                          top: 0,
-                          width: "100%",
-                        }}
-                        ref={listRef}
-                      >
-                        {item.accounts.map((account) => {
-                          return (
-                            <LinkedAccountsAccordionContentItem
-                              key={account.id}
-                              account={account}
-                              type={account.isLinked ? "info" : "link"}
-                            />
-                          );
-                        })}
+                    <Accordion.Content unstyled forceMount>
+                      <Animated.View style={heightAnimationStyle}>
+                        <Animated.View
+                          style={{
+                            marginVertical: 12,
+                            gap: 8,
+                            paddingHorizontal: 6,
+                            position: "absolute",
+                            top: 0,
+                            width: "100%",
+                          }}
+                          ref={listRef}
+                        >
+                          {item.accounts.map((account) => {
+                            return (
+                              <LinkedAccountsAccordionContentItem
+                                key={account.id}
+                                account={account}
+                                type={account.isLinked ? "info" : "link"}
+                              />
+                            );
+                          })}
+                        </Animated.View>
                       </Animated.View>
-                    </Animated.View>
-                  </Accordion.Content>
-                </Accordion.Item>
+                    </Accordion.Content>
+                  </Accordion.Item>
+                </ShadowWrapper>
               );
             })}
           </Accordion>

@@ -62,7 +62,10 @@ export const LinkedAccountsAccordionContentItem: React.FC<
   };
 
   return (
-    <UnmzListItemCard
+    <View
+      padding={12}
+      borderRadius={12}
+      backgroundColor="#fff"
       borderWidth={2}
       borderColor={getBorderColor()}
       pressStyle={{
@@ -79,7 +82,7 @@ export const LinkedAccountsAccordionContentItem: React.FC<
         </YStack>
         <RightComponent />
       </XStack>
-    </UnmzListItemCard>
+    </View>
   );
 };
 
