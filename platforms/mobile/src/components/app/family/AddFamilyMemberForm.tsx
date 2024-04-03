@@ -1,9 +1,4 @@
-import {
-  FormTextInput,
-  MobileNumberInput,
-  DatePicker,
-  DropdownList,
-} from "@unmaze/views";
+import { FormTextInput, MobileNumberInput, DropdownList } from "@unmaze/views";
 import { Control } from "react-hook-form";
 
 const relationships = [
@@ -79,8 +74,6 @@ export const AddFamilyMemberForm: React.FC<AddFamilyMembFormProps> = ({
           },
         }}
       />
-
-      <DatePicker control={control} label="Date of birth" name="dob" />
 
       <MobileNumberInput control={control} name="mobileNumber" />
     </>

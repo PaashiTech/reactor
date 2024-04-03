@@ -22,18 +22,14 @@ import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.
 import { ACCOUNT_UPDATE_SUCCESS_SCREEN_ID } from "../shared";
 
 type FamilyFormData = {
-  firstName: string;
-  lastName: string;
+  name: { firstName: string; lastName: string };
   relationship: RelationshipType | undefined;
-  dob: Date | undefined;
   mobileNumber: string;
 };
 
 const defaultValues: FamilyFormData = {
-  firstName: "",
-  lastName: "",
+  name: { firstName: "", lastName: "" },
   relationship: undefined,
-  dob: undefined,
   mobileNumber: "",
 };
 
@@ -83,10 +79,9 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
       params: {},
       body: {
         name: {
-          first: capitalize(data.firstName),
-          last: capitalize(data.lastName),
+          first: capitalize(data.name.firstName),
+          last: capitalize(data.name.lastName),
         },
-        dob: data.dob,
         phone: data.mobileNumber,
         relationship: data.relationship,
       },
