@@ -53,7 +53,7 @@ export const TabNavigator = () => {
             return focused ? (
               <SVGWrapper
                 iconSVG={PlaceholderIcon}
-                svgColor="##035E5D"
+                svgColor="#035E5D"
                 size="lg"
               />
             ) : (
