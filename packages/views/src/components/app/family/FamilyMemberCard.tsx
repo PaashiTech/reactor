@@ -15,6 +15,7 @@ import { Check2, ChevronRight, MoreVert } from "@unmaze/assets";
 
 import { FamilyMemberWithCb } from "./FamilyMemberList";
 import { AccentText } from "../../core/typography/AccentText";
+import { IconButton } from "../../core/buttons/IconButton";
 
 type FamilyMemberCardProps = FamilyMemberWithCb;
 
@@ -49,7 +50,7 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
       backgroundColor="#FFFFFF"
     >
       {/* Main content */}
-      <XStack justifyContent="space-between">
+      <XStack justifyContent="space-between" alignItems="center">
         {/* Family member details */}
         <YStack gap={4}>
           <XStack alignItems="center" gap={6}>
@@ -73,30 +74,21 @@ export const FamilyMemberCard: FC<FamilyMemberCardProps> = ({
         </YStack>
 
         {/* 3-dot menu */}
-        <YStack>
-          <Pressable
-            android_ripple={{
-              color: "#d1d1d1",
-              borderless: true,
-              radius: 16,
-            }}
-            onPress={onOptions}
-          >
-            <SVGWrapper iconSVG={MoreVert} size="md" />
-          </Pressable>
-        </YStack>
+
+        <IconButton icon={MoreVert} />
       </XStack>
 
       {/* Remind me link */}
-      {shouldBeReminded(invitation.created_at) && (
-        <XStack gap={4} onPress={onRemind}>
-          <AccentText fontWeight="700" size="sm" color="#009D9A">
-            Remind
-          </AccentText>
+      {invitation.status !== "Accepted" &&
+        shouldBeReminded(invitation.created_at) && (
+          <XStack gap={4} onPress={onRemind}>
+            <AccentText fontWeight="700" size="sm" color="#009D9A">
+              Remind
+            </AccentText>
 
-          <SVGWrapper svgColor="#009D9A" iconSVG={ChevronRight} size="sm" />
-        </XStack>
-      )}
+            <SVGWrapper svgColor="#009D9A" iconSVG={ChevronRight} size="sm" />
+          </XStack>
+        )}
     </View>
   );
 };
