@@ -1,5 +1,6 @@
 import {
   BodyText,
+  Circle,
   HeadingText,
   IconButton,
   SVGWrapper,
@@ -45,7 +46,18 @@ export const Cashflow: React.FC<CashflowProps> = ({ openFilters }) => {
       <View mt={32}>
         <XStack justifyContent="space-between">
           <HeadingText size="lg">Cashflow</HeadingText>
-          <IconButton icon={Filter} onPress={openFilters} />
+          <View position="relative">
+            <IconButton icon={Filter} onPress={openFilters} />
+            {!isAllSelected && (
+              <Circle
+                bg="#DA1E28"
+                size="$0.5"
+                position="absolute"
+                bottom={1}
+                right={1}
+              />
+            )}
+          </View>
         </XStack>
         <XStack columnGap={8} rowGap={4} flexWrap="wrap" pr={8}>
           {/**
