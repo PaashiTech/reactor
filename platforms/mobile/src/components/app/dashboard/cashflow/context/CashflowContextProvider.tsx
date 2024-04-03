@@ -4,15 +4,16 @@ import {
   CashflowContextType,
 } from "./cashflowContext.types";
 import { reducer } from "./reducer";
+import { banksList } from "./data";
 
 const initialState: CashflowContextState = {
   appliedFilters: {
     duration: "LAST_30_DAYS",
-    bankAccounts: ["HDFC_BANK"],
+    bankAccounts: banksList.map((bank) => bank.value), // All Banks as default selection
   },
   selectedFilters: {
     duration: "LAST_30_DAYS",
-    bankAccounts: ["HDFC_BANK"],
+    bankAccounts: banksList.map((bank) => bank.value), // All Banks as default selection
   },
 };
 
