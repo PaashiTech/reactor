@@ -22,7 +22,9 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
     <View flex={1}>
       <View mt={24} gap={20}>
         <View gap={12}>
-          <HeadingText size="sm">App preferences</HeadingText>
+          <HeadingText marginLeft={20} size="sm">
+            App preferences
+          </HeadingText>
           <View>
             {appPreferences.map((option) => {
               return (
@@ -51,7 +53,9 @@ const _SettingsDetailsScreen: React.FC<SettingsDetailsScreenProps> = ({
           </View>
         </View>
         <View gap={12}>
-          <HeadingText size="sm">Privacy & Security</HeadingText>
+          <HeadingText marginLeft={20} size="sm">
+            Privacy & Security
+          </HeadingText>
 
           <View>
             {privacyAndSecurity.map((option) => {
