@@ -73,7 +73,7 @@ export const LinkedAccountsAccordionContentItem: React.FC<
       }}
     >
       <XStack alignItems="center" gap={12}>
-        <PlaceholderIcon />
+        <SVGWrapper iconSVG={PlaceholderIcon} size="md" />
         <YStack flex={1} gap={2}>
           <AccentText color="#262626">{account.type}</AccentText>
           <AccentText size="sm" color="#6F6F6F">

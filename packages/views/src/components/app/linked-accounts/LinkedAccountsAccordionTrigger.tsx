@@ -20,7 +20,8 @@ export const LinkedAccountsAccordionTrigger: React.FC<
     <View borderRadius={12} overflow="hidden" backgroundColor={"#fff"}>
       <View padding={16}>
         <XStack alignItems="center" gap={12}>
-          <PlaceholderIcon />
+          <SVGWrapper iconSVG={PlaceholderIcon} size="md" />
+
           <YStack flex={1} gap={2}>
             <AccentText color="#262626">{item.name}</AccentText>
             <AccentText size="sm" color="#6F6F6F">
