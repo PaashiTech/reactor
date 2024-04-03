@@ -89,7 +89,7 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
             </View>
           </ShadowWrapper>
         </View>
-        <View p={24} gap={20}>
+        <View p={24} pt={0} gap={20}>
           <View alignItems="center" gap={24}>
             <LogoWithUnmaze />
             <XStack gap={24}>
