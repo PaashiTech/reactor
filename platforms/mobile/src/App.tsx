@@ -15,7 +15,7 @@ import { TabNavigator } from "./navigation/navigators/TabNavigator";
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
   const { userIsLoading } = useGetUser({
-    id: "16cd063a-071b-46bf-80eb-654766e4911c",
+    id: process.env.EXPO_PUBLIC_DEV_TEST_USER!,
   });
 
   if (!fontsLoaded) {

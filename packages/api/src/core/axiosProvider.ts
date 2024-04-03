@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 
-export const BASE_URL = "https://backend-jppb.onrender.com";
+export const BASE_URL = process.env.EXPO_PUBLIC_DEV_API_BASE_URL;
 
 const axiosGlobalConfig = {
   // `url` is the server URL that will be used for the request
