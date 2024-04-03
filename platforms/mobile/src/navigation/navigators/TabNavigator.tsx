@@ -1,12 +1,16 @@
-import * as React from "react";
-import { SVGWrapper, Text, View } from "@unmaze/views";
+import { BodyText, SVGWrapper, Text, View } from "@unmaze/views";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { PlaceholderIcon, Market, ProfileInCircle, Mind } from "@unmaze/assets";
+import {
+  PlaceholderIcon,
+  Market,
+  ProfileInCircle,
+  Mind,
+  SvgProps,
+} from "@unmaze/assets";
 import { TabRouteProps } from "./types";
 
 import { ME_TAB_ID, MARKET_TAB_ID, MIND_TAB_ID, PROFILE_TAB_ID } from "./types";
-import { TextStyle } from "react-native";
 
 import { MeStackNavigator } from "./MeStackNavigator";
 import { ProfileStackNavigator } from "./ProfileStackNavigator";
@@ -28,12 +32,22 @@ const MindScreen = () => {
   );
 };
 
-const labelStyles: TextStyle = {
-  fontSize: 12,
-  fontWeight: "400",
-  lineHeight: 16,
-  letterSpacing: 0.24,
-  paddingTop: 4,
+type TabIconsMapType = Record<keyof TabRouteProps, React.FC<SvgProps>>;
+
+type TabTitleMapType = Record<keyof TabRouteProps, string>;
+
+const TabIconsMap: TabIconsMapType = {
+  "tab-0": PlaceholderIcon,
+  "tab-1": Market,
+  "tab-2": Mind,
+  "tab-3": ProfileInCircle,
+};
+
+const TabTitleMap: TabTitleMapType = {
+  "tab-0": "Me",
+  "tab-1": "Market",
+  "tab-2": "Mind",
+  "tab-3": "Profile",
 };
 
 export const TabNavigator = () => {
@@ -48,94 +62,19 @@ export const TabNavigator = () => {
           paddingTop: 12,
           paddingBottom: 12,
         },
-        tabBarIcon: ({ focused }) => {
-          if (route.name === ME_TAB_ID) {
-            return focused ? (
-              <SVGWrapper
-                iconSVG={PlaceholderIcon}
-                svgColor="#035E5D"
-                size="lg"
-              />
-            ) : (
-              <SVGWrapper
-                iconSVG={PlaceholderIcon}
-                svgColor="#697077"
-                size="lg"
-              />
-            );
-          } else if (route.name === MARKET_TAB_ID) {
-            return focused ? (
-              <SVGWrapper iconSVG={Market} svgColor="#035E5D" size="lg" />
-            ) : (
-              <SVGWrapper iconSVG={Market} svgColor="#697077" size="lg" />
-            );
-          } else if (route.name === MIND_TAB_ID) {
-            return focused ? (
-              <SVGWrapper iconSVG={Mind} svgColor="#035E5D" size="lg" />
-            ) : (
-              <SVGWrapper iconSVG={Mind} svgColor="#697077" size="lg" />
-            );
-          } else if (route.name === PROFILE_TAB_ID) {
-            return focused ? (
-              <SVGWrapper
-                iconSVG={ProfileInCircle}
-                svgColor="#035E5D"
-                size="lg"
-              />
-            ) : (
-              <SVGWrapper
-                iconSVG={ProfileInCircle}
-                svgColor="#697077"
-                size="lg"
-              />
-            );
-          }
-        },
-        tabBarLabel: ({ focused }) => {
-          if (route.name === ME_TAB_ID) {
-            return focused ? (
-              <Text style={labelStyles} color="#035E5D">
-                Me
-              </Text>
-            ) : (
-              <Text style={labelStyles} color="#697077">
-                Me
-              </Text>
-            );
-          } else if (route.name === MARKET_TAB_ID) {
-            return focused ? (
-              <Text style={labelStyles} color="#035E5D">
-                Market
-              </Text>
-            ) : (
-              <Text style={labelStyles} color="#697077">
-                Market
-              </Text>
-            );
-          } else if (route.name === MIND_TAB_ID) {
-            return focused ? (
-              <Text style={labelStyles} color="#035E5D">
-                Mind
-              </Text>
-            ) : (
-              <Text style={labelStyles} color="#697077">
-                Mind
-              </Text>
-            );
-          } else if (route.name === PROFILE_TAB_ID) {
-            return focused ? (
-              <Text style={labelStyles} color="#035E5D">
-                Profile
-              </Text>
-            ) : (
-              <Text style={labelStyles} color="#697077">
-                Profile
-              </Text>
-            );
-          }
-        },
-        tabBarActiveTintColor: "#035E5D",
-        tabBarInactiveTintColor: "#697077",
+        tabBarIcon: ({ focused }) => (
+          <SVGWrapper
+            iconSVG={TabIconsMap[route.name]}
+            svgColor={focused ? "#035E5D" : "#697077"}
+            size="lg"
+          />
+        ),
+
+        tabBarLabel: ({ focused }) => (
+          <BodyText mt={4} size="sm" fontWeight={focused ? "600" : "400"}>
+            {TabTitleMap[route.name]}
+          </BodyText>
+        ),
         headerShown: false,
       })}
     >
