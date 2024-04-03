@@ -41,13 +41,18 @@ type ApplyFilters = {
   type: "APPLY_FILTERS";
 };
 
+type DismissFilters = {
+  type: "DISMISS_FILTERS";
+};
+
 export type CashflowContextActions =
   | SetDuration
   | AddBankAccount
   | RemoveBankAccount
   | AddAllBankAccounts
   | RemoveAllBankAccounts
-  | ApplyFilters;
+  | ApplyFilters
+  | DismissFilters;
 
 export type CashflowContextType = {
   state: CashflowContextState;

@@ -68,6 +68,12 @@ export const reducer: CashflowReducerType = (state, action) => {
         appliedFilters: state.selectedFilters,
       };
 
+    case "DISMISS_FILTERS":
+      return {
+        ...state,
+        selectedFilters: state.appliedFilters,
+      };
+
     default:
       return state;
   }

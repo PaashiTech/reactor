@@ -26,7 +26,12 @@ export const FilterBAM: React.FC<FilterBAMProps> = ({
   return (
     <BottomModal
       open={modalVisible}
-      setOpen={toggle}
+      setOpen={(isOpen) => {
+        if (!isOpen) {
+          dispatch({ type: "DISMISS_FILTERS" });
+        }
+        toggle(isOpen);
+      }}
       contentStyle={{ borderRadius: 20 }}
     >
       {/**
@@ -41,7 +46,13 @@ export const FilterBAM: React.FC<FilterBAMProps> = ({
         borderColor="#DDE1E6"
       >
         <HeadingText size="md">Filters</HeadingText>
-        <IconButton icon={Close} onPress={close} />
+        <IconButton
+          icon={Close}
+          onPress={() => {
+            dispatch({ type: "DISMISS_FILTERS" });
+            close();
+          }}
+        />
       </XStack>
 
       {/**

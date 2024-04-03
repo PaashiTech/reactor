@@ -28,7 +28,6 @@ export const _MeDashboardScreen: React.FC = () => {
           flex={1}
           contentContainerStyle={{
             padding: 20,
-            paddingTop: 24,
             backgroundColor: "#FAF9F2",
           }}
           showsVerticalScrollIndicator={false}
@@ -49,6 +48,6 @@ export const _MeDashboardScreen: React.FC = () => {
 
 export const MeDashboardScreen: UnmzNavScreen = {
   key: ME_DASHBOARD_SCREEN_ID,
-  title: "User profile",
+  title: "Dashboard",
   content: _MeDashboardScreen,
 };
