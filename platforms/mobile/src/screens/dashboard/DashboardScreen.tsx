@@ -28,6 +28,7 @@ export const _MeDashboardScreen: React.FC = () => {
           flex={1}
           contentContainerStyle={{
             padding: 20,
+            paddingTop: 20 + 24,
             backgroundColor: "#FAF9F2",
           }}
           showsVerticalScrollIndicator={false}

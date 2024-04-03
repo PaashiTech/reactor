@@ -11,7 +11,7 @@ import {
 export const DashboardHeader = () => {
   const name = useUserStore((state) => state.name);
   return (
-    <View mt={24}>
+    <View>
       <XStack justifyContent="space-between" alignItems="center">
         <YStack gap={4}>
           <HeadingText size="lg" color="#262626">
