@@ -14,16 +14,6 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
     <Controller
       control={control}
       name={name}
-      rules={{
-        required: {
-          value: true,
-          message: `Mobile number is required`,
-        },
-        minLength: {
-          value: 10,
-          message: `Mobile number should have 10 letters`,
-        },
-      }}
       render={({
         field: { value, onChange, onBlur },
         fieldState: { error },
@@ -67,7 +57,7 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
           </XStack>
 
           {error && (
-            <Text color="#DA1E28" marginTop={8} marginLeft={40}>
+            <Text color="#DA1E28" marginTop={8}>
               {error.message || "Error"}
             </Text>
           )}
