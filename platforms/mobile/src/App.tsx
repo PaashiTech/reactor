@@ -11,6 +11,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { useGetUser } from "@unmaze/api";
 import { TabNavigator } from "./navigation/navigators/TabNavigator";
+import { APITest } from "./playground/API";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -45,6 +46,7 @@ export function App() {
           )}
         </SafeAreaProvider>
       </UnmzToastProvider>
+      {/* <APITest /> */}
     </TamaguiProvider>
   );
 }

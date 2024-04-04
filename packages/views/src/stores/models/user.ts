@@ -41,6 +41,7 @@ export type FamilyMember = {
 export type UserState = {
   user_id: string;
   name: Name;
+  joining_time: string; // ISO string
   dob: string; // ISO string
   pan: string;
   phone: {
@@ -50,7 +51,6 @@ export type UserState = {
   email: string;
   marital_status: MaritalStatus;
   gender: Gender;
-  family: FamilyMember[];
 };
 
 export type UserActions = {

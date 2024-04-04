@@ -1,5 +1,6 @@
 import { View, Text, useUserStore, Spinner } from "@unmaze/views";
 import { useGetUser, useGetOTP } from "@unmaze/api";
+import { useEffect } from "react";
 
 const months = [
   "Jan",
@@ -16,18 +17,22 @@ const months = [
   "Dec",
 ];
 
-const TEST_USER_ID = "16cd063a-071b-46bf-80eb-654766e4911c";
+const TEST_USER_ID = process.env.EXPO_PUBLIC_DEV_TEST_USER;
 const TEST_EMAIL_ID = "amogh.kulkarni@unmaze.app";
 
 export const APITest = () => {
   const { userData, userError, userIsLoading } = useGetUser({
-    id: TEST_USER_ID,
+    id: TEST_USER_ID!,
   });
 
   return (
     <View flex={1} alignItems="center" justifyContent="center">
       {userError ? <Text>{userError.toString()}</Text> : null}
-      {userIsLoading ? null : <Text>{userData?.data.name.first}</Text>}
+      {userIsLoading ? (
+        <Text>Loading</Text>
+      ) : (
+        <Text>{userData?.data.name.first}</Text>
+      )}
     </View>
   );
 };
@@ -49,7 +54,7 @@ export const APINoFetchTest = () => {
   const email = useUserStore((state) => state.email);
   const marital_status = useUserStore((state) => state.marital_status);
   const gender = useUserStore((state) => state.gender);
-  const family = useUserStore((state) => state.family);
+  // const family = useUserStore((state) => state.family);
 
   const dobObject = new Date(dob);
 
@@ -69,26 +74,27 @@ export const APINoFetchTest = () => {
       <Text>{email}</Text>
       <Text>{marital_status}</Text>
       <Text>{gender}</Text>
-      <Text>
+      {/* <Text>
         {family
           .map((fm) => constructFullName(fm.name))
           .reduce((fm_n) => fm_n + ", ")}
-      </Text>
+      </Text> */}
     </View>
   );
 };
 
-// export const APICreateOTPTest = () => {
-//   const { getOTPData, getOTPError, getOTPIsLoading } = useGetOTP({
-//     email: TEST_EMAIL_ID,
-//     user_id: TEST_USER_ID,
-//   });
+export const APICreateOTPTest = () => {
+  const { getOTP, getOTPData, getOTPError, getOTPIsLoading } = useGetOTP();
 
-//   return (
-//     <View flex={1} alignItems="center" justifyContent="center">
-//       {getOTPIsLoading ? <Spinner size="large" color="#035E5D" /> : <></>}
-//       {getOTPError ? <Text>Error!</Text> : <></>}
-//       {getOTPData ? <Text>{getOTPData.data.session_id}</Text> : <></>}
-//     </View>
-//   );
-// };
+  useEffect(() => {
+    getOTP({}, { email: TEST_EMAIL_ID, user_id: TEST_USER_ID! });
+  });
+
+  return (
+    <View flex={1} alignItems="center" justifyContent="center">
+      {getOTPIsLoading ? <Spinner size="large" color="#035E5D" /> : <></>}
+      {getOTPError ? <Text>Error!</Text> : <></>}
+      {getOTPData ? <Text>{getOTPData.data.session_id}</Text> : <></>}
+    </View>
+  );
+};
