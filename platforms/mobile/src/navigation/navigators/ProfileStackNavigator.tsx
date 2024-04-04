@@ -51,20 +51,18 @@ const familyScreens: UnmzNavScreen[] = [
   AddFamilyMemberScreen,
   OTPFamilyMemberScreen,
 ];
-
 const linkedAccountsScreens: UnmzNavScreen[] = [
   LinkedAccountsScreen,
   GiveConsentScreen,
   AddAccountsScreen,
   ComingSoonScreen,
 ];
-
 const settingsScreens: UnmzNavScreen[] = [
   SettingsDetailsScreen,
   AppThemeScreen,
 ];
 
-export const StackNavigator = () => {
+export const ProfileStackNavigator = () => {
   const stackNav = createNativeStackNavigator<StackRouteProps>();
   return (
     <StackContextProvider>
@@ -74,8 +72,7 @@ export const StackNavigator = () => {
       >
         {/* Profile section main screen */}
         <stackNav.Screen
-          key={UserProfileScreen.key}
-          name={UserProfileScreen.key}
+          name={UserProfileScreen.key as keyof StackRouteProps}
           component={UserProfileScreen.content}
           options={{ headerShown: false }}
         />
@@ -102,7 +99,7 @@ export const StackNavigator = () => {
             return (
               <stackNav.Screen
                 key={scr.key}
-                name={scr.key}
+                name={scr.key as keyof StackRouteProps}
                 component={scr.content}
                 options={{
                   title: scr.title,

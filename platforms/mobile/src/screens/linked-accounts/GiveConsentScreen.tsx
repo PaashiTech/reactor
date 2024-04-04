@@ -54,7 +54,11 @@ export const _GiveConsentScreen: React.FC<GiveConsentScreenProps> = ({
 
   return (
     <View flex={1} jc="space-between">
-      <ScrollView flex={1} padding={20} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 20 }}
+        showsVerticalScrollIndicator={false}
+      >
         <View gap={2}>
           <HeadingText size="lg">Approve consent</HeadingText>
           <BodyText size="sm" color="#6F6F6F">

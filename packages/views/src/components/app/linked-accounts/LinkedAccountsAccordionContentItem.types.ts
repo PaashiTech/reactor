@@ -13,7 +13,6 @@ export type LinkType = {
 export type CheckboxType = {
   type: "checkbox";
   checked: boolean;
-  setChecked: () => void;
 };
 
 export type RadioType = {

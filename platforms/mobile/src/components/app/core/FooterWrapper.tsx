@@ -1,26 +1,15 @@
 import { SaafeLogo } from "@unmaze/assets";
-import { BodyText, View, XStack } from "@unmaze/views";
-import DropShadow from "react-native-drop-shadow";
+import { BodyText, ShadowWrapper, View, XStack } from "@unmaze/views";
 
 export const FooterWithShadow: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <DropShadow
-      style={{
-        shadowColor: "#21272a",
-        shadowOffset: {
-          width: 0,
-          height: -4,
-        },
-        shadowOpacity: 0.1,
-        shadowRadius: 8,
-      }}
-    >
+    <ShadowWrapper size="sm">
       <View paddingHorizontal={20} paddingVertical={16} gap={12} bg="#fff">
         {children}
       </View>
-    </DropShadow>
+    </ShadowWrapper>
   );
 };
 

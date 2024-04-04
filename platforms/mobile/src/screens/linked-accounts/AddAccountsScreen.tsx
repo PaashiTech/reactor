@@ -116,9 +116,11 @@ export const _AddAccountsScreen: React.FC<AddAccountsScreenProps> = ({
     <View flex={1} jc="space-between">
       <ScrollView
         flex={1}
-        paddingHorizontal={20}
-        paddingVertical={24}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          paddingVertical: 24,
+        }}
       >
         <View gap={2}>
           <HeadingText>Popular Banks</HeadingText>

@@ -25,6 +25,7 @@
     "@react-native-community/datetimepicker": "^7.6.2",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "@react-navigation/bottom-tabs": "6.5.20",
     "@unmaze/api": "workspace:*",
     "@unmaze/assets": "workspace:*",
     "@unmaze/config": "workspace:*",

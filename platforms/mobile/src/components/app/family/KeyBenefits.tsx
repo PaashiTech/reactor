@@ -13,9 +13,9 @@ export const KeyBenefits: React.FC = () => {
       <HeadingText size="sm" fontWeight="700" color="#262626">
         Key benefits
       </HeadingText>
-      <View paddingHorizontal={2}>
+      <View paddingHorizontal={2} gap={4}>
         <View flexDirection="row" gap={8}>
-          <BodyText size="sm" color="#262626">{`\u25CF`}</BodyText>
+          <BodyText fontSize={8} color="#262626">{`\u25CF`}</BodyText>
           <View flex={1}>
             <BodyText size="sm" color="#262626">
               Manage all of your family member's accounts in one place
@@ -23,7 +23,7 @@ export const KeyBenefits: React.FC = () => {
           </View>
         </View>
         <View flexDirection="row" gap={8} flexShrink={1}>
-          <BodyText size="sm" color="#262626">
+          <BodyText fontSize={8} color="#262626">
             {`\u25CF`}
           </BodyText>
           <View flex={1}>

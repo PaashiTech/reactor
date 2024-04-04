@@ -9,36 +9,24 @@ import {
   YStack,
 } from "@unmaze/views";
 import { TabsTabProps } from "@unmaze/views";
-
-export type TabOptions = "Net" | "Assets" | "Liabilities";
+import { TabOptions, TabType } from "./types";
 
 interface NetworthTabsProps {
+  tabs: TabType[];
+  selectedTab: TabOptions;
   setSelectedTab: React.Dispatch<TabOptions>;
 }
 
 export const NetworthTabs: React.FC<NetworthTabsProps> = ({
+  tabs,
+  selectedTab,
   setSelectedTab,
 }) => {
-  const tabs = [
-    {
-      id: 1,
-      title: "Net",
-    },
-    {
-      id: 2,
-      title: "Assets",
-    },
-    {
-      id: 3,
-      title: "Liabilities",
-    },
-  ] as const;
-
   const [tabState, setTabState] = useState<{
     currentTab: TabOptions;
     activeAt: TabLayout | null;
   }>({
-    currentTab: "Net",
+    currentTab: selectedTab,
     activeAt: null,
   });
 
@@ -82,27 +70,36 @@ export const NetworthTabs: React.FC<NetworthTabsProps> = ({
             disablePassBorderRadius
             loop={false}
             backgroundColor="transparent"
+            gap={8}
           >
             {tabs.map((tab) => (
               <Tabs.Tab
                 unstyled
                 key={tab.id}
                 value={tab.title}
+                disabled={tab.disabled}
                 onInteraction={handleOnInteraction}
                 flexGrow={1}
-                flexBasis={`${tabs.length / 3}%`}
                 onPress={() => setSelectedTab(tab.title)}
-                backgroundColor="transparent"
-                paddingHorizontal={24}
+                backgroundColor={tab.disabled ? "#F4F4F4" : "transparent"}
+                borderRadius={8}
                 paddingVertical={8}
               >
-                <AccentText
-                  size="md"
-                  animation="100ms"
-                  color={currentTab === tab.title ? "#FFF" : "#262626"}
-                >
-                  {tab.title}
-                </AccentText>
+                <View flex={1} ai="center">
+                  <AccentText
+                    size="md"
+                    animation="100ms"
+                    color={
+                      tab.disabled
+                        ? "#CAC5C4"
+                        : currentTab === tab.title
+                        ? "#FFF"
+                        : "#262626"
+                    }
+                  >
+                    {tab.title}
+                  </AccentText>
+                </View>
               </Tabs.Tab>
             ))}
           </Tabs.List>

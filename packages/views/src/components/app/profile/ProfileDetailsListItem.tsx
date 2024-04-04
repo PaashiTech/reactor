@@ -69,12 +69,18 @@ const _ListItemFrame = ListItemFrame.styleable<
               android_ripple={{
                 color: "#d1d1d1",
                 borderless: true,
-                radius: 16,
               }}
               style={{ paddingHorizontal: 10 }}
               onPress={onIconPress}
             >
-              {themedIconAfter}
+              <View
+                width={16 * 1.2}
+                aspectRatio={"1/1"}
+                justifyContent="center"
+                alignItems="center"
+              >
+                {themedIconAfter}
+              </View>
             </Pressable>
           </View>
         ) : null}

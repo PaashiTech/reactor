@@ -29,10 +29,24 @@ import {
   LINKED_ACCOUNTS_SCREEN_ID,
 } from "../../screens/linked-accounts/types";
 
+import { ME_DASHBOARD_SCREEN_ID } from "../../screens/dashboard/types";
+
 export type UserProfileScreenProps = NativeStackScreenProps<
   StackRouteProps,
   typeof USER_PROFILE_SCREEN_ID
 >;
+
+export const ME_TAB_ID = "tab-0";
+export const MARKET_TAB_ID = "tab-1";
+export const MIND_TAB_ID = "tab-2";
+export const PROFILE_TAB_ID = "tab-3";
+
+export type TabRouteProps = {
+  [ME_TAB_ID]: undefined;
+  [MARKET_TAB_ID]: undefined;
+  [MIND_TAB_ID]: undefined;
+  [PROFILE_TAB_ID]: undefined;
+};
 
 export type StackRouteProps = {
   /**
@@ -71,4 +85,11 @@ export type StackRouteProps = {
   [OTP_ACCOUNT_VERIFICATION_SCREEN_ID]: {
     confirmScreenId: keyof StackRouteProps;
   };
+};
+
+export type MeStackRouteProps = {
+  /**
+   * Dashboard
+   */
+  [ME_DASHBOARD_SCREEN_ID]: undefined;
 };

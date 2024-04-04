@@ -33,12 +33,7 @@ export const LinkedAccountsAccordionContentItem: React.FC<
         return <LinkNow />;
 
       case "checkbox":
-        return (
-          <Checkbox
-            checked={props.checked}
-            onCheckedChange={props.setChecked}
-          />
-        );
+        return <Checkbox checked={props.checked} />;
 
       case "radio":
         return (
@@ -67,7 +62,10 @@ export const LinkedAccountsAccordionContentItem: React.FC<
   };
 
   return (
-    <UnmzListItemCard
+    <View
+      padding={12}
+      borderRadius={12}
+      backgroundColor="#fff"
       borderWidth={2}
       borderColor={getBorderColor()}
       pressStyle={{
@@ -75,7 +73,7 @@ export const LinkedAccountsAccordionContentItem: React.FC<
       }}
     >
       <XStack alignItems="center" gap={12}>
-        <PlaceholderIcon />
+        <SVGWrapper iconSVG={PlaceholderIcon} size="md" />
         <YStack flex={1} gap={2}>
           <AccentText color="#262626">{account.type}</AccentText>
           <AccentText size="sm" color="#6F6F6F">
@@ -84,7 +82,7 @@ export const LinkedAccountsAccordionContentItem: React.FC<
         </YStack>
         <RightComponent />
       </XStack>
-    </UnmzListItemCard>
+    </View>
   );
 };
 

@@ -1,9 +1,5 @@
-import {
-  FormTextInput,
-  MobileNumberInput,
-  DatePicker,
-  DropdownList,
-} from "@unmaze/views";
+import { FormTextInput, MobileNumberInput, DropdownList } from "@unmaze/views";
+import { fieldNames } from "../../../screens/family/AddFamilyMemberScreen";
 import { Control } from "react-hook-form";
 
 const relationships = [
@@ -34,55 +30,27 @@ export const AddFamilyMemberForm: React.FC<AddFamilyMembFormProps> = ({
     <>
       <FormTextInput
         control={control}
-        name="firstName"
+        name={fieldNames.firstName}
         label="First name"
         placeholder="Enter first name"
-        rules={{
-          required: {
-            value: true,
-            message: "First name is required",
-          },
-          minLength: {
-            value: 3,
-            message: "First name should have more than 3 letters",
-          },
-        }}
       />
 
       <FormTextInput
         control={control}
-        name="lastName"
+        name={fieldNames.lastName}
         label="Last name"
         placeholder="Enter last name"
-        rules={{
-          required: {
-            value: true,
-            message: "Last name is required",
-          },
-          minLength: {
-            value: 3,
-            message: "Last name should have more than 3 letters",
-          },
-        }}
       />
 
       <DropdownList
         label="Relationship"
         modalTitle="Select Relationship"
-        name="relationship"
+        name={fieldNames.relationship}
         selectItems={relationships}
         control={control}
-        rules={{
-          required: {
-            value: true,
-            message: "Select Relationship",
-          },
-        }}
       />
 
-      <DatePicker control={control} label="Date of birth" name="dob" />
-
-      <MobileNumberInput control={control} name="mobileNumber" />
+      <MobileNumberInput control={control} name={fieldNames.mobileNumber} />
     </>
   );
 };

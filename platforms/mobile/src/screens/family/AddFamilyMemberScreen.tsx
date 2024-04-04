@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView } from "react-native";
-import { useForm, FieldValues } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import {
   ADD_FAMILY_MEMBER_SCREEN_ID,
   AddFamilyMemberScreenProps,
@@ -14,26 +14,47 @@ import {
 import { Whatsapp, WhatsappDisabled } from "@unmaze/assets";
 import { TertiaryButton } from "@unmaze/views/src/components";
 import { AddFamilyMemberForm, KeyBenefits } from "../../components/app/family";
-import { RelationshipType } from "../../components/app/family";
 import { UnmzNavScreen } from "../types";
 import { useAddFamilyMember, useGetUser } from "@unmaze/api";
 import { useStackContext } from "../../navigation/navigators/stackContext/StackContextProvider";
 import { OTPSentToType } from "../../navigation/navigators/stackContext/utility.types";
 import { ACCOUNT_UPDATE_SUCCESS_SCREEN_ID } from "../shared";
+import { FamilyFormDataType } from "./utility.types";
+import { capitalize } from "./helpers";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-type FamilyFormData = {
-  firstName: string;
-  lastName: string;
-  relationship: RelationshipType | undefined;
-  dob: Date | undefined;
-  mobileNumber: string;
-};
+export const schema = z.object({
+  firstName: z
+    .string()
+    .regex(/^[a-z]+$/i, "Should only contain alphabets")
+    .min(3, "First name should have more than 3 letters"),
+  lastName: z
+    .string()
+    .regex(/^[a-z]+$/i, "Should only contain alphabets")
+    .min(3, "Last name should have more than 3 letters"),
 
-const defaultValues: FamilyFormData = {
+  relationship: z.string().min(1).nullable(),
+  mobileNumber: z
+    .string()
+    .min(1, "Mobile Number is required")
+    .regex(/^[0-9]+$/, "Only numeric inputs allowed")
+    .min(10, "Mobile number must contain 10 characters"),
+});
+
+export type SchemaType = z.infer<typeof schema>;
+
+type FieldNamesType = { [key in keyof SchemaType]: string };
+
+export const fieldNames: FieldNamesType = Object.keys(schema.shape).reduce(
+  (acc, curr) => ({ ...acc, [curr]: curr }),
+  {} as FieldNamesType
+);
+
+const defaultValues: SchemaType = {
   firstName: "",
   lastName: "",
-  relationship: undefined,
-  dob: undefined,
+  relationship: null,
   mobileNumber: "",
 };
 
@@ -47,6 +68,8 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
     formState: { isDirty },
   } = useForm<FieldValues>({
     defaultValues,
+    resolver: zodResolver(schema),
+    mode: "onChange",
   });
 
   const user_id = useUserStore((state) => state.user_id);
@@ -60,9 +83,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
 
   const isButtonDisabled = !isDirty;
 
-  const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
-
-  const navigateOnSuccess = (data: FamilyFormData) => {
+  const navigateOnSuccess = (data: FamilyFormDataType) => {
     dispatch({
       type: "SET_OTP_SENT_TO",
       payload: { type: OTPSentToType.PRIMARY_NUMBER, value: data.mobileNumber },
@@ -77,7 +98,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
     });
   };
 
-  const handleInviteOTP = (data: FamilyFormData) => {
+  const handleInviteOTP = (data: FamilyFormDataType) => {
     console.log(data);
     addFamilyMember({
       params: {},
@@ -86,7 +107,6 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
           first: capitalize(data.firstName),
           last: capitalize(data.lastName),
         },
-        dob: data.dob,
         phone: data.mobileNumber,
         relationship: data.relationship,
       },
@@ -94,7 +114,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
     });
   };
 
-  const handleInviteWhatsapp = (data: FamilyFormData) => {
+  const handleInviteWhatsapp = (data: FamilyFormDataType) => {
     console.log(data);
   };
 

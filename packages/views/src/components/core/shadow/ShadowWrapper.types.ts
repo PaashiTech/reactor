@@ -7,6 +7,11 @@ export type ShadowSizeType =
   | "2xl"
   | "3xl";
 
+export enum ShadowColorType {
+  onPrimary = "#035E5D",
+  onSecondary = "#161616",
+}
+
 export type ShadowVariantType = {
   shadowOffset: {
     width: number;

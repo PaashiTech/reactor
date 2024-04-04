@@ -68,8 +68,10 @@ export const _ComingSoonScreen: React.FC<ComingSoonScreenProps> = ({
     <View flex={1} jc="space-between">
       <ScrollView
         flex={1}
-        paddingHorizontal={20}
-        paddingVertical={24}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          paddingVertical: 24,
+        }}
         showsVerticalScrollIndicator={false}
       >
         <View gap={2}>

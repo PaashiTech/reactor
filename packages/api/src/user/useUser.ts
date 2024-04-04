@@ -97,8 +97,7 @@ type AddFamilyMemberQueryBody = {
     first: string;
     last: string;
   };
-  relationship: RelationshipType | undefined;
-  dob: Date | undefined;
+  relationship: RelationshipType | null;
   phone: string;
 };
 type AddFamilyMemberQueryParams = {};

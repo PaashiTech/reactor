@@ -1,138 +1,46 @@
 import { LineChart, yAxisSides } from "react-native-gifted-charts";
-import { View, Text, YStack, XStack, Circle, BodyText } from "@unmaze/views";
+import { View, YStack, XStack, Circle, BodyText } from "@unmaze/views";
 import { Dimensions } from "react-native";
-import { TabOptions } from "./NetworthTabs";
+import { TabOptions } from "./types";
 
 const customLabel = (val: string) => {
   return (
     <View marginRight={20}>
-      <Text
+      <BodyText
+        size="sm"
         textAlign="center"
         fontSize={12}
         fontWeight={"400"}
         color="rgba(0,0,0,0.6)"
       >
         {val}
-      </Text>
+      </BodyText>
     </View>
   );
 };
 
-const assetsData = [
-  {
-    value: 4,
-    labelComponent: () => customLabel("Aug"),
-  },
-  {
-    value: 4,
-    labelComponent: () => customLabel("Sep"),
-  },
-  {
-    value: 5.5,
-    labelComponent: () => customLabel("Oct"),
-  },
-  {
-    value: 6.5,
-    labelComponent: () => customLabel("Nov"),
-  },
-  {
-    value: 9.5,
-    labelComponent: () => customLabel("Dec"),
-  },
-  {
-    value: 7.5,
-    labelComponent: () => customLabel("Jan"),
-  },
-];
-const liabilitiesData = [
-  {
-    value: 2.4,
-    labelComponent: () => customLabel("Aug"),
-  },
-  {
-    value: 1.5,
-    labelComponent: () => customLabel("Sep"),
-  },
-  {
-    value: 2,
-    labelComponent: () => customLabel("Oct"),
-  },
-  {
-    value: 1,
-    labelComponent: () => customLabel("Nov"),
-  },
-  {
-    value: 1.5,
-    labelComponent: () => customLabel("Dec"),
-  },
-
-  {
-    value: 2,
-    labelComponent: () => customLabel("Jan"),
-  },
-];
-const netData = [
-  {
-    value: 1.5,
-    labelComponent: () => customLabel("Aug"),
-  },
-  {
-    value: 2,
-    labelComponent: () => customLabel("Sep"),
-  },
-  {
-    value: 3,
-    labelComponent: () => customLabel("Oct"),
-  },
-  {
-    value: 5,
-    labelComponent: () => customLabel("Nov"),
-  },
-  {
-    value: 7,
-    labelComponent: () => customLabel("Dec"),
-  },
-
-  {
-    value: 10,
-    labelComponent: () => customLabel("Jan"),
-  },
-];
-const dummyDataForXAxis = [
-  {
-    value: 0,
-    labelComponent: () => customLabel("Aug"),
-  },
-  {
-    value: 0,
-    labelComponent: () => customLabel("Sep"),
-  },
-  {
-    value: 0,
-    labelComponent: () => customLabel("Oct"),
-  },
-  {
-    value: 0,
-    labelComponent: () => customLabel("Nov"),
-  },
-  {
-    value: 0,
-    labelComponent: () => customLabel("Dec"),
-  },
-
-  {
-    value: 0,
-    labelComponent: () => customLabel("Jan"),
-  },
-];
+const XAxisLabels = ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan"];
 
 interface NetworthLineChartProps {
   selectedTab: TabOptions;
+  data: {
+    netData: { value: number }[];
+    assetsData: { value: number }[];
+    liabilitiesData: { value: number }[];
+  };
 }
 
 export const NetworthLineChart: React.FC<NetworthLineChartProps> = ({
   selectedTab,
+  data,
 }) => {
+  const { netData, assetsData, liabilitiesData } = data;
+
+  const dummyDataForXAxis = XAxisLabels.map((label) => ({
+    value: 0,
+    labelComponent: () => customLabel(label),
+  }));
+
   const maxValue = Math.ceil(
     Math.max(
       ...netData.map((data) => data.value),
