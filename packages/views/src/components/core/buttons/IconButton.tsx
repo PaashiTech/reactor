@@ -1,5 +1,4 @@
 import { SvgProps } from "@unmaze/assets";
-import React from "react";
 import { Pressable, PressableProps } from "react-native";
 import { View } from "tamagui";
 
@@ -13,17 +12,19 @@ export const IconButton: React.FC<IconButtonProps> = ({
   size = 20,
   ...props
 }) => {
+
+  const hitSlopValue = 20
   return (
     <Pressable
       android_ripple={{
         borderless: true,
         foreground: true,
+        radius: 20
       }}
+      hitSlop={{top: hitSlopValue, bottom: hitSlopValue,left: hitSlopValue, right: hitSlopValue }}
       {...props}
     >
       <View
-        width={size * 1.5}
-        aspectRatio={"1/1"}
         justifyContent="center"
         alignItems="center"
       >
