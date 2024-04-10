@@ -60,7 +60,7 @@ type AddFamilyMemberQueryBody = {
     first: string;
     last: string;
   };
-  relationship: RelationshipType | undefined;
+  relationship: RelationshipType | null;
   phone: string;
 };
 type AddFamilyMemberQueryParams = {};

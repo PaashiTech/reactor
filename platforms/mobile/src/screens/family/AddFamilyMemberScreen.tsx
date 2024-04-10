@@ -27,14 +27,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 export const schema = z.object({
   firstName: z
     .string()
+    .min(1, "First name is required")
     .regex(/^[a-z]+$/i, "Should only contain alphabets")
     .min(3, "First name should have more than 3 letters"),
   lastName: z
     .string()
+    .min(1, "Last name is required")
     .regex(/^[a-z]+$/i, "Should only contain alphabets")
     .min(3, "Last name should have more than 3 letters"),
 
-  relationship: z.string().min(1).nullable(),
+  relationship: z.string().min(1, "Select Relatioship"),
   mobileNumber: z
     .string()
     .min(1, "Mobile Number is required")
@@ -54,7 +56,7 @@ export const fieldNames: FieldNamesType = Object.keys(schema.shape).reduce(
 const defaultValues: SchemaType = {
   firstName: "",
   lastName: "",
-  relationship: null,
+  relationship: "",
   mobileNumber: "",
 };
 
@@ -66,6 +68,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
     control,
     handleSubmit,
     formState: { isDirty },
+    trigger,
   } = useForm<FieldValues>({
     defaultValues,
     resolver: zodResolver(schema),
