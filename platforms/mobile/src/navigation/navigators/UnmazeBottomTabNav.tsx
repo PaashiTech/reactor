@@ -1,6 +1,6 @@
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { BodyText, SVGWrapper, ShadowWrapper, View } from "@unmaze/views";
-import { Dimensions, Pressable } from "react-native";
+import { Pressable } from "react-native";
 
 interface UnmazeBottomTabNavProps extends BottomTabBarProps {}
 
@@ -18,10 +18,7 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
           const isFocused = state.index === index;
 
           return (
-            <View
-              key={route.key}
-              width={Dimensions.get("window").width / state.routes.length}
-            >
+            <View key={route.key} flex={1}>
               <Pressable
                 onPress={() => navigation.navigate(route.name)}
                 android_ripple={{
