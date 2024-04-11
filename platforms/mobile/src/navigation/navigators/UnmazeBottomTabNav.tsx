@@ -1,7 +1,7 @@
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { BodyText, SVGWrapper, ShadowWrapper, View } from "@unmaze/views";
-import { useEffect, useState } from "react";
-import { Animated, Dimensions, Easing, Pressable } from "react-native";
+import { useEffect, useRef } from "react";
+import { Animated, Dimensions, Pressable } from "react-native";
 
 interface UnmazeBottomTabNavProps extends BottomTabBarProps {}
 
@@ -13,7 +13,7 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
   descriptors,
   navigation,
 }) => {
-  const [translateX] = useState(new Animated.Value(0));
+  const translateX = useRef(new Animated.Value(0)).current;
 
   const translateTab = (index: number) => {
     Animated.timing(translateX, {
@@ -83,7 +83,7 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
 };
 
 const AnimatedIcon = ({ isFocused, tabBarIcon }) => {
-  const [translateY] = useState(new Animated.Value(0));
+  const translateY = useRef(new Animated.Value(0)).current;
 
   const translateIcon = (value: number) => {
     Animated.timing(translateY, {
