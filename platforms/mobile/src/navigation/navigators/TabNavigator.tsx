@@ -1,6 +1,12 @@
-import { BodyText, SVGWrapper, Text, View } from "@unmaze/views";
+import { Text, View } from "@unmaze/views";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
+import {
+  ME_TAB_ID,
+  MARKET_TAB_ID,
+  MIND_TAB_ID,
+  PROFILE_TAB_ID,
+  TabRouteProps,
+} from "./types";
 import {
   PlaceholderIcon,
   Market,
@@ -8,12 +14,10 @@ import {
   Mind,
   SvgProps,
 } from "@unmaze/assets";
-import { TabRouteProps } from "./types";
-
-import { ME_TAB_ID, MARKET_TAB_ID, MIND_TAB_ID, PROFILE_TAB_ID } from "./types";
-
 import { MeStackNavigator } from "./MeStackNavigator";
 import { ProfileStackNavigator } from "./ProfileStackNavigator";
+import { UnmazeBottomTabNav } from "./UnmazeBottomTabNav";
+import React from "react";
 
 // Placeholders for the other stacks
 const MarketScreen = () => {
@@ -32,23 +36,44 @@ const MindScreen = () => {
   );
 };
 
-type TabIconsMapType = Record<keyof TabRouteProps, React.FC<SvgProps>>;
-
-type TabTitleMapType = Record<keyof TabRouteProps, string>;
-
-const TabIconsMap: TabIconsMapType = {
-  "tab-0": PlaceholderIcon,
-  "tab-1": Market,
-  "tab-2": Mind,
-  "tab-3": ProfileInCircle,
+type TabsType = {
+  id: number;
+  name: keyof TabRouteProps;
+  component: () => JSX.Element;
+  icon: React.FC<SvgProps>;
+  label: string;
 };
 
-const TabTitleMap: TabTitleMapType = {
-  "tab-0": "Me",
-  "tab-1": "Market",
-  "tab-2": "Mind",
-  "tab-3": "Profile",
-};
+const tabs: TabsType[] = [
+  {
+    id: 1,
+    name: ME_TAB_ID,
+    component: MeStackNavigator,
+    icon: PlaceholderIcon,
+    label: "Me",
+  },
+  {
+    id: 2,
+    name: MARKET_TAB_ID,
+    component: MarketScreen,
+    icon: Market,
+    label: "Market",
+  },
+  {
+    id: 3,
+    name: MIND_TAB_ID,
+    component: MindScreen,
+    icon: Mind,
+    label: "Mind",
+  },
+  {
+    id: 4,
+    name: PROFILE_TAB_ID,
+    component: ProfileStackNavigator,
+    icon: ProfileInCircle,
+    label: "Profile",
+  },
+];
 
 export const TabNavigator = () => {
   const tabNav = createBottomTabNavigator<TabRouteProps>();
@@ -56,32 +81,22 @@ export const TabNavigator = () => {
   return (
     <tabNav.Navigator
       initialRouteName={ME_TAB_ID}
-      screenOptions={({ route }) => ({
-        tabBarStyle: {
-          height: 64,
-          paddingTop: 12,
-          paddingBottom: 12,
-        },
-        tabBarIcon: ({ focused }) => (
-          <SVGWrapper
-            iconSVG={TabIconsMap[route.name]}
-            svgColor={focused ? "#035E5D" : "#697077"}
-            size="lg"
-          />
-        ),
-
-        tabBarLabel: ({ focused }) => (
-          <BodyText mt={4} size="sm" fontWeight={focused ? "600" : "400"}>
-            {TabTitleMap[route.name]}
-          </BodyText>
-        ),
+      tabBar={(props) => <UnmazeBottomTabNav {...props} />}
+      screenOptions={{
         headerShown: false,
-      })}
+      }}
     >
-      <tabNav.Screen name={ME_TAB_ID} component={MeStackNavigator} />
-      <tabNav.Screen name={MARKET_TAB_ID} component={MarketScreen} />
-      <tabNav.Screen name={MIND_TAB_ID} component={MindScreen} />
-      <tabNav.Screen name={PROFILE_TAB_ID} component={ProfileStackNavigator} />
+      {tabs.map((tab) => (
+        <tabNav.Screen
+          key={tab.id}
+          name={tab.name}
+          component={tab.component}
+          options={{
+            tabBarLabel: tab.label,
+            tabBarIcon: tab.icon,
+          }}
+        />
+      ))}
     </tabNav.Navigator>
   );
 };
