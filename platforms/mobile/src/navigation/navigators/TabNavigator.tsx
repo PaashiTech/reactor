@@ -18,6 +18,8 @@ import { MeStackNavigator } from "./MeStackNavigator";
 import { ProfileStackNavigator } from "./ProfileStackNavigator";
 import { UnmazeBottomTabNav } from "./UnmazeBottomTabNav";
 import React from "react";
+import { MeDashboardScreen } from "../../screens/dashboard/DashboardScreen";
+import { UserProfileScreen } from "../../screens/user-profile";
 
 // Placeholders for the other stacks
 const MarketScreen = () => {
@@ -39,7 +41,7 @@ const MindScreen = () => {
 type TabsType = {
   id: number;
   name: keyof TabRouteProps;
-  component: () => JSX.Element;
+  component: React.FC;
   icon: React.FC<SvgProps>;
   label: string;
 };
@@ -48,7 +50,7 @@ const tabs: TabsType[] = [
   {
     id: 1,
     name: ME_TAB_ID,
-    component: MeStackNavigator,
+    component: MeDashboardScreen.content,
     icon: PlaceholderIcon,
     label: "Me",
   },
@@ -69,7 +71,7 @@ const tabs: TabsType[] = [
   {
     id: 4,
     name: PROFILE_TAB_ID,
-    component: ProfileStackNavigator,
+    component: UserProfileScreen.content,
     icon: ProfileInCircle,
     label: "Profile",
   },
