@@ -13,7 +13,10 @@ export const RootStackNavigator: React.FC<RootStackNavigatorProps> = () => {
   const RootStack = createNativeStackNavigator<RootStackRouteProps>();
 
   return (
-    <RootStack.Navigator screenOptions={{ headerShown: false }}>
+    <RootStack.Navigator
+      initialRouteName="MeStackNavigator"
+      screenOptions={{ headerShown: false }}
+    >
       <RootStack.Screen name="MeStackNavigator" component={MeStackNavigator} />
       <RootStack.Screen
         name="ProfileStackNavigator"
