@@ -12,6 +12,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useGetUser } from "@unmaze/api";
 import { TabNavigator } from "./navigation/navigators/TabNavigator";
 import { APITest } from "./playground/API";
+import { OnboardingScreen } from "./screens/onboarding/OnboardingScreen";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -35,7 +36,7 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <SafeAreaProvider>
-          {userIsLoading ? (
+          {/* {userIsLoading ? (
             <View flex={1} justifyContent="center" alignItems="center">
               <Spinner size="large" color="#035E5D" />
             </View>
@@ -43,7 +44,8 @@ export function App() {
             <NavigationContainer theme={BaseTheme}>
               <TabNavigator />
             </NavigationContainer>
-          )}
+          )} */}
+          <OnboardingScreen />
         </SafeAreaProvider>
       </UnmzToastProvider>
       {/* <APITest /> */}
