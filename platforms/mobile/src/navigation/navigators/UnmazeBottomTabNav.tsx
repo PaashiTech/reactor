@@ -15,8 +15,8 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
   navigation,
 }) => {
   const translateX = useRef(new Animated.Value(0)).current;
-  const translateY = useRef(new Animated.Value(0)).current;
-  const { scrollDirection } = useScrollContext();
+
+  const { translateY } = useScrollContext();
 
   const translateTab = (index: number) => {
     Animated.spring(translateX, {
@@ -29,15 +29,6 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
   useEffect(() => {
     translateTab(state.index);
   }, [state.index]);
-
-  useEffect(() => {
-    translateY.stopAnimation();
-    Animated.timing(translateY, {
-      toValue: scrollDirection === "down" ? 100 : 0,
-      useNativeDriver: true,
-      duration: 200,
-    }).start();
-  }, [scrollDirection]);
 
   return (
     <ShadowWrapper size="md-top">

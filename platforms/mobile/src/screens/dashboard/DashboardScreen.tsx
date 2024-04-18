@@ -18,14 +18,23 @@ import { useScrollContext } from "../../navigation/helpers/ScrollContextProvider
 
 export const _MeDashboardScreen: React.FC = () => {
   const [showFiltersModal, setShowFiltersModal] = useState<boolean>(false);
-  const { setScrollDirection } = useScrollContext();
   const lastScrollY = useRef(0);
+  const { translateY } = useScrollContext();
 
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const currentPosition = event.nativeEvent.contentOffset.y;
-    const direction = currentPosition > lastScrollY.current ? "down" : "up";
-    lastScrollY.current = currentPosition;
-    setScrollDirection(direction);
+  const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const currentScrollY = event.nativeEvent.contentOffset.y;
+    const direction = currentScrollY > lastScrollY.current ? "down" : "up";
+    lastScrollY.current = currentScrollY;
+
+    Animated.timing(translateY, {
+      toValue: direction === "down" ? 100 : 0,
+      useNativeDriver: true,
+      duration: 200,
+    }).start();
+
+    Animated.event([{ nativeEvent: { contentOffset: { y: translateY } } }], {
+      useNativeDriver: true,
+    });
   };
 
   return (
@@ -39,9 +48,10 @@ export const _MeDashboardScreen: React.FC = () => {
        */}
       <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
       <View flex={1}>
-        <ScrollView
-          flex={1}
-          onScroll={handleScroll}
+        <Animated.ScrollView
+          onScroll={onScroll}
+          style={{ flex: 1 }}
+          scrollEventThrottle={16}
           contentContainerStyle={{
             padding: 20,
             paddingTop: 20 + 24,
@@ -52,7 +62,7 @@ export const _MeDashboardScreen: React.FC = () => {
           <DashboardHeader />
           <Networth />
           <Cashflow openFilters={() => setShowFiltersModal(true)} />
-        </ScrollView>
+        </Animated.ScrollView>
         <FilterBAM
           modalVisible={showFiltersModal}
           toggle={setShowFiltersModal}

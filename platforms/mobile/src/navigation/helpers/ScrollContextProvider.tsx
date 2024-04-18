@@ -1,24 +1,19 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef } from "react";
+import { Animated } from "react-native";
 
 type ScrollContextType = {
-  scrollDirection: "up" | "down" | null;
-  setScrollDirection: React.Dispatch<
-    React.SetStateAction<"up" | "down" | null>
-  >;
+  translateY: Animated.Value;
 };
 
 const ScrollContext = createContext<ScrollContextType>({
-  scrollDirection: null,
-  setScrollDirection: () => {},
+  translateY: new Animated.Value(0),
 });
 
 export const ScrollContextProvider = ({ children }) => {
-  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(
-    null
-  );
+  const translateY = useRef(new Animated.Value(0)).current;
 
   return (
-    <ScrollContext.Provider value={{ scrollDirection, setScrollDirection }}>
+    <ScrollContext.Provider value={{ translateY }}>
       {children}
     </ScrollContext.Provider>
   );
