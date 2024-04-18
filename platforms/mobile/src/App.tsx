@@ -8,10 +8,7 @@ import {
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
 import { useGetUser } from "@unmaze/api";
-import { TabNavigator } from "./navigation/navigators/TabNavigator";
-import { APITest } from "./playground/API";
 import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
 
 export function App() {
@@ -47,7 +44,6 @@ export function App() {
           )}
         </SafeAreaProvider>
       </UnmzToastProvider>
-      {/* <APITest /> */}
     </TamaguiProvider>
   );
 }
