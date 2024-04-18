@@ -45,7 +45,7 @@ export const _MeDashboardScreen: React.FC = () => {
   };
   const onMomentumScrollEnd = () => {
     const toValue =
-      _clampedScrollValue > TAB_BAR_HEIGHT / 4
+      _clampedScrollValue > TAB_BAR_HEIGHT / 2
         ? _offsetValue + TAB_BAR_HEIGHT
         : _offsetValue - TAB_BAR_HEIGHT;
 
