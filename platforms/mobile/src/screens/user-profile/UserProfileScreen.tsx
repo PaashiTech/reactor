@@ -69,10 +69,10 @@ const _UserProfileScreen: React.FC<UserProfileScreenProps> = ({
                     }}
                     onPress={() => {
                       if (option.navigateTo) {
-                        navigation.navigate(
-                          option.navigateTo,
-                          option.routeProps
-                        );
+                        navigation.navigate("ProfileStackNavigator", {
+                          screen: option.navigateTo,
+                          params: option.routeProps,
+                        });
                       }
                     }}
                   >

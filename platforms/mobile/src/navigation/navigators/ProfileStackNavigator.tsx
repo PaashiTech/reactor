@@ -67,15 +67,15 @@ export const ProfileStackNavigator = () => {
   return (
     <StackContextProvider>
       <stackNav.Navigator
-        initialRouteName={USER_PROFILE_SCREEN_ID}
+        // initialRouteName={USER_PROFILE_SCREEN_ID}
         screenOptions={screenOptions}
       >
         {/* Profile section main screen */}
-        <stackNav.Screen
+        {/* <stackNav.Screen
           name={UserProfileScreen.key as keyof StackRouteProps}
           component={UserProfileScreen.content}
           options={{ headerShown: false }}
-        />
+        /> */}
 
         {/* Family screens group */}
         <stackNav.Group>

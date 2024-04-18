@@ -16,10 +16,10 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
   const translateX = useRef(new Animated.Value(0)).current;
 
   const translateTab = (index: number) => {
-    Animated.timing(translateX, {
+    Animated.spring(translateX, {
       toValue: index * TAB_WIDTH,
       useNativeDriver: true,
-      duration: 400,
+      bounciness: 5,
     }).start();
   };
 
@@ -86,10 +86,9 @@ const AnimatedIcon = ({ isFocused, tabBarIcon }) => {
   const translateY = useRef(new Animated.Value(0)).current;
 
   const translateIcon = (value: number) => {
-    Animated.timing(translateY, {
+    Animated.spring(translateY, {
       toValue: value,
       useNativeDriver: true,
-      duration: 400,
     }).start();
   };
 
