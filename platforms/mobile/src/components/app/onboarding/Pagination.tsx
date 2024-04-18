@@ -10,7 +10,7 @@ type PaginationProps = {
 export const Pagination: React.FC<PaginationProps> = ({ data, scrollX }) => {
   const { width } = Dimensions.get("screen");
   return (
-    <View flexDirection="row" paddingHorizontal={20}>
+    <View flexDirection="row" paddingHorizontal={20} justifyContent="center">
       {data.map((_, idx) => {
         const inputRange = [(idx - 1) * width, idx * width, (idx + 1) * width];
 

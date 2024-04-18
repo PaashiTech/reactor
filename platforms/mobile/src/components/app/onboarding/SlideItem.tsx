@@ -9,7 +9,7 @@ export const SlideItem: React.FC<SlideItemProps> = ({ item }) => {
   const { width } = Dimensions.get("screen");
 
   return (
-    <View width={width}>
+    <View width={width} bg="#fff" paddingHorizontal={20} pt={24}>
       <View flex={1} bg="#E7E7E7" jc="center" ai="center">
         <View
           height={100}

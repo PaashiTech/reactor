@@ -37,6 +37,7 @@ export const OnboardingSlider = () => {
         renderItem={({ item }) => <SlideItem item={item} />}
         horizontal
         pagingEnabled
+        bounces={false}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
         onScroll={handleOnScroll}
