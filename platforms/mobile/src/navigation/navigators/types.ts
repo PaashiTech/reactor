@@ -30,6 +30,7 @@ import {
 } from "../../screens/linked-accounts/types";
 
 import { ME_DASHBOARD_SCREEN_ID } from "../../screens/dashboard/types";
+import { ONBOARDING_SCREEN_ID } from "../../screens/onboarding/types";
 
 export type UserProfileScreenProps = NativeStackScreenProps<
   StackRouteProps,
@@ -92,4 +93,8 @@ export type MeStackRouteProps = {
    * Dashboard
    */
   [ME_DASHBOARD_SCREEN_ID]: undefined;
+};
+
+export type OnboardingStackRouteProps = {
+  [ONBOARDING_SCREEN_ID]: undefined;
 };
