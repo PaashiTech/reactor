@@ -1,40 +1,62 @@
-import { ScrollView, View } from "@unmaze/views";
+import { View } from "@unmaze/views";
 import { DashboardHeader } from "../../components/app/dashboard/DashboardHeader";
-import {
-  Animated,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  StatusBar,
-} from "react-native";
+import { Animated, StatusBar } from "react-native";
 import { Networth } from "./Networth";
 import { Cashflow } from "./Cashflow";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FilterBAM } from "../../components/app/dashboard/cashflow/filters/FilterBAM";
 import { CashflowContextProvider } from "../../components/app/dashboard/cashflow/context/CashflowContextProvider";
-
 import { UnmzNavScreen } from "../types";
 import { ME_DASHBOARD_SCREEN_ID } from "./types";
-import { useScrollContext } from "../../navigation/helpers/ScrollContextProvider";
+import {
+  TAB_BAR_HEIGHT,
+  useScrollContext,
+} from "../../navigation/helpers/ScrollContextProvider";
 
 export const _MeDashboardScreen: React.FC = () => {
   const [showFiltersModal, setShowFiltersModal] = useState<boolean>(false);
-  const lastScrollY = useRef(0);
-  const { translateY } = useScrollContext();
 
-  const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const currentScrollY = event.nativeEvent.contentOffset.y;
-    const direction = currentScrollY > lastScrollY.current ? "down" : "up";
-    lastScrollY.current = currentScrollY;
+  const { scrollY, offsetAnim } = useScrollContext();
 
-    Animated.timing(translateY, {
-      toValue: direction === "down" ? 100 : 0,
-      useNativeDriver: true,
-      duration: 200,
-    }).start();
+  let _clampedScrollValue = 0;
+  let _offsetValue = 0;
+  let _scrollValue = 0;
+  let scrollEndTimer: NodeJS.Timeout | null = null;
 
-    Animated.event([{ nativeEvent: { contentOffset: { y: translateY } } }], {
-      useNativeDriver: true,
+  useEffect(() => {
+    scrollY.addListener(({ value }) => {
+      const diff = value - _scrollValue;
+      _scrollValue = value;
+      _clampedScrollValue = Math.min(
+        Math.max(_clampedScrollValue + diff, 0),
+        TAB_BAR_HEIGHT
+      );
     });
+
+    offsetAnim.addListener(({ value }) => {
+      _offsetValue = value;
+    });
+  }, []);
+
+  const onMomentumScrollBegin = () => {
+    if (scrollEndTimer) {
+      clearTimeout(scrollEndTimer);
+    }
+  };
+  const onMomentumScrollEnd = () => {
+    const toValue =
+      _clampedScrollValue > TAB_BAR_HEIGHT / 4
+        ? _offsetValue + TAB_BAR_HEIGHT
+        : _offsetValue - TAB_BAR_HEIGHT;
+
+    Animated.timing(offsetAnim, {
+      toValue,
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
+  };
+  const onScrollEndDrag = () => {
+    scrollEndTimer = setTimeout(onMomentumScrollEnd, 0);
   };
 
   return (
@@ -49,9 +71,17 @@ export const _MeDashboardScreen: React.FC = () => {
       <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
       <View flex={1}>
         <Animated.ScrollView
-          onScroll={onScroll}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+            {
+              useNativeDriver: true,
+            }
+          )}
+          onMomentumScrollBegin={onMomentumScrollBegin}
+          onMomentumScrollEnd={onMomentumScrollEnd}
+          onScrollEndDrag={onScrollEndDrag}
+          scrollEventThrottle={1}
           style={{ flex: 1 }}
-          scrollEventThrottle={16}
           contentContainerStyle={{
             padding: 20,
             paddingTop: 20 + 24,

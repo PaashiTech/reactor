@@ -15,8 +15,7 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
   navigation,
 }) => {
   const translateX = useRef(new Animated.Value(0)).current;
-
-  const { translateY } = useScrollContext();
+  const { bottomTabTranslate } = useScrollContext();
 
   const translateTab = (index: number) => {
     Animated.spring(translateX, {
@@ -39,7 +38,7 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
           backgroundColor: "#FFF",
           position: "absolute",
           bottom: 0,
-          transform: [{ translateY }],
+          transform: [{ translateY: bottomTabTranslate! }],
         }}
       >
         <View
