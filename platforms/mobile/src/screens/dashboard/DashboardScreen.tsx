@@ -1,17 +1,32 @@
 import { ScrollView, View } from "@unmaze/views";
 import { DashboardHeader } from "../../components/app/dashboard/DashboardHeader";
-import { StatusBar } from "react-native";
+import {
+  Animated,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  StatusBar,
+} from "react-native";
 import { Networth } from "./Networth";
 import { Cashflow } from "./Cashflow";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FilterBAM } from "../../components/app/dashboard/cashflow/filters/FilterBAM";
 import { CashflowContextProvider } from "../../components/app/dashboard/cashflow/context/CashflowContextProvider";
 
 import { UnmzNavScreen } from "../types";
 import { ME_DASHBOARD_SCREEN_ID } from "./types";
+import { useScrollContext } from "../../navigation/helpers/ScrollContextProvider";
 
 export const _MeDashboardScreen: React.FC = () => {
   const [showFiltersModal, setShowFiltersModal] = useState<boolean>(false);
+  const { setScrollDirection } = useScrollContext();
+  const lastScrollY = useRef(0);
+
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const currentPosition = event.nativeEvent.contentOffset.y;
+    const direction = currentPosition > lastScrollY.current ? "down" : "up";
+    lastScrollY.current = currentPosition;
+    setScrollDirection(direction);
+  };
 
   return (
     <CashflowContextProvider>
@@ -26,6 +41,7 @@ export const _MeDashboardScreen: React.FC = () => {
       <View flex={1}>
         <ScrollView
           flex={1}
+          onScroll={handleScroll}
           contentContainerStyle={{
             padding: 20,
             paddingTop: 20 + 24,

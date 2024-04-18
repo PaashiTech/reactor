@@ -2,6 +2,7 @@ import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { BodyText, SVGWrapper, ShadowWrapper, View } from "@unmaze/views";
 import { useEffect, useRef } from "react";
 import { Animated, Dimensions, Pressable } from "react-native";
+import { useScrollContext } from "../helpers/ScrollContextProvider";
 
 interface UnmazeBottomTabNavProps extends BottomTabBarProps {}
 
@@ -14,6 +15,8 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
   navigation,
 }) => {
   const translateX = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(0)).current;
+  const { scrollDirection } = useScrollContext();
 
   const translateTab = (index: number) => {
     Animated.spring(translateX, {
@@ -27,13 +30,26 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
     translateTab(state.index);
   }, [state.index]);
 
+  useEffect(() => {
+    translateY.stopAnimation();
+    Animated.timing(translateY, {
+      toValue: scrollDirection === "down" ? 100 : 0,
+      useNativeDriver: true,
+      duration: 200,
+    }).start();
+  }, [scrollDirection]);
+
   return (
     <ShadowWrapper size="md-top">
-      <View
-        flexDirection="row"
-        justifyContent="space-between"
-        bg="#fff"
-        position="relative"
+      <Animated.View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          backgroundColor: "#FFF",
+          position: "absolute",
+          bottom: 0,
+          transform: [{ translateY }],
+        }}
       >
         <View
           alignItems="center"
@@ -77,7 +93,7 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
             </View>
           );
         })}
-      </View>
+      </Animated.View>
     </ShadowWrapper>
   );
 };

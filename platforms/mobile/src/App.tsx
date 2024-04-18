@@ -2,14 +2,12 @@ import {
   TamaguiProvider,
   tamaguiConfig,
   UnmzToastProvider,
-  View,
-  Spinner,
 } from "@unmaze/views";
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { useGetUser } from "@unmaze/api";
 import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
+import { ScrollContextProvider } from "./navigation/helpers/ScrollContextProvider";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -30,9 +28,11 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <SafeAreaProvider>
-          <NavigationContainer theme={BaseTheme}>
-            <RootStackNavigator />
-          </NavigationContainer>
+          <ScrollContextProvider>
+            <NavigationContainer theme={BaseTheme}>
+              <RootStackNavigator />
+            </NavigationContainer>
+          </ScrollContextProvider>
         </SafeAreaProvider>
       </UnmzToastProvider>
     </TamaguiProvider>
