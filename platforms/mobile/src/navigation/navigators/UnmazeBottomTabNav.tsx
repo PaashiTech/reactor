@@ -1,5 +1,5 @@
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { BodyText, SVGWrapper, ShadowWrapper, View } from "@unmaze/views";
+import { BodyText, SVGWrapper, View } from "@unmaze/views";
 import { useEffect, useRef } from "react";
 import { Animated, Dimensions, Pressable } from "react-native";
 import { useScrollContext } from "../helpers/ScrollContextProvider";
@@ -31,61 +31,60 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
   }, [state.index]);
 
   return (
-    <ShadowWrapper size="md-top">
-      <Animated.View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          backgroundColor: "#FFF",
-          position: "absolute",
-          bottom: 0,
-          transform: [{ translateY }],
-        }}
+    <Animated.View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        backgroundColor: "#FFF",
+        position: "absolute",
+        bottom: 0,
+        transform: [{ translateY }],
+        elevation: 10,
+      }}
+    >
+      <View
+        alignItems="center"
+        position="absolute"
+        width={TAB_WIDTH}
+        height={"100%"}
       >
-        <View
-          alignItems="center"
-          position="absolute"
-          width={TAB_WIDTH}
-          height={"100%"}
-        >
-          <Animated.View
-            style={{
-              width: 60,
-              height: 60,
-              backgroundColor: "#035E5D",
-              borderRadius: 30,
-              bottom: 20,
-              borderWidth: 4,
-              borderColor: "#fff",
-              transform: [{ translateX }],
-            }}
-          ></Animated.View>
-        </View>
-        {state.routes.map((route, index) => {
-          const { options } = descriptors[route.key];
+        <Animated.View
+          style={{
+            width: 60,
+            height: 60,
+            backgroundColor: "#035E5D",
+            borderRadius: 30,
+            bottom: 20,
+            borderWidth: 4,
+            borderColor: "#fff",
+            transform: [{ translateX }],
+          }}
+        ></Animated.View>
+      </View>
+      {state.routes.map((route, index) => {
+        const { options } = descriptors[route.key];
 
-          const isFocused = state.index === index;
+        const isFocused = state.index === index;
 
-          return (
-            <View key={route.key} flex={1}>
-              <Pressable onPress={() => navigation.navigate(route.name)}>
-                <View alignItems="center" gap={8} paddingVertical={12}>
-                  {options.tabBarIcon && (
-                    <AnimatedIcon
-                      isFocused={isFocused}
-                      tabBarIcon={options.tabBarIcon}
-                    />
-                  )}
-                  <BodyText size="sm" fontWeight={isFocused ? "600" : "400"}>
-                    {options.tabBarLabel}
-                  </BodyText>
-                </View>
-              </Pressable>
-            </View>
-          );
-        })}
-      </Animated.View>
-    </ShadowWrapper>
+        return (
+          <View key={route.key} flex={1}>
+            <Pressable onPress={() => navigation.navigate(route.name)}>
+              <View alignItems="center" gap={8} paddingVertical={12}>
+                {options.tabBarIcon && (
+                  <AnimatedIcon
+                    isFocused={isFocused}
+                    tabBarIcon={options.tabBarIcon}
+                  />
+                )}
+                <BodyText size="sm" fontWeight={isFocused ? "600" : "400"}>
+                  {options.tabBarLabel}
+                </BodyText>
+              </View>
+            </Pressable>
+          </View>
+        );
+      })}
+    </Animated.View>
   );
 };
 

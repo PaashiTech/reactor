@@ -20,23 +20,34 @@ export const _MeDashboardScreen: React.FC = () => {
   const [showFiltersModal, setShowFiltersModal] = useState<boolean>(false);
   const lastScrollY = useRef(0);
   const { translateY } = useScrollContext();
+  const throttleScroll = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isScrolling = useRef(false);
 
   const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const currentScrollY = event.nativeEvent.contentOffset.y;
-    const direction = currentScrollY > lastScrollY.current ? "down" : "up";
-    lastScrollY.current = currentScrollY;
+    if (event.nativeEvent.contentOffset.y < 0) return;
+    if (!isScrolling.current) {
+      isScrolling.current = true;
 
-    Animated.timing(translateY, {
-      toValue: direction === "down" ? 100 : 0,
-      useNativeDriver: true,
-      duration: 200,
-    }).start();
+      const currentScrollY = event.nativeEvent.contentOffset.y;
 
-    Animated.event([{ nativeEvent: { contentOffset: { y: translateY } } }], {
-      useNativeDriver: true,
-    });
+      const direction =
+        currentScrollY > lastScrollY.current && currentScrollY > 0
+          ? "down"
+          : "up";
+
+      lastScrollY.current = Math.max(currentScrollY, 0);
+
+      Animated.timing(translateY, {
+        toValue: direction === "down" ? 100 : 0,
+        useNativeDriver: true,
+        duration: 150,
+      }).start();
+
+      throttleScroll.current = setTimeout(() => {
+        isScrolling.current = false;
+      }, 150);
+    }
   };
-
   return (
     <CashflowContextProvider>
       {/**
@@ -51,6 +62,7 @@ export const _MeDashboardScreen: React.FC = () => {
         <Animated.ScrollView
           onScroll={onScroll}
           style={{ flex: 1 }}
+          bounces={false}
           scrollEventThrottle={16}
           contentContainerStyle={{
             padding: 20,
