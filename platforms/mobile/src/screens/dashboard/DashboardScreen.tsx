@@ -1,6 +1,11 @@
 import { View } from "@unmaze/views";
 import { DashboardHeader } from "../../components/app/dashboard/DashboardHeader";
-import { Animated, StatusBar } from "react-native";
+import {
+  Animated,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  StatusBar,
+} from "react-native";
 import { Networth } from "./Networth";
 import { Cashflow } from "./Cashflow";
 import { useEffect, useState } from "react";
@@ -25,6 +30,7 @@ export const _MeDashboardScreen: React.FC = () => {
 
   useEffect(() => {
     scrollY.addListener(({ value }) => {
+      if (value < 0) return;
       const diff = value - _scrollValue;
       _scrollValue = value;
       _clampedScrollValue = Math.min(
@@ -81,6 +87,7 @@ export const _MeDashboardScreen: React.FC = () => {
           onMomentumScrollEnd={onMomentumScrollEnd}
           onScrollEndDrag={onScrollEndDrag}
           scrollEventThrottle={1}
+          bounces={false}
           style={{ flex: 1 }}
           contentContainerStyle={{
             padding: 20,

@@ -39,6 +39,7 @@ export const UnmazeBottomTabNav: React.FC<UnmazeBottomTabNavProps> = ({
           position: "absolute",
           bottom: 0,
           transform: [{ translateY: bottomTabTranslate! }],
+          elevation: 10,
         }}
       >
         <View
