@@ -8,5 +8,6 @@
 export { APIGlobalConfigProvider } from "./core/APIGlobalConfigProvider";
 
 // API hooks
-export { useGetUser, useUpdateUser, useAddFamilyMember } from "./user/useUser";
+export { useGetUser, useUpdateUser } from "./user/useUser";
+export { useGetFamily, useAddFamilyMember } from "./user/useFamily";
 export { useGetOTP, useValidateOTP } from "./otp/useOTP";

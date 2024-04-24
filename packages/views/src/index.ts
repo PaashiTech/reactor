@@ -19,7 +19,12 @@ export { mmkvStorage } from "./stores/helpers/mmkvStorage";
 export { computeUserFullName, computeDoBString } from "./stores/helpers/user";
 
 // Models
-export { UserState, UserActions } from "./stores/models/user";
+export {
+  Invitation,
+  FamilyMember,
+  UserState,
+  UserActions,
+} from "./stores/models/user";
 
 // Helpers
 export { formatNetWorth } from "./helpers/formatNetworth";

@@ -137,17 +137,27 @@ export const _GiveConsentScreen: React.FC<GiveConsentScreenProps> = ({
               </TextWithHeader>
             </View>
           </Animated.View>
-          <XStack mt={20} gap={4}>
-            <AccentText color="#035E5D">
-              View {expanded ? "less" : "more"}
-            </AccentText>
+          <XStack>
             <View
-              mt={2}
-              animation="medium"
-              rotate={expanded ? "180deg" : "0deg"}
+              mt={20}
+              flexDirection="row"
+              gap={4}
               onPress={() => setExpanded(!expanded)}
             >
-              <SVGWrapper iconSVG={ChevronDown} svgColor="#035E5D" size="sm" />
+              <AccentText color="#035E5D">
+                View {expanded ? "less" : "more"}
+              </AccentText>
+              <View
+                mt={2}
+                animation="medium"
+                rotate={expanded ? "180deg" : "0deg"}
+              >
+                <SVGWrapper
+                  iconSVG={ChevronDown}
+                  svgColor="#035E5D"
+                  size="sm"
+                />
+              </View>
             </View>
           </XStack>
         </UnmzCard>

@@ -25,20 +25,23 @@ export type Relationship =
 
 export type InvitationStatus = "Invited" | "Declined" | "Expired" | "Accepted";
 export type Invitation = {
+  id: string;
   status: InvitationStatus;
-  created_at: string; // ISO string
+  send_at: string; // ISO string
+  receiver?: FamilyMember;
+  sender?: FamilyMember;
 };
 export type FamilyMember = {
+  id?: string;
   name: Name;
-  invitation: Invitation;
   phone: string;
-  dob: string; // ISO string
-  relationship: Relationship;
+  relation: Relationship;
 };
 
 export type UserState = {
   user_id: string;
   name: Name;
+  joining_time: string; // ISO string
   dob: string; // ISO string
   pan: string;
   phone: {
@@ -48,9 +51,8 @@ export type UserState = {
   email: string;
   marital_status: MaritalStatus;
   gender: Gender;
-  family: FamilyMember[];
 };
 
 export type UserActions = {
-  setState: (newState: UserState) => void;
+  setState: (newState: Partial<UserState>) => void;
 };

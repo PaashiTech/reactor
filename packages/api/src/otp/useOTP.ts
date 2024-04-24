@@ -11,9 +11,12 @@ type GetOTPQueryBody = {
 };
 type GetOTPQueryParams = {}; // placeholder
 type GetOTPResponse = {
-  session_id: string;
+  status: string,
+  data: {
+    session_id: string;
+  }
 };
-type GetOTPParams = GetOTPQueryBody & { startGet: boolean };
+type GetOTPParams = {};
 
 export const useGetOTP = () => {
   const { commonFetch, isLoading, data, status, error } =
@@ -47,7 +50,7 @@ type ValidateOTPQueryBody = {
 };
 type ValidateOTPQueryParams = {}; // placeholder
 type ValidateOTPResponse = { status: number };
-type ValidateOTPParams = ValidateOTPQueryBody & { startValidate: boolean };
+type ValidateOTPParams = ValidateOTPQueryBody;
 
 export const useValidateOTP = () => {
   const { commonFetch, isLoading, data, status, error } =

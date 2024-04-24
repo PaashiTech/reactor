@@ -27,19 +27,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 export const schema = z.object({
   firstName: z
     .string()
-    .regex(/^[a-z]+$/i, "Should only contain alphabets")
-    .min(3, "First name should have more than 3 letters"),
+    .min(1, "First name is required")
+    .regex(/^[a-z]+$/i, "Should only contain alphabets"),
+
   lastName: z
     .string()
-    .regex(/^[a-z]+$/i, "Should only contain alphabets")
-    .min(3, "Last name should have more than 3 letters"),
+    .min(1, "Last name is required")
+    .regex(/^[a-z]+$/i, "Should only contain alphabets"),
 
-  relationship: z.string().min(1).nullable(),
+  relationship: z.string().min(1, "Select Relatioship"),
   mobileNumber: z
     .string()
     .min(1, "Mobile Number is required")
-    .regex(/^[0-9]+$/, "Only numeric inputs allowed")
-    .min(10, "Mobile number must contain 10 characters"),
+    .regex(/^[0-9]+$/, "Only numeric inputs allowed"),
 });
 
 export type SchemaType = z.infer<typeof schema>;
@@ -54,7 +54,7 @@ export const fieldNames: FieldNamesType = Object.keys(schema.shape).reduce(
 const defaultValues: SchemaType = {
   firstName: "",
   lastName: "",
-  relationship: null,
+  relationship: "",
   mobileNumber: "",
 };
 
@@ -65,6 +65,7 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
   const {
     control,
     handleSubmit,
+    setError,
     formState: { isDirty },
   } = useForm<FieldValues>({
     defaultValues,
@@ -99,7 +100,39 @@ const _AddFamilyMemberScreen: React.FC<AddFamilyMemberScreenProps> = ({
   };
 
   const handleInviteOTP = (data: FamilyFormDataType) => {
-    console.log(data);
+    /**
+     * Manual validation needed for the rules that need to apply
+     * only on submit
+     * */
+
+    if (
+      data.firstName.length <= 3 ||
+      data.lastName.length <= 3 ||
+      data.mobileNumber.length < 10
+    ) {
+      if (data.firstName.length < 3) {
+        setError("firstName", {
+          type: "minLength",
+          message: "First name should have more than 3 letters",
+        });
+      }
+      if (data.lastName.length < 3) {
+        setError("lastName", {
+          type: "minLength",
+          message: "Last name should have more than 3 letters",
+        });
+      }
+      if (data.mobileNumber.length < 10) {
+        setError("mobileNumber", {
+          type: "minLength",
+          message: "Mobile number must contain 10 characters",
+        });
+      }
+      return;
+    }
+
+    // Form ok here - Call the add family member API
+
     addFamilyMember({
       params: {},
       body: {

@@ -38,7 +38,7 @@ export const LinkedAccountsAccordionTrigger: React.FC<
         value={getProgressPercent(item.accounts)}
         backgroundColor="#EBFFFF"
       >
-        <Progress.Indicator animation="medium" backgroundColor="#08BDBA" />
+        <Progress.Indicator animation="medium" backgroundColor="#035E5D" />
       </Progress>
     </View>
   );

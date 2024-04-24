@@ -16,6 +16,7 @@ export const useUserStore = create<UserState & UserActions>()(
             middle: "",
             last: "",
           },
+          joining_time: "",
           dob: "", // ISO string
           pan: "",
           phone: {
@@ -24,7 +25,7 @@ export const useUserStore = create<UserState & UserActions>()(
           email: "",
           marital_status: "PreferNotToSay" as const,
           gender: "PreferNotToSay" as const,
-          family: [],
+          // family: [],
           setState: (newState) =>
             set((state) => {
               for (const key in newState) {
