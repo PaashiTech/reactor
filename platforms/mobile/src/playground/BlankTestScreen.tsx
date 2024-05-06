@@ -1,16 +1,9 @@
-import { PasswordInput, Text, View } from "@unmaze/views";
-import { useForm } from "react-hook-form";
+import { Text, View } from "@unmaze/views";
 
 export const BlankTestScreen = () => {
-  const { control } = useForm();
   return (
-    <View flex={1} jc="center" paddingHorizontal={20}>
-      <PasswordInput
-        name="password"
-        label="Enter Password"
-        control={control}
-        placeholder="8-32 characters"
-      />
+    <View flex={1} ai="center" jc="center">
+      <Text>Blank Test Screen</Text>
     </View>
   );
 };

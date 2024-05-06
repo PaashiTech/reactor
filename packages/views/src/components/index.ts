@@ -29,6 +29,7 @@ export { PopupModal } from "./core/modals/PopupModal";
 // Inputs
 export { FormTextInput } from "./core/inputs/FormTextInput";
 export { PasswordInput } from "./core/inputs/PasswordInput";
+export { UnmazePinInput } from "./core/inputs/UnmazePinInput";
 export { MobileNumberInput } from "./core/inputs/MobileNumberInput";
 export { CalendarPicker } from "./core/inputs/CalendarPicker";
 export { DatePicker } from "./core/inputs/DatePicker";
