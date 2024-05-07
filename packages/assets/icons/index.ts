@@ -53,6 +53,7 @@ import BOBBankLogo from "./bank-logos/bob-bank-logo.svg";
 
 // Logos
 import GoogleLogo from "./logos/google_logo.svg";
+import UnmazeLogo from "./logos/unmaze-logo.svg";
 
 export {
   Bell,
@@ -106,6 +107,7 @@ export {
   Mind,
   ProfileInCircle,
   GoogleLogo,
+  UnmazeLogo,
 };
 
 export { SvgProps } from "react-native-svg";

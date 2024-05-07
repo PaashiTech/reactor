@@ -5,6 +5,7 @@ import { OnboardingStackRouteProps } from "./types";
 import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
 import { SSOScreen } from "../../screens/onboarding/SSOScreen";
 import { EmailLoginScreen } from "../../screens/onboarding/EmailLoginScreen";
+import { InviteOnlyScreen } from "../../screens/onboarding/InviteOnlyScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -25,6 +26,10 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={EmailLoginScreen.key as keyof OnboardingStackRouteProps}
         component={EmailLoginScreen.content}
+      />
+      <OnboardingStackNav.Screen
+        name={InviteOnlyScreen.key as keyof OnboardingStackRouteProps}
+        component={InviteOnlyScreen.content}
       />
     </OnboardingStackNav.Navigator>
   );

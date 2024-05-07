@@ -18,3 +18,9 @@ export type EmailLoginScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
   typeof EMAIL_LOGIN_SCREEN_ID
 >;
+
+export const INVITE_ONLY_SCREEN_ID = "0208";
+export type InviteOnlyScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof INVITE_ONLY_SCREEN_ID
+>;
