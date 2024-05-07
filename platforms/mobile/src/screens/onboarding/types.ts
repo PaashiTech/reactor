@@ -12,3 +12,9 @@ export type SSOScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
   typeof SSO_SCREEN_ID
 >;
+
+export const EMAIL_LOGIN_SCREEN_ID = "0202";
+export type EmailLoginScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof EMAIL_LOGIN_SCREEN_ID
+>;

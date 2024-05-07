@@ -7,7 +7,7 @@ import {
   ViewProps,
   YStack,
 } from "@unmaze/views";
-import { SSOScreenProps, SSO_SCREEN_ID } from "./types";
+import { EMAIL_LOGIN_SCREEN_ID, SSOScreenProps, SSO_SCREEN_ID } from "./types";
 import { UnmzNavScreen } from "../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { GoogleLogo } from "@unmaze/assets/icons";
@@ -53,7 +53,9 @@ const _SSOScreen: React.FC<SSOScreenProps> = ({ navigation, route }) => {
             <TertiaryButton icon={GoogleLogo} scaleSpace={0.6}>
               Continue with Google
             </TertiaryButton>
-            <Pressable>
+            <Pressable
+              onPress={() => navigation.navigate(EMAIL_LOGIN_SCREEN_ID)}
+            >
               <AccentText
                 borderBottomColor="#035E5D"
                 borderBottomWidth={1}

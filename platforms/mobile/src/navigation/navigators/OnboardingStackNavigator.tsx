@@ -4,6 +4,7 @@ import { screenOptions } from "../helpers/screenOptions";
 import { OnboardingStackRouteProps } from "./types";
 import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
 import { SSOScreen } from "../../screens/onboarding/SSOScreen";
+import { EmailLoginScreen } from "../../screens/onboarding/EmailLoginScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -20,6 +21,10 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={SSOScreen.key as keyof OnboardingStackRouteProps}
         component={SSOScreen.content}
+      />
+      <OnboardingStackNav.Screen
+        name={EmailLoginScreen.key as keyof OnboardingStackRouteProps}
+        component={EmailLoginScreen.content}
       />
     </OnboardingStackNav.Navigator>
   );
