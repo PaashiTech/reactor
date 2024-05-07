@@ -3,7 +3,6 @@ import { MeStackNavigator } from "./MeStackNavigator";
 import { ProfileStackNavigator } from "./ProfileStackNavigator";
 import { useGetUser } from "@unmaze/api";
 import { Spinner, View } from "@unmaze/views";
-import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
 import { OnboardingStackNavigator } from "./OnboardingStackNavigator";
 
 type RootStackNavigatorProps = {};
@@ -28,7 +27,7 @@ export const RootStackNavigator: React.FC<RootStackNavigatorProps> = () => {
     );
   }
 
-  const userSignedUp = true;
+  const userSignedUp = false;
 
   return (
     <RootStack.Navigator

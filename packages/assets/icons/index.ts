@@ -51,6 +51,9 @@ import SbiBankLogo from "./bank-logos/sbi-bank-logo.svg";
 import ICICIBankLogo from "./bank-logos/icici-bank-logo.svg";
 import BOBBankLogo from "./bank-logos/bob-bank-logo.svg";
 
+// Logos
+import GoogleLogo from "./logos/google_logo.svg";
+
 export {
   Bell,
   Biometrics,
@@ -102,6 +105,7 @@ export {
   Market,
   Mind,
   ProfileInCircle,
+  GoogleLogo,
 };
 
 export { SvgProps } from "react-native-svg";

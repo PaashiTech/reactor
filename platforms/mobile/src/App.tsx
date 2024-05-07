@@ -2,13 +2,10 @@ import {
   TamaguiProvider,
   tamaguiConfig,
   UnmzToastProvider,
-  View,
-  Spinner,
 } from "@unmaze/views";
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { useGetUser } from "@unmaze/api";
 import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
 
 export function App() {
