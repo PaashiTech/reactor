@@ -24,3 +24,9 @@ export type InviteOnlyScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
   typeof INVITE_ONLY_SCREEN_ID
 >;
+
+export const MOBILE_LOGIN_SCREEN_ID = "0206";
+export type MobileLoginScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof MOBILE_LOGIN_SCREEN_ID
+>;

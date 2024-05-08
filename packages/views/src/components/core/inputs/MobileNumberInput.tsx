@@ -1,14 +1,18 @@
 import { Input, Text, View, XStack } from "tamagui";
 import { Control, Controller } from "react-hook-form";
+import { IconButton } from "../buttons/IconButton";
+import { CrossRoundBorder } from "@unmaze/assets";
 
 type MobileNumberInputProps = {
   control: Control;
   name: string;
+  showDeleteButton?: boolean;
 };
 
 export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
   control,
   name,
+  showDeleteButton,
 }) => {
   return (
     <Controller
@@ -23,7 +27,7 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
             Mobile Number
           </Text>
 
-          <XStack gap={8}>
+          <XStack gap={8} position="relative">
             <Input
               unstyled
               cursorColor={"#212121"}
@@ -51,9 +55,21 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
               focusStyle={{
                 borderBottomColor: error ? "#DA1E28" : "#262626",
               }}
-              flex={1}
+              flexGrow={1}
               keyboardType="numeric"
             />
+            <View
+              position="absolute"
+              right={0}
+              top={0}
+              bottom={0}
+              justifyContent="center"
+            >
+              <IconButton
+                icon={CrossRoundBorder}
+                onPress={() => onChange("")}
+              />
+            </View>
           </XStack>
 
           {error && (

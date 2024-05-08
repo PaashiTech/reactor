@@ -6,6 +6,7 @@ import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
 import { SSOScreen } from "../../screens/onboarding/SSOScreen";
 import { EmailLoginScreen } from "../../screens/onboarding/EmailLoginScreen";
 import { InviteOnlyScreen } from "../../screens/onboarding/InviteOnlyScreen";
+import { MobileLoginScreen } from "../../screens/onboarding/MobileLoginScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -30,6 +31,10 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={InviteOnlyScreen.key as keyof OnboardingStackRouteProps}
         component={InviteOnlyScreen.content}
+      />
+      <OnboardingStackNav.Screen
+        name={MobileLoginScreen.key as keyof OnboardingStackRouteProps}
+        component={MobileLoginScreen.content}
       />
     </OnboardingStackNav.Navigator>
   );
