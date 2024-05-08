@@ -35,7 +35,11 @@ const _MobileLoginScreen = () => {
                 The mobile number needs to be linked to your bank account.
               </BodyText>
             </YStack>
-            <MobileNumberInput control={control} name="mobileNumber" />
+            <MobileNumberInput
+              control={control}
+              name="mobileNumber"
+              showDeleteButton
+            />
           </YStack>
           <View paddingVertical={16}>
             <UnmzGradientButton>Confirm</UnmzGradientButton>

@@ -58,18 +58,20 @@ export const MobileNumberInput: React.FC<MobileNumberInputProps> = ({
               flexGrow={1}
               keyboardType="numeric"
             />
-            <View
-              position="absolute"
-              right={0}
-              top={0}
-              bottom={0}
-              justifyContent="center"
-            >
-              <IconButton
-                icon={CrossRoundBorder}
-                onPress={() => onChange("")}
-              />
-            </View>
+            {showDeleteButton && (
+              <View
+                position="absolute"
+                right={0}
+                top={0}
+                bottom={0}
+                justifyContent="center"
+              >
+                <IconButton
+                  icon={CrossRoundBorder}
+                  onPress={() => onChange("")}
+                />
+              </View>
+            )}
           </XStack>
 
           {error && (
