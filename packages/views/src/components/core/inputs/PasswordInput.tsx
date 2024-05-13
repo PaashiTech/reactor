@@ -42,7 +42,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
 
           <View position="relative">
             <Input
-              secureTextEntry={passwordVisible}
+              secureTextEntry={!passwordVisible}
               padding={4}
               paddingBottom={8}
               unstyled
@@ -66,7 +66,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
               right={4}
             >
               <IconButton
-                icon={passwordVisible ? EyeHidden : EyeVisible}
+                icon={passwordVisible ? EyeVisible : EyeHidden}
                 onPress={() => setPasswordVisible((prev) => !prev)}
               />
             </View>

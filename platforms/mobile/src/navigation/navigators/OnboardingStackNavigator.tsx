@@ -7,6 +7,8 @@ import { SSOScreen } from "../../screens/onboarding/SSOScreen";
 import { EmailLoginScreen } from "../../screens/onboarding/EmailLoginScreen";
 import { InviteOnlyScreen } from "../../screens/onboarding/InviteOnlyScreen";
 import { MobileLoginScreen } from "../../screens/onboarding/MobileLoginScreen";
+import { EmailLoginWithPasswordScreen } from "../../screens/onboarding/EmailLoginWithPasswordScreen";
+import { SetPasswordScreen } from "../../screens/onboarding/SetPasswordScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -27,6 +29,17 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={EmailLoginScreen.key as keyof OnboardingStackRouteProps}
         component={EmailLoginScreen.content}
+      />
+      <OnboardingStackNav.Screen
+        name={
+          EmailLoginWithPasswordScreen.key as keyof OnboardingStackRouteProps
+        }
+        component={EmailLoginWithPasswordScreen.content}
+      />
+      <OnboardingStackNav.Screen
+        name={SetPasswordScreen.key as keyof OnboardingStackRouteProps}
+        component={SetPasswordScreen.content}
+        options={{ headerShown: true, title: SetPasswordScreen.title }}
       />
       <OnboardingStackNav.Screen
         name={InviteOnlyScreen.key as keyof OnboardingStackRouteProps}

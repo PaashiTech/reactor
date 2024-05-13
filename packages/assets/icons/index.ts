@@ -42,6 +42,7 @@ import Market from "./svg/market.svg";
 import Mind from "./svg/mind.svg";
 import ProfileInCircle from "./svg/profile-in-circle.svg";
 import CrossRoundBorder from "./svg/cross-round-border.svg";
+import Info from "./svg/info.svg";
 
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
@@ -110,6 +111,7 @@ export {
   GoogleLogo,
   UnmazeLogo,
   CrossRoundBorder,
+  Info,
 };
 
 export { SvgProps } from "react-native-svg";

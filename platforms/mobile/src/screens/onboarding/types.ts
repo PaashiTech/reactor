@@ -19,6 +19,18 @@ export type EmailLoginScreenProps = NativeStackScreenProps<
   typeof EMAIL_LOGIN_SCREEN_ID
 >;
 
+export const EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID = "0202.a";
+export type EmailLoginWithPasswordScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID
+>;
+
+export const SET_PASSWORD_SCREEN_ID = "0203.a";
+export type SetPasswordScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof SET_PASSWORD_SCREEN_ID
+>;
+
 export const INVITE_ONLY_SCREEN_ID = "0208";
 export type InviteOnlyScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,

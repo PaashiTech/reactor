@@ -1,16 +1,16 @@
 import {
+  AccentText,
   BodyText,
   FormTextInput,
+  PasswordInput,
   UnmzGradientButton,
   View,
   ViewProps,
   YStack,
 } from "@unmaze/views";
 import {
-  EMAIL_LOGIN_SCREEN_ID,
   EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID,
-  EmailLoginScreenProps,
-  SET_PASSWORD_SCREEN_ID,
+  EmailLoginWithPasswordScreenProps,
 } from "./types";
 import { UnmzNavScreen } from "../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -27,18 +27,22 @@ const schema = z.object({
     .string()
     .min(1, "Email is required")
     .regex(EMAIL_REGEX, "Enter a valid email"),
+  password: z
+    .string()
+    .min(8, "minimum 8 characters")
+    .max(32, "maximum 32 characters"),
 });
 
 type SchemaType = z.infer<typeof schema>;
 
-const defaultValues: SchemaType = {
-  email: "",
-};
-
-const _EmailLoginScreen: React.FC<EmailLoginScreenProps> = ({
-  navigation,
-  route,
-}) => {
+const _EmailLoginWithPasswordScreen: React.FC<
+  EmailLoginWithPasswordScreenProps
+> = ({ navigation, route }) => {
+  const { email } = route.params;
+  const defaultValues: SchemaType = {
+    email: email,
+    password: "",
+  };
   const insets = useSafeAreaInsets();
   const {
     control,
@@ -58,11 +62,6 @@ const _EmailLoginScreen: React.FC<EmailLoginScreenProps> = ({
 
   const handleNext = (data: SchemaType) => {
     // Further steps
-    // navigation.navigate(EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID, {
-    //   email: data.email,
-    // });
-
-    navigation.navigate(SET_PASSWORD_SCREEN_ID);
   };
   return (
     <View flex={1} {...safeAreaInsets} bg="#FFF">
@@ -74,28 +73,44 @@ const _EmailLoginScreen: React.FC<EmailLoginScreenProps> = ({
           paddingHorizontal={20}
           justifyContent="space-between"
         >
-          <YStack gap={40}>
+          <YStack>
             <View alignSelf="center">
               <LogoWithUnmaze />
             </View>
-            <FormTextInput
-              label="Email Address"
-              name="email"
-              control={control}
-              placeholder="eg. youremail@hotmail.com"
-            />
+            <YStack mt={40} gap={32}>
+              <FormTextInput
+                label="Email Address"
+                name="email"
+                control={control}
+                placeholder="eg. youremail@hotmail.com"
+              />
+
+              <PasswordInput
+                label="Password"
+                name="password"
+                control={control}
+                placeholder="8-32 characters"
+              />
+            </YStack>
+            <View alignItems="flex-end">
+              <AccentText
+                mt={16}
+                textAlign="right"
+                color="#08BDBA"
+                onPress={() => alert("Forgot Password")}
+              >
+                Forgot password
+              </AccentText>
+            </View>
           </YStack>
           <View>
             <YStack gap={12} alignItems="center">
-              <BodyText size="sm" color="#6F6F6F">
-                By continuing you agree with Unmaze's & Saafe's T&C
-              </BodyText>
               <UnmzGradientButton
                 alignSelf="stretch"
                 disabled={!isDirty}
                 onPress={handleSubmit(handleNext)}
               >
-                Next
+                Login
               </UnmzGradientButton>
             </YStack>
           </View>
@@ -105,8 +120,8 @@ const _EmailLoginScreen: React.FC<EmailLoginScreenProps> = ({
   );
 };
 
-export const EmailLoginScreen: UnmzNavScreen = {
-  key: EMAIL_LOGIN_SCREEN_ID,
+export const EmailLoginWithPasswordScreen: UnmzNavScreen = {
+  key: EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID,
   title: "Email Login Screen",
-  content: _EmailLoginScreen,
+  content: _EmailLoginWithPasswordScreen,
 };
