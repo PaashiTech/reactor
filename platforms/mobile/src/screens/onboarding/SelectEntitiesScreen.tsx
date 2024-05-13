@@ -9,7 +9,11 @@ import {
   YStack,
   useUserStore,
 } from "@unmaze/views";
-import { SELECT_ENTITIES_SCREEN_ID } from "./types";
+import {
+  SELECT_BANKS_SCREEN_ID,
+  SELECT_ENTITIES_SCREEN_ID,
+  SelectEntitiesScreenProps,
+} from "./types";
 import { UnmzNavScreen } from "../types";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import {
@@ -21,6 +25,7 @@ import {
 } from "@unmaze/assets";
 import { useState } from "react";
 import { EntityCheckbox } from "../../components/app/onboarding/EntityCheckbox";
+import Animated from "react-native-reanimated";
 
 const entitiesData = [
   {
@@ -51,7 +56,10 @@ const entitiesData = [
   },
 ];
 
-const _SelectEntitiesScreen = () => {
+const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const { phone } = useUserStore();
 
   const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
@@ -67,10 +75,15 @@ const _SelectEntitiesScreen = () => {
       );
     }
   };
+
+  const handlePress = () => {
+    // Navigate to Select Banks Screen
+    navigation.navigate(SELECT_BANKS_SCREEN_ID);
+  };
   return (
     <View flex={1} justifyContent="space-between">
-      <ScrollView flex={1} showsVerticalScrollIndicator={false}>
-        <Progress value={25} height={4} backgroundColor="#EBFFFF">
+      <View flex={1}>
+        <Progress unstyled value={25} height={4} backgroundColor="#EBFFFF">
           <Progress.Indicator
             animation="medium"
             backgroundColor="#08BDBA"
@@ -78,8 +91,12 @@ const _SelectEntitiesScreen = () => {
             borderBottomRightRadius={2}
           />
         </Progress>
-        <View paddingHorizontal={20} paddingVertical={24}>
-          <View gap={8}>
+        <ScrollView
+          paddingHorizontal={20}
+          paddingVertical={20}
+          showsVerticalScrollIndicator={false}
+        >
+          <View gap={2}>
             <HeadingText size="lg">Select the financial entities</HeadingText>
             <BodyText color="#6F6F6F">
               Discover and securely connect all FIP accounts linked with{" "}
@@ -99,14 +116,14 @@ const _SelectEntitiesScreen = () => {
               );
             })}
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
       <SaafeFooter>
         <YStack gap={12}>
           <BodyText textAlign="center" size="sm" color="#525252">
             Select atleast 1 financial asset to proceed
           </BodyText>
-          <UnmzGradientButton disabled={buttonDisabled}>
+          <UnmzGradientButton disabled={buttonDisabled} onPress={handlePress}>
             Discover Accounts
           </UnmzGradientButton>
         </YStack>

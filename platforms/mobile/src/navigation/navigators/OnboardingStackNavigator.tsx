@@ -16,6 +16,7 @@ import { IntroToAAScreen } from "../../screens/onboarding/IntroToAAScreen";
 import { SelectEntitiesScreen } from "../../screens/onboarding/SelectEntitiesScreen";
 import { UnmazeLogo } from "@unmaze/assets";
 import { AccentText, HeadingText, SVGWrapper, View } from "@unmaze/views";
+import { SelectBanksScreen } from "../../screens/onboarding/SelectBanksScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -73,6 +74,16 @@ export const OnboardingStackNavigator = () => {
         options={{
           headerShown: true,
           title: SelectEntitiesScreen.title,
+          headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
+        }}
+      />
+
+      <OnboardingStackNav.Screen
+        name={SelectBanksScreen.key as keyof OnboardingStackRouteProps}
+        component={SelectBanksScreen.content}
+        options={{
+          headerShown: true,
+          title: SelectBanksScreen.title,
           headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
         }}
       />

@@ -60,3 +60,9 @@ export type SelectEntitiesScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
   typeof SELECT_ENTITIES_SCREEN_ID
 >;
+
+export const SELECT_BANKS_SCREEN_ID = "0210.b";
+export type SelectBanksScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof SELECT_BANKS_SCREEN_ID
+>;
