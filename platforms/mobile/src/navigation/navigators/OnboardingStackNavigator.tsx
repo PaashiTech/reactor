@@ -9,6 +9,7 @@ import { InviteOnlyScreen } from "../../screens/onboarding/InviteOnlyScreen";
 import { MobileLoginScreen } from "../../screens/onboarding/MobileLoginScreen";
 import { EmailLoginWithPasswordScreen } from "../../screens/onboarding/EmailLoginWithPasswordScreen";
 import { SetPasswordScreen } from "../../screens/onboarding/SetPasswordScreen";
+import { OTPCreatePasswordScreen } from "../../screens/onboarding/OTPCreatePasswordScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -40,6 +41,11 @@ export const OnboardingStackNavigator = () => {
         name={SetPasswordScreen.key as keyof OnboardingStackRouteProps}
         component={SetPasswordScreen.content}
         options={{ headerShown: true, title: SetPasswordScreen.title }}
+      />
+      <OnboardingStackNav.Screen
+        name={OTPCreatePasswordScreen.key as keyof OnboardingStackRouteProps}
+        component={OTPCreatePasswordScreen.content}
+        options={{ headerShown: true, title: OTPCreatePasswordScreen.title }}
       />
       <OnboardingStackNav.Screen
         name={InviteOnlyScreen.key as keyof OnboardingStackRouteProps}

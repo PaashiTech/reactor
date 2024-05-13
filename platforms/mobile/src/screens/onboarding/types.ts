@@ -31,6 +31,12 @@ export type SetPasswordScreenProps = NativeStackScreenProps<
   typeof SET_PASSWORD_SCREEN_ID
 >;
 
+export const OTP_CREATE_PASSWORD_SCREEN_ID = "0203.b";
+export type OTPCreatePasswordScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof OTP_CREATE_PASSWORD_SCREEN_ID
+>;
+
 export const INVITE_ONLY_SCREEN_ID = "0208";
 export type InviteOnlyScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,

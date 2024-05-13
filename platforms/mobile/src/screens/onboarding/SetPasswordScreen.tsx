@@ -1,10 +1,15 @@
 import { PasswordInput, UnmzGradientButton, View, YStack } from "@unmaze/views";
-import { SET_PASSWORD_SCREEN_ID, SetPasswordScreenProps } from "./types";
+import {
+  OTP_CREATE_PASSWORD_SCREEN_ID,
+  SET_PASSWORD_SCREEN_ID,
+  SetPasswordScreenProps,
+} from "./types";
 import { UnmzNavScreen } from "../types";
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PasswordInfo } from "../../components/app/onboarding/PasswordInfo";
+import { Keyboard } from "react-native";
 
 const schema = z
   .object({
@@ -58,9 +63,10 @@ const _SetPasswordScreen: React.FC<SetPasswordScreenProps> = ({
 
   const handleNext = (data: SchemaType) => {
     // Further steps
+    navigation.navigate(OTP_CREATE_PASSWORD_SCREEN_ID);
   };
   return (
-    <View flex={1} bg="#FFF">
+    <View flex={1} bg="#FFF" onPress={() => Keyboard.dismiss()}>
       <View
         flex={1}
         paddingBottom={16}
