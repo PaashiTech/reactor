@@ -54,3 +54,9 @@ export type IntoToAAScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
   typeof INTRO_TO_AA_SCREEN_ID
 >;
+
+export const SELECT_ENTITIES_SCREEN_ID = "0210.a";
+export type SelectEntitiesScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof SELECT_ENTITIES_SCREEN_ID
+>;

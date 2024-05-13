@@ -44,6 +44,7 @@ import ProfileInCircle from "./svg/profile-in-circle.svg";
 import CrossRoundBorder from "./svg/cross-round-border.svg";
 import Info from "./svg/info.svg";
 import ChainLink from "./svg/chain-link.svg";
+import BankIcon from "./svg/bank-icon.svg";
 
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
@@ -114,6 +115,7 @@ export {
   CrossRoundBorder,
   Info,
   ChainLink,
+  BankIcon,
 };
 
 export { SvgProps } from "react-native-svg";

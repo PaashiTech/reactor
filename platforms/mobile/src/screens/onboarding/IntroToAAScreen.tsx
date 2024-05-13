@@ -13,7 +13,11 @@ import {
   useUserStore,
 } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
-import { INTRO_TO_AA_SCREEN_ID, IntoToAAScreenProps } from "./types";
+import {
+  INTRO_TO_AA_SCREEN_ID,
+  IntoToAAScreenProps,
+  SELECT_ENTITIES_SCREEN_ID,
+} from "./types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { IntroToAA } from "@unmaze/assets";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
@@ -25,7 +29,10 @@ type DataType = {
   icon: React.FC<SvgProps>;
 }[];
 
-const _IntroToAAScreen: React.FC<IntoToAAScreenProps> = ({ navigation }) => {
+const _IntroToAAScreen: React.FC<IntoToAAScreenProps> = ({
+  navigation,
+  route,
+}) => {
   const insets = useSafeAreaInsets();
   const { phone } = useUserStore();
 
@@ -55,14 +62,19 @@ const _IntroToAAScreen: React.FC<IntoToAAScreenProps> = ({ navigation }) => {
     },
   ];
 
+  const handlePress = () => {
+    // Navigate further
+    navigation.navigate(SELECT_ENTITIES_SCREEN_ID);
+  };
+
   return (
     <View flex={1} {...safeAreaInsets} bg="#FFF">
       <View flex={1} justifyContent="space-between">
-        <ScrollView contentContainerStyle={{ paddingBottom: 56 }}>
+        <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
           <View alignItems="center" paddingHorizontal={20}>
             <Image source={IntroToAA} />
           </View>
-          <View mt={64} paddingHorizontal={20}>
+          <View mt={44} paddingHorizontal={20}>
             <YStack gap={4}>
               <HeadingText size="xl" textAlign="center">
                 Track your financial accounts
@@ -89,7 +101,9 @@ const _IntroToAAScreen: React.FC<IntoToAAScreenProps> = ({ navigation }) => {
             Link accounts connected to{" "}
             <AccentText color="#035E5D">+91-{phone.primary}</AccentText>
           </BodyText>
-          <UnmzGradientButton>Continue</UnmzGradientButton>
+          <UnmzGradientButton onPress={handlePress}>
+            Continue
+          </UnmzGradientButton>
         </SaafeFooter>
       </View>
     </View>

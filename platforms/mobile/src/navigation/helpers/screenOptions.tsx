@@ -14,6 +14,7 @@ export const screenOptions: NativeStackNavigationOptions = {
   statusBarTranslucent: true,
   statusBarColor: "#fff",
   headerShadowVisible: true,
+  headerBackVisible: false,
   headerLeft: ({ canGoBack }): React.ReactNode => {
     const navigation = useNavigation();
     return (

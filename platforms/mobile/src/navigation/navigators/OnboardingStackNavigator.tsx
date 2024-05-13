@@ -1,6 +1,8 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  NativeStackHeaderProps,
+  createNativeStackNavigator,
+} from "@react-navigation/native-stack";
 import { screenOptions } from "../helpers/screenOptions";
-
 import { OnboardingStackRouteProps } from "./types";
 import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
 import { SSOScreen } from "../../screens/onboarding/SSOScreen";
@@ -11,6 +13,9 @@ import { EmailLoginWithPasswordScreen } from "../../screens/onboarding/EmailLogi
 import { SetPasswordScreen } from "../../screens/onboarding/SetPasswordScreen";
 import { OTPCreatePasswordScreen } from "../../screens/onboarding/OTPCreatePasswordScreen";
 import { IntroToAAScreen } from "../../screens/onboarding/IntroToAAScreen";
+import { SelectEntitiesScreen } from "../../screens/onboarding/SelectEntitiesScreen";
+import { UnmazeLogo } from "@unmaze/assets";
+import { AccentText, HeadingText, SVGWrapper, View } from "@unmaze/views";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -60,6 +65,16 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={IntroToAAScreen.key as keyof OnboardingStackRouteProps}
         component={IntroToAAScreen.content}
+      />
+
+      <OnboardingStackNav.Screen
+        name={SelectEntitiesScreen.key as keyof OnboardingStackRouteProps}
+        component={SelectEntitiesScreen.content}
+        options={{
+          headerShown: true,
+          title: SelectEntitiesScreen.title,
+          headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
+        }}
       />
     </OnboardingStackNav.Navigator>
   );

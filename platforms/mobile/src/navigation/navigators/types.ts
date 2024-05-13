@@ -38,6 +38,7 @@ import {
   MOBILE_LOGIN_SCREEN_ID,
   ONBOARDING_SCREEN_ID,
   OTP_CREATE_PASSWORD_SCREEN_ID,
+  SELECT_ENTITIES_SCREEN_ID,
   SET_PASSWORD_SCREEN_ID,
   SSO_SCREEN_ID,
 } from "../../screens/onboarding/types";
@@ -117,4 +118,5 @@ export type OnboardingStackRouteProps = {
   [MOBILE_LOGIN_SCREEN_ID]: undefined;
   [OTP_CREATE_PASSWORD_SCREEN_ID]: undefined;
   [INTRO_TO_AA_SCREEN_ID]: undefined;
+  [SELECT_ENTITIES_SCREEN_ID]: undefined;
 };
