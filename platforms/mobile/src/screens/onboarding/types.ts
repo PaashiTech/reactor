@@ -48,3 +48,9 @@ export type MobileLoginScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
   typeof MOBILE_LOGIN_SCREEN_ID
 >;
+
+export const INTRO_TO_AA_SCREEN_ID = "0209";
+export type IntoToAAScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof INTRO_TO_AA_SCREEN_ID
+>;

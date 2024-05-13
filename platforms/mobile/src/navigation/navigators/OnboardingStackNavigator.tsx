@@ -10,6 +10,7 @@ import { MobileLoginScreen } from "../../screens/onboarding/MobileLoginScreen";
 import { EmailLoginWithPasswordScreen } from "../../screens/onboarding/EmailLoginWithPasswordScreen";
 import { SetPasswordScreen } from "../../screens/onboarding/SetPasswordScreen";
 import { OTPCreatePasswordScreen } from "../../screens/onboarding/OTPCreatePasswordScreen";
+import { IntroToAAScreen } from "../../screens/onboarding/IntroToAAScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -17,7 +18,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      initialRouteName="0200"
+      initialRouteName="0209"
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}
@@ -54,6 +55,11 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={MobileLoginScreen.key as keyof OnboardingStackRouteProps}
         component={MobileLoginScreen.content}
+      />
+
+      <OnboardingStackNav.Screen
+        name={IntroToAAScreen.key as keyof OnboardingStackRouteProps}
+        component={IntroToAAScreen.content}
       />
     </OnboardingStackNav.Navigator>
   );

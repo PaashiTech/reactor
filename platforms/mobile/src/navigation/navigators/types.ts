@@ -33,6 +33,7 @@ import { ME_DASHBOARD_SCREEN_ID } from "../../screens/dashboard/types";
 import {
   EMAIL_LOGIN_SCREEN_ID,
   EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID,
+  INTRO_TO_AA_SCREEN_ID,
   INVITE_ONLY_SCREEN_ID,
   MOBILE_LOGIN_SCREEN_ID,
   ONBOARDING_SCREEN_ID,
@@ -115,4 +116,5 @@ export type OnboardingStackRouteProps = {
   [INVITE_ONLY_SCREEN_ID]: undefined;
   [MOBILE_LOGIN_SCREEN_ID]: undefined;
   [OTP_CREATE_PASSWORD_SCREEN_ID]: undefined;
+  [INTRO_TO_AA_SCREEN_ID]: undefined;
 };
