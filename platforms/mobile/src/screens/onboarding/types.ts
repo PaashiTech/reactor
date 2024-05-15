@@ -78,3 +78,9 @@ export type SelectBanksScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
   typeof SELECT_BANKS_SCREEN_ID
 >;
+
+export const AA_FLOW_SUCCESS_SCREEN_ID = "0214";
+export type AAFlowSuccessScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof AA_FLOW_SUCCESS_SCREEN_ID
+>;

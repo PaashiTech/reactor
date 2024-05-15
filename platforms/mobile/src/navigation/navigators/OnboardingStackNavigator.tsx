@@ -1,7 +1,4 @@
-import {
-  NativeStackHeaderProps,
-  createNativeStackNavigator,
-} from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { screenOptions } from "../helpers/screenOptions";
 import { OnboardingStackRouteProps } from "./types";
 import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
@@ -15,11 +12,11 @@ import { OTPCreatePasswordScreen } from "../../screens/onboarding/OTPCreatePassw
 import { IntroToAAScreen } from "../../screens/onboarding/IntroToAAScreen";
 import { SelectEntitiesScreen } from "../../screens/onboarding/SelectEntitiesScreen";
 import { UnmazeLogo } from "@unmaze/assets";
-import { AccentText, HeadingText, SVGWrapper, View } from "@unmaze/views";
+import { SVGWrapper } from "@unmaze/views";
 import { SelectBanksScreen } from "../../screens/onboarding/SelectBanksScreen";
-import { MOBILE_LOGIN_SCREEN_ID } from "../../screens/onboarding/types";
 import { OTPMobileLoginScreen } from "../../screens/onboarding/OTPMobileLoginScreen";
 import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
+import { AAFlowSuccessScreen } from "../../screens/onboarding/AAFlowSuccessScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -27,7 +24,6 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      // initialRouteName={MOBILE_LOGIN_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}
@@ -111,6 +107,10 @@ export const OnboardingStackNavigator = () => {
           title: SelectBanksScreen.title,
           headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
         }}
+      />
+      <OnboardingStackNav.Screen
+        name={AAFlowSuccessScreen.key as keyof OnboardingStackRouteProps}
+        component={AAFlowSuccessScreen.content}
       />
     </OnboardingStackNav.Navigator>
   );
