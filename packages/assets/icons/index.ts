@@ -45,6 +45,9 @@ import CrossRoundBorder from "./svg/cross-round-border.svg";
 import Info from "./svg/info.svg";
 import ChainLink from "./svg/chain-link.svg";
 import BankIcon from "./svg/bank-icon.svg";
+import SaafeModalLogo from "./svg/saafe-modal-logo.svg";
+import UnmazeModalLogo from "./svg/unmaze-modal-logo.svg";
+import Verified from "./svg/verified.svg";
 
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
@@ -93,6 +96,7 @@ export {
   PlaceholderIcon,
   PlaceholderIconDisabled,
   SaafeLogo,
+  SaafeModalLogo,
   CheckSmall,
   CanaraBankLogo,
   HDFCBankLogo,
@@ -116,6 +120,8 @@ export {
   Info,
   ChainLink,
   BankIcon,
+  UnmazeModalLogo,
+  Verified,
 };
 
 export { SvgProps } from "react-native-svg";
