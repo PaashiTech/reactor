@@ -46,7 +46,7 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
           <BodyText textAlign="center" size="sm" color="#525252">
             Connect at least 1 of your banks to proceed
           </BodyText>
-          <UnmzGradientButton>Discover Accounts</UnmzGradientButton>
+          <UnmzGradientButton>Continue</UnmzGradientButton>
         </YStack>
       </SaafeFooter>
     </View>

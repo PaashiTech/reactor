@@ -57,6 +57,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
               value={value}
               onChangeText={onChange}
               onBlur={onBlur}
+              maxLength={32}
             />
             <View
               position="absolute"
