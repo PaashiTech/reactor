@@ -8,14 +8,24 @@ import {
   YStack,
 } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
-import React from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import { SELECT_BANKS_SCREEN_ID, SelectBanksScreenProps } from "./types";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { Button, StyleSheet, Text } from "react-native";
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+  BottomSheetView,
+} from "@gorhom/bottom-sheet";
+import BottomSheet from "@gorhom/bottom-sheet";
 
 const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
   navigation,
   route,
 }) => {
+  // variables
+  const snapPoints = useMemo(() => ["25%", "50%"], []);
+
   return (
     <View flex={1} justifyContent="space-between">
       <View flex={1}>
@@ -39,6 +49,12 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
             </HeadingText>
             <BodyText color="#6F6F6F">You can select multiple banks</BodyText>
           </View>
+
+          <BottomSheet snapPoints={snapPoints}>
+            <View p={20}>
+              <HeadingText>Hello Bottom Sheet</HeadingText>
+            </View>
+          </BottomSheet>
         </ScrollView>
       </View>
       <SaafeFooter>
@@ -52,6 +68,19 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: "center",
+    backgroundColor: "grey",
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: "center",
+  },
+});
 
 export const SelectBanksScreen: UnmzNavScreen = {
   key: SELECT_BANKS_SCREEN_ID,
