@@ -92,7 +92,7 @@ export const LinkAccountsBottomSheet = React.forwardRef<BottomSheetModal>(
         ref={ref}
         index={1}
         snapPoints={snapPoints}
-        enablePanDownToClose={true}
+        enablePanDownToClose={false}
         handleComponent={null}
         backdropComponent={(props) => (
           <BottomSheetBackdrop
