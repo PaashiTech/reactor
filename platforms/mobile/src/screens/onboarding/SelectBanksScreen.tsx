@@ -18,13 +18,14 @@ import {
   BottomSheetView,
 } from "@gorhom/bottom-sheet";
 import BottomSheet from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
   navigation,
   route,
 }) => {
   // variables
-  const snapPoints = useMemo(() => ["25%", "50%"], []);
+  const snapPoints = useMemo(() => ["25%", "50%", "75%", "100%"], []);
 
   return (
     <View flex={1} justifyContent="space-between">
@@ -49,14 +50,9 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
             </HeadingText>
             <BodyText color="#6F6F6F">You can select multiple banks</BodyText>
           </View>
-
-          <BottomSheet snapPoints={snapPoints}>
-            <View p={20}>
-              <HeadingText>Hello Bottom Sheet</HeadingText>
-            </View>
-          </BottomSheet>
         </ScrollView>
       </View>
+
       <SaafeFooter>
         <YStack gap={12}>
           <BodyText textAlign="center" size="sm" color="#525252">
@@ -65,6 +61,11 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
           <UnmzGradientButton>Continue</UnmzGradientButton>
         </YStack>
       </SaafeFooter>
+      <BottomSheet snapPoints={snapPoints}>
+        <View flex={1} p={20} bg={"lime"}>
+          <HeadingText>Hello Bottom Sheet</HeadingText>
+        </View>
+      </BottomSheet>
     </View>
   );
 };
