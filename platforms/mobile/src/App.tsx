@@ -7,7 +7,6 @@ import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
-import { PinSetupScreen } from "./wip/PinSetupScreen";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();

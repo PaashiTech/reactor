@@ -49,6 +49,18 @@ export type MobileLoginScreenProps = NativeStackScreenProps<
   typeof MOBILE_LOGIN_SCREEN_ID
 >;
 
+export const OTP_MOBILE_LOGIN_SCREEN_ID = "0206.b";
+export type OTPMobileLoginScreenprops = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof OTP_MOBILE_LOGIN_SCREEN_ID
+>;
+
+export const PIN_SETUP_SCREEN_ID = "0207";
+export type PINSetupScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof PIN_SETUP_SCREEN_ID
+>;
+
 export const INTRO_TO_AA_SCREEN_ID = "0209";
 export type IntoToAAScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,

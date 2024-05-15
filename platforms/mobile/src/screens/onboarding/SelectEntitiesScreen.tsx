@@ -91,12 +91,8 @@ const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
             borderBottomRightRadius={2}
           />
         </Progress>
-        <ScrollView
-          paddingHorizontal={20}
-          paddingVertical={20}
-          showsVerticalScrollIndicator={false}
-        >
-          <View gap={2}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View gap={2} mt={20} paddingHorizontal={20}>
             <HeadingText size="lg">Select the financial entities</HeadingText>
             <BodyText color="#6F6F6F">
               Discover and securely connect all FIP accounts linked with{" "}
@@ -104,7 +100,13 @@ const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
             </BodyText>
           </View>
 
-          <View marginTop={24} flexDirection="row" gap={16} flexWrap="wrap">
+          <View
+            marginVertical={24}
+            paddingHorizontal={20}
+            flexDirection="row"
+            gap={16}
+            flexWrap="wrap"
+          >
             {entitiesData.map((entity) => {
               return (
                 <EntityCheckbox

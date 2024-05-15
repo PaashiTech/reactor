@@ -11,6 +11,7 @@ import {
 import {
   EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID,
   EmailLoginWithPasswordScreenProps,
+  MOBILE_LOGIN_SCREEN_ID,
 } from "./types";
 import { UnmzNavScreen } from "../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -60,8 +61,12 @@ const _EmailLoginWithPasswordScreen: React.FC<
     paddingRight: insets.right,
   };
 
-  const handleNext = (data: SchemaType) => {
-    // Further steps
+  const handleLogin = (data: SchemaType) => {
+    // API call for email & password authentication
+
+    // Navigate to Enter mobile number
+
+    navigation.navigate(MOBILE_LOGIN_SCREEN_ID);
   };
   return (
     <View flex={1} {...safeAreaInsets} bg="#FFF">
@@ -108,7 +113,7 @@ const _EmailLoginWithPasswordScreen: React.FC<
               <UnmzGradientButton
                 alignSelf="stretch"
                 disabled={!isDirty}
-                onPress={handleSubmit(handleNext)}
+                onPress={handleSubmit(handleLogin)}
               >
                 Login
               </UnmzGradientButton>

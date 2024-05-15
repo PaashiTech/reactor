@@ -58,11 +58,11 @@ const _EmailLoginScreen: React.FC<EmailLoginScreenProps> = ({
 
   const handleNext = (data: SchemaType) => {
     // Further steps
-    // navigation.navigate(EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID, {
-    //   email: data.email,
-    // });
+    navigation.navigate(EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID, {
+      email: data.email,
+    });
 
-    navigation.navigate(SET_PASSWORD_SCREEN_ID);
+    // navigation.navigate(SET_PASSWORD_SCREEN_ID);
   };
   return (
     <View flex={1} {...safeAreaInsets} bg="#FFF">

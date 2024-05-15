@@ -9,7 +9,11 @@ import {
   YStack,
 } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
-import { INVITE_ONLY_SCREEN_ID, OnboardingScreenProps } from "./types";
+import {
+  INTRO_TO_AA_SCREEN_ID,
+  INVITE_ONLY_SCREEN_ID,
+  OnboardingScreenProps,
+} from "./types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { UnmazeLogo } from "@unmaze/assets/icons";
 import { useState } from "react";
@@ -27,6 +31,10 @@ const _InviteOnlyScreen: React.FC<OnboardingScreenProps> = ({
     paddingBottom: insets.bottom,
     paddingLeft: insets.left,
     paddingRight: insets.right,
+  };
+
+  const handlePress = () => {
+    navigation.navigate(INTRO_TO_AA_SCREEN_ID);
   };
 
   return (
@@ -56,7 +64,12 @@ const _InviteOnlyScreen: React.FC<OnboardingScreenProps> = ({
             </View>
           </View>
           <YStack gap={12} paddingVertical={16}>
-            <UnmzGradientButton>Confirm</UnmzGradientButton>
+            <UnmzGradientButton
+              disabled={code.length !== 4}
+              onPress={handlePress}
+            >
+              Confirm
+            </UnmzGradientButton>
             <SecondaryButton>I don't have code</SecondaryButton>
           </YStack>
         </View>

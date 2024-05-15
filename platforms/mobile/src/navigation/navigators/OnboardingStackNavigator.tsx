@@ -17,6 +17,9 @@ import { SelectEntitiesScreen } from "../../screens/onboarding/SelectEntitiesScr
 import { UnmazeLogo } from "@unmaze/assets";
 import { AccentText, HeadingText, SVGWrapper, View } from "@unmaze/views";
 import { SelectBanksScreen } from "../../screens/onboarding/SelectBanksScreen";
+import { MOBILE_LOGIN_SCREEN_ID } from "../../screens/onboarding/types";
+import { OTPMobileLoginScreen } from "../../screens/onboarding/OTPMobileLoginScreen";
+import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -24,7 +27,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      initialRouteName="0209"
+      // initialRouteName={MOBILE_LOGIN_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}
@@ -61,6 +64,28 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={MobileLoginScreen.key as keyof OnboardingStackRouteProps}
         component={MobileLoginScreen.content}
+        options={{
+          headerShown: true,
+          title: "",
+        }}
+      />
+
+      <OnboardingStackNav.Screen
+        name={OTPMobileLoginScreen.key as keyof OnboardingStackRouteProps}
+        component={OTPMobileLoginScreen.content}
+        options={{
+          headerShown: true,
+          title: "",
+        }}
+      />
+
+      <OnboardingStackNav.Screen
+        name={PinSetupScreen.key as keyof OnboardingStackRouteProps}
+        component={PinSetupScreen.content}
+        options={{
+          headerShown: true,
+          title: "",
+        }}
       />
 
       <OnboardingStackNav.Screen

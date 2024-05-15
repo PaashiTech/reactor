@@ -8,6 +8,7 @@ import { EyeHidden, EyeVisible } from "@unmaze/assets";
 type UnmazePinInputProps = {
   code: string;
   setCode: (value: string) => void;
+  setError?: (value: boolean) => void;
   label: string;
   showDigits: boolean;
   isError?: boolean;
@@ -17,6 +18,7 @@ type UnmazePinInputProps = {
 export const UnmazePinInput: React.FC<UnmazePinInputProps> = ({
   code,
   setCode,
+  setError,
   label,
   showDigits,
   isError,
@@ -102,6 +104,9 @@ export const UnmazePinInput: React.FC<UnmazePinInputProps> = ({
     // replace any non-numeric input with an empty string
     const newValue = value.replace(/[^0-9]/g, "");
     setCode(newValue);
+    if (setError) {
+      setError(false);
+    }
   };
 
   return (
