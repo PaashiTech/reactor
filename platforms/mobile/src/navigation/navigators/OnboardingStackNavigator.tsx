@@ -19,7 +19,8 @@ import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
 import { AAFlowSuccessScreen } from "../../screens/onboarding/AAFlowSuccessScreen";
 import { LoadingScreen } from "../../screens/onboarding/LoadingScreen";
 import { AccountDiscoveryScreen } from "../../screens/onboarding/AccountDiscoveryScreen";
-import { SELECT_ENTITIES_SCREEN_ID } from "../../screens/onboarding/types";
+import { CONSENT_SCREEN_ID } from "../../screens/onboarding/types";
+import { ConsentScreen } from "../../screens/onboarding/ConsentScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -27,7 +28,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      initialRouteName={SELECT_ENTITIES_SCREEN_ID}
+      initialRouteName={CONSENT_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}
@@ -128,6 +129,16 @@ export const OnboardingStackNavigator = () => {
         options={{
           headerShown: true,
           title: AccountDiscoveryScreen.title,
+        }}
+      />
+
+      <OnboardingStackNav.Screen
+        name={ConsentScreen.key as keyof OnboardingStackRouteProps}
+        component={ConsentScreen.content}
+        options={{
+          headerShown: true,
+          title: ConsentScreen.title,
+          headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
         }}
       />
     </OnboardingStackNav.Navigator>

@@ -33,6 +33,7 @@ import { ME_DASHBOARD_SCREEN_ID } from "../../screens/dashboard/types";
 import {
   AA_FLOW_SUCCESS_SCREEN_ID,
   ACCOUNT_DISCOVERY_SCREEN_ID,
+  CONSENT_SCREEN_ID,
   EMAIL_LOGIN_SCREEN_ID,
   EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID,
   INTRO_TO_AA_SCREEN_ID,
@@ -133,4 +134,5 @@ export type OnboardingStackRouteProps = {
   [AA_FLOW_SUCCESS_SCREEN_ID]: undefined;
   [LOADING_SCREEN_ID]: undefined;
   [ACCOUNT_DISCOVERY_SCREEN_ID]: undefined;
+  [CONSENT_SCREEN_ID]: undefined;
 };

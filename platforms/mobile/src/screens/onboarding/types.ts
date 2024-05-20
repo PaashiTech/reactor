@@ -91,6 +91,12 @@ export type AccountDiscoveryScreenProps = NativeStackScreenProps<
   typeof ACCOUNT_DISCOVERY_SCREEN_ID
 >;
 
+export const CONSENT_SCREEN_ID = "0212";
+export type ConsentScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof CONSENT_SCREEN_ID
+>;
+
 export const AA_FLOW_SUCCESS_SCREEN_ID = "0214";
 export type AAFlowSuccessScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
