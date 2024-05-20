@@ -27,7 +27,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      // initialRouteName={SELECT_ENTITIES_SCREEN_ID}
+      initialRouteName={SELECT_ENTITIES_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}
