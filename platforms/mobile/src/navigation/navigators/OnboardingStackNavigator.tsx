@@ -17,6 +17,9 @@ import { SelectBanksScreen } from "../../screens/onboarding/SelectBanksScreen";
 import { OTPMobileLoginScreen } from "../../screens/onboarding/OTPMobileLoginScreen";
 import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
 import { AAFlowSuccessScreen } from "../../screens/onboarding/AAFlowSuccessScreen";
+import { LoadingScreen } from "../../screens/onboarding/LoadingScreen";
+import { AccountDiscoveryScreen } from "../../screens/onboarding/AccountDiscoveryScreen";
+import { SELECT_ENTITIES_SCREEN_ID } from "../../screens/onboarding/types";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -24,6 +27,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
+      // initialRouteName={SELECT_ENTITIES_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}
@@ -111,6 +115,20 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={AAFlowSuccessScreen.key as keyof OnboardingStackRouteProps}
         component={AAFlowSuccessScreen.content}
+      />
+
+      <OnboardingStackNav.Screen
+        name={LoadingScreen.key as keyof OnboardingStackRouteProps}
+        component={LoadingScreen.content}
+      />
+
+      <OnboardingStackNav.Screen
+        name={AccountDiscoveryScreen.key as keyof OnboardingStackRouteProps}
+        component={AccountDiscoveryScreen.content}
+        options={{
+          headerShown: true,
+          title: AccountDiscoveryScreen.title,
+        }}
       />
     </OnboardingStackNav.Navigator>
   );

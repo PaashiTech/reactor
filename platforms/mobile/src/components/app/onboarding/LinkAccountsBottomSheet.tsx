@@ -1,4 +1,4 @@
-import BottomSheet, {
+import {
   BottomSheetBackdrop,
   BottomSheetModal,
   BottomSheetView,
@@ -20,7 +20,10 @@ import {
 } from "@unmaze/assets";
 import React, { useEffect, useMemo, useState } from "react";
 import { OTPInputBottomSheet } from "./OTPInputBottomSheet";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { LOADING_SCREEN_ID } from "../../../screens/onboarding/types";
+import { OnboardingStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 const fakeApiCall = (
   success: boolean
@@ -48,7 +51,8 @@ export const LinkAccountsBottomSheet = React.forwardRef<BottomSheetModal>(
       phone: { primary },
     } = useUserStore();
 
-    const { navigate } = useNavigation();
+    const navigation =
+      useNavigation<NativeStackNavigationProp<OnboardingStackRouteProps>>();
 
     const [code, setCode] = useState<string>("");
     const [isSubmitting, setIsSubitting] = useState<boolean>(false);
@@ -65,26 +69,35 @@ export const LinkAccountsBottomSheet = React.forwardRef<BottomSheetModal>(
     };
 
     useEffect(() => {
+      if (code.length !== 6) {
+        return;
+      }
+      let id;
       setIsSuccess(false);
       setIsError(false);
       const fetchData = async () => {
-        if (code.length === 6) {
-          // Make API Call
-          console.log("API Call");
-          setIsSubitting(true);
-          try {
-            const data = await fakeApiCall(true);
-            setIsSubitting(false);
-            setIsSuccess(true);
-          } catch (error) {
-            setIsError(true);
-          } finally {
-            setIsSubitting(false);
-          }
+        // Make API Call
+        console.log("API Call");
+        setIsSubitting(true);
+        try {
+          const data = await fakeApiCall(true);
+          setIsSubitting(false);
+          setIsSuccess(true);
+
+          id = setTimeout(() => {
+            navigation.replace(LOADING_SCREEN_ID);
+            ref.current?.close();
+          }, 2000);
+        } catch (error) {
+          setIsError(true);
+        } finally {
+          setIsSubitting(false);
         }
       };
 
       fetchData(); // Call the async function inside useEffect
+
+      return () => clearTimeout(id);
     }, [code]);
 
     return (
