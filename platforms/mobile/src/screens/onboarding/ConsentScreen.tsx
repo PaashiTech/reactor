@@ -34,7 +34,7 @@ import { Animated } from "react-native";
 
 const initialWidths = {
   purpose: 30,
-  accountInfo: 60,
+  accountInfo: 70,
   data: 65,
   accountTypes: 50,
 };
@@ -84,8 +84,10 @@ export const _ConsentScreen: React.FC<ConsentScreenProps> = ({
   return (
     <View flex={1} jc="space-between">
       <ScrollView
-        flex={1}
-        contentContainerStyle={{ padding: 20 }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          padding: 20,
+        }}
         showsVerticalScrollIndicator={false}
       >
         <View gap={2}>
@@ -103,7 +105,6 @@ export const _ConsentScreen: React.FC<ConsentScreenProps> = ({
             paddingVertical={20}
             paddingHorizontal={16}
             borderRadius={12}
-            flex={1}
             bg="#FFF"
           >
             <YStack gap={20}>
@@ -216,6 +217,24 @@ export const _ConsentScreen: React.FC<ConsentScreenProps> = ({
             </XStack>
           </View>
         </ShadowWrapper>
+
+        <View mt="auto" paddingTop={16}>
+          <ShadowWrapper size="sm">
+            <View
+              paddingHorizontal={16}
+              paddingVertical={12}
+              borderRadius={12}
+              borderWidth={1}
+              alignItems="center"
+              borderColor="#08BDBA"
+              bg="#EBFFFF"
+            >
+              <AccentText size="sm">
+                2000+ people linked their accounts this week!
+              </AccentText>
+            </View>
+          </ShadowWrapper>
+        </View>
       </ScrollView>
       <SaafeFooter>
         <View>
