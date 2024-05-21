@@ -21,6 +21,7 @@ import { LoadingScreen } from "../../screens/onboarding/LoadingScreen";
 import { AccountDiscoveryScreen } from "../../screens/onboarding/AccountDiscoveryScreen";
 import { CONSENT_SCREEN_ID } from "../../screens/onboarding/types";
 import { ConsentScreen } from "../../screens/onboarding/ConsentScreen";
+import { ConnectingWithBanksScreen } from "../../screens/onboarding/ConnectingWithBanksScreen";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -140,6 +141,11 @@ export const OnboardingStackNavigator = () => {
           title: ConsentScreen.title,
           headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
         }}
+      />
+
+      <OnboardingStackNav.Screen
+        name={ConnectingWithBanksScreen.key as keyof OnboardingStackRouteProps}
+        component={ConnectingWithBanksScreen.content}
       />
     </OnboardingStackNav.Navigator>
   );

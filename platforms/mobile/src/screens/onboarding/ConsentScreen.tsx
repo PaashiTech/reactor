@@ -29,7 +29,11 @@ import {
 
 import { useEffect, useRef, useState } from "react";
 
-import { CONSENT_SCREEN_ID, ConsentScreenProps } from "./types";
+import {
+  CONNECTING_WITH_BANKS_SCREEN_ID,
+  CONSENT_SCREEN_ID,
+  ConsentScreenProps,
+} from "./types";
 import { Animated } from "react-native";
 
 const initialWidths = {
@@ -246,7 +250,13 @@ export const _ConsentScreen: React.FC<ConsentScreenProps> = ({
               <SecondaryButton>Deny</SecondaryButton>
             </View>
             <View flexGrow={1}>
-              <UnmzGradientButton>Approve</UnmzGradientButton>
+              <UnmzGradientButton
+                onPress={() => {
+                  navigation.navigate(CONNECTING_WITH_BANKS_SCREEN_ID);
+                }}
+              >
+                Approve
+              </UnmzGradientButton>
             </View>
           </View>
         </View>

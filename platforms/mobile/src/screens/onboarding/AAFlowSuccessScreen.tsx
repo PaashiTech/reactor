@@ -12,6 +12,7 @@ import {
   YStack,
 } from "@unmaze/views";
 import { CheckGreen, HDFCBankLogo, UnionBankLogo } from "@unmaze/assets";
+import { useEffect } from "react";
 
 const _AAFlowSuccessScreen: React.FC<AAFlowSuccessScreenProps> = ({
   navigation,
@@ -25,6 +26,13 @@ const _AAFlowSuccessScreen: React.FC<AAFlowSuccessScreenProps> = ({
     paddingLeft: insets.left,
     paddingRight: insets.right,
   };
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("beforeRemove", (e) => {
+      e.preventDefault(); // Prevent default action
+      unsubscribe(); // Unsubscribe the event on first call to prevent infinite loop
+    });
+  }, []);
 
   const handlePress = () => {
     // Handle further navigation
