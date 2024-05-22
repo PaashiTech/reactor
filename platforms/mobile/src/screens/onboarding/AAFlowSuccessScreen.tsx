@@ -32,6 +32,8 @@ const _AAFlowSuccessScreen: React.FC<AAFlowSuccessScreenProps> = ({
       e.preventDefault(); // Prevent default action
       unsubscribe(); // Unsubscribe the event on first call to prevent infinite loop
     });
+
+    return () => unsubscribe();
   }, []);
 
   const handlePress = () => {
