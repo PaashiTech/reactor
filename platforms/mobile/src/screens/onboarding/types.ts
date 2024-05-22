@@ -97,6 +97,12 @@ export type ConsentScreenProps = NativeStackScreenProps<
   typeof CONSENT_SCREEN_ID
 >;
 
+export const CONNECTING_WITH_BANKS_SCREEN_ID = "0213";
+export type ConnectingWithBanksScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof CONNECTING_WITH_BANKS_SCREEN_ID
+>;
+
 export const AA_FLOW_SUCCESS_SCREEN_ID = "0214";
 export type AAFlowSuccessScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,

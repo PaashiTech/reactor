@@ -2,10 +2,14 @@ import {
   AccentText,
   BodyText,
   HeadingText,
-  Progress,
+  IconButton,
+  SVGWrapper,
   ScrollView,
+  ShadowWrapper,
   UnmzGradientButton,
   View,
+  ViewProps,
+  XStack,
   YStack,
   useUserStore,
 } from "@unmaze/views";
@@ -25,7 +29,10 @@ import {
 } from "@unmaze/assets";
 import { useState } from "react";
 import { EntityCheckbox } from "../../components/app/onboarding/EntityCheckbox";
-import Animated from "react-native-reanimated";
+import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { ChevronLeft, UnmazeLogo } from "@unmaze/assets";
+import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 
 const entitiesData = [
   {
@@ -64,6 +71,15 @@ const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
 
   const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
 
+  const insets = useSafeAreaInsets();
+
+  const safeAreaInsets: ViewProps = {
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom,
+    paddingLeft: insets.left,
+    paddingRight: insets.right,
+  };
+
   const buttonDisabled = selectedBanks.length === 0;
 
   const handleSelectedBanks = (bankTitle: string) => {
@@ -80,17 +96,12 @@ const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
     // Navigate to Select Banks Screen
     navigation.navigate(SELECT_BANKS_SCREEN_ID);
   };
+
   return (
-    <View flex={1} justifyContent="space-between">
+    <View flex={1} {...safeAreaInsets} justifyContent="space-between">
       <View flex={1}>
-        <Progress unstyled value={25} height={4} backgroundColor="#EBFFFF">
-          <Progress.Indicator
-            animation="medium"
-            backgroundColor="#08BDBA"
-            borderTopRightRadius={2}
-            borderBottomRightRadius={2}
-          />
-        </Progress>
+        <CustomHeader title="Link Accounts" />
+        <SharedProgressbar value={20} sharedTransitionTag="sharedTag" />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View gap={2} mt={20} paddingHorizontal={20}>
             <HeadingText size="lg">Select the financial entities</HeadingText>

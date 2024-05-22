@@ -1,14 +1,14 @@
 import {
   BodyText,
+  AccentText,
   HeadingText,
-  LabelText,
-  Progress,
   ScrollView,
+  ShadowWrapper,
   UnmzGradientButton,
   View,
   Input,
+  ViewProps,
   YStack,
-  ShadowWrapper,
 } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
 import { SELECT_BANKS_SCREEN_ID, SelectBanksScreenProps } from "./types";
@@ -18,6 +18,9 @@ import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { LinkAccountsBottomSheet } from "../../components/app/onboarding/LinkAccountsBottomSheet";
 import { EntityCheckboxHorizontal } from "../../components/app/onboarding/EntityCheckboxHorizontal";
 import { BankIcon, Search } from "@unmaze/assets";
+import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 
 const banksData = [
   {
@@ -100,8 +103,16 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
 }) => {
   const [filterText, setFilterText] = useState("");
   const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
+  const insets = useSafeAreaInsets();
 
   const bottomSheetRef = useRef<BottomSheetModal>(null);
+
+  const safeAreaInsets: ViewProps = {
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom,
+    paddingLeft: insets.left,
+    paddingRight: insets.right,
+  };
 
   const handleBottomSheetOpen = () => {
     bottomSheetRef.current?.present();
@@ -119,16 +130,10 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
 
   return (
     <>
-      <View flex={1} justifyContent="space-between">
+      <View flex={1} {...safeAreaInsets} justifyContent="space-between">
         <View flex={1}>
-          <Progress value={50} height={4} backgroundColor="#EBFFFF">
-            <Progress.Indicator
-              animation="medium"
-              backgroundColor="#08BDBA"
-              borderTopRightRadius={2}
-              borderBottomRightRadius={2}
-            />
-          </Progress>
+          <CustomHeader title="Link Accounts" />
+          <SharedProgressbar value={40} sharedTransitionTag="sharedTag" />
           <ScrollView
             flex={1}
             showsVerticalScrollIndicator={false}
@@ -153,9 +158,9 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
               />
 
               <View>
-                <LabelText size="md" paddingHorizontal={8}>
+                <AccentText size="md" paddingHorizontal={8}>
                   Popular Banks
-                </LabelText>
+                </AccentText>
                 <View marginVertical={16} gap={8}>
                   {banksData.map((entity, id) => {
                     return (

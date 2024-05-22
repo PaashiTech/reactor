@@ -4,6 +4,7 @@ import {
   ScrollView,
   UnmzGradientButton,
   View,
+  ViewProps,
   XStack,
   YStack,
 } from "@unmaze/views";
@@ -11,18 +12,30 @@ import { UnmzNavScreen } from "../types";
 import {
   ACCOUNT_DISCOVERY_SCREEN_ID,
   AccountDiscoveryScreenProps,
+  CONSENT_SCREEN_ID,
   SELECT_BANKS_SCREEN_ID,
 } from "./types";
 import { useEffect, useState } from "react";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { AccountSelectionCard } from "../../components/app/onboarding/AccountSelectionCard";
 import { Accounts } from "../../components/app/onboarding/constants";
+import { CustomHeader } from "../../navigation/helpers/CustomHeader";
+import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   navigation,
   route,
 }) => {
   const [selectedAccounts, setSelectedAccounts] = useState<string[]>([]);
+  const insets = useSafeAreaInsets();
+
+  const safeAreaInsets: ViewProps = {
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom,
+    paddingLeft: insets.left,
+    paddingRight: insets.right,
+  };
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("beforeRemove", (e) => {
@@ -45,9 +58,11 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   console.log(selectedAccounts);
 
   return (
-    <View flex={1}>
+    <View flex={1} {...safeAreaInsets}>
       <View flex={1} justifyContent="space-between">
         <View flex={1}>
+          <CustomHeader title="Account Discovery" />
+          <SharedProgressbar value={60} sharedTransitionTag="sharedTag" />
           <ScrollView
             contentContainerStyle={{
               paddingHorizontal: 20,
@@ -86,7 +101,10 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
             <BodyText textAlign="center" size="sm" color="#525252">
               Connect at least 1 of your banks to proceed
             </BodyText>
-            <UnmzGradientButton disabled={selectedAccounts.length < 1}>
+            <UnmzGradientButton
+              disabled={selectedAccounts.length < 1}
+              onPress={() => navigation.navigate(CONSENT_SCREEN_ID)}
+            >
               Link Accounts
             </UnmzGradientButton>
           </YStack>
