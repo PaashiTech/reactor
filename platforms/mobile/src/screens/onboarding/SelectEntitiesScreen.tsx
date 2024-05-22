@@ -21,11 +21,12 @@ import {
 import { UnmzNavScreen } from "../types";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import {
-  BankIcon,
-  BOBBankLogo,
-  CanaraBankLogo,
-  HDFCBankLogo,
-  SbiBankLogo,
+  BankAccountAssetClass,
+  FixedDepositsAssetClass,
+  InsuranceAssetClass,
+  MutualFundsAssetClass,
+  NPSAssetClass,
+  StocksAssetClass,
 } from "@unmaze/assets";
 import { useState } from "react";
 import { EntityCheckbox } from "../../components/app/onboarding/EntityCheckbox";
@@ -38,28 +39,33 @@ const entitiesData = [
   {
     id: 1,
     title: "Bank Account",
-    logo: BankIcon,
+    logo: BankAccountAssetClass,
   },
   {
     id: 2,
     title: "Mutual Funds",
-    logo: CanaraBankLogo,
+    logo: MutualFundsAssetClass,
   },
   {
     id: 3,
     title: "Stocks",
-    logo: SbiBankLogo,
+    logo: StocksAssetClass,
   },
 
   {
     id: 4,
     title: "NPS",
-    logo: BOBBankLogo,
+    logo: NPSAssetClass,
   },
   {
     id: 5,
     title: "Insurance",
-    logo: HDFCBankLogo,
+    logo: InsuranceAssetClass,
+  },
+  {
+    id: 6,
+    title: "Fixed Deposits",
+    logo: FixedDepositsAssetClass,
   },
 ];
 

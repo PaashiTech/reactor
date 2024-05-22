@@ -50,6 +50,14 @@ import UnmazeModalLogo from "./svg/unmaze-modal-logo.svg";
 import Verified from "./svg/verified.svg";
 import Search from "./svg/search.svg";
 
+// Asset Classes (Entities screen)
+import BankAccountAssetClass from "./svg/BankAccountAssetClass.svg";
+import FixedDepositsAssetClass from "./svg/FixedDepositsAssetClass.svg";
+import InsuranceAssetClass from "./svg/InsuranceAssetClass.svg";
+import MutualFundsAssetClass from "./svg/MutualFundsAssetClass.svg";
+import NPSAssetClass from "./svg/NPSAssetClass.svg";
+import StocksAssetClass from "./svg/StocksAssetClass.svg";
+
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
 import UnionBankLogo from "./bank-logos/union-bank-logo.svg";
@@ -166,6 +174,12 @@ export {
   SouthIndianBankLogo,
   UCOBankLogo,
   YesBankLogo,
+  BankAccountAssetClass,
+  FixedDepositsAssetClass,
+  InsuranceAssetClass,
+  MutualFundsAssetClass,
+  NPSAssetClass,
+  StocksAssetClass,
 };
 
 export { SvgProps } from "react-native-svg";
