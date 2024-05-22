@@ -19,6 +19,7 @@ import { LinkAccountsBottomSheet } from "../../components/app/onboarding/LinkAcc
 import { EntityCheckboxHorizontal } from "../../components/app/onboarding/EntityCheckboxHorizontal";
 import {
   Search,
+  SvgProps,
   AUSmallFinanceBankLTDLogo,
   BankOfMaharashtraLogo,
   CentralBankOfIndiaLogo,
@@ -39,7 +40,12 @@ import { SharedProgressbar } from "../../components/app/onboarding/SharedProgres
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 
-const banksData = [
+type banksDataType = {
+  title: string;
+  logo: React.FC<SvgProps>;
+}[];
+
+const banksData: banksDataType = [
   {
     title: "AU Small Finance Bank Limited",
     logo: AUSmallFinanceBankLTDLogo,
@@ -101,6 +107,14 @@ const banksData = [
     logo: YesBankLogo,
   },
 ];
+
+const getFilteredBanksData = (banksData: banksDataType, filterText: string) => {
+  return filterText.length === 0
+    ? banksData
+    : banksData.filter((item) =>
+        item.title.toLowerCase().includes(filterText.toLowerCase())
+      );
+};
 
 type FilterBanksInputProps = {
   filterText: string;
@@ -165,6 +179,8 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
     }
   };
 
+  const filteredBanksData = getFilteredBanksData(banksData, filterText);
+
   return (
     <>
       <View flex={1} {...safeAreaInsets} justifyContent="space-between">
@@ -199,7 +215,7 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
                   Popular Banks
                 </AccentText>
                 <View marginVertical={16} gap={8}>
-                  {banksData.map((entity, id) => {
+                  {filteredBanksData.map((entity, id) => {
                     return (
                       <EntityCheckboxHorizontal
                         key={id}

@@ -27,30 +27,27 @@ export const RootStackNavigator: React.FC<RootStackNavigatorProps> = () => {
     );
   }
 
-  const userSignedUp = false;
+  // const userSignedUp = false;
 
   return (
     <RootStack.Navigator
-      initialRouteName="MeStackNavigator"
+      initialRouteName="OnboardingNavigator"
       screenOptions={{ headerShown: false }}
     >
-      {userSignedUp ? (
-        <RootStack.Group>
-          <RootStack.Screen
-            name="MeStackNavigator"
-            component={MeStackNavigator}
-          />
-          <RootStack.Screen
-            name="ProfileStackNavigator"
-            component={ProfileStackNavigator}
-          />
-        </RootStack.Group>
-      ) : (
+      <RootStack.Group>
+        <RootStack.Screen
+          name="MeStackNavigator"
+          component={MeStackNavigator}
+        />
+        <RootStack.Screen
+          name="ProfileStackNavigator"
+          component={ProfileStackNavigator}
+        />
         <RootStack.Screen
           name="OnboardingNavigator"
           component={OnboardingStackNavigator}
         />
-      )}
+      </RootStack.Group>
     </RootStack.Navigator>
   );
 };

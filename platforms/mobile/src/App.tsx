@@ -9,9 +9,13 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { LogBox } from "react-native";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
+
+  LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+  LogBox.ignoreAllLogs(); //Ignore all log notifications
 
   if (!fontsLoaded) {
     return null;

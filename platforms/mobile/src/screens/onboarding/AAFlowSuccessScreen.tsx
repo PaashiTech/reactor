@@ -13,6 +13,8 @@ import {
 } from "@unmaze/views";
 import { CheckGreen, HDFCBankLogo, UnionBankLogo } from "@unmaze/assets";
 import { useEffect } from "react";
+import { ME_DASHBOARD_SCREEN_ID } from "../dashboard/types";
+import { MeStackNavigator } from "../../navigation/navigators/MeStackNavigator";
 
 const _AAFlowSuccessScreen: React.FC<AAFlowSuccessScreenProps> = ({
   navigation,
@@ -38,6 +40,9 @@ const _AAFlowSuccessScreen: React.FC<AAFlowSuccessScreenProps> = ({
 
   const handlePress = () => {
     // Handle further navigation
+    navigation.navigate("MeStackNavigator", {
+      screen: "tab-0",
+    });
   };
 
   return (

@@ -1,10 +1,10 @@
-import { CanaraBankLogo } from "@unmaze/assets";
+import { ICICIBankLogo } from "@unmaze/assets";
 
 export const Accounts = [
   {
     id: 1,
-    bankLogo: CanaraBankLogo,
-    bankTitle: "Canara Bank",
+    bankLogo: ICICIBankLogo,
+    bankTitle: "ICICI Bank",
     accountList: [
       {
         id: 1,
