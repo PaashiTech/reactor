@@ -12,7 +12,7 @@ export const _OnboardingScreen: React.FC<OnboardingScreenProps> = ({
   route,
 }) => {
   return (
-    <View flex={1} justifyContent="space-between">
+    <View flex={1} bg="#FFF" justifyContent="space-between">
       <OnboardingSlider />
       <View mt={24} paddingHorizontal={20} paddingVertical={16}>
         <UnmzGradientButton onPress={() => navigation.navigate(SSO_SCREEN_ID)}>

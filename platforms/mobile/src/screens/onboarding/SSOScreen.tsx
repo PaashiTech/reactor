@@ -1,12 +1,14 @@
 import {
   AccentText,
   BodyText,
+  Image,
   TertiaryButton,
   Text,
   View,
   ViewProps,
   YStack,
 } from "@unmaze/views";
+import { Carousal4 } from "@unmaze/assets";
 import { EMAIL_LOGIN_SCREEN_ID, SSOScreenProps, SSO_SCREEN_ID } from "./types";
 import { UnmzNavScreen } from "../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -24,24 +26,17 @@ const _SSOScreen: React.FC<SSOScreenProps> = ({ navigation, route }) => {
   };
 
   return (
-    <View flex={1} {...safeAreaInsets}>
+    <View flex={1} bg="#FFF" {...safeAreaInsets}>
       {/**-----------------------------------*
        * To be replaced by some other visual *
        *-------------------------------------*/}
-      <View flex={1} bg="#E7E7E7" jc="center" ai="center">
-        <View
-          height={100}
-          width={100}
-          borderWidth={4}
-          borderColor="#035E5D"
-          borderRadius={16}
-          ai="center"
-          jc="center"
-        >
-          <Text color="#035E5D" fontSize={48} fontWeight={"600"}>
-            {4}
-          </Text>
-        </View>
+      <View flex={1} jc="center" ai="center">
+        <Image
+          source={Carousal4}
+          width={360 * 0.95}
+          height={701 * 0.95}
+          resizeMode="contain"
+        />
       </View>
 
       {/**--------*
