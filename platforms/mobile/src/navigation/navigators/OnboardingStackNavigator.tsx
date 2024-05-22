@@ -102,21 +102,21 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={SelectEntitiesScreen.key as keyof OnboardingStackRouteProps}
         component={SelectEntitiesScreen.content}
-        options={{
-          headerShown: true,
-          title: SelectEntitiesScreen.title,
-          headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
-        }}
+        // options={{
+        //   headerShown: true,
+        //   title: SelectEntitiesScreen.title,
+        //   headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
+        // }}
       />
 
       <OnboardingStackNav.Screen
         name={SelectBanksScreen.key as keyof OnboardingStackRouteProps}
         component={SelectBanksScreen.content}
-        options={{
-          headerShown: true,
-          title: SelectBanksScreen.title,
-          headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
-        }}
+        // options={{
+        //   headerShown: true,
+        //   title: SelectBanksScreen.title,
+        //   headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
+        // }}
       />
       <OnboardingStackNav.Screen
         name={AAFlowSuccessScreen.key as keyof OnboardingStackRouteProps}
@@ -131,20 +131,20 @@ export const OnboardingStackNavigator = () => {
       <OnboardingStackNav.Screen
         name={AccountDiscoveryScreen.key as keyof OnboardingStackRouteProps}
         component={AccountDiscoveryScreen.content}
-        options={{
-          headerShown: true,
-          title: AccountDiscoveryScreen.title,
-        }}
+        // options={{
+        //   headerShown: true,
+        //   title: AccountDiscoveryScreen.title,
+        // }}
       />
 
       <OnboardingStackNav.Screen
         name={ConsentScreen.key as keyof OnboardingStackRouteProps}
         component={ConsentScreen.content}
-        options={{
-          headerShown: true,
-          title: ConsentScreen.title,
-          headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
-        }}
+        // options={{
+        //   headerShown: true,
+        //   title: ConsentScreen.title,
+        //   headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
+        // }}
       />
 
       <OnboardingStackNav.Screen

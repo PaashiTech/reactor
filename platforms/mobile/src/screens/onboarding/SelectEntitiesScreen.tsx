@@ -2,9 +2,14 @@ import {
   AccentText,
   BodyText,
   HeadingText,
+  IconButton,
+  SVGWrapper,
   ScrollView,
+  ShadowWrapper,
   UnmzGradientButton,
   View,
+  ViewProps,
+  XStack,
   YStack,
   useUserStore,
 } from "@unmaze/views";
@@ -25,6 +30,9 @@ import {
 import { useState } from "react";
 import { EntityCheckbox } from "../../components/app/onboarding/EntityCheckbox";
 import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { ChevronLeft, UnmazeLogo } from "@unmaze/assets";
+import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 
 const entitiesData = [
   {
@@ -63,6 +71,15 @@ const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
 
   const [selectedBanks, setSelectedBanks] = useState<string[]>([]);
 
+  const insets = useSafeAreaInsets();
+
+  const safeAreaInsets: ViewProps = {
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom,
+    paddingLeft: insets.left,
+    paddingRight: insets.right,
+  };
+
   const buttonDisabled = selectedBanks.length === 0;
 
   const handleSelectedBanks = (bankTitle: string) => {
@@ -81,9 +98,10 @@ const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
   };
 
   return (
-    <View flex={1} justifyContent="space-between">
+    <View flex={1} {...safeAreaInsets} justifyContent="space-between">
       <View flex={1}>
-        <SharedProgressbar value={25} sharedTransitionTag="sharedTag" />
+        <CustomHeader title="Link Accounts" />
+        <SharedProgressbar value={20} sharedTransitionTag="sharedTag" />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View gap={2} mt={20} paddingHorizontal={20}>
             <HeadingText size="lg">Select the financial entities</HeadingText>

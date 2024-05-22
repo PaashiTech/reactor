@@ -1,9 +1,14 @@
 import {
   BodyText,
   HeadingText,
+  IconButton,
+  SVGWrapper,
   ScrollView,
+  ShadowWrapper,
   UnmzGradientButton,
   View,
+  ViewProps,
+  XStack,
   YStack,
 } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
@@ -13,12 +18,24 @@ import { useRef } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { LinkAccountsBottomSheet } from "../../components/app/onboarding/LinkAccountsBottomSheet";
 import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { ChevronLeft, UnmazeLogo } from "@unmaze/assets";
+import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 
 const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
   navigation,
   route,
 }) => {
+  const insets = useSafeAreaInsets();
+
   const bottomSheetRef = useRef<BottomSheetModal>(null);
+
+  const safeAreaInsets: ViewProps = {
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom,
+    paddingLeft: insets.left,
+    paddingRight: insets.right,
+  };
 
   const handleBottomSheetOpen = () => {
     bottomSheetRef.current?.present();
@@ -26,9 +43,10 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
 
   return (
     <>
-      <View flex={1} justifyContent="space-between">
+      <View flex={1} {...safeAreaInsets} justifyContent="space-between">
         <View flex={1}>
-          <SharedProgressbar value={50} sharedTransitionTag="sharedTag" />
+          <CustomHeader title="Link Accounts" />
+          <SharedProgressbar value={40} sharedTransitionTag="sharedTag" />
           <ScrollView
             flex={1}
             showsVerticalScrollIndicator={false}
