@@ -13,13 +13,9 @@ import {
   UnmzGradientButton,
   View,
   XStack,
-  YStack,
   useUserStore,
 } from "@unmaze/views";
 import {
-  UnmazeModalLogo,
-  SaafeModalLogo,
-  ChainLink,
   Verified,
   SaafeLogo,
   CanaraBankLogo,
@@ -28,10 +24,7 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { OTPInputBottomSheet } from "./OTPInputBottomSheet";
 import { useNavigation } from "@react-navigation/native";
-import {
-  CONSENT_SCREEN_ID,
-  LOADING_SCREEN_ID,
-} from "../../../screens/onboarding/types";
+import { CONSENT_SCREEN_ID } from "../../../screens/onboarding/types";
 import { OnboardingStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Keyboard } from "react-native";

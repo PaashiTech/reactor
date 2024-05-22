@@ -20,7 +20,7 @@ import {
 } from "@unmaze/assets";
 import React, { useEffect, useMemo, useState } from "react";
 import { OTPInputBottomSheet } from "./OTPInputBottomSheet";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { LOADING_SCREEN_ID } from "../../../screens/onboarding/types";
 import { OnboardingStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -115,7 +115,7 @@ export const LinkAccountsBottomSheet = React.forwardRef<BottomSheetModal>(
             opacity={0.5}
             appearsOnIndex={0}
             disappearsOnIndex={-1}
-            pressBehavior="close"
+            pressBehavior="none"
           />
         )}
         keyboardBehavior="interactive"
