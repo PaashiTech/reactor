@@ -113,7 +113,7 @@ export const LinkAccountsBottomSheet = React.forwardRef<BottomSheetModal>(
             opacity={0.5}
             appearsOnIndex={0}
             disappearsOnIndex={-1}
-            pressBehavior="none"
+            pressBehavior="close"
           />
         )}
         keyboardBehavior="interactive"

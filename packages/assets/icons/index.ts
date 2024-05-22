@@ -48,6 +48,7 @@ import BankIcon from "./svg/bank-icon.svg";
 import SaafeModalLogo from "./svg/saafe-modal-logo.svg";
 import UnmazeModalLogo from "./svg/unmaze-modal-logo.svg";
 import Verified from "./svg/verified.svg";
+import Search from "./svg/search.svg";
 
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
@@ -122,6 +123,7 @@ export {
   BankIcon,
   UnmazeModalLogo,
   Verified,
+  Search
 };
 
 export { SvgProps } from "react-native-svg";
