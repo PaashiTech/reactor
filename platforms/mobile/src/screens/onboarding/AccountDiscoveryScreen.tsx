@@ -15,19 +15,24 @@ import {
   CONSENT_SCREEN_ID,
   SELECT_BANKS_SCREEN_ID,
 } from "./types";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { AccountSelectionCard } from "../../components/app/onboarding/AccountSelectionCard";
 import { Accounts } from "../../components/app/onboarding/constants";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { AuthoriseBanksBottomSheet } from "../../components/app/onboarding/AuthoriseBanksBottomSheet";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import { FindOutWhyBottomSheet } from "../../components/app/onboarding/FindOutWhyBottomSheet";
 
 const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   navigation,
   route,
 }) => {
   const [selectedAccounts, setSelectedAccounts] = useState<string[]>([]);
+  const bottomSheetRef = useRef<BottomSheetModal>(null);
+  const findOutWhyBottomSheetRef = useRef<BottomSheetModal>(null);
   const insets = useSafeAreaInsets();
 
   const safeAreaInsets: ViewProps = {
@@ -42,7 +47,10 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
       e.preventDefault(); // Prevent default action
       unsubscribe(); // Unsubscribe the event on first call to prevent infinite loop
       navigation.navigate(SELECT_BANKS_SCREEN_ID); // Navigate to your desired screen
+      bottomSheetRef.current?.close();
     });
+
+    return unsubscribe;
   }, []);
 
   const handleAccountSelect = (accountNumber: string) => {
@@ -55,7 +63,9 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
     }
   };
 
-  console.log(selectedAccounts);
+  const handleBottomSheetOpen = () => {
+    bottomSheetRef.current?.present();
+  };
 
   return (
     <View flex={1} {...safeAreaInsets}>
@@ -90,7 +100,11 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
               <BodyText size="sm" color="#6F6F6F">
                 Couldn't find your bank?
               </BodyText>
-              <HeadingText size="sm" color="#035E5D">
+              <HeadingText
+                onPress={() => findOutWhyBottomSheetRef.current?.present()}
+                size="sm"
+                color="#035E5D"
+              >
                 Find out why
               </HeadingText>
             </XStack>
@@ -103,12 +117,14 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
             </BodyText>
             <UnmzGradientButton
               disabled={selectedAccounts.length < 1}
-              onPress={() => navigation.navigate(CONSENT_SCREEN_ID)}
+              onPress={handleBottomSheetOpen}
             >
               Link Accounts
             </UnmzGradientButton>
           </YStack>
         </SaafeFooter>
+        <AuthoriseBanksBottomSheet ref={bottomSheetRef} />
+        <FindOutWhyBottomSheet ref={findOutWhyBottomSheetRef} />
       </View>
     </View>
   );

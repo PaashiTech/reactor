@@ -24,6 +24,7 @@ import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { LOADING_SCREEN_ID } from "../../../screens/onboarding/types";
 import { OnboardingStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Keyboard } from "react-native";
 
 const fakeApiCall = (
   success: boolean
@@ -79,6 +80,7 @@ export const LinkAccountsBottomSheet = React.forwardRef<BottomSheetModal>(
         // Make API Call
         console.log("API Call");
         setIsSubitting(true);
+        Keyboard.dismiss();
         try {
           const data = await fakeApiCall(true);
           setIsSubitting(false);
@@ -176,7 +178,14 @@ export const LinkAccountsBottomSheet = React.forwardRef<BottomSheetModal>(
 
           <View mt={32} paddingVertical={16}>
             <BodyText size="sm" textAlign="center" color="#6F6F6F">
-              By continuing you agree with Unmaze's & Saafe's
+              By continuing you agree with Unmaze's & Saafe's{" "}
+              <BodyText
+                size="sm"
+                color="#035E5D"
+                textDecorationLine="underline"
+              >
+                T&C
+              </BodyText>
             </BodyText>
           </View>
         </BottomSheetView>
