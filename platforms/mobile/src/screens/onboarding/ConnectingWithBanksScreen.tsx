@@ -1,4 +1,4 @@
-import { View, ViewProps } from "@unmaze/views";
+import { AccentText, View, ViewProps, YStack } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
 import {
   AA_FLOW_SUCCESS_SCREEN_ID,
@@ -26,7 +26,7 @@ const _ConnectingWithBanksScreen: React.FC<ConnectingWithBanksScreenProps> = ({
   useEffect(() => {
     const id = setTimeout(() => {
       navigation.replace(AA_FLOW_SUCCESS_SCREEN_ID);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(id);
   }, []);
@@ -34,7 +34,10 @@ const _ConnectingWithBanksScreen: React.FC<ConnectingWithBanksScreenProps> = ({
   return (
     <View flex={1} {...safeAreaInsets}>
       <View flex={1} jc="center" ai="center">
-        <ActivityIndicator size="large" color="#035E5D" />
+        <YStack gap={8}>
+          <ActivityIndicator size="large" color="#035E5D" />
+          <AccentText size="lg">Connecting with banks</AccentText>
+        </YStack>
       </View>
     </View>
   );

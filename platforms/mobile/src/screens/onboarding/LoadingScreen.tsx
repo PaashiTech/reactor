@@ -1,4 +1,4 @@
-import { BodyText, View, ViewProps } from "@unmaze/views";
+import { AccentText, BodyText, View, ViewProps, YStack } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
 import {
   ACCOUNT_DISCOVERY_SCREEN_ID,
@@ -25,7 +25,7 @@ const _LoadingScreen: React.FC<LoadingScreenProps> = ({
   useEffect(() => {
     const id = setTimeout(() => {
       navigation.replace(ACCOUNT_DISCOVERY_SCREEN_ID);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(id);
   }, []);
@@ -33,7 +33,10 @@ const _LoadingScreen: React.FC<LoadingScreenProps> = ({
   return (
     <View flex={1} {...safeAreaInsets}>
       <View flex={1} jc="center" ai="center">
-        <ActivityIndicator size="large" color="#035E5D" />
+        <YStack gap={8}>
+          <ActivityIndicator size="large" color="#035E5D" />
+          <AccentText size="lg">Discovering Accounts</AccentText>
+        </YStack>
       </View>
     </View>
   );
