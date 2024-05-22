@@ -11,7 +11,12 @@ import {
   XStack,
   YStack,
 } from "@unmaze/views";
-import { CheckGreen, HDFCBankLogo, UnionBankLogo } from "@unmaze/assets";
+import {
+  CheckGreen,
+  HDFCBankLogo,
+  UnionBankLogo,
+  ICICIBankLogo,
+} from "@unmaze/assets";
 import { useEffect } from "react";
 import { ME_DASHBOARD_SCREEN_ID } from "../dashboard/types";
 import { MeStackNavigator } from "../../navigation/navigators/MeStackNavigator";
@@ -55,13 +60,10 @@ const _AAFlowSuccessScreen: React.FC<AAFlowSuccessScreenProps> = ({
               Congratulations!
             </HeadingText>
             <BodyText textAlign="center">
-              You have successfully started tracking HDFC, ICICI and Indian
-              Overseas Banks!
+              You have successfully started tracking ICICI Bank!
             </BodyText>
             <XStack gap={8}>
-              <HDFCBankLogo />
-              <UnionBankLogo />
-              <HDFCBankLogo />
+              <ICICIBankLogo />
             </XStack>
           </YStack>
           <BodyText mt={80} textAlign="center">
