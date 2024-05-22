@@ -12,7 +12,6 @@ import { UnmzNavScreen } from "../types";
 import {
   ACCOUNT_DISCOVERY_SCREEN_ID,
   AccountDiscoveryScreenProps,
-  CONSENT_SCREEN_ID,
   SELECT_BANKS_SCREEN_ID,
 } from "./types";
 import { useEffect, useRef, useState } from "react";
@@ -25,6 +24,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AuthoriseBanksBottomSheet } from "../../components/app/onboarding/AuthoriseBanksBottomSheet";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { FindOutWhyBottomSheet } from "../../components/app/onboarding/FindOutWhyBottomSheet";
+import { ConfirmGoBackBottomSheet } from "../../components/app/onboarding/ConfirmGoBackBottomSheet";
 
 const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   navigation,
@@ -32,7 +32,10 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
 }) => {
   const [selectedAccounts, setSelectedAccounts] = useState<string[]>([]);
   const bottomSheetRef = useRef<BottomSheetModal>(null);
+  const canGoBack = useRef<Boolean>(false);
   const findOutWhyBottomSheetRef = useRef<BottomSheetModal>(null);
+  const confirmGoBackBottomSheetRef = useRef<BottomSheetModal>(null);
+
   const insets = useSafeAreaInsets();
 
   const safeAreaInsets: ViewProps = {
@@ -44,10 +47,15 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("beforeRemove", (e) => {
+      if (canGoBack.current) {
+        return;
+      }
+
       e.preventDefault(); // Prevent default action
-      unsubscribe(); // Unsubscribe the event on first call to prevent infinite loop
-      navigation.navigate(SELECT_BANKS_SCREEN_ID); // Navigate to your desired screen
+      // navigation.navigate(SELECT_BANKS_SCREEN_ID); // Navigate to your desired screen
+      confirmGoBackBottomSheetRef.current?.present();
       bottomSheetRef.current?.close();
+      findOutWhyBottomSheetRef.current?.close();
     });
 
     return unsubscribe;
@@ -125,6 +133,10 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
         </SaafeFooter>
         <AuthoriseBanksBottomSheet ref={bottomSheetRef} />
         <FindOutWhyBottomSheet ref={findOutWhyBottomSheetRef} />
+        <ConfirmGoBackBottomSheet
+          ref={confirmGoBackBottomSheetRef}
+          canGoBackRef={canGoBack}
+        />
       </View>
     </View>
   );

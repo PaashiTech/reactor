@@ -24,7 +24,7 @@ const _LoadingScreen: React.FC<LoadingScreenProps> = ({
 
   useEffect(() => {
     const id = setTimeout(() => {
-      navigation.navigate(ACCOUNT_DISCOVERY_SCREEN_ID);
+      navigation.replace(ACCOUNT_DISCOVERY_SCREEN_ID);
     }, 3000);
 
     return () => clearTimeout(id);
