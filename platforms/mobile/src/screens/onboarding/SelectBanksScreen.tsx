@@ -1,7 +1,6 @@
 import {
   BodyText,
   HeadingText,
-  Progress,
   ScrollView,
   UnmzGradientButton,
   View,
@@ -13,6 +12,7 @@ import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { useRef } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { LinkAccountsBottomSheet } from "../../components/app/onboarding/LinkAccountsBottomSheet";
+import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
 
 const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
   navigation,
@@ -28,14 +28,7 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
     <>
       <View flex={1} justifyContent="space-between">
         <View flex={1}>
-          <Progress value={50} height={4} backgroundColor="#EBFFFF">
-            <Progress.Indicator
-              animation="medium"
-              backgroundColor="#08BDBA"
-              borderTopRightRadius={2}
-              borderBottomRightRadius={2}
-            />
-          </Progress>
+          <SharedProgressbar value={50} sharedTransitionTag="sharedTag" />
           <ScrollView
             flex={1}
             showsVerticalScrollIndicator={false}

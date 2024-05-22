@@ -2,7 +2,6 @@ import {
   AccentText,
   BodyText,
   HeadingText,
-  Progress,
   ScrollView,
   UnmzGradientButton,
   View,
@@ -25,7 +24,7 @@ import {
 } from "@unmaze/assets";
 import { useState } from "react";
 import { EntityCheckbox } from "../../components/app/onboarding/EntityCheckbox";
-import Animated from "react-native-reanimated";
+import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
 
 const entitiesData = [
   {
@@ -80,17 +79,11 @@ const _SelectEntitiesScreen: React.FC<SelectEntitiesScreenProps> = ({
     // Navigate to Select Banks Screen
     navigation.navigate(SELECT_BANKS_SCREEN_ID);
   };
+
   return (
     <View flex={1} justifyContent="space-between">
       <View flex={1}>
-        <Progress unstyled value={25} height={4} backgroundColor="#EBFFFF">
-          <Progress.Indicator
-            animation="medium"
-            backgroundColor="#08BDBA"
-            borderTopRightRadius={2}
-            borderBottomRightRadius={2}
-          />
-        </Progress>
+        <SharedProgressbar value={25} sharedTransitionTag="sharedTag" />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View gap={2} mt={20} paddingHorizontal={20}>
             <HeadingText size="lg">Select the financial entities</HeadingText>
