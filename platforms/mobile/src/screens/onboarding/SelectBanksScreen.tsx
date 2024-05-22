@@ -17,51 +17,88 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { LinkAccountsBottomSheet } from "../../components/app/onboarding/LinkAccountsBottomSheet";
 import { EntityCheckboxHorizontal } from "../../components/app/onboarding/EntityCheckboxHorizontal";
-import { BankIcon, Search } from "@unmaze/assets";
+import {
+  Search,
+  AUSmallFinanceBankLTDLogo,
+  BankOfMaharashtraLogo,
+  CentralBankOfIndiaLogo,
+  FederalBankLogo,
+  HDFCBankLogo,
+  ICICIBankLogo,
+  IDBIBankLogo,
+  IDFCBankLogo,
+  IndianBankLogo,
+  KarurVysyaBankLogo,
+  KotakMahindraLogo,
+  PunjabNationalBankLogo,
+  UCOBankLogo,
+  UnionBankLogo,
+  YesBankLogo,
+} from "@unmaze/assets";
 import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 
 const banksData = [
   {
-    title: "Bank 1",
-    logo: BankIcon,
+    title: "AU Small Finance Bank Limited",
+    logo: AUSmallFinanceBankLTDLogo,
   },
   {
-    title: "Bank 2",
-    logo: BankIcon,
+    title: "Bank of Maharashtra",
+    logo: BankOfMaharashtraLogo,
   },
   {
-    title: "Bank 3",
-    logo: BankIcon,
+    title: "Central Bank of India",
+    logo: CentralBankOfIndiaLogo,
   },
   {
-    title: "Bank 4",
-    logo: BankIcon,
+    title: "Federal Bank",
+    logo: FederalBankLogo,
   },
   {
-    title: "Bank 5",
-    logo: BankIcon,
+    title: "HDFC Bank",
+    logo: HDFCBankLogo,
   },
   {
-    title: "Bank 6",
-    logo: BankIcon,
+    title: "ICICI Bank",
+    logo: ICICIBankLogo,
   },
   {
-    title: "Bank 7",
-    logo: BankIcon,
+    title: "IDBI Bank",
+    logo: IDBIBankLogo,
   },
   {
-    title: "Bank 8",
-    logo: BankIcon,
+    title: "IDFC First Bank",
+    logo: IDFCBankLogo,
   },
   {
-    title: "Bank 9",
-    logo: BankIcon,
+    title: "Indian Bank",
+    logo: IndianBankLogo,
   },
   {
-    title: "Bank 10",
-    logo: BankIcon,
+    title: "Karur Vysya Bank (KVB)",
+    logo: KarurVysyaBankLogo,
+  },
+  {
+    title: "Kotak Mahindra Bank",
+    logo: KotakMahindraLogo,
+  },
+  {
+    title: "Punjab National Bank",
+    logo: PunjabNationalBankLogo,
+  },
+  {
+    title: "UCO Bank",
+    logo: UCOBankLogo,
+  },
+  {
+    title: "Union Bank of India",
+    logo: UnionBankLogo,
+  },
+  {
+    title: "Yes Bank",
+    logo: YesBankLogo,
   },
 ];
 

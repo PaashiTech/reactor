@@ -58,6 +58,27 @@ import AxisBankLogo from "./bank-logos/axis-bank-logo.svg";
 import SbiBankLogo from "./bank-logos/sbi-bank-logo.svg";
 import ICICIBankLogo from "./bank-logos/icici-bank-logo.svg";
 import BOBBankLogo from "./bank-logos/bob-bank-logo.svg";
+import AUSmallFinanceBankLTDLogo from "./bank-logos/au-small-finance-bank-ltd-logo.svg";
+import BankOfIndiaLogo from "./bank-logos/bank-of-india-logo.svg";
+import BankOfMaharashtraLogo from "./bank-logos/bank-of-maharashtra-logo.svg";
+import CentralBankOfIndiaLogo from "./bank-logos/central-bank-of-India-logo.svg";
+import CityUnionBankLogo from "./bank-logos/city-union-bank-logo.svg";
+import DefaultBankLogo from "./bank-logos/default-bank-logo.svg";
+import FederalBankLogo from "./bank-logos/federal-bank-logo.svg";
+import HSBCBankLogo from "./bank-logos/hsbc-bank-logo.svg";
+import IDBIBankLogo from "./bank-logos/idbi-bank-logo.svg";
+import IDFCBankLogo from "./bank-logos/idfc-bank-logo.svg";
+import IndianBankLogo from "./bank-logos/indian-bank-logo.svg";
+import IndianOverseasBankLogo from "./bank-logos/indian-overseas-bank-logo.svg";
+import IndusIndBankLogo from "./bank-logos/indus-ind-bank-logo.svg";
+import KarnatakaBankLogo from "./bank-logos/karnataka-bank-logo.svg";
+import KarurVysyaBankLogo from "./bank-logos/karur-vysya-bank-logo.svg";
+import KotakMahindraLogo from "./bank-logos/kotak-mahindra-logo.svg";
+import PunjabAndSindBankLogo from "./bank-logos/punjab-and-sind-bank-logo.svg";
+import PunjabNationalBankLogo from "./bank-logos/punjab-national-bank-logo.svg";
+import SouthIndianBankLogo from "./bank-logos/south-indian-bank-logo.svg";
+import UCOBankLogo from "./bank-logos/uco-bank-logo.svg";
+import YesBankLogo from "./bank-logos/yes-bank-logo.svg";
 
 // Logos
 import GoogleLogo from "./logos/google_logo.svg";
@@ -123,7 +144,28 @@ export {
   BankIcon,
   UnmazeModalLogo,
   Verified,
-  Search
+  Search,
+  AUSmallFinanceBankLTDLogo,
+  BankOfIndiaLogo,
+  BankOfMaharashtraLogo,
+  CentralBankOfIndiaLogo,
+  CityUnionBankLogo,
+  DefaultBankLogo,
+  FederalBankLogo,
+  HSBCBankLogo,
+  IDBIBankLogo,
+  IDFCBankLogo,
+  IndianBankLogo,
+  IndianOverseasBankLogo,
+  IndusIndBankLogo,
+  KarnatakaBankLogo,
+  KarurVysyaBankLogo,
+  KotakMahindraLogo,
+  PunjabAndSindBankLogo,
+  PunjabNationalBankLogo,
+  SouthIndianBankLogo,
+  UCOBankLogo,
+  YesBankLogo,
 };
 
 export { SvgProps } from "react-native-svg";

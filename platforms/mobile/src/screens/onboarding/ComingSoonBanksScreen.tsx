@@ -2,7 +2,6 @@ import {
   BodyText,
   HeadingText,
   ScrollView,
-  ShadowWrapper,
   ToastViewport,
   UnmzGradientButton,
   UnmzToast,
@@ -15,7 +14,20 @@ import {
   ComingSoonBanksScreenProps,
 } from "./types";
 import { useState } from "react";
-import { BankIcon } from "@unmaze/assets";
+import {
+  AxisBankLogo,
+  BOBBankLogo,
+  BankOfIndiaLogo,
+  CanaraBankLogo,
+  CityUnionBankLogo,
+  HSBCBankLogo,
+  IndianOverseasBankLogo,
+  IndusIndBankLogo,
+  KarnatakaBankLogo,
+  PunjabAndSindBankLogo,
+  SbiBankLogo,
+  SouthIndianBankLogo,
+} from "@unmaze/assets";
 import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
@@ -24,24 +36,52 @@ import { ComingSoonBankItem } from "@unmaze/views";
 
 const banksData = [
   {
-    title: "Unavailable bank 1",
-    logo: BankIcon,
+    title: "Axis Bank",
+    logo: AxisBankLogo,
   },
   {
-    title: "Unavailable bank 2",
-    logo: BankIcon,
+    title: "Bank of Baroda",
+    logo: BOBBankLogo,
   },
   {
-    title: "Unavailable bank 3",
-    logo: BankIcon,
+    title: "Bank of India",
+    logo: BankOfIndiaLogo,
   },
   {
-    title: "Unavailable bank 4",
-    logo: BankIcon,
+    title: "Canara Bank",
+    logo: CanaraBankLogo,
   },
   {
-    title: "Unavailable bank 5",
-    logo: BankIcon,
+    title: "City Union Bank",
+    logo: CityUnionBankLogo,
+  },
+  {
+    title: "HSBC Bank",
+    logo: HSBCBankLogo,
+  },
+  {
+    title: "Indian Overseas Bank",
+    logo: IndianOverseasBankLogo,
+  },
+  {
+    title: "IndusInd Bank",
+    logo: IndusIndBankLogo,
+  },
+  {
+    title: "Karnataka Bank",
+    logo: KarnatakaBankLogo,
+  },
+  {
+    title: "Punjab & Sind Bank",
+    logo: PunjabAndSindBankLogo,
+  },
+  {
+    title: "State Bank of India",
+    logo: SbiBankLogo,
+  },
+  {
+    title: "Soute Indian Bank",
+    logo: SouthIndianBankLogo,
   },
 ];
 
