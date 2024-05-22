@@ -14,16 +14,13 @@ import { SelectEntitiesScreen } from "../../screens/onboarding/SelectEntitiesScr
 import { UnmazeLogo } from "@unmaze/assets";
 import { SVGWrapper } from "@unmaze/views";
 import { SelectBanksScreen } from "../../screens/onboarding/SelectBanksScreen";
+import { ComingSoonBanksScreen } from "../../screens/onboarding/ComingSoonBanksScreen";
 import { OTPMobileLoginScreen } from "../../screens/onboarding/OTPMobileLoginScreen";
 import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
 import { AAFlowSuccessScreen } from "../../screens/onboarding/AAFlowSuccessScreen";
 import { LoadingScreen } from "../../screens/onboarding/LoadingScreen";
 import { AccountDiscoveryScreen } from "../../screens/onboarding/AccountDiscoveryScreen";
-import {
-  CONSENT_SCREEN_ID,
-  INTRO_TO_AA_SCREEN_ID,
-  SELECT_ENTITIES_SCREEN_ID,
-} from "../../screens/onboarding/types";
+import { INTRO_TO_AA_SCREEN_ID } from "../../screens/onboarding/types";
 import { ConsentScreen } from "../../screens/onboarding/ConsentScreen";
 import { ConnectingWithBanksScreen } from "../../screens/onboarding/ConnectingWithBanksScreen";
 
@@ -117,6 +114,10 @@ export const OnboardingStackNavigator = () => {
         //   title: SelectBanksScreen.title,
         //   headerRight: () => <SVGWrapper iconSVG={UnmazeLogo} size="lg" />,
         // }}
+      />
+      <OnboardingStackNav.Screen
+        name={ComingSoonBanksScreen.key as keyof OnboardingStackRouteProps}
+        component={ComingSoonBanksScreen.content}
       />
       <OnboardingStackNav.Screen
         name={AAFlowSuccessScreen.key as keyof OnboardingStackRouteProps}

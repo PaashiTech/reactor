@@ -33,6 +33,7 @@ import { ME_DASHBOARD_SCREEN_ID } from "../../screens/dashboard/types";
 import {
   AA_FLOW_SUCCESS_SCREEN_ID,
   ACCOUNT_DISCOVERY_SCREEN_ID,
+  COMING_SOON_BANKS_SCREEN_ID,
   CONNECTING_WITH_BANKS_SCREEN_ID,
   CONSENT_SCREEN_ID,
   EMAIL_LOGIN_SCREEN_ID,
@@ -128,6 +129,7 @@ export type OnboardingStackRouteProps = {
   [INTRO_TO_AA_SCREEN_ID]: undefined;
   [SELECT_ENTITIES_SCREEN_ID]: undefined;
   [SELECT_BANKS_SCREEN_ID]: undefined;
+  [COMING_SOON_BANKS_SCREEN_ID]: undefined;
   [OTP_MOBILE_LOGIN_SCREEN_ID]: {
     mobileNumber: string;
   };
