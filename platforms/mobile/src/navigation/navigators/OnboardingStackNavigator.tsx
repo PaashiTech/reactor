@@ -20,12 +20,7 @@ import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
 import { AAFlowSuccessScreen } from "../../screens/onboarding/AAFlowSuccessScreen";
 import { LoadingScreen } from "../../screens/onboarding/LoadingScreen";
 import { AccountDiscoveryScreen } from "../../screens/onboarding/AccountDiscoveryScreen";
-import {
-  CONSENT_SCREEN_ID,
-  INTRO_TO_AA_SCREEN_ID,
-  SELECT_ENTITIES_SCREEN_ID,
-  COMING_SOON_BANKS_SCREEN_ID,
-} from "../../screens/onboarding/types";
+import { INTRO_TO_AA_SCREEN_ID } from "../../screens/onboarding/types";
 import { ConsentScreen } from "../../screens/onboarding/ConsentScreen";
 import { ConnectingWithBanksScreen } from "../../screens/onboarding/ConnectingWithBanksScreen";
 
@@ -35,7 +30,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      initialRouteName={COMING_SOON_BANKS_SCREEN_ID}
+      initialRouteName={INTRO_TO_AA_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}
