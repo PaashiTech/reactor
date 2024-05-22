@@ -178,7 +178,11 @@ const _SelectBanksScreen: React.FC<SelectBanksScreenProps> = ({
               <View paddingHorizontal={20}>
                 <BodyText>
                   Couldn’t find your bank?
-                  <BodyText fontWeight="700" color="#035E5D">
+                  <BodyText
+                    fontWeight="700"
+                    color="#035E5D"
+                    onPress={() => navigation.navigate("0210.b.err")}
+                  >
                     {" "}
                     Tell us{" "}
                   </BodyText>

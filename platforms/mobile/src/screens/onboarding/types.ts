@@ -79,6 +79,12 @@ export type SelectBanksScreenProps = NativeStackScreenProps<
   typeof SELECT_BANKS_SCREEN_ID
 >;
 
+export const COMING_SOON_BANKS_SCREEN_ID = "0210.b.err";
+export type ComingSoonBanksScreenProps = NativeStackScreenProps<
+  OnboardingStackRouteProps,
+  typeof COMING_SOON_BANKS_SCREEN_ID
+>;
+
 export const LOADING_SCREEN_ID = "0211.a";
 export type LoadingScreenProps = NativeStackScreenProps<
   OnboardingStackRouteProps,
