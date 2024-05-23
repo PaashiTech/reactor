@@ -11,8 +11,6 @@ import { SetPasswordScreen } from "../../screens/onboarding/SetPasswordScreen";
 import { OTPCreatePasswordScreen } from "../../screens/onboarding/OTPCreatePasswordScreen";
 import { IntroToAAScreen } from "../../screens/onboarding/IntroToAAScreen";
 import { SelectEntitiesScreen } from "../../screens/onboarding/SelectEntitiesScreen";
-import { UnmazeLogo } from "@unmaze/assets";
-import { SVGWrapper } from "@unmaze/views";
 import { SelectBanksScreen } from "../../screens/onboarding/SelectBanksScreen";
 import { ComingSoonBanksScreen } from "../../screens/onboarding/ComingSoonBanksScreen";
 import { OTPMobileLoginScreen } from "../../screens/onboarding/OTPMobileLoginScreen";
@@ -20,10 +18,6 @@ import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
 import { AAFlowSuccessScreen } from "../../screens/onboarding/AAFlowSuccessScreen";
 import { LoadingScreen } from "../../screens/onboarding/LoadingScreen";
 import { AccountDiscoveryScreen } from "../../screens/onboarding/AccountDiscoveryScreen";
-import {
-  AA_FLOW_SUCCESS_SCREEN_ID,
-  INTRO_TO_AA_SCREEN_ID,
-} from "../../screens/onboarding/types";
 import { ConsentScreen } from "../../screens/onboarding/ConsentScreen";
 import { ConnectingWithBanksScreen } from "../../screens/onboarding/ConnectingWithBanksScreen";
 
@@ -33,7 +27,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      // initialRouteName={AA_FLOW_SUCCESS_SCREEN_ID}
+      // initialRouteName={ACCOUNT_DISCOVERY_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}

@@ -1,5 +1,5 @@
 import { View } from "@unmaze/views";
-import { Animated, Dimensions } from "react-native";
+import { Animated, Dimensions, Pressable } from "react-native";
 import { SliderDataType } from "./SliderData";
 
 type PaginationProps = {

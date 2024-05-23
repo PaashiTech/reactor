@@ -49,6 +49,8 @@ import SaafeModalLogo from "./svg/saafe-modal-logo.svg";
 import UnmazeModalLogo from "./svg/unmaze-modal-logo.svg";
 import Verified from "./svg/verified.svg";
 import Search from "./svg/search.svg";
+import ChevronLeftSmall from "./svg/chevron-left-small.svg";
+import ChevronRightSmall from "./svg/chevron-right-small.svg";
 
 // Asset Classes (Entities screen)
 import BankAccountAssetClass from "./svg/BankAccountAssetClass.svg";
@@ -180,6 +182,8 @@ export {
   MutualFundsAssetClass,
   NPSAssetClass,
   StocksAssetClass,
+  ChevronRightSmall,
+  ChevronLeftSmall,
 };
 
 export { SvgProps } from "react-native-svg";

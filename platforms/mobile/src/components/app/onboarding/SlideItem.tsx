@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions, useWindowDimensions } from "react-native";
 import {
   View,
   Text,
@@ -13,17 +13,12 @@ type SlideItemProps = {
   item: SliderDataType;
 };
 export const SlideItem: React.FC<SlideItemProps> = ({ item }) => {
-  const { width } = Dimensions.get("screen");
+  const { width } = useWindowDimensions();
 
   return (
     <View width={width}>
       <View flex={1} mt={30} jc="center" ai="center">
-        <Image
-          source={item.image}
-          width={340}
-          height={461}
-          // resizeMode="stretch"
-        />
+        <Image source={item.image} width="95%" resizeMode="contain" />
       </View>
       <YStack gap={8} marginVertical={24} paddingHorizontal={20}>
         <HeadingText size="xl" color="#161616">
