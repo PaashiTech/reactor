@@ -15,7 +15,7 @@ import {
   OTP_MOBILE_LOGIN_SCREEN_ID,
 } from "./types";
 import { FieldValues, useForm } from "react-hook-form";
-import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 

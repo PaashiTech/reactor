@@ -12,19 +12,18 @@ import { UnmzNavScreen } from "../types";
 import {
   ACCOUNT_DISCOVERY_SCREEN_ID,
   AccountDiscoveryScreenProps,
-  SELECT_BANKS_SCREEN_ID,
 } from "./types";
 import { useEffect, useRef, useState } from "react";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
-import { AccountSelectionCard } from "../../components/app/onboarding/AccountSelectionCard";
+import { AccountSelectionCard } from "../../components/app/onboarding/accountDiscoveryScreen/AccountSelectionCard";
 import { Accounts } from "../../components/app/onboarding/constants";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
-import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { AuthoriseBanksBottomSheet } from "../../components/app/onboarding/AuthoriseBanksBottomSheet";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import { FindOutWhyBottomSheet } from "../../components/app/onboarding/FindOutWhyBottomSheet";
-import { ConfirmGoBackBottomSheet } from "../../components/app/onboarding/ConfirmGoBackBottomSheet";
+import { AuthoriseBanksBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/AuthoriseBanksBottomSheet";
+import { FindOutWhyBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/FindOutWhyBottomSheet";
+import { ConfirmGoBackBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/ConfirmGoBackBottomSheet";
 
 const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   navigation,
@@ -47,15 +46,16 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("beforeRemove", (e) => {
+      bottomSheetRef.current?.close();
+      findOutWhyBottomSheetRef.current?.close();
       if (canGoBack.current) {
+        confirmGoBackBottomSheetRef.current?.close();
         return;
       }
 
       e.preventDefault(); // Prevent default action
       // navigation.navigate(SELECT_BANKS_SCREEN_ID); // Navigate to your desired screen
       confirmGoBackBottomSheetRef.current?.present();
-      bottomSheetRef.current?.close();
-      findOutWhyBottomSheetRef.current?.close();
     });
 
     return unsubscribe;

@@ -29,8 +29,8 @@ import {
   StocksAssetClass,
 } from "@unmaze/assets";
 import { useState } from "react";
-import { EntityCheckbox } from "../../components/app/onboarding/EntityCheckbox";
-import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { EntityCheckbox } from "../../components/app/onboarding/selectBanksScreen/EntityCheckbox";
+import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ChevronLeft, UnmazeLogo } from "@unmaze/assets";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";

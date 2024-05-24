@@ -18,7 +18,7 @@ import {
   OTP_CREATE_PASSWORD_SCREEN_ID,
   SSO_SCREEN_ID,
 } from "./types";
-import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
 import { CheckGreen } from "@unmaze/assets";
 import { useState } from "react";
 

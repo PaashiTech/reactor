@@ -28,9 +28,9 @@ import {
   SbiBankLogo,
 } from "@unmaze/assets";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { OTPInputBottomSheet } from "./OTPInputBottomSheet";
+import { OTPInputBottomSheet } from "../shared/OTPInputBottomSheet";
 import { useNavigation } from "@react-navigation/native";
-import { CONSENT_SCREEN_ID } from "../../../screens/onboarding/types";
+import { CONSENT_SCREEN_ID } from "../../../../screens/onboarding/types";
 import { OnboardingStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import {

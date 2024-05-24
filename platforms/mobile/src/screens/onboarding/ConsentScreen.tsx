@@ -32,7 +32,7 @@ import {
 import { Animated } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
-import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 
 const initialWidths = {
   purpose: 30,

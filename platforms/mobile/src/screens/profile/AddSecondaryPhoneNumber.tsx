@@ -7,7 +7,7 @@ import {
 } from "@unmaze/views";
 import { FC } from "react";
 
-import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
 import {
   ADD_SECONDARY_PHONE_NUMBER_SCREEN_ID,
   AddSecondaryPhoneNumberScreenProps,

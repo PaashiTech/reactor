@@ -12,7 +12,7 @@ import {
   PIN_SETUP_SCREEN_ID,
 } from "./types";
 import { UnmzNavScreen } from "../types";
-import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
 
 const _PinSetupScreen: React.FC<PINSetupScreenProps> = ({
   navigation,

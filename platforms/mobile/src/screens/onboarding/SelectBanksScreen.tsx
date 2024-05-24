@@ -15,8 +15,8 @@ import { SELECT_BANKS_SCREEN_ID, SelectBanksScreenProps } from "./types";
 import { useRef, useState } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
-import { LinkAccountsBottomSheet } from "../../components/app/onboarding/LinkAccountsBottomSheet";
-import { EntityCheckboxHorizontal } from "../../components/app/onboarding/EntityCheckboxHorizontal";
+import { LinkAccountsBottomSheet } from "../../components/app/onboarding/selectBanksScreen/LinkAccountsBottomSheet";
+import { EntityCheckboxHorizontal } from "../../components/app/onboarding/selectBanksScreen/EntityCheckboxHorizontal";
 import {
   Search,
   SvgProps,
@@ -36,7 +36,7 @@ import {
   UnionBankLogo,
   YesBankLogo,
 } from "@unmaze/assets";
-import { SharedProgressbar } from "../../components/app/onboarding/SharedProgressbar";
+import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 

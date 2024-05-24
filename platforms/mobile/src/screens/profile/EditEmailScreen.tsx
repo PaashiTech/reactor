@@ -6,7 +6,7 @@ import {
   HeadingText,
 } from "@unmaze/views";
 
-import KeyboardAvoidingViewWithDismiss from "../../components/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
 import { EditEmailScreenProps, EDIT_EMAIL_SCREEN_ID } from "./types";
 import {
   OTP_ACCOUNT_UPDATE_SCREEN_ID,

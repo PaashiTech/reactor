@@ -19,9 +19,9 @@ import {
   Verified,
 } from "@unmaze/assets";
 import React, { useEffect, useMemo, useState } from "react";
-import { OTPInputBottomSheet } from "./OTPInputBottomSheet";
+import { OTPInputBottomSheet } from "../shared/OTPInputBottomSheet";
 import { useNavigation } from "@react-navigation/native";
-import { LOADING_SCREEN_ID } from "../../../screens/onboarding/types";
+import { LOADING_SCREEN_ID } from "../../../../screens/onboarding/types";
 import { OnboardingStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Keyboard } from "react-native";

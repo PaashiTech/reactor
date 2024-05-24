@@ -8,7 +8,7 @@ import { UnmzNavScreen } from "../types";
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { PasswordInfo } from "../../components/app/onboarding/PasswordInfo";
+import { PasswordInfo } from "../../components/app/onboarding/setPasswordScreen/PasswordInfo";
 import { Keyboard } from "react-native";
 
 const schema = z

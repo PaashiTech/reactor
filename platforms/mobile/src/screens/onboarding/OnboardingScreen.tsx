@@ -1,5 +1,5 @@
 import { UnmzGradientButton, View } from "@unmaze/views";
-import { OnboardingSlider } from "../../components/app/onboarding/OnboardingSlider";
+import { OnboardingSlider } from "../../components/app/onboarding/onboardingScreen/OnboardingSlider";
 import { UnmzNavScreen } from "../types";
 import {
   ONBOARDING_SCREEN_ID,
