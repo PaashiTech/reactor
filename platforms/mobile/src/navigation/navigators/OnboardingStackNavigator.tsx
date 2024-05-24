@@ -1,25 +1,28 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { screenOptions } from "../helpers/screenOptions";
 import { OnboardingStackRouteProps } from "./types";
-import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
-import { SSOScreen } from "../../screens/onboarding/SSOScreen";
-import { EmailLoginScreen } from "../../screens/onboarding/EmailLoginScreen";
-import { InviteOnlyScreen } from "../../screens/onboarding/InviteOnlyScreen";
-import { MobileLoginScreen } from "../../screens/onboarding/MobileLoginScreen";
-import { EmailLoginWithPasswordScreen } from "../../screens/onboarding/EmailLoginWithPasswordScreen";
-import { SetPasswordScreen } from "../../screens/onboarding/SetPasswordScreen";
-import { OTPCreatePasswordScreen } from "../../screens/onboarding/OTPCreatePasswordScreen";
-import { IntroToAAScreen } from "../../screens/onboarding/IntroToAAScreen";
-import { SelectEntitiesScreen } from "../../screens/onboarding/SelectEntitiesScreen";
-import { SelectBanksScreen } from "../../screens/onboarding/SelectBanksScreen";
-import { ComingSoonBanksScreen } from "../../screens/onboarding/ComingSoonBanksScreen";
-import { OTPMobileLoginScreen } from "../../screens/onboarding/OTPMobileLoginScreen";
-import { PinSetupScreen } from "../../screens/onboarding/PinSetupScreen";
-import { AAFlowSuccessScreen } from "../../screens/onboarding/AAFlowSuccessScreen";
-import { LoadingScreen } from "../../screens/onboarding/LoadingScreen";
-import { AccountDiscoveryScreen } from "../../screens/onboarding/AccountDiscoveryScreen";
-import { ConsentScreen } from "../../screens/onboarding/ConsentScreen";
-import { ConnectingWithBanksScreen } from "../../screens/onboarding/ConnectingWithBanksScreen";
+import { ACCOUNT_DISCOVERY_SCREEN_ID } from "../../screens/onboarding/types";
+import {
+  AAFlowSuccessScreen,
+  AccountDiscoveryScreen,
+  ComingSoonBanksScreen,
+  ConnectingWithBanksScreen,
+  ConsentScreen,
+  EmailLoginScreen,
+  EmailLoginWithPasswordScreen,
+  IntroToAAScreen,
+  InviteOnlyScreen,
+  LoadingScreen,
+  MobileLoginScreen,
+  OTPCreatePasswordScreen,
+  OTPMobileLoginScreen,
+  OnboardingScreen,
+  PinSetupScreen,
+  SSOScreen,
+  SelectBanksScreen,
+  SelectEntitiesScreen,
+  SetPasswordScreen,
+} from "../../screens/onboarding";
 
 export const OnboardingStackNavigator = () => {
   const OnboardingStackNav =
@@ -27,7 +30,7 @@ export const OnboardingStackNavigator = () => {
   return (
     <OnboardingStackNav.Navigator
       screenOptions={{ ...screenOptions, headerShown: false }}
-      // initialRouteName={ACCOUNT_DISCOVERY_SCREEN_ID}
+      initialRouteName={ACCOUNT_DISCOVERY_SCREEN_ID}
     >
       <OnboardingStackNav.Screen
         name={OnboardingScreen.key as keyof OnboardingStackRouteProps}

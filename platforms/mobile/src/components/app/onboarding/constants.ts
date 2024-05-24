@@ -1,4 +1,9 @@
-import { ICICIBankLogo } from "@unmaze/assets";
+import {
+  CanaraBankLogo,
+  SvgProps,
+  ICICIBankLogo,
+  SbiBankLogo,
+} from "@unmaze/assets";
 
 export const Accounts = [
   {
@@ -22,5 +27,31 @@ export const Accounts = [
         accountType: "Current Account",
       },
     ],
+  },
+];
+
+export const accountDiscoveryBankList: {
+  bank: {
+    bankLogo: React.FC<SvgProps>;
+    bankTitle: string;
+  };
+}[] = [
+  {
+    bank: {
+      bankLogo: CanaraBankLogo,
+      bankTitle: "Canara Bank",
+    },
+  },
+  {
+    bank: {
+      bankLogo: ICICIBankLogo,
+      bankTitle: "ICICI Bank",
+    },
+  },
+  {
+    bank: {
+      bankLogo: SbiBankLogo,
+      bankTitle: "SBI Bank",
+    },
   },
 ];
