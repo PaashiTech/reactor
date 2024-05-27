@@ -1,10 +1,8 @@
 import {
   BodyText,
-  HeadingText,
   UnmzGradientButton,
   View,
   ViewProps,
-  XStack,
   YStack,
 } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
@@ -14,11 +12,6 @@ import {
 } from "./types";
 import { useEffect, useRef, useState } from "react";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
-import { AccountSelectionCard } from "../../components/app/onboarding/accountDiscoveryScreen/AccountSelectionCard";
-import {
-  accounts,
-  investments,
-} from "../../components/app/onboarding/constants";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -27,13 +20,7 @@ import { AuthoriseBanksBottomSheet } from "../../components/app/onboarding/accou
 import { FindOutWhyBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/FindOutWhyBottomSheet";
 import { ConfirmGoBackBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/ConfirmGoBackBottomSheet";
 import { TopTabs } from "../../components/app/onboarding/accountDiscoveryScreen/TopTabs";
-import {
-  Dimensions,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  ScrollView,
-  useWindowDimensions,
-} from "react-native";
+import { Animated, ScrollView } from "react-native";
 import { BanksTab } from "./BanksTab";
 import { InvestmentsTab } from "./InvestmentsTab";
 
@@ -44,12 +31,11 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   const [selectedAccounts, setSelectedAccounts] = useState<string[]>([]);
   const [selectedTab, setSelectedTab] = useState<number>(0);
   const scrollViewRef = useRef<ScrollView>(null);
+  const scrollX = useRef(new Animated.Value(0)).current;
   const authoriseBanksBottomSheetRef = useRef<BottomSheetModal>(null);
   const canGoBack = useRef<Boolean>(false);
   const findOutWhyBottomSheetRef = useRef<BottomSheetModal>(null);
   const confirmGoBackBottomSheetRef = useRef<BottomSheetModal>(null);
-
-  const { width } = useWindowDimensions();
 
   const insets = useSafeAreaInsets();
 
@@ -91,11 +77,6 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
     authoriseBanksBottomSheetRef.current?.present();
   };
 
-  const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const activeIndex = e.nativeEvent.contentOffset.x / width;
-    setSelectedTab(activeIndex);
-  };
-
   const handleSelectTab = (index: number) => {
     setSelectedTab(index);
     scrollViewRef.current?.scrollTo({ x: index * 360, animated: true });
@@ -106,14 +87,22 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
       <View flex={1} justifyContent="space-between">
         <View flex={1}>
           <CustomHeader title="Account Discovery" />
-          <TopTabs selectedTab={selectedTab} onTabSelect={handleSelectTab} />
+          <TopTabs
+            selectedTab={selectedTab}
+            onTabSelect={handleSelectTab}
+            scrollX={scrollX}
+          />
           <SharedProgressbar value={60} sharedTransitionTag="sharedTag" />
           <ScrollView
             ref={scrollViewRef}
             horizontal
             pagingEnabled
             showsHorizontalScrollIndicator={false}
-            onMomentumScrollEnd={handleScroll}
+            scrollEventThrottle={32}
+            onScroll={Animated.event(
+              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+              { useNativeDriver: false }
+            )}
           >
             <BanksTab
               selectedAccounts={selectedAccounts}

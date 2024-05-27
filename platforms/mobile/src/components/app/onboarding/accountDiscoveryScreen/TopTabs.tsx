@@ -1,51 +1,29 @@
 import { AccentText, ShadowWrapper, View } from "@unmaze/views";
-import { useEffect } from "react";
-import { Dimensions, Pressable } from "react-native";
-import Animated, {
-  runOnJS,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+import { Animated, Dimensions, Pressable } from "react-native";
 
 type TopTabsProps = {
   selectedTab: number;
   onTabSelect: (index: number) => void;
+  scrollX: Animated.Value;
 };
 
 export const TopTabs: React.FC<TopTabsProps> = ({
   selectedTab,
+  scrollX,
   onTabSelect,
 }) => {
-  const tabPositionX = useSharedValue(0);
-
   const animtedViewWidth = (Dimensions.get("window").width - 48) / 2;
 
-  const handlePress = (index: number) => {
-    onTabSelect(index);
-  };
-
-  const onTabPress = (index: number) => {
-    tabPositionX.value = withTiming(
-      animtedViewWidth * index,
-      {
-        duration: 300,
-      },
-      () => {
-        runOnJS(handlePress)(index);
-      }
-    );
-  };
-
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateX: tabPositionX.value }],
-    };
+  const translateX = scrollX.interpolate({
+    inputRange: [0, 120, 180, 220, 360],
+    outputRange: [
+      0,
+      animtedViewWidth / 4,
+      animtedViewWidth / 2,
+      (3 * animtedViewWidth) / 4,
+      animtedViewWidth,
+    ],
   });
-
-  useEffect(() => {
-    tabPositionX.value = withTiming(animtedViewWidth * selectedTab);
-  }, [selectedTab]);
 
   return (
     <View bg="#FFF" paddingHorizontal={20} paddingTop={16} paddingBottom={16}>
@@ -58,7 +36,9 @@ export const TopTabs: React.FC<TopTabsProps> = ({
         >
           <Animated.View
             style={[
-              animatedStyle,
+              {
+                transform: [{ translateX }],
+              },
               {
                 position: "absolute",
                 backgroundColor: "#FFF",
@@ -70,7 +50,7 @@ export const TopTabs: React.FC<TopTabsProps> = ({
             ]}
           />
           <Pressable
-            onPress={() => onTabPress(0)}
+            onPress={() => onTabSelect(0)}
             style={{
               flex: 1,
               flexGrow: 1,
@@ -78,15 +58,10 @@ export const TopTabs: React.FC<TopTabsProps> = ({
               paddingVertical: 12,
             }}
           >
-            <AccentText
-              size="sm"
-              fontWeight={selectedTab === 0 ? "600" : "500"}
-            >
-              Banks
-            </AccentText>
+            <AccentText size="sm">Banks</AccentText>
           </Pressable>
           <Pressable
-            onPress={() => onTabPress(1)}
+            onPress={() => onTabSelect(1)}
             style={{
               flex: 1,
               flexGrow: 1,
@@ -94,12 +69,7 @@ export const TopTabs: React.FC<TopTabsProps> = ({
               paddingVertical: 12,
             }}
           >
-            <AccentText
-              size="sm"
-              fontWeight={selectedTab === 1 ? "600" : "500"}
-            >
-              Investments
-            </AccentText>
+            <AccentText size="sm">Investments</AccentText>
           </Pressable>
         </View>
       </ShadowWrapper>
