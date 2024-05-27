@@ -1,7 +1,6 @@
 import {
   BodyText,
   HeadingText,
-  ScrollView,
   UnmzGradientButton,
   View,
   ViewProps,
@@ -16,7 +15,10 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { SaafeFooter } from "../../components/app/core/FooterWrapper";
 import { AccountSelectionCard } from "../../components/app/onboarding/accountDiscoveryScreen/AccountSelectionCard";
-import { Accounts } from "../../components/app/onboarding/constants";
+import {
+  accounts,
+  investments,
+} from "../../components/app/onboarding/constants";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -24,16 +26,30 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { AuthoriseBanksBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/AuthoriseBanksBottomSheet";
 import { FindOutWhyBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/FindOutWhyBottomSheet";
 import { ConfirmGoBackBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/ConfirmGoBackBottomSheet";
+import { TopTabs } from "../../components/app/onboarding/accountDiscoveryScreen/TopTabs";
+import {
+  Dimensions,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+  useWindowDimensions,
+} from "react-native";
+import { BanksTab } from "./BanksTab";
+import { InvestmentsTab } from "./InvestmentsTab";
 
 const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   navigation,
   route,
 }) => {
   const [selectedAccounts, setSelectedAccounts] = useState<string[]>([]);
-  const bottomSheetRef = useRef<BottomSheetModal>(null);
+  const [selectedTab, setSelectedTab] = useState<number>(0);
+  const scrollViewRef = useRef<ScrollView>(null);
+  const authoriseBanksBottomSheetRef = useRef<BottomSheetModal>(null);
   const canGoBack = useRef<Boolean>(false);
   const findOutWhyBottomSheetRef = useRef<BottomSheetModal>(null);
   const confirmGoBackBottomSheetRef = useRef<BottomSheetModal>(null);
+
+  const { width } = useWindowDimensions();
 
   const insets = useSafeAreaInsets();
 
@@ -46,7 +62,7 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("beforeRemove", (e) => {
-      bottomSheetRef.current?.close();
+      authoriseBanksBottomSheetRef.current?.close();
       findOutWhyBottomSheetRef.current?.close();
       if (canGoBack.current) {
         confirmGoBackBottomSheetRef.current?.close();
@@ -72,7 +88,17 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   };
 
   const handleBottomSheetOpen = () => {
-    bottomSheetRef.current?.present();
+    authoriseBanksBottomSheetRef.current?.present();
+  };
+
+  const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const activeIndex = e.nativeEvent.contentOffset.x / width;
+    setSelectedTab(activeIndex);
+  };
+
+  const handleSelectTab = (index: number) => {
+    setSelectedTab(index);
+    scrollViewRef.current?.scrollTo({ x: index * 360, animated: true });
   };
 
   return (
@@ -80,42 +106,25 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
       <View flex={1} justifyContent="space-between">
         <View flex={1}>
           <CustomHeader title="Account Discovery" />
+          <TopTabs selectedTab={selectedTab} onTabSelect={handleSelectTab} />
           <SharedProgressbar value={60} sharedTransitionTag="sharedTag" />
           <ScrollView
-            contentContainerStyle={{
-              paddingHorizontal: 20,
-              paddingBottom: 24,
-            }}
+            ref={scrollViewRef}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={handleScroll}
           >
-            {Accounts.map((account) => {
-              return (
-                <AccountSelectionCard
-                  key={account.id}
-                  accountList={account.accountList}
-                  bankLogo={account.bankLogo}
-                  bankTitle={account.bankTitle}
-                  selectedAccounts={selectedAccounts}
-                  onAccountSelect={handleAccountSelect}
-                />
-              );
-            })}
-            <XStack
-              marginVertical={24}
-              gap={4}
-              ai="center"
-              justifyContent="center"
-            >
-              <BodyText size="sm" color="#6F6F6F">
-                Couldn't find your bank?
-              </BodyText>
-              <HeadingText
-                onPress={() => findOutWhyBottomSheetRef.current?.present()}
-                size="sm"
-                color="#035E5D"
-              >
-                Find out why
-              </HeadingText>
-            </XStack>
+            <BanksTab
+              selectedAccounts={selectedAccounts}
+              onAccountSelect={handleAccountSelect}
+              findOutWhyBottomSheetRef={findOutWhyBottomSheetRef}
+            />
+            <InvestmentsTab
+              selectedAccounts={selectedAccounts}
+              onAccountSelect={handleAccountSelect}
+              findOutWhyBottomSheetRef={findOutWhyBottomSheetRef}
+            />
           </ScrollView>
         </View>
         <SaafeFooter>
@@ -131,7 +140,7 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
             </UnmzGradientButton>
           </YStack>
         </SaafeFooter>
-        <AuthoriseBanksBottomSheet ref={bottomSheetRef} />
+        <AuthoriseBanksBottomSheet ref={authoriseBanksBottomSheetRef} />
         <FindOutWhyBottomSheet ref={findOutWhyBottomSheetRef} />
         <ConfirmGoBackBottomSheet
           ref={confirmGoBackBottomSheetRef}

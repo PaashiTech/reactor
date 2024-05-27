@@ -1,7 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { screenOptions } from "../helpers/screenOptions";
 import { OnboardingStackRouteProps } from "./types";
-import { ACCOUNT_DISCOVERY_SCREEN_ID } from "../../screens/onboarding/types";
+import {
+  ACCOUNT_DISCOVERY_SCREEN_ID,
+  INTRO_TO_AA_SCREEN_ID,
+} from "../../screens/onboarding/types";
 import {
   AAFlowSuccessScreen,
   AccountDiscoveryScreen,
