@@ -7,9 +7,9 @@ import {
   XStack,
   YStack,
 } from "@unmaze/views";
-import { accounts } from "../../components/app/onboarding/constants";
+import { accounts } from "../constants";
 import { useWindowDimensions } from "react-native";
-import { AccountSelectionCard } from "../../components/app/onboarding/accountDiscoveryScreen/AccountSelectionCard";
+import { AccountSelectionCard } from "./AccountSelectionCard";
 import { BottomSheetModalMethods } from "@gorhom/bottom-sheet/lib/typescript/types";
 
 type BanksTabProps = {

@@ -21,8 +21,8 @@ import { FindOutWhyBottomSheet } from "../../components/app/onboarding/accountDi
 import { ConfirmGoBackBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/ConfirmGoBackBottomSheet";
 import { TopTabs } from "../../components/app/onboarding/accountDiscoveryScreen/TopTabs";
 import { Animated, ScrollView } from "react-native";
-import { BanksTab } from "./BanksTab";
-import { InvestmentsTab } from "./InvestmentsTab";
+import { BanksTab } from "../../components/app/onboarding/accountDiscoveryScreen/BanksTab";
+import { InvestmentsTab } from "../../components/app/onboarding/accountDiscoveryScreen/InvestmentsTab";
 
 const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   navigation,
