@@ -1,4 +1,4 @@
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 import { UnmzNavScreen } from "../types";
 import {
   ADD_ACCOUNTS_SCREEN_ID,

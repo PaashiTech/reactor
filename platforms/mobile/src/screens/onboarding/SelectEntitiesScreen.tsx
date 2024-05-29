@@ -19,7 +19,7 @@ import {
   SelectEntitiesScreenProps,
 } from "./types";
 import { UnmzNavScreen } from "../types";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 import {
   BankAccountAssetClass,
   FixedDepositsAssetClass,

@@ -7,7 +7,7 @@ import {
 } from "@unmaze/views";
 import { FC } from "react";
 
-import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/shared/KeyboardAvoidingViewWithDismiss";
 import { EditPhNumberScreenProps, EDIT_PH_NUMBER_SCREEN_ID } from "./types";
 import {
   OTP_ACCOUNT_UPDATE_SCREEN_ID,

@@ -27,7 +27,7 @@ import Animated, {
   measure,
   runOnUI,
 } from "react-native-reanimated";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 
 const _LinkedAccountsScreen: React.FC<LinkedAccountsScreenProps> = ({
   navigation,

@@ -14,7 +14,7 @@ import { UnmzNavScreen } from "../types";
 import { SELECT_BANKS_SCREEN_ID, SelectBanksScreenProps } from "./types";
 import { useRef, useState } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 import { LinkAccountsBottomSheet } from "../../components/app/onboarding/selectBanksScreen/LinkAccountsBottomSheet";
 import { EntityCheckboxHorizontal } from "../../components/app/onboarding/selectBanksScreen/EntityCheckboxHorizontal";
 import {

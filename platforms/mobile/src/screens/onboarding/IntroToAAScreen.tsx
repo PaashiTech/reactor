@@ -20,7 +20,7 @@ import {
 } from "./types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { IntroToAA } from "@unmaze/assets";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 import { Lock, PlaceholderIcon, ChainLink, SvgProps } from "@unmaze/assets";
 
 type DataType = {

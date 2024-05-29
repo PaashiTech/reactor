@@ -13,7 +13,7 @@ import {
   YStack,
 } from "@unmaze/views";
 import { UnmzNavScreen } from "../types";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 
 import {
   HDFCBankLogo,

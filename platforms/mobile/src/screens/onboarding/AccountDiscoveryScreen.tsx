@@ -11,7 +11,7 @@ import {
   AccountDiscoveryScreenProps,
 } from "./types";
 import { useEffect, useRef, useState } from "react";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -20,7 +20,7 @@ import { AuthoriseBanksBottomSheet } from "../../components/app/onboarding/accou
 import { FindOutWhyBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/FindOutWhyBottomSheet";
 import { ConfirmGoBackBottomSheet } from "../../components/app/onboarding/accountDiscoveryScreen/ConfirmGoBackBottomSheet";
 import { TopTabs } from "../../components/app/onboarding/accountDiscoveryScreen/TopTabs";
-import { Animated, ScrollView } from "react-native";
+import { Animated, ScrollView, useWindowDimensions } from "react-native";
 import { BanksTab } from "../../components/app/onboarding/accountDiscoveryScreen/BanksTab";
 import { InvestmentsTab } from "../../components/app/onboarding/accountDiscoveryScreen/InvestmentsTab";
 
@@ -36,6 +36,7 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
   const canGoBack = useRef<Boolean>(false);
   const findOutWhyBottomSheetRef = useRef<BottomSheetModal>(null);
   const confirmGoBackBottomSheetRef = useRef<BottomSheetModal>(null);
+  const { width } = useWindowDimensions();
 
   const insets = useSafeAreaInsets();
 
@@ -79,7 +80,7 @@ const _AccountDiscoveryScreen: React.FC<AccountDiscoveryScreenProps> = ({
 
   const handleSelectTab = (index: number) => {
     setSelectedTab(index);
-    scrollViewRef.current?.scrollTo({ x: index * 360, animated: true });
+    scrollViewRef.current?.scrollTo({ x: index * width, animated: true });
   };
 
   return (
