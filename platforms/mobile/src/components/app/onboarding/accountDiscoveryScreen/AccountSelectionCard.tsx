@@ -144,7 +144,10 @@ export const AccountSelectionCard: React.FC<AccountSelectionCardProps> = ({
                       paddingHorizontal={16}
                       paddingVertical={8}
                       alignItems="center"
-                      onPress={() => onAccountSelect(account.accountNumber)}
+                      onPress={() => {
+                        if (isCollapsible) return;
+                        onAccountSelect(account.accountNumber);
+                      }}
                     >
                       <XStack gap={4}>
                         <AccentText size="sm" color="#6F6F6F">
