@@ -44,7 +44,7 @@ const _extractBaseColorToken = (semanticTokenString: string): string => {
 
   // sanity check
   if (sts[0] === "{" && sts[sts.length - 1] === "}") {
-    const stsTokens = sts.substring(1, sts.length - 2).split(".");
+    const stsTokens = sts.substring(1, sts.length - 1).split(".");
     if (stsTokens[0] !== "System" && stsTokens.length == 2) {
       // Base palette
       const [colorName, colorValue] = stsTokens;
@@ -115,13 +115,12 @@ const getSemanticColorTokens = (tokens: typeof figmaTokens) => {
 
           const internalInternalValue = internalValue[internalInternalKey];
           lightResult[`--${entryKey}-${internalKey}-${internalInternalKey}`] =
-            _extractBaseColorToken(internalInternalValue["$value"]);
+            baseColor[_extractBaseColorToken(internalInternalValue["$value"])];
         }
       } else {
         const internalValue = entryValue[internalKey];
-        lightResult[`--${entryKey}-${internalKey}`] = _extractBaseColorToken(
-          internalValue["$value"]
-        );
+        lightResult[`--${entryKey}-${internalKey}`] =
+          baseColor[_extractBaseColorToken(internalValue["$value"])];
       }
     }
   }
