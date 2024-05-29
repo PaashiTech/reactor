@@ -1,5 +1,10 @@
 import { AccentText, ShadowWrapper, View } from "@unmaze/views";
-import { Animated, Dimensions, Pressable } from "react-native";
+import {
+  Animated,
+  Dimensions,
+  Pressable,
+  useWindowDimensions,
+} from "react-native";
 
 type TopTabsProps = {
   selectedTab: number;
@@ -12,10 +17,11 @@ export const TopTabs: React.FC<TopTabsProps> = ({
   scrollX,
   onTabSelect,
 }) => {
-  const animtedViewWidth = (Dimensions.get("window").width - 48) / 2;
+  const { width } = useWindowDimensions();
+  const animtedViewWidth = (width - 48) / 2;
 
   const translateX = scrollX.interpolate({
-    inputRange: [0, 120, 180, 220, 360],
+    inputRange: [0, width * 0.2, width * 0.5, width * 0.8, width],
     outputRange: [
       0,
       animtedViewWidth / 4,
