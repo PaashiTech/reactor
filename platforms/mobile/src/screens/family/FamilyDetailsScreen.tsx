@@ -84,8 +84,42 @@ const _DeleteInviteRemoveMemberBAM: React.FC<BAMProps> = ({
 const _FamilyDetailsScreen: React.FC<FamilyAccountsScreenProps> = ({
   navigation,
 }) => {
-  const family = useUserStore((state) => state.family);
-  // const family = [];
+  // const family = useUserStore((state) => state.family);
+  const family = [
+    {
+      invitation: {
+        status: "Accepted",
+      },
+      name: {
+        first: "Amogh",
+        middle: "S.",
+        last: "Kulkarni",
+      },
+      phone: "4678984561",
+    },
+    {
+      invitation: {
+        status: "Accepted",
+      },
+      name: {
+        first: "Ketan",
+        middle: "",
+        last: "Damle",
+      },
+      phone: "7898598564",
+    },
+    {
+      invitation: {
+        status: "Invited",
+      },
+      name: {
+        first: "Harsh",
+        middle: "K.",
+        last: "Mohite",
+      },
+      phone: "9457856214",
+    },
+  ];
 
   const [deleteInviteBAM, setDeleteInviteBAM] = useState(false);
   const [modalCtx, setModalCtx] = useState<ModalCtxType>({

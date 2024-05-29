@@ -30,7 +30,7 @@ export const Cashflow: React.FC<CashflowProps> = ({ openFilters }) => {
   } = useCashflowContext();
 
   // TODO - Use value from global store
-  const bankBalance = 45.89;
+  const bankBalance = 45_89_000;
 
   const selectedDuration =
     duration === "LAST_30_DAYS" ? "Last 30 Days" : "Monthly";

@@ -1,14 +1,21 @@
+import { SvgProps } from "@unmaze/assets";
 import { View } from "@unmaze/views";
-import { Animated, Dimensions } from "react-native";
-import { SliderDataType } from "./SliderData";
+import { Animated, useWindowDimensions } from "react-native";
 
-type PaginationProps = {
-  data: SliderDataType[];
+type AuthoriseBanksSliderPaginationProps = {
+  data: {
+    bank: {
+      bankLogo: React.FC<SvgProps>;
+      bankTitle: string;
+    };
+  }[];
   scrollX: Animated.Value;
 };
 
-export const Pagination: React.FC<PaginationProps> = ({ data, scrollX }) => {
-  const { width } = Dimensions.get("screen");
+export const AuthoriseBanksSliderPagination: React.FC<
+  AuthoriseBanksSliderPaginationProps
+> = ({ data, scrollX }) => {
+  const { width } = useWindowDimensions();
   return (
     <View flexDirection="row" paddingHorizontal={20}>
       {data.map((_, idx) => {

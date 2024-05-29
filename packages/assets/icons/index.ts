@@ -41,6 +41,24 @@ import Filter from "./svg/filter.svg";
 import Market from "./svg/market.svg";
 import Mind from "./svg/mind.svg";
 import ProfileInCircle from "./svg/profile-in-circle.svg";
+import CrossRoundBorder from "./svg/cross-round-border.svg";
+import Info from "./svg/info.svg";
+import ChainLink from "./svg/chain-link.svg";
+import BankIcon from "./svg/bank-icon.svg";
+import SaafeModalLogo from "./svg/saafe-modal-logo.svg";
+import UnmazeModalLogo from "./svg/unmaze-modal-logo.svg";
+import Verified from "./svg/verified.svg";
+import Search from "./svg/search.svg";
+import ChevronLeftSmall from "./svg/chevron-left-small.svg";
+import ChevronRightSmall from "./svg/chevron-right-small.svg";
+
+// Asset Classes (Entities screen)
+import BankAccountAssetClass from "./svg/BankAccountAssetClass.svg";
+import FixedDepositsAssetClass from "./svg/FixedDepositsAssetClass.svg";
+import InsuranceAssetClass from "./svg/InsuranceAssetClass.svg";
+import MutualFundsAssetClass from "./svg/MutualFundsAssetClass.svg";
+import NPSAssetClass from "./svg/NPSAssetClass.svg";
+import StocksAssetClass from "./svg/StocksAssetClass.svg";
 
 // Bank Logos
 import CanaraBankLogo from "./bank-logos/canara-bank-logo.svg";
@@ -50,6 +68,31 @@ import AxisBankLogo from "./bank-logos/axis-bank-logo.svg";
 import SbiBankLogo from "./bank-logos/sbi-bank-logo.svg";
 import ICICIBankLogo from "./bank-logos/icici-bank-logo.svg";
 import BOBBankLogo from "./bank-logos/bob-bank-logo.svg";
+import AUSmallFinanceBankLTDLogo from "./bank-logos/au-small-finance-bank-ltd-logo.svg";
+import BankOfIndiaLogo from "./bank-logos/bank-of-india-logo.svg";
+import BankOfMaharashtraLogo from "./bank-logos/bank-of-maharashtra-logo.svg";
+import CentralBankOfIndiaLogo from "./bank-logos/central-bank-of-India-logo.svg";
+import CityUnionBankLogo from "./bank-logos/city-union-bank-logo.svg";
+import DefaultBankLogo from "./bank-logos/default-bank-logo.svg";
+import FederalBankLogo from "./bank-logos/federal-bank-logo.svg";
+import HSBCBankLogo from "./bank-logos/hsbc-bank-logo.svg";
+import IDBIBankLogo from "./bank-logos/idbi-bank-logo.svg";
+import IDFCBankLogo from "./bank-logos/idfc-bank-logo.svg";
+import IndianBankLogo from "./bank-logos/indian-bank-logo.svg";
+import IndianOverseasBankLogo from "./bank-logos/indian-overseas-bank-logo.svg";
+import IndusIndBankLogo from "./bank-logos/indus-ind-bank-logo.svg";
+import KarnatakaBankLogo from "./bank-logos/karnataka-bank-logo.svg";
+import KarurVysyaBankLogo from "./bank-logos/karur-vysya-bank-logo.svg";
+import KotakMahindraLogo from "./bank-logos/kotak-mahindra-logo.svg";
+import PunjabAndSindBankLogo from "./bank-logos/punjab-and-sind-bank-logo.svg";
+import PunjabNationalBankLogo from "./bank-logos/punjab-national-bank-logo.svg";
+import SouthIndianBankLogo from "./bank-logos/south-indian-bank-logo.svg";
+import UCOBankLogo from "./bank-logos/uco-bank-logo.svg";
+import YesBankLogo from "./bank-logos/yes-bank-logo.svg";
+
+// Logos
+import GoogleLogo from "./logos/google_logo.svg";
+import UnmazeLogo from "./logos/unmaze-logo.svg";
 
 export {
   Bell,
@@ -85,6 +128,7 @@ export {
   PlaceholderIcon,
   PlaceholderIconDisabled,
   SaafeLogo,
+  SaafeModalLogo,
   CheckSmall,
   CanaraBankLogo,
   HDFCBankLogo,
@@ -102,6 +146,44 @@ export {
   Market,
   Mind,
   ProfileInCircle,
+  GoogleLogo,
+  UnmazeLogo,
+  CrossRoundBorder,
+  Info,
+  ChainLink,
+  BankIcon,
+  UnmazeModalLogo,
+  Verified,
+  Search,
+  AUSmallFinanceBankLTDLogo,
+  BankOfIndiaLogo,
+  BankOfMaharashtraLogo,
+  CentralBankOfIndiaLogo,
+  CityUnionBankLogo,
+  DefaultBankLogo,
+  FederalBankLogo,
+  HSBCBankLogo,
+  IDBIBankLogo,
+  IDFCBankLogo,
+  IndianBankLogo,
+  IndianOverseasBankLogo,
+  IndusIndBankLogo,
+  KarnatakaBankLogo,
+  KarurVysyaBankLogo,
+  KotakMahindraLogo,
+  PunjabAndSindBankLogo,
+  PunjabNationalBankLogo,
+  SouthIndianBankLogo,
+  UCOBankLogo,
+  YesBankLogo,
+  BankAccountAssetClass,
+  FixedDepositsAssetClass,
+  InsuranceAssetClass,
+  MutualFundsAssetClass,
+  NPSAssetClass,
+  StocksAssetClass,
+  ChevronRightSmall,
+  ChevronLeftSmall,
 };
 
 export { SvgProps } from "react-native-svg";

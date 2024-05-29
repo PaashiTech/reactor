@@ -3,7 +3,6 @@ import { MeStackNavigator } from "./MeStackNavigator";
 import { ProfileStackNavigator } from "./ProfileStackNavigator";
 import { useGetUser } from "@unmaze/api";
 import { Spinner, View } from "@unmaze/views";
-import { OnboardingScreen } from "../../screens/onboarding/OnboardingScreen";
 import { OnboardingStackNavigator } from "./OnboardingStackNavigator";
 
 type RootStackNavigatorProps = {};
@@ -28,30 +27,27 @@ export const RootStackNavigator: React.FC<RootStackNavigatorProps> = () => {
     );
   }
 
-  const userSignedUp = true;
+  // const userSignedUp = false;
 
   return (
     <RootStack.Navigator
-      initialRouteName="MeStackNavigator"
+      initialRouteName="OnboardingNavigator"
       screenOptions={{ headerShown: false }}
     >
-      {userSignedUp ? (
-        <RootStack.Group>
-          <RootStack.Screen
-            name="MeStackNavigator"
-            component={MeStackNavigator}
-          />
-          <RootStack.Screen
-            name="ProfileStackNavigator"
-            component={ProfileStackNavigator}
-          />
-        </RootStack.Group>
-      ) : (
+      <RootStack.Group>
+        <RootStack.Screen
+          name="MeStackNavigator"
+          component={MeStackNavigator}
+        />
+        <RootStack.Screen
+          name="ProfileStackNavigator"
+          component={ProfileStackNavigator}
+        />
         <RootStack.Screen
           name="OnboardingNavigator"
           component={OnboardingStackNavigator}
         />
-      )}
+      </RootStack.Group>
     </RootStack.Navigator>
   );
 };

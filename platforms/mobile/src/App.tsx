@@ -2,17 +2,20 @@ import {
   TamaguiProvider,
   tamaguiConfig,
   UnmzToastProvider,
-  View,
-  Spinner,
 } from "@unmaze/views";
 import { useUnmzFontsExpo } from "@unmaze/assets";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { useGetUser } from "@unmaze/api";
 import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { LogBox } from "react-native";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
+
+  LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+  LogBox.ignoreAllLogs(); //Ignore all log notifications
 
   if (!fontsLoaded) {
     return null;
@@ -30,9 +33,13 @@ export function App() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
       <UnmzToastProvider>
         <SafeAreaProvider>
-          <NavigationContainer theme={BaseTheme}>
-            <RootStackNavigator />
-          </NavigationContainer>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <BottomSheetModalProvider>
+              <NavigationContainer theme={BaseTheme}>
+                <RootStackNavigator />
+              </NavigationContainer>
+            </BottomSheetModalProvider>
+          </GestureHandlerRootView>
         </SafeAreaProvider>
       </UnmzToastProvider>
     </TamaguiProvider>

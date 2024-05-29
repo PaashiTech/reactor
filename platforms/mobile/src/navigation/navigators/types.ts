@@ -30,7 +30,27 @@ import {
 } from "../../screens/linked-accounts/types";
 
 import { ME_DASHBOARD_SCREEN_ID } from "../../screens/dashboard/types";
-import { ONBOARDING_SCREEN_ID } from "../../screens/onboarding/types";
+import {
+  AA_FLOW_SUCCESS_SCREEN_ID,
+  ACCOUNT_DISCOVERY_SCREEN_ID,
+  COMING_SOON_BANKS_SCREEN_ID,
+  CONNECTING_WITH_BANKS_SCREEN_ID,
+  CONSENT_SCREEN_ID,
+  EMAIL_LOGIN_SCREEN_ID,
+  EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID,
+  INTRO_TO_AA_SCREEN_ID,
+  INVITE_ONLY_SCREEN_ID,
+  LOADING_SCREEN_ID,
+  MOBILE_LOGIN_SCREEN_ID,
+  ONBOARDING_SCREEN_ID,
+  OTP_CREATE_PASSWORD_SCREEN_ID,
+  OTP_MOBILE_LOGIN_SCREEN_ID,
+  PIN_SETUP_SCREEN_ID,
+  SELECT_BANKS_SCREEN_ID,
+  SELECT_ENTITIES_SCREEN_ID,
+  SET_PASSWORD_SCREEN_ID,
+  SSO_SCREEN_ID,
+} from "../../screens/onboarding/types";
 
 export type UserProfileScreenProps = NativeStackScreenProps<
   StackRouteProps,
@@ -97,4 +117,26 @@ export type MeStackRouteProps = {
 
 export type OnboardingStackRouteProps = {
   [ONBOARDING_SCREEN_ID]: undefined;
+  [SSO_SCREEN_ID]: undefined;
+  [EMAIL_LOGIN_SCREEN_ID]: undefined;
+  [EMAIL_LOGIN_WITH_PASSWORD_SCREEN_ID]: {
+    email: string;
+  };
+  [SET_PASSWORD_SCREEN_ID]: undefined;
+  [INVITE_ONLY_SCREEN_ID]: undefined;
+  [MOBILE_LOGIN_SCREEN_ID]: undefined;
+  [OTP_CREATE_PASSWORD_SCREEN_ID]: undefined;
+  [INTRO_TO_AA_SCREEN_ID]: undefined;
+  [SELECT_ENTITIES_SCREEN_ID]: undefined;
+  [SELECT_BANKS_SCREEN_ID]: undefined;
+  [COMING_SOON_BANKS_SCREEN_ID]: undefined;
+  [OTP_MOBILE_LOGIN_SCREEN_ID]: {
+    mobileNumber: string;
+  };
+  [PIN_SETUP_SCREEN_ID]: undefined;
+  [AA_FLOW_SUCCESS_SCREEN_ID]: undefined;
+  [LOADING_SCREEN_ID]: undefined;
+  [ACCOUNT_DISCOVERY_SCREEN_ID]: undefined;
+  [CONSENT_SCREEN_ID]: undefined;
+  [CONNECTING_WITH_BANKS_SCREEN_ID]: undefined;
 };

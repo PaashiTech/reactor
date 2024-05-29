@@ -9,3 +9,6 @@ export * from "../fonts";
 
 // Icons
 export * from "../icons";
+
+// Images
+export * from "../images";
