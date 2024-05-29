@@ -1,5 +1,5 @@
 import { createTokens } from "tamagui";
-import { space, color as unmazeColor } from "./unmazeTokens";
+import { space, baseColor as unmazeBaseColor } from "./unmazeTokens";
 
 const size = {
   0: 0,
@@ -97,7 +97,7 @@ const color = {
 };
 
 export const tokens = createTokens({
-  color: { ...color, ...unmazeColor },
+  color: { ...color, ...unmazeBaseColor },
   space,
   size,
   radius,
