@@ -11,7 +11,7 @@ import {
   AccountDiscoveryScreenProps,
 } from "./types";
 import { useEffect, useRef, useState } from "react";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
 import { CustomHeader } from "../../navigation/helpers/CustomHeader";
 import { SharedProgressbar } from "../../components/app/onboarding/shared/SharedProgressbar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";

@@ -21,7 +21,7 @@ import {
 import { Plus } from "@unmaze/assets";
 import { FamilyEmpty } from "../../components/app/family";
 import { UnmzNavScreen } from "../types";
-import { FooterWithShadow } from "../../components/app/core/FooterWrapper";
+import { FooterWithShadow } from "../../components/core/FooterWrapper";
 import { useState } from "react";
 
 type ModalCtxType = {

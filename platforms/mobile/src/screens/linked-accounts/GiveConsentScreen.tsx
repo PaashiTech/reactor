@@ -12,8 +12,8 @@ import {
 } from "@unmaze/views";
 import { GIVE_CONSENT_SCREEN_ID, GiveConsentScreenProps } from "./types";
 import { UnmzNavScreen } from "../types";
-import { SaafeFooter } from "../../components/app/core/FooterWrapper";
-import { TextWithHeader } from "../../components/app/core/TextWithHeader";
+import { SaafeFooter } from "../../components/core/FooterWrapper";
+import { TextWithHeader } from "../../components/core/TextWithHeader";
 import {
   HDFCBankLogo,
   UnionBankLogo,
