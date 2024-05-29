@@ -17,7 +17,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { UnmazeLogo } from "@unmaze/assets/icons";
 import { useState } from "react";
-import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/shared/KeyboardAvoidingViewWithDismiss";
 
 const _InviteOnlyScreen: React.FC<OnboardingScreenProps> = ({
   navigation,

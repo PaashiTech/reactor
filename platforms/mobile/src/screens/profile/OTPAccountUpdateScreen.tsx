@@ -13,7 +13,7 @@ import {
 } from "@unmaze/views";
 import { CheckGreen } from "@unmaze/assets";
 import { FC, useEffect, useState } from "react";
-import KeyboardAvoidingViewWithDismiss from "../../components/app/shared/KeyboardAvoidingViewWithDismiss";
+import KeyboardAvoidingViewWithDismiss from "../../components/shared/KeyboardAvoidingViewWithDismiss";
 import { ToastViewport } from "@tamagui/toast";
 import {
   OTPAccountUpdateScreenProps,
