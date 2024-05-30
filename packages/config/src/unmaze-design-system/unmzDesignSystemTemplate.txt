@@ -1,0 +1,17 @@
+export const unmzBaseColors = {
+  {{#each baseColors}}
+  "{{this.[0]}}": "{{this.[1]}}",
+  {{/each}}
+}
+
+export const unmzSemanticColorsLight = {
+  {{#each semanticColorsLight }}
+  "{{this.[0]}}": "{{this.[1]}}",
+  {{/each}}
+}
+
+export const unmzSemanticColorsDark = {
+  {{#each semanticColorsDark }}
+  "{{this.[0]}}": "{{this.[1]}}",
+  {{/each}}
+}

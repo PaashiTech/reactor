@@ -34,6 +34,7 @@ const getBaseColorTokens = (tokens: typeof figmaTokens) => {
       // System palette
     }
   }
+
   return result;
 };
 
@@ -51,11 +52,11 @@ const _extractBaseColorToken = (semanticTokenString: string): string => {
       return `${colorName.replace(" ", "").toLowerCase()}/${colorValue}`;
     } else {
       // System palette
-      return "grey/10";
+      return "gray/10";
     }
   }
 
-  return "grey/10";
+  return "gray/10";
 };
 
 const getSemanticColorTokens = (tokens: typeof figmaTokens) => {
