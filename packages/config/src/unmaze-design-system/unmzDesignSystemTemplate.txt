@@ -1,17 +1,17 @@
+export const unmzSpaceTokens = {
+  {{#each spaceTokens}}
+  "{{this.[0]}}": {{this.[1]}},
+  {{/each}}
+}
+
 export const unmzBaseColors = {
   {{#each baseColors}}
   "{{this.[0]}}": "{{this.[1]}}",
   {{/each}}
 }
 
-export const unmzSemanticColorsLight = {
-  {{#each semanticColorsLight }}
-  "{{this.[0]}}": "{{this.[1]}}",
-  {{/each}}
-}
-
-export const unmzSemanticColorsDark = {
-  {{#each semanticColorsDark }}
+export const unmzSemanticColors = {
+  {{#each semanticColors }}
   "{{this.[0]}}": "{{this.[1]}}",
   {{/each}}
 }

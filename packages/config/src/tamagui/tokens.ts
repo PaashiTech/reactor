@@ -1,9 +1,10 @@
 import { createTokens } from "tamagui";
+
 import {
-  space,
-  baseColor as unmazeBaseColor,
-  semanticColor as unmazeSemanticColor,
-} from "../unmaze-design-system/unmazeTokens";
+  unmzSpaceTokens,
+  unmzBaseColors,
+  unmzSemanticColors,
+} from "../unmaze-design-system/unmzDesignSystem";
 
 const size = {
   0: 0,
@@ -101,9 +102,9 @@ const color = {
 };
 
 export const tokens = createTokens({
-  color: { ...color, ...unmazeBaseColor, ...unmazeSemanticColor[0] },
-  space,
+  color: { ...color, ...unmzBaseColors, ...unmzSemanticColors },
+  space: unmzSpaceTokens,
   size,
-  radius,
+  radius: unmzSpaceTokens,
   zIndex,
 });

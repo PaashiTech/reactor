@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 
-import { baseColor, semanticColor } from "./unmazeTokens";
+import { space, baseColor, semanticColor } from "./unmazeTokens";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -15,9 +15,10 @@ const generate = () => {
   fs.writeFileSync(
     path.resolve(__dirname + "/unmzDesignSystem.ts"),
     compiledTemplate({
+      spaceTokens: Object.entries(space),
       baseColors: Object.entries(baseColor),
-      semanticColorsLight: Object.entries(semanticColor[0]),
-      semanticColorsDark: Object.entries(semanticColor[1]),
+      semanticColors: Object.entries(semanticColor[0]),
+      // semanticColorsDark: Object.entries(semanticColor[1]),
     })
   );
   console.log("Generation complete!");
