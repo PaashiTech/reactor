@@ -1,5 +1,11 @@
 import { createTokens } from "tamagui";
 
+import {
+  unmzSpaceTokens,
+  unmzBaseColors,
+  unmzSemanticColors,
+} from "../unmaze-design-system/unmzDesignSystem";
+
 const size = {
   0: 0,
   0.25: 2,
@@ -35,25 +41,7 @@ const size = {
   18: 244,
   19: 264,
   20: 284,
-  sm: 38,
-  md: 46,
-  lg: 60,
 };
-
-const spaces = Object.entries(size).map(
-  ([k, v]) =>
-    [
-      k,
-      Math.max(0, v <= 16 ? Math.round(v * 0.333) : Math.floor(v * 0.7 - 12)),
-    ] as const
-);
-
-const spacesNegative = spaces.slice(1).map(([k, v]) => [`-${k}`, -v]);
-
-const space = {
-  ...Object.fromEntries(spaces),
-  ...Object.fromEntries(spacesNegative),
-} as any;
 
 const zIndex = {
   0: 0,
@@ -79,9 +67,6 @@ const radius = {
   10: 34,
   11: 42,
   12: 50,
-  sm: 4,
-  md: 8,
-  lg: 12,
 };
 
 const color = {
@@ -117,9 +102,9 @@ const color = {
 };
 
 export const tokens = createTokens({
-  color,
-  space,
+  color: { ...color, ...unmzBaseColors, ...unmzSemanticColors },
+  space: unmzSpaceTokens,
   size,
-  radius,
+  radius: unmzSpaceTokens,
   zIndex,
 });

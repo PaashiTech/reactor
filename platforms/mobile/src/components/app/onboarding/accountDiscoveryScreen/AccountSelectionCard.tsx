@@ -16,6 +16,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { LayoutChangeEvent } from "react-native";
+import { unmzBaseColors } from "@unmaze/config/src/unmaze-design-system/unmzDesignSystem";
 
 type AccountListType = {
   id: number;
@@ -85,11 +86,11 @@ export const AccountSelectionCard: React.FC<AccountSelectionCardProps> = ({
   const verifiedAccounts = accountList.filter((item) => item.verified).length;
 
   return (
-    <View mt={24}>
+    <View mt={"$6"}>
       <ShadowWrapper size="sm">
         <View
-          borderRadius={16}
-          bg={isCollapsible ? "#DEFBE6" : "#FFF"}
+          borderRadius={"$4"}
+          bg={isCollapsible ? "#DEFBE6" : "$icon/icon_error"}
           borderColor="#42BE65"
           borderWidth={isCollapsible ? 1 : 0}
         >

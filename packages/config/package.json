@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "build": "tamagui-build --skip-types",
-    "watch": "tamagui-build --skip-types --watch"
+    "watch": "tamagui-build --skip-types --watch",
+    "generate-design-system": "npx ts-node src/unmaze-design-system/generateUnmzDesignSystem.ts"
   },
   "dependencies": {
     "@tamagui/animations-react-native": "^1.90.2",
@@ -25,6 +26,8 @@
     "tamagui": "^1.90.2"
   },
   "devDependencies": {
-    "@tamagui/build": "^1.90.2"
+    "@tamagui/build": "^1.90.2",
+    "handlebars": "4.7.8",
+    "ts-node": "10.9.2"
   }
 }
