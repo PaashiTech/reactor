@@ -3,7 +3,7 @@ import {
   space,
   baseColor as unmazeBaseColor,
   semanticColor as unmazeSemanticColor,
-} from "./unmazeTokens";
+} from "../unmaze-design-system/unmazeTokens";
 
 const size = {
   0: 0,
