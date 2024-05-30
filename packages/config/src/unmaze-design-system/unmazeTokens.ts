@@ -24,14 +24,9 @@ const getBaseColorTokens = (tokens: typeof figmaTokens) => {
   for (const colorKey in colorEntries) {
     const colorValues = colorEntries[colorKey];
 
-    if (colorKey !== "System") {
-      // Base palette
-      for (const valueKey in colorValues) {
-        result[`${colorKey.replace(" ", "").toLowerCase()}/${valueKey}`] =
-          colorValues[valueKey]["$value"];
-      }
-    } else {
-      // System palette
+    for (const valueKey in colorValues) {
+      result[`${colorKey.replace(" ", "").toLowerCase()}/${valueKey}`] =
+        colorValues[valueKey]["$value"];
     }
   }
 
@@ -46,17 +41,12 @@ const _extractBaseColorToken = (semanticTokenString: string): string => {
   // sanity check
   if (sts[0] === "{" && sts[sts.length - 1] === "}") {
     const stsTokens = sts.substring(1, sts.length - 1).split(".");
-    if (stsTokens[0] !== "System" && stsTokens.length == 2) {
-      // Base palette
-      const [colorName, colorValue] = stsTokens;
-      return `${colorName.replace(" ", "").toLowerCase()}/${colorValue}`;
-    } else {
-      // System palette
-      return "gray/10";
-    }
+    const [colorName, colorValue] = stsTokens;
+    return `${colorName.replace(" ", "").toLowerCase()}/${colorValue}`;
   }
 
-  return "gray/10";
+  // Default return
+  return "system/temp";
 };
 
 const getSemanticColorTokens = (tokens: typeof figmaTokens) => {
@@ -64,6 +54,7 @@ const getSemanticColorTokens = (tokens: typeof figmaTokens) => {
     tokens[SEMANTIC_COLOR_PALETTE_INDEX]["Semantic Palette"]?.modes[
       "Light Mode"
     ];
+  // For future use
   const semanticDarkColorEntries =
     tokens[SEMANTIC_COLOR_PALETTE_INDEX]["Semantic Palette"]?.modes[
       "Dark Mode"
@@ -72,7 +63,7 @@ const getSemanticColorTokens = (tokens: typeof figmaTokens) => {
   const darkResult: { [key: string]: string } = {};
 
   for (const entryKey in semanticLightColorEntries) {
-    ///// (v.1.1.2) /////
+    ///// (v.1.1.3) /////
     // Entry keys can be one of the following:
     // 1. stroke
     // 2. icon
