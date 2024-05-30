@@ -27,7 +27,7 @@ const getBaseColorTokens = (tokens: typeof figmaTokens) => {
     if (colorKey !== "System") {
       // Base palette
       for (const valueKey in colorValues) {
-        result[`${colorKey.replace(" ", "").toLowerCase()}-${valueKey}`] =
+        result[`${colorKey.replace(" ", "").toLowerCase()}/${valueKey}`] =
           colorValues[valueKey]["$value"];
       }
     } else {
@@ -48,14 +48,14 @@ const _extractBaseColorToken = (semanticTokenString: string): string => {
     if (stsTokens[0] !== "System" && stsTokens.length == 2) {
       // Base palette
       const [colorName, colorValue] = stsTokens;
-      return `${colorName.replace(" ", "").toLowerCase()}-${colorValue}`;
+      return `${colorName.replace(" ", "").toLowerCase()}/${colorValue}`;
     } else {
       // System palette
-      return "grey-10";
+      return "grey/10";
     }
   }
 
-  return "grey-10";
+  return "grey/10";
 };
 
 const getSemanticColorTokens = (tokens: typeof figmaTokens) => {
@@ -114,12 +114,12 @@ const getSemanticColorTokens = (tokens: typeof figmaTokens) => {
           //    1. {entryKey}_base
 
           const internalInternalValue = internalValue[internalInternalKey];
-          lightResult[`--${entryKey}-${internalKey}-${internalInternalKey}`] =
+          lightResult[`${entryKey}/${internalKey}/${internalInternalKey}`] =
             baseColor[_extractBaseColorToken(internalInternalValue["$value"])];
         }
       } else {
         const internalValue = entryValue[internalKey];
-        lightResult[`--${entryKey}-${internalKey}`] =
+        lightResult[`${entryKey}/${internalKey}`] =
           baseColor[_extractBaseColorToken(internalValue["$value"])];
       }
     }
