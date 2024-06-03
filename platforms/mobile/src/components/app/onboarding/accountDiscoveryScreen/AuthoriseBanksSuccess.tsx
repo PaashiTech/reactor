@@ -8,21 +8,21 @@ import {
   UnmzGradientButton,
   View,
 } from "@unmaze/views";
-import { OnboardingStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
+
 import { CONSENT_SCREEN_ID } from "../../../../screens/onboarding/types";
 
 import React from "react";
+import { OnboardingStackRouteProps } from "../../../../navigation/navigators/types";
 
 type AuthoriseBanksSuccessProps = {
   bottomSheetRef: any;
+  navigation: any;
 };
 
 export const AuthoriseBanksSuccess: React.FC<AuthoriseBanksSuccessProps> = ({
   bottomSheetRef,
+  navigation,
 }) => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<OnboardingStackRouteProps>>();
-
   return (
     <View flex={1} justifyContent="space-between">
       <View alignItems="center" paddingTop={16}>

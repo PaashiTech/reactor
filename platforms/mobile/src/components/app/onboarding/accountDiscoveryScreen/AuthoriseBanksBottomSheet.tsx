@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   BottomSheetBackdrop,
   BottomSheetModal,
@@ -7,14 +7,31 @@ import {
 import { AuthoriseBanksSlider } from "./AuthoriseBanksSlider";
 import { AuthoriseBanksSuccess } from "./AuthoriseBanksSuccess";
 import { accountDiscoveryBankList } from "../constants";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { OnboardingStackRouteProps } from "../../../../navigation/navigators/types";
 
 export const AuthoriseBanksBottomSheet = React.forwardRef<BottomSheetModal>(
   (props, ref: any) => {
-    const [isAuthorised, setIsAuthorised] = useState<boolean>(false);
+    const [banks, setBanks] = useState(
+      accountDiscoveryBankList.map((item) => ({ ...item, verified: false }))
+    );
+    const navigation =
+      useNavigation<NativeStackNavigationProp<OnboardingStackRouteProps>>();
 
     const snapPointValue = accountDiscoveryBankList.length > 1 ? 406 : 360;
 
     const snapPoints = useMemo(() => [snapPointValue, snapPointValue], []);
+
+    const isAuthorised = banks.every((item) => item.verified);
+
+    const handleAuthorise = (title: string) => {
+      setBanks((banks) =>
+        banks.map((item) =>
+          item.bank.bankTitle === title ? { ...item, verified: true } : item
+        )
+      );
+    };
 
     return (
       <BottomSheetModal
@@ -44,9 +61,15 @@ export const AuthoriseBanksBottomSheet = React.forwardRef<BottomSheetModal>(
           }}
         >
           {!isAuthorised ? (
-            <AuthoriseBanksSlider banks={accountDiscoveryBankList} />
+            <AuthoriseBanksSlider
+              banks={accountDiscoveryBankList}
+              handleAuthorise={handleAuthorise}
+            />
           ) : (
-            <AuthoriseBanksSuccess bottomSheetRef={ref} />
+            <AuthoriseBanksSuccess
+              bottomSheetRef={ref}
+              navigation={navigation}
+            />
           )}
         </BottomSheetView>
       </BottomSheetModal>

@@ -34,10 +34,12 @@ type AuthoriseBanksSliderProps = {
       bankTitle: string;
     };
   }[];
+  handleAuthorise: (title: string) => void;
 };
 
 export const AuthoriseBanksSlider: React.FC<AuthoriseBanksSliderProps> = ({
   banks,
+  handleAuthorise,
 }) => {
   const {
     phone: { primary },
@@ -117,7 +119,11 @@ export const AuthoriseBanksSlider: React.FC<AuthoriseBanksSliderProps> = ({
         ref={slidesRef}
         data={banks}
         renderItem={({ item }) => (
-          <AuthoriseBanksSliderItem bank={item.bank} mobileNumber={primary} />
+          <AuthoriseBanksSliderItem
+            bank={item.bank}
+            mobileNumber={primary}
+            handleAuthorise={handleAuthorise}
+          />
         )}
         horizontal
         pagingEnabled

@@ -38,11 +38,12 @@ type AuthoriseBanksSliderItemProps = {
     bankTitle: string;
   };
   mobileNumber: string;
+  handleAuthorise: (title: string) => void;
 };
 
 export const AuthoriseBanksSliderItem: React.FC<
   AuthoriseBanksSliderItemProps
-> = ({ bank: { bankLogo, bankTitle }, mobileNumber }) => {
+> = ({ bank: { bankLogo, bankTitle }, mobileNumber, handleAuthorise }) => {
   const [code, setCode] = useState<string>("");
   const [isSubmitting, setIsSubitting] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -73,6 +74,7 @@ export const AuthoriseBanksSliderItem: React.FC<
         const data = await fakeApiCall(true);
         setIsSubitting(false);
         setIsSuccess(true);
+        handleAuthorise(bankTitle);
 
         // id = setTimeout(() => {
         //   setIsAuthorised(true);
