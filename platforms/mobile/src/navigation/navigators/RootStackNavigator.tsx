@@ -14,18 +14,18 @@ type RootStackRouteProps = {
 };
 
 export const RootStackNavigator: React.FC<RootStackNavigatorProps> = () => {
-  const { userIsLoading } = useGetUser({
-    id: process.env.EXPO_PUBLIC_DEV_TEST_USER!,
-  });
+  // const { userIsLoading } = useGetUser({
+  //   id: process.env.EXPO_PUBLIC_DEV_TEST_USER!,
+  // });
   const RootStack = createNativeStackNavigator<RootStackRouteProps>();
 
-  if (userIsLoading) {
-    return (
-      <View flex={1} justifyContent="center" alignItems="center">
-        <Spinner size="large" color="#035E5D" />
-      </View>
-    );
-  }
+  // if (userIsLoading) {
+  //   return (
+  //     <View flex={1} justifyContent="center" alignItems="center">
+  //       <Spinner size="large" color="#035E5D" />
+  //     </View>
+  //   );
+  // }
 
   // const userSignedUp = false;
 
