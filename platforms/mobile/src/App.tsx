@@ -10,6 +10,7 @@ import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { LogBox } from "react-native";
+import { ChartsExampleScreen } from "./playground/ChartsExampleScreen";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -36,7 +37,8 @@ export function App() {
           <GestureHandlerRootView style={{ flex: 1 }}>
             <BottomSheetModalProvider>
               <NavigationContainer theme={BaseTheme}>
-                <RootStackNavigator />
+                {/* <RootStackNavigator /> */}
+                <ChartsExampleScreen />
               </NavigationContainer>
             </BottomSheetModalProvider>
           </GestureHandlerRootView>
