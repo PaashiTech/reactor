@@ -4,11 +4,12 @@ import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 import { curveBasis, line, scaleLinear, scalePoint } from "d3";
 import {
   clamp,
+  runOnJS,
   useSharedValue,
   withDelay,
   withTiming,
 } from "react-native-reanimated";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Gradient from "./Gradient";
 import XAxis from "./XAxis";
 import Cursor from "./Cursor";
@@ -35,6 +36,7 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
   chartMargin,
   chartWidth,
 }) => {
+  const selectedValue = useSharedValue(0);
   const animationLine = useSharedValue(0);
   const animationGradient = useSharedValue({ x: 0, y: 0 });
   const cx = useSharedValue(0);
@@ -82,10 +84,18 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
         >
   ) => {
     "worklet";
+
+    const index = Math.floor(e.absoluteX / stepX);
+    const clampedDataIndex = Math.max(0, Math.min(index, data.length - 1));
+
+    selectedValue.value = withTiming(data[clampedDataIndex].value, {
+      duration: 250,
+    });
+
     const clampValue = clamp(
       // For Snapping the cursor to data points
-      Math.floor(e.absoluteX / stepX) * stepX + chartMargin,
-      //   e.absoluteX,
+      // Math.floor(e.absoluteX / stepX) * stepX + chartMargin,
+      e.absoluteX,
       chartMargin,
       chartWidth - chartMargin
     );
@@ -142,6 +152,7 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
           cy={cy}
           cursorOpacity={cursorOpacity}
           chartHeight={chartHeight}
+          selectedValue={selectedValue}
         />
       </Canvas>
     </GestureDetector>

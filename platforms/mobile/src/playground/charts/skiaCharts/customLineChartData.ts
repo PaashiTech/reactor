@@ -1,6 +1,5 @@
 export type DataType = {
   label: string;
-
   value: number;
 };
 

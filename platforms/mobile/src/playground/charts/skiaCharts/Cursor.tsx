@@ -1,20 +1,13 @@
-import {
-  Canvas,
-  Circle,
-  Group,
-  Path,
-  Rect,
-  Skia,
-  Text,
-  useFont,
-} from "@shopify/react-native-skia";
+import { Circle, Group, Path, Skia } from "@shopify/react-native-skia";
 import { SharedValue, useDerivedValue } from "react-native-reanimated";
+import PopoverText from "./PopoverText";
 
 type CursorProps = {
   cx: SharedValue<number>;
   cy: SharedValue<number>;
   cursorOpacity: SharedValue<number>;
   chartHeight: number;
+  selectedValue: SharedValue<number>;
 };
 
 const Cursor: React.FC<CursorProps> = ({
@@ -22,15 +15,21 @@ const Cursor: React.FC<CursorProps> = ({
   cy,
   cursorOpacity,
   chartHeight,
+  selectedValue,
 }) => {
   const path = useDerivedValue(() => {
     const dottedLine = Skia.Path.Make().lineTo(0, chartHeight - 20);
+    dottedLine.dash(5, 5, 0);
 
     const matrix = Skia.Matrix();
     matrix.translate(cx.value, 0);
     dottedLine.transform(matrix);
     return dottedLine;
   });
+
+  const animatedText = useDerivedValue(
+    () => `₹${Math.round(selectedValue.value)}`
+  );
   return (
     <Group opacity={cursorOpacity}>
       <Path
@@ -40,7 +39,7 @@ const Cursor: React.FC<CursorProps> = ({
         strokeWidth={1}
         strokeCap="round"
       />
-      <PopoverText cx={cx} text={"hello"} />
+      <PopoverText cx={cx} text={animatedText} />
 
       <Circle
         cx={cx}
@@ -56,27 +55,3 @@ const Cursor: React.FC<CursorProps> = ({
 };
 
 export default Cursor;
-
-const PopoverText = ({ cx, text }) => {
-  const font = useFont(require("@tamagui/font-inter/otf/Inter-Medium.otf"), 14);
-  const xRect = useDerivedValue(() => cx.value - 35, [cx]);
-  const xText = useDerivedValue(() => cx.value - 35 + 15, [cx]);
-
-  const textHeight = font?.measureText(text).height;
-
-  if (!font) {
-    return null;
-  }
-  return (
-    <Group>
-      <Rect x={xRect} y={0} width={70} height={50} color="#095f2d" />
-      <Text
-        x={xText}
-        y={25 + textHeight! / 2}
-        text={text}
-        font={font}
-        color="#f3f3f3"
-      />
-    </Group>
-  );
-};
