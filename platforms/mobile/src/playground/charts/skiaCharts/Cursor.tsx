@@ -40,7 +40,6 @@ const Cursor: React.FC<CursorProps> = ({
         strokeCap="round"
       />
       <PopoverText cx={cx} text={animatedText} />
-
       <Circle
         cx={cx}
         cy={cy}

@@ -1,5 +1,3 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 import { LinearGradient, Path, Skia } from "@shopify/react-native-skia";
 import { SharedValue } from "react-native-reanimated";
 
@@ -46,5 +44,3 @@ const Gradient: React.FC<GradientProps> = ({
 };
 
 export default Gradient;
-
-const styles = StyleSheet.create({});

@@ -1,15 +1,13 @@
-import { BodyText, Text, View } from "@unmaze/views";
+import { useEffect } from "react";
 import { DataType } from "./customLineChartData";
 import { Canvas, Path, Skia } from "@shopify/react-native-skia";
 import { curveBasis, line, scaleLinear, scalePoint } from "d3";
 import {
   clamp,
-  runOnJS,
   useSharedValue,
   withDelay,
   withTiming,
 } from "react-native-reanimated";
-import { useEffect, useState } from "react";
 import Gradient from "./Gradient";
 import XAxis from "./XAxis";
 import Cursor from "./Cursor";
@@ -52,11 +50,8 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
   }, []);
 
   const xDomain = data.map((dataPoint) => dataPoint.label);
-
   const xRange = [chartMargin, chartWidth - chartMargin];
-
   const x = scalePoint().domain(xDomain).range(xRange).padding(0);
-
   const stepX = x.step();
 
   const max = Math.max(...data.map(({ value }) => value));
@@ -64,7 +59,6 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
 
   const yDomain = [min, max];
   const yRange = [chartHeight, 0];
-
   const y = scaleLinear().domain(yDomain).range(yRange);
 
   const curvedLine = line<DataType>()
@@ -73,7 +67,6 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
     .curve(curveBasis)(data);
 
   const linePath = Skia.Path.MakeFromSVGString(curvedLine!);
-
   const path = parse(linePath!.toSVGString());
 
   const handleGestureEvent = (
