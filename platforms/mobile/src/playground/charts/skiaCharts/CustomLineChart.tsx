@@ -35,6 +35,7 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
   chartWidth,
 }) => {
   const selectedValue = useSharedValue(0);
+  const selectedDate = useSharedValue("");
   const animationLine = useSharedValue(0);
   const animationGradient = useSharedValue({ x: 0, y: 0 });
   const cx = useSharedValue(0);
@@ -50,7 +51,7 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
   }, []);
 
   const xDomain = data.map((dataPoint) => dataPoint.label);
-  const xRange = [chartMargin, chartWidth - chartMargin];
+  const xRange = [chartMargin, chartWidth - chartMargin - 50];
   const x = scalePoint().domain(xDomain).range(xRange).padding(0);
   const stepX = x.step();
 
@@ -58,7 +59,7 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
   const min = Math.min(...data.map(({ value }) => value));
 
   const yDomain = [min, max];
-  const yRange = [chartHeight, 0];
+  const yRange = [chartHeight - 10, 100];
   const y = scaleLinear().domain(yDomain).range(yRange);
 
   const curvedLine = line<DataType>()
@@ -82,15 +83,17 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
     const clampedDataIndex = Math.max(0, Math.min(index, data.length - 1));
 
     selectedValue.value = withTiming(data[clampedDataIndex].value, {
-      duration: 250,
+      duration: 100,
     });
+
+    selectedDate.value = data[clampedDataIndex].label;
 
     const clampValue = clamp(
       // For Snapping the cursor to data points
-      // Math.floor(e.absoluteX / stepX) * stepX + chartMargin,
-      e.absoluteX,
+      Math.floor(e.absoluteX / stepX) * stepX + chartMargin,
+      // e.absoluteX,
       chartMargin,
-      chartWidth - chartMargin
+      chartWidth - chartMargin - 50
     );
     cx.value = clampValue;
     cy.value = getYForX(path, Math.floor(clampValue))!;
@@ -107,47 +110,68 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
     });
 
   return (
-    <GestureDetector gesture={pan}>
+    <>
+      <GestureDetector gesture={pan}>
+        <Canvas
+          style={{
+            width: chartWidth,
+            height: chartHeight,
+          }}
+        >
+          <Path
+            path={linePath!}
+            style="stroke"
+            strokeWidth={2}
+            color="rgba(3, 94, 93,1)"
+            strokeCap="round"
+            start={0}
+            end={animationLine}
+          />
+          <Gradient
+            chartHeight={chartHeight}
+            chartWidth={chartWidth}
+            chartMargin={chartMargin}
+            curvedLine={curvedLine!}
+            animationGradient={animationGradient}
+          />
+
+          <Cursor
+            cx={cx}
+            cy={cy}
+            cursorOpacity={cursorOpacity}
+            chartHeight={chartHeight}
+            selectedValue={selectedValue}
+            selectedDate={selectedDate}
+          />
+        </Canvas>
+      </GestureDetector>
       <Canvas
         style={{
           width: chartWidth,
-          height: chartHeight,
+          height: 100,
         }}
       >
-        <Path
-          path={linePath!}
-          style="stroke"
-          strokeWidth={3}
-          color="rgba(3, 94, 93,1)"
-          strokeCap="round"
-          start={0}
-          end={animationLine}
-        />
-        <Gradient
-          chartHeight={chartHeight}
-          chartWidth={chartWidth}
-          chartMargin={chartMargin}
-          curvedLine={curvedLine!}
-          animationGradient={animationGradient}
-        />
         {data.map((dataPoint, i) => {
+          if (
+            !(
+              i == 0 ||
+              i == data.length - 1 ||
+              i == Math.floor(data.length / 2)
+            )
+          )
+            return;
+
           return (
             <XAxis
               key={i}
               text={dataPoint.label}
-              y={chartHeight - 10}
+              y={15}
               x={x(dataPoint.label)!}
+              isLast={i === data.length - 1}
             />
           );
         })}
-        <Cursor
-          cx={cx}
-          cy={cy}
-          cursorOpacity={cursorOpacity}
-          chartHeight={chartHeight}
-          selectedValue={selectedValue}
-        />
       </Canvas>
-    </GestureDetector>
+    </>
   );
 };

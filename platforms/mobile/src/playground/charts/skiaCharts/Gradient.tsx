@@ -21,7 +21,7 @@ const Gradient: React.FC<GradientProps> = ({
 
     if (gradientAreaSplit) {
       gradientAreaSplit
-        .lineTo(width - chartMargin, height)
+        .lineTo(width - chartMargin - 50, height)
         .lineTo(chartMargin, height)
         .lineTo(chartMargin, gradientAreaSplit.getPoint(0).y);
     }
