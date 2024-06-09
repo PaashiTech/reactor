@@ -20,7 +20,7 @@ const Cursor: React.FC<CursorProps> = ({
   selectedDate,
 }) => {
   const path = useDerivedValue(() => {
-    const dottedLine = Skia.Path.Make().lineTo(0, chartHeight - 20);
+    const dottedLine = Skia.Path.Make().lineTo(0, chartHeight - 10);
 
     const matrix = Skia.Matrix();
     matrix.translate(cx.value, 0);
@@ -60,7 +60,7 @@ const Cursor: React.FC<CursorProps> = ({
         style="stroke"
         strokeWidth={0.8}
         strokeCap="round"
-        start={0.24}
+        start={0.23}
       />
       <PopoverText dateText={dateText} amountText={animatedText} />
       <Circle

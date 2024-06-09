@@ -20,6 +20,8 @@ import {
   PanGestureHandlerEventPayload,
 } from "react-native-gesture-handler";
 import { getYForX, parse } from "react-native-redash";
+import YAxis from "./YAxis";
+import { formatNetWorth } from "@unmaze/views";
 
 type CustomLineChartProps = {
   data: DataType[];
@@ -43,10 +45,10 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
   const cursorOpacity = useSharedValue(0);
 
   useEffect(() => {
-    animationLine.value = withTiming(1, { duration: 1000 });
+    animationLine.value = withTiming(1, { duration: 500 });
     animationGradient.value = withDelay(
-      1000,
-      withTiming({ x: 0, y: chartHeight }, { duration: 500 })
+      500,
+      withTiming({ x: 0, y: chartHeight }, { duration: 250 })
     );
   }, []);
 
@@ -135,6 +137,13 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
             animationGradient={animationGradient}
           />
 
+          <YAxis
+            max={max}
+            min={min}
+            chartHeight={chartHeight}
+            chartMargin={chartMargin}
+            chartWidth={chartWidth}
+          />
           <Cursor
             cx={cx}
             cy={cy}
