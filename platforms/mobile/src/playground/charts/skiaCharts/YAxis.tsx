@@ -1,5 +1,5 @@
-import { Text, useFont } from "@shopify/react-native-skia";
-import { DataType } from "./customLineChartData";
+import { Path, Skia, Text, useFont } from "@shopify/react-native-skia";
+import React from "react";
 
 type YAxisProps = {
   max: number;
@@ -8,8 +8,6 @@ type YAxisProps = {
   chartHeight: number;
   chartMargin: number;
 };
-
-const Y_AXIS_LENGTH = 5;
 
 const YAxis: React.FC<YAxisProps> = ({
   max,
@@ -24,6 +22,11 @@ const YAxis: React.FC<YAxisProps> = ({
     return null;
   }
 
+  const yAxisLine = Skia.Path.Make().lineTo(0, chartHeight - 120);
+  const matrix = Skia.Matrix();
+  matrix.translate(chartWidth - chartMargin - 50, 95);
+  yAxisLine.transform(matrix);
+
   const yAxisArray = [
     max,
     max - (max - min) * 0.25,
@@ -32,18 +35,23 @@ const YAxis: React.FC<YAxisProps> = ({
     min,
   ];
 
-  return yAxisArray.map((value, i) => {
-    return (
-      <Text
-        key={i}
-        text={formatAmount(value)}
-        color={"#6F6F6F"}
-        font={font}
-        x={chartWidth - chartMargin - 40}
-        y={((chartHeight - 50) * (i + 1)) / yAxisArray.length + 40}
-      />
-    );
-  });
+  return (
+    <>
+      <Path path={yAxisLine} color="#aeaeae" style="stroke" strokeWidth={0.7} />
+      {yAxisArray.map((value, i) => {
+        return (
+          <Text
+            key={i}
+            text={formatAmount(value)}
+            color={"#aeaeae"}
+            font={font}
+            x={chartWidth - chartMargin - 40}
+            y={((chartHeight - 75) * (i + 1)) / yAxisArray.length + 50}
+          />
+        );
+      })}
+    </>
+  );
 };
 
 export default YAxis;

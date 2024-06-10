@@ -20,7 +20,7 @@ const Cursor: React.FC<CursorProps> = ({
   selectedDate,
 }) => {
   const path = useDerivedValue(() => {
-    const dottedLine = Skia.Path.Make().lineTo(0, chartHeight - 10);
+    const dottedLine = Skia.Path.Make().lineTo(0, chartHeight - 25);
 
     const matrix = Skia.Matrix();
     matrix.translate(cx.value, 0);

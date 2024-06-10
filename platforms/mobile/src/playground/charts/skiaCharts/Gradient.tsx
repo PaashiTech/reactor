@@ -9,6 +9,8 @@ type GradientProps = {
   animationGradient: SharedValue<{ x: number; y: number }>;
 };
 
+const X_AXIS_MARGIN_BOTTOM = 25;
+
 const Gradient: React.FC<GradientProps> = ({
   chartHeight,
   chartMargin,
@@ -21,8 +23,8 @@ const Gradient: React.FC<GradientProps> = ({
 
     if (gradientAreaSplit) {
       gradientAreaSplit
-        .lineTo(width - chartMargin - 50, height)
-        .lineTo(chartMargin, height)
+        .lineTo(width - chartMargin - 50, height - X_AXIS_MARGIN_BOTTOM)
+        .lineTo(chartMargin, height - X_AXIS_MARGIN_BOTTOM)
         .lineTo(chartMargin, gradientAreaSplit.getPoint(0).y);
     }
 

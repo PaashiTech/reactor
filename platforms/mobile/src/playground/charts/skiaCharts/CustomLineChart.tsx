@@ -9,7 +9,6 @@ import {
   withTiming,
 } from "react-native-reanimated";
 import Gradient from "./Gradient";
-import XAxis from "./XAxis";
 import Cursor from "./Cursor";
 import {
   Gesture,
@@ -21,7 +20,7 @@ import {
 } from "react-native-gesture-handler";
 import { getYForX, parse } from "react-native-redash";
 import YAxis from "./YAxis";
-import { formatNetWorth } from "@unmaze/views";
+import XAxis from "./XAxis";
 
 type CustomLineChartProps = {
   data: DataType[];
@@ -61,7 +60,7 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
   const min = Math.min(...data.map(({ value }) => value));
 
   const yDomain = [min, max];
-  const yRange = [chartHeight - 10, 100];
+  const yRange = [chartHeight - 30, 100];
   const y = scaleLinear().domain(yDomain).range(yRange);
 
   const curvedLine = line<DataType>()
@@ -118,6 +117,7 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
           style={{
             width: chartWidth,
             height: chartHeight,
+            // backgroundColor: "yellow",
           }}
         >
           <Path
@@ -135,6 +135,13 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
             chartMargin={chartMargin}
             curvedLine={curvedLine!}
             animationGradient={animationGradient}
+          />
+          <XAxis
+            chartHeight={chartHeight}
+            chartMargin={chartMargin}
+            chartWidth={chartWidth}
+            data={data}
+            x={x}
           />
 
           <YAxis
@@ -154,33 +161,6 @@ export const CustomLineChart: React.FC<CustomLineChartProps> = ({
           />
         </Canvas>
       </GestureDetector>
-      <Canvas
-        style={{
-          width: chartWidth,
-          height: 100,
-        }}
-      >
-        {data.map((dataPoint, i) => {
-          if (
-            !(
-              i == 0 ||
-              i == data.length - 1 ||
-              i == Math.floor(data.length / 2)
-            )
-          )
-            return;
-
-          return (
-            <XAxis
-              key={i}
-              text={dataPoint.label}
-              y={15}
-              x={x(dataPoint.label)!}
-              isLast={i === data.length - 1}
-            />
-          );
-        })}
-      </Canvas>
     </>
   );
 };
