@@ -3,21 +3,6 @@ export type DataType = {
   value: number;
 };
 
-// export const data: DataType[] = [
-//   { label: "Jan", value: 1000 },
-//   { label: "Feb", value: 2000 },
-//   { label: "Mar", value: 3000 },
-//   { label: "Apr", value: 4000 },
-//   { label: "May", value: 5000 },
-//   { label: "Jun", value: 6000 },
-//   { label: "Jul", value: 7000 },
-//   { label: "Aug", value: 8000 },
-//   { label: "Sep", value: 9000 },
-//   { label: "Oct", value: 10000 },
-//   { label: "Nov", value: 11000 },
-//   { label: "Dec", value: 12000 },
-// ];
-
 export const data: DataType[] = [
   { label: "1 May", value: 16190 },
   { label: "2 May", value: 17200 },
