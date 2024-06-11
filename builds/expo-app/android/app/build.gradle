@@ -90,6 +90,9 @@ android {
         versionName "0.0.1"
 
         buildConfigField("boolean", "REACT_NATIVE_UNSTABLE_USE_RUNTIME_SCHEDULER_ALWAYS", (findProperty("reactNative.unstable_useRuntimeSchedulerAlways") ?: true).toString())
+        manifestPlaceholders = [
+            appAuthRedirectScheme: 'unmz'
+        ]
     }
     signingConfigs {
         debug {
