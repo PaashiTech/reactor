@@ -1,20 +1,50 @@
 import { View } from "@unmaze/views";
 import { Area, CartesianChart, Line, useChartPressState } from "victory-native";
-import { LinearGradient, useFont, vec } from "@shopify/react-native-skia";
+import {
+  LinearGradient,
+  useFont,
+  vec,
+  Text as SKText,
+  RoundedRect,
+  Group,
+} from "@shopify/react-native-skia";
 import { useWindowDimensions } from "react-native";
 import { data } from "../skiaCharts/customLineChartData";
 import { formatAmount } from "../helpers";
 import { ToolTip } from "./ToolTip";
+import { useDerivedValue } from "react-native-reanimated";
 
 export const VictoryLineChart = () => {
-  const font = useFont(require("@tamagui/font-inter/otf/Inter-Medium.otf"), 12);
+  const font = useFont(require("@tamagui/font-inter/otf/Inter-Medium.otf"), 10);
   const { state, isActive } = useChartPressState({
-    x: "someting",
+    x: "",
     y: { value: 0 },
   });
 
   const CHART_HEIGHT = 300;
   const CHART_MARGIN = 20;
+
+  const textValue = useDerivedValue(() => {
+    let amount = state.y.value.value.value;
+
+    if (isNaN(amount)) return "Invalid amount";
+
+    const suffixes = ["", "K", "L", "Cr"];
+    let index = 1;
+    let initialDivisor = 1000; // For the first division
+
+    while (amount >= initialDivisor && index < suffixes.length) {
+      amount /= initialDivisor;
+      index += 1;
+      initialDivisor = 100; // Set 100 for subsequent divisions
+    }
+
+    return "₹" + amount.toFixed(2) + suffixes[index - 1];
+  }, [state.y.value]);
+
+  const textValue2 = useDerivedValue(() => {
+    return state.x.value.value;
+  }, [state.x.value]);
 
   const { width: CHART_WIDTH } = useWindowDimensions();
 
@@ -25,20 +55,19 @@ export const VictoryLineChart = () => {
           height: CHART_HEIGHT,
           width: CHART_WIDTH,
           paddingHorizontal: CHART_MARGIN,
-          marginTop: 40,
         }}
       >
         <CartesianChart
-          padding={12}
-          data={data} // 👈 specify your data
-          xKey="label" // 👈 specify data key for x-axis
-          yKeys={["value"]} // 👈 specify data keys used for y-axis
+          padding={{ bottom: 12, left: 12, right: 12 }}
+          data={data}
+          xKey="label"
+          yKeys={["value"]}
           chartPressState={state}
           gestureLongPressDelay={1}
           axisOptions={{
             font,
             axisSide: { y: "right", x: "bottom" },
-            labelOffset: 5,
+            labelOffset: { x: 5, y: 10 },
             lineColor: {
               grid: {
                 x: "transparent",
@@ -60,6 +89,35 @@ export const VictoryLineChart = () => {
                 strokeWidth={2}
                 curveType="natural"
               />
+              {isActive && (
+                <Group>
+                  <RoundedRect
+                    height={50}
+                    width={100}
+                    r={10}
+                    x={chartBounds.left + 5}
+                    y={chartBounds.top + 10}
+                    color="#3d3d3d"
+                    style={"fill"}
+                  />
+                  <SKText
+                    x={chartBounds.left + 10}
+                    y={chartBounds.top + 50}
+                    text={textValue}
+                    color={"#FFF"}
+                    font={font}
+                    style={"fill"}
+                  />
+                  <SKText
+                    x={chartBounds.left + 10}
+                    y={chartBounds.top + 30}
+                    text={textValue2}
+                    color={"#FFF"}
+                    font={font}
+                    style={"fill"}
+                  />
+                </Group>
+              )}
               <Area
                 points={points.value}
                 y0={chartBounds.bottom}
