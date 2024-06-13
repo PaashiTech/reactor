@@ -8,11 +8,25 @@
     "jsEngine": "hermes",
     "assetBundlePatterns": ["**/*"],
     "android": {
+      "googleServicesFile": "./google-services.json",
       "package": "com.unmaze.app"
     },
     "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
       "bundleIdentifier": "com.unmaze.app"
     },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
     "extra": {
       "eas": {
         "projectId": "576e5e97-bcd7-4bcf-ab12-bb1d1c302529"

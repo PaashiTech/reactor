@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "99359722785",
+    "project_id": "unmaze-testapp-signup",
+    "storage_bucket": "unmaze-testapp-signup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99359722785:android:b38431ff902e1ebc304260",
+        "android_client_info": {
+          "package_name": "com.unmaze.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99359722785-uhtonb4m4kq0pkhj5h4uifmkpili8v0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unmaze.app",
+            "certificate_hash": "b0a87e43b0be3095dec9ab68c156be0c37421ba4"
+          }
+        },
+        {
+          "client_id": "99359722785-8j1ut8mjr4nb2el9plf7rqfpjmeu4ld0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiGCgVLy6xUI_FKOMCUjoxTPahuDOJmjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99359722785-7n9cl624ockcdi5erj8vknfoksddbik1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
