@@ -10,6 +10,8 @@ import { RootStackNavigator } from "./navigation/navigators/RootStackNavigator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { LogBox } from "react-native";
+import AzureADScreen from "./playground/sso";
+import AzureADScreenWebview from "./playground/sso-webview";
 
 export function App() {
   const [fontsLoaded] = useUnmzFontsExpo();
@@ -35,9 +37,11 @@ export function App() {
         <SafeAreaProvider>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <BottomSheetModalProvider>
-              <NavigationContainer theme={BaseTheme}>
+              {/* <NavigationContainer theme={BaseTheme}>
                 <RootStackNavigator />
-              </NavigationContainer>
+              </NavigationContainer> */}
+              <AzureADScreen />
+              {/* <AzureADScreenWebview /> */}
             </BottomSheetModalProvider>
           </GestureHandlerRootView>
         </SafeAreaProvider>

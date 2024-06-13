@@ -7,6 +7,7 @@
     "platforms": ["ios", "android"],
     "jsEngine": "hermes",
     "assetBundlePatterns": ["**/*"],
+    "scheme": "unmz",
     "android": {
       "package": "com.unmaze.app"
     },
