@@ -4,28 +4,25 @@
     "slug": "unmaze-expo-app",
     "version": "0.0.1",
     "sdkVersion": "49.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "jsEngine": "hermes",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
       "googleServicesFile": "./google-services.json",
       "package": "com.unmaze.app"
     },
     "ios": {
-      "googleServicesFile": "./GoogleService-Info.plist",
       "bundleIdentifier": "com.unmaze.app"
     },
     "plugins": [
       "@react-native-firebase/app",
       "@react-native-firebase/auth",
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "useFrameworks": "static"
-          }
-        }
-      ]
+      "expo-build-properties"
     ],
     "extra": {
       "eas": {

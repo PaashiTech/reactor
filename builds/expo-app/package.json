@@ -23,6 +23,7 @@
     "@unmaze/assets": "workspace:*",
     "@unmaze/mobile": "workspace:*",
     "expo": "~49.0.18",
+    "expo-build-properties": "~0.8.3",
     "expo-dev-client": "^2.4.12",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
