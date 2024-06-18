@@ -29,7 +29,10 @@ import {
   LINKED_ACCOUNTS_SCREEN_ID,
 } from "../../screens/linked-accounts/types";
 
-import { ME_DASHBOARD_SCREEN_ID } from "../../screens/dashboard/types";
+import {
+  CASHFLOW_SCREEN_ID,
+  ME_DASHBOARD_SCREEN_ID,
+} from "../../screens/dashboard/types";
 import {
   AA_FLOW_SUCCESS_SCREEN_ID,
   ACCOUNT_DISCOVERY_SCREEN_ID,
@@ -113,6 +116,7 @@ export type MeStackRouteProps = {
    * Dashboard
    */
   [ME_DASHBOARD_SCREEN_ID]: undefined;
+  [CASHFLOW_SCREEN_ID]: undefined;
 };
 
 export type OnboardingStackRouteProps = {

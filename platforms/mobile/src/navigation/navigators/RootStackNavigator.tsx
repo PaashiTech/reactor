@@ -31,7 +31,7 @@ export const RootStackNavigator: React.FC<RootStackNavigatorProps> = () => {
 
   return (
     <RootStack.Navigator
-      initialRouteName="OnboardingNavigator"
+      initialRouteName="MeStackNavigator"
       screenOptions={{ headerShown: false }}
     >
       <RootStack.Group>
