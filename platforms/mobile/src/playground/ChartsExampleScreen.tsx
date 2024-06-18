@@ -3,6 +3,7 @@ import { useWindowDimensions } from "react-native";
 import { CustomLineChart } from "./charts/skiaCharts/CustomLineChart";
 import { data } from "./charts/skiaCharts/customLineChartData";
 import { VictoryLineChart } from "./charts/victoryCharts/VictoryLineChart";
+import { SimpleBlueBars } from "./charts/giftedCharts/GiftedBarChart";
 
 export const ChartsExampleScreen = () => {
   // const CHART_HEIGHT = 350;
@@ -17,7 +18,8 @@ export const ChartsExampleScreen = () => {
         chartMargin={CHART_MARGIN}
         chartWidth={CHART_WIDTH}
       /> */}
-      <VictoryLineChart />
+      {/* <VictoryLineChart /> */}
+      <SimpleBlueBars />
     </View>
   );
 };
