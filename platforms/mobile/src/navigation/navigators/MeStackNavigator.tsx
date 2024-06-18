@@ -19,7 +19,10 @@ export const MeStackNavigator = () => {
       <stackNav.Screen
         name={CashflowScreen.key as keyof MeStackRouteProps}
         component={CashflowScreen.content}
-        options={{ headerTitle: CashflowScreen.title }}
+        options={{
+          headerTitle: CashflowScreen.title,
+          headerShadowVisible: false,
+        }}
       />
     </stackNav.Navigator>
   );
