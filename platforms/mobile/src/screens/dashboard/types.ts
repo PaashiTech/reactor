@@ -6,3 +6,9 @@ export type LinkedAccountsScreenProps = NativeStackScreenProps<
   MeStackRouteProps,
   typeof ME_DASHBOARD_SCREEN_ID
 >;
+
+export const CASHFLOW_SCREEN_ID = "0120";
+export type CashflowScreenProps = NativeStackScreenProps<
+  MeStackRouteProps,
+  typeof CASHFLOW_SCREEN_ID
+>;

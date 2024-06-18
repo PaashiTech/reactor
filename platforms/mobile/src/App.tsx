@@ -37,8 +37,8 @@ export function App() {
           <GestureHandlerRootView style={{ flex: 1 }}>
             <BottomSheetModalProvider>
               <NavigationContainer theme={BaseTheme}>
-                {/* <RootStackNavigator /> */}
-                <ChartsExampleScreen />
+                <RootStackNavigator />
+                {/* <ChartsExampleScreen /> */}
               </NavigationContainer>
             </BottomSheetModalProvider>
           </GestureHandlerRootView>
