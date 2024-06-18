@@ -5,15 +5,11 @@ import { MeStackRouteProps } from "./types";
 import { MeDashboardScreen } from "../../screens/dashboard/DashboardScreen";
 import { TabNavigator } from "./TabNavigator";
 import { CashflowScreen } from "../../screens/dashboard/CashflowScreen";
-import { CASHFLOW_SCREEN_ID } from "../../screens/dashboard/types";
 
 export const MeStackNavigator = () => {
   const stackNav = createNativeStackNavigator<MeStackRouteProps>();
   return (
-    <stackNav.Navigator
-      screenOptions={screenOptions}
-      initialRouteName={CASHFLOW_SCREEN_ID}
-    >
+    <stackNav.Navigator screenOptions={screenOptions}>
       {/* Profile section main screen */}
       <stackNav.Screen
         name={MeDashboardScreen.key as keyof MeStackRouteProps}

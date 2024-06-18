@@ -1,6 +1,5 @@
 import {
   AccentText,
-  BodyText,
   HeadingText,
   SVGWrapper,
   ShadowWrapper,
@@ -9,6 +8,11 @@ import {
   formatNetWorth,
 } from "@unmaze/views";
 import { PlaceholderIcon, ChevronRight, SvgProps } from "@unmaze/assets";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { CASHFLOW_SCREEN_ID } from "../../../../screens/dashboard/types";
+import { MeStackRouteProps } from "../../../../navigation/navigators/types";
+import { Pressable } from "react-native";
 
 type Category = "Incoming" | "Spends" | "Investing" | "Savings";
 
@@ -50,18 +54,18 @@ const categoryList: CategoryList = [
 
 export const CategoryList = () => {
   return (
-    <ShadowWrapper size="sm">
-      <View mt={20} bg="#FFF" borderRadius={16} paddingVertical={4}>
-        {categoryList.map((item) => (
-          <CategoryListItem
-            key={item.id}
-            amount={item.amount}
-            category={item.category}
-            icon={item.icon}
-          />
-        ))}
-      </View>
-    </ShadowWrapper>
+    // <ShadowWrapper size="sm">
+    <View mt={20} bg="#FFF" borderRadius={16} paddingVertical={4}>
+      {categoryList.map((item) => (
+        <CategoryListItem
+          key={item.id}
+          amount={item.amount}
+          category={item.category}
+          icon={item.icon}
+        />
+      ))}
+    </View>
+    // </ShadowWrapper>
   );
 };
 
@@ -72,27 +76,31 @@ const CategoryListItem: React.FC<CategoryListItemProps> = ({
   icon,
   amount,
 }) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<MeStackRouteProps>>();
   const formattedAmount = formatNetWorth(amount);
 
   return (
-    <XStack
-      jc="space-between"
-      p={16}
-      pr={12}
-      borderBottomWidth={category === "Savings" ? 0 : 1}
-      borderBottomColor="#E7E7E7"
-    >
-      <XStack gap={12} ai="center">
-        <SVGWrapper iconSVG={icon} size="md" />
-        <AccentText>{category}</AccentText>
+    <Pressable onPress={() => navigation.navigate(CASHFLOW_SCREEN_ID)}>
+      <XStack
+        jc="space-between"
+        p={16}
+        pr={12}
+        borderBottomWidth={category === "Savings" ? 0 : 1}
+        borderBottomColor="#E7E7E7"
+      >
+        <XStack gap={12} ai="center">
+          <SVGWrapper iconSVG={icon} size="md" />
+          <AccentText>{category}</AccentText>
+        </XStack>
+        <XStack ai="center">
+          <HeadingText color={category === "Incoming" ? "#198038" : "#262626"}>
+            {category === "Incoming" ? "+ " : ""}
+            {formattedAmount}
+          </HeadingText>
+          <SVGWrapper iconSVG={ChevronRight} size="sm" />
+        </XStack>
       </XStack>
-      <XStack ai="center">
-        <HeadingText color={category === "Incoming" ? "#198038" : "#262626"}>
-          {category === "Incoming" ? "+ " : ""}
-          {formattedAmount}
-        </HeadingText>
-        <SVGWrapper iconSVG={ChevronRight} size="sm" />
-      </XStack>
-    </XStack>
+    </Pressable>
   );
 };
