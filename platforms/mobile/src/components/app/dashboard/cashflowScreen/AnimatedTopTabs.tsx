@@ -38,7 +38,7 @@ export const AnimatedTopTabs: React.FC<TopTabsProps> = ({
   }));
 
   return (
-    <View bg="#FFF" paddingHorizontal={20} paddingTop={16} paddingBottom={16}>
+    <View bg="#FFF" paddingHorizontal={20} paddingBottom={16}>
       <View
         flexDirection="row"
         bg="#E7E7E7"

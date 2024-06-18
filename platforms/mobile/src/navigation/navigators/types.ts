@@ -116,7 +116,9 @@ export type MeStackRouteProps = {
    * Dashboard
    */
   [ME_DASHBOARD_SCREEN_ID]: undefined;
-  [CASHFLOW_SCREEN_ID]: undefined;
+  [CASHFLOW_SCREEN_ID]: {
+    activeTabIndex: number;
+  };
 };
 
 export type OnboardingStackRouteProps = {

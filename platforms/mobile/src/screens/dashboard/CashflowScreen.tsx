@@ -1,42 +1,35 @@
-import React, { useRef, useState } from "react";
-import { View, Text } from "@unmaze/views";
+import React, { useState } from "react";
+import { View } from "@unmaze/views";
 import { CASHFLOW_SCREEN_ID, CashflowScreenProps } from "./types";
 import { UnmzNavScreen } from "../types";
 import {
-  AnimatedTabType,
-  AnimatedTopTabs,
-} from "../../components/app/dashboard/cashflowScreen/AnimatedTopTabs";
+  BarData,
+  MonthlyBarChart,
+} from "../../components/app/dashboard/cashflowScreen/MonthlyBarChart";
+import { CashflowScreenContextProvider } from "../../components/app/dashboard/cashflowScreen/context/CashflowScreenContextProvider";
+import CashflowTopTabs from "../../components/app/dashboard/cashflowScreen/CashflowTopTabs";
 
-const tabs: AnimatedTabType[] = [
-  {
-    id: 1,
-    title: "Spends",
-  },
-  {
-    id: 2,
-    title: "Investments",
-  },
-  {
-    id: 3,
-    title: "Incoming",
-  },
+const barData: BarData[] = [
+  { value: 650, label: "Jan 24" },
+  { value: 500, label: "Feb 24" },
+  { value: 745, label: "Mar 24" },
+  { value: 320, label: "Apr 24" },
+  { value: 600, label: "May 24" },
+  { value: 256, label: "Jun 24" },
+  { value: 300, label: "July 24" },
 ];
 
-const _CashflowScreen: React.FC<CashflowScreenProps> = ({}) => {
-  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
-
-  const handleSelectTab = (index: number) => {
-    setActiveTabIndex(index);
-  };
-
+const _CashflowScreen: React.FC<CashflowScreenProps> = ({
+  navigation,
+  route,
+}) => {
   return (
-    <View flex={1}>
-      <AnimatedTopTabs
-        tabs={tabs}
-        activeTabIndex={activeTabIndex}
-        onTabSelect={handleSelectTab}
-      />
-    </View>
+    <CashflowScreenContextProvider>
+      <View flex={1}>
+        <CashflowTopTabs />
+        <MonthlyBarChart barData={barData} />
+      </View>
+    </CashflowScreenContextProvider>
   );
 };
 
@@ -45,3 +38,5 @@ export const CashflowScreen: UnmzNavScreen = {
   title: "Cashflow",
   content: _CashflowScreen,
 };
+
+const CashflowScreenContent = () => {};

@@ -69,6 +69,15 @@ export const CategoryList = () => {
   );
 };
 
+const categoryIndexMap: {
+  [key in Category]: number;
+} = {
+  Spends: 0,
+  Savings: 0,
+  Investing: 1,
+  Incoming: 2,
+};
+
 type CategoryListItemProps = Omit<CategoryListItem, "id">;
 
 const CategoryListItem: React.FC<CategoryListItemProps> = ({
@@ -81,7 +90,13 @@ const CategoryListItem: React.FC<CategoryListItemProps> = ({
   const formattedAmount = formatNetWorth(amount);
 
   return (
-    <Pressable onPress={() => navigation.navigate(CASHFLOW_SCREEN_ID)}>
+    <Pressable
+      onPress={() =>
+        navigation.navigate(CASHFLOW_SCREEN_ID, {
+          activeTabIndex: categoryIndexMap[category],
+        })
+      }
+    >
       <XStack
         jc="space-between"
         p={16}

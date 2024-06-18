@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
-import { Dimensions, Text, View } from "react-native";
+import { useRef } from "react";
+import { useWindowDimensions } from "react-native";
+import { Text, View } from "@unmaze/views";
 import { BarChart, yAxisSides } from "react-native-gifted-charts";
 
 export const SimpleBlueBars = () => {
-  const barChartScrollRef = useRef(null);
+  const { width: WINDOW_WIDTH } = useWindowDimensions();
 
   const barData1 = [
     { value: 650, label: "Jan 24", frontColor: "#A7F0BA" },
@@ -18,24 +19,23 @@ export const SimpleBlueBars = () => {
   const updatedBarData1 = barData1.map((item) => ({
     ...item,
     topLabelComponent: () => (
-      <Text style={{ color: "#6F6F6F", fontSize: 10, marginBottom: 8 }}>
+      <Text color="#6F6F6F" fontSize={10}>
         ₹{item.value}
       </Text>
     ),
   }));
 
   return (
-    <View>
+    <View bg="#FFF" paddingLeft={5} paddingRight={5}>
       <BarChart
-        scrollRef={barChartScrollRef}
-        scrollToEnd={true}
+        scrollToEnd
         barWidth={48}
-        width={Dimensions.get("window").width - 20 * 2}
+        width={WINDOW_WIDTH - 15 * 2}
         yAxisExtraHeight={35}
         noOfSections={4}
         spacing={24}
         hideAxesAndRules
-        yAxisSide={yAxisSides.RIGHT}
+        hideYAxisText
         barBorderTopRightRadius={6}
         barBorderTopLeftRadius={6}
         frontColor="#DEFBE6"
@@ -46,8 +46,6 @@ export const SimpleBlueBars = () => {
         }}
         barMarginBottom={8}
         data={updatedBarData1.reverse()}
-        yAxisThickness={0}
-        xAxisThickness={0}
       />
     </View>
   );
