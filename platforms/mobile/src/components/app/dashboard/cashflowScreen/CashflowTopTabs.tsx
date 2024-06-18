@@ -1,7 +1,14 @@
+import React, { useEffect } from "react";
 import { AnimatedTabType, AnimatedTopTabs } from "./AnimatedTopTabs";
 import { useCashflowScreenContext } from "./context/CashflowScreenContextProvider";
+import { RouteProp, useRoute } from "@react-navigation/native";
+import {
+  CASHFLOW_SCREEN_ID,
+  CashflowScreenProps,
+} from "platforms/mobile/src/screens/dashboard/types";
+import { MeStackRouteProps } from "platforms/mobile/src/navigation/navigators/types";
 
-type Props = {};
+type CashflowTopTabsProps = {};
 
 const tabs: AnimatedTabType[] = [
   {
@@ -18,11 +25,21 @@ const tabs: AnimatedTabType[] = [
   },
 ];
 
-const CashflowTopTabs = (props: Props) => {
+export const CashflowTopTabs: React.FC<CashflowTopTabsProps> = ({}) => {
   const {
     state: { activeTabIndex },
     dispatch,
   } = useCashflowScreenContext();
+
+  const { params } =
+    useRoute<RouteProp<Pick<MeStackRouteProps, typeof CASHFLOW_SCREEN_ID>>>();
+
+  useEffect(() => {
+    dispatch({
+      type: "SET_ACTIVE_TAB",
+      payload: { activeTabIndex: params.activeTabIndex },
+    });
+  }, []);
 
   const handleSelectTab = (index: number) => {
     dispatch({ type: "SET_ACTIVE_TAB", payload: { activeTabIndex: index } });
@@ -35,5 +52,3 @@ const CashflowTopTabs = (props: Props) => {
     />
   );
 };
-
-export default CashflowTopTabs;

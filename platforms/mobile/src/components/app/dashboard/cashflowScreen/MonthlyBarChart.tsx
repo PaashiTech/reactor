@@ -20,16 +20,16 @@ type MonthlyBarChartProps = {
 
 const tabColors = {
   0: {
-    primary: "#DEFBE6",
-    secondary: "#A7F0BA",
-  },
-  1: {
     primary: "#FFF1F1",
     secondary: "#FFD7D9",
   },
-  2: {
+  1: {
     primary: "#E5F6FF",
     secondary: "#BAE6FF",
+  },
+  2: {
+    primary: "#DEFBE6",
+    secondary: "#A7F0BA",
   },
 };
 
