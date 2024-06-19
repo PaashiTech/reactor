@@ -18,6 +18,23 @@ export const reducer: CashflowScreenReducerType = (state, action) => {
         activeTabIndex: action.payload.activeTabIndex,
       };
 
+    case "SELECT_MONTH_YEAR":
+      return {
+        ...state,
+        selectedMonthYear: action.payload.monthYear,
+      };
+
+    case "SELECT_CHART_TYPE":
+      return {
+        ...state,
+        selectedChartType: action.payload.chartType,
+      };
+
+    case "SELECT_CASHFLOW_LIST_TYPE":
+      return {
+        ...state,
+        selectedListType: action.payload.cashflowListType,
+      };
     default:
       return state;
   }

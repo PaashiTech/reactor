@@ -2,6 +2,7 @@ import CheckGreen from "./svg/check-green.svg";
 import Plus from "./svg/plus-icon.svg";
 import Edit from "./svg/edit.svg";
 import ChevronLeft from "./svg/chevron-left.svg";
+import ChevronLeft2 from "./svg/chevron-left-2.svg";
 import ChevronDown from "./svg/chevron-down.svg";
 import ChevronRight from "./svg/chevron-right.svg";
 import NavigateNext from "./svg/navigate-next.svg";
@@ -35,6 +36,7 @@ import CheckSmall from "./svg/check-small.svg";
 import NotifyBell from "./svg/notify-bell.svg";
 import MoreVert from "./svg/more-vert.svg";
 import Check2 from "./svg/check-2.svg";
+import Check3 from "./svg/check-3.svg";
 import EyeVisible from "./svg/eye-visible.svg";
 import EyeHidden from "./svg/eye-hidden.svg";
 import Filter from "./svg/filter.svg";
@@ -107,6 +109,7 @@ export {
   Plus,
   Edit,
   ChevronLeft,
+  ChevronLeft2,
   ChevronDown,
   ChevronRight,
   NavigateNext,
@@ -140,6 +143,7 @@ export {
   NotifyBell,
   MoreVert,
   Check2,
+  Check3,
   EyeVisible,
   EyeHidden,
   Filter,

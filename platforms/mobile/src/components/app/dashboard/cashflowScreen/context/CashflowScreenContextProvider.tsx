@@ -4,9 +4,13 @@ import {
   CashflowScreenContextType,
 } from "./cashflowScreenContext.types";
 import { reducer } from "./reducer";
+import { getMonthYearList } from "../cashflowData";
 
 const initialState: CashflowScreenContextState = {
   activeTabIndex: 0,
+  selectedMonthYear: getMonthYearList()[0],
+  selectedChartType: "Monthly",
+  selectedListType: "Categories",
 };
 
 const CashflowScreenContext = createContext<CashflowScreenContextType>({

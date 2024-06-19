@@ -28,21 +28,21 @@ type CategoryList = CategoryListItem[];
 const categoryList: CategoryList = [
   {
     id: 1,
-    category: "Incoming",
-    icon: PlaceholderIcon,
-    amount: 45650,
-  },
-  {
-    id: 2,
     category: "Spends",
     icon: PlaceholderIcon,
     amount: 37140,
   },
   {
-    id: 3,
+    id: 2,
     category: "Investing",
     icon: PlaceholderIcon,
     amount: 5500,
+  },
+  {
+    id: 3,
+    category: "Incoming",
+    icon: PlaceholderIcon,
+    amount: 45650,
   },
   {
     id: 4,

@@ -65,7 +65,7 @@ export const AmountWithBottomSheetFilter: React.FC<
           style={{ flex: 1, paddingVertical: 24, paddingHorizontal: 16 }}
         >
           <XStack justifyContent="space-between">
-            <HeadingText size="lg">Select Month</HeadingText>
+            <HeadingText size="lg">Accounts</HeadingText>
             <IconButton icon={Close} onPress={handleCloseModalPress} />
           </XStack>
           <BottomSheetScrollView
